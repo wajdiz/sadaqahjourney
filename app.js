@@ -223,7 +223,7 @@
   }
 
   /* ----------------------------- MODULE A (stories) ---------------------
-     Uses the extracted 62-story dataset (SADAQAH_STORIES) which overrides the
+     Uses the extracted 41-story dataset (SADAQAH_STORIES) which overrides the
      legacy 10-story MODULE_A. Each story = 4 pages (image + paragraph). */
   const STORIES = window.SADAQAH_STORIES || { en: [], ar: [] };
   function stories() { return STORIES[state.lang] || STORIES.en; }
@@ -253,6 +253,7 @@
             <div class="ss-body">
               <div class="ss-num">${t("story.of")} ${idx} / ${list.length}</div>
               <h4>${s.title}</h4>
+              <div class="ss-evidence-mini">${esc(s.evidenceStatus || "")}</div>
             </div>
           </div>`;
         }).join("")}
@@ -278,6 +279,11 @@
           <div class="ss-fb-img"><img src="${ASSET}${pg.img}" alt="" loading="lazy" decoding="async"></div>
           <div class="ss-fb-text ${page===0?'ss-dropcap':''}">${pg.text}</div>
         </div>
+        <div class="ss-story-evidence" aria-label="Source and evidence status">
+          <div class="ss-evidence-label">${isRTL()?"حالة التوثيق":"Evidence status"}: ${esc(s.evidenceStatus || "")}</div>
+          <div class="ss-evidence-disclaimer">${isRTL()?"الصور رسوم توضيحية وليست توثيقاً مصوراً للوقائع. وقد لا تؤيد المصادر كل تفصيل تفسيري.":"Illustrations are artistic interpretations, not historical photographs. Linked sources may not substantiate every interpretive detail."}</div>
+          <div class="ss-evidence-links">${(s.sources||[]).map((v,i)=>`<a href="${esc(v.url)}" target="_blank" rel="noopener noreferrer" aria-label="${isRTL()?"المصدر":"Source"} ${i+1}: ${esc(v.name)}">${isRTL()?"المصدر":"Source"} ${i+1} ↗</a>`).join(" ")}</div>
+        </div>
         <div class="ss-fb-nav">
           <button class="ss-fb-arrow" data-act="fb-prev" ${page===0?'disabled':''}>${isRTL()?"→":"←"}</button>
           <div class="ss-fb-dots">${s.pages.map((_,i)=>`<span class="ss-fb-dot ${i===page?'on':''}" data-act="fb-goto" data-page="${i}"></span>`).join("")}</div>
@@ -297,6 +303,7 @@
       <div class="ss-section-head">
         <h2>${t("mod.impact")}</h2>
         <p>${t("impact.progression")}</p>
+        <p class="ss-editorial-note">${isRTL()?"الأرقام والتكاليف والنتائج افتراضية للتعليم، وليست بيانات مشروع حقيقي أو توقعات مضمونة للعائد أو الأثر.":"Illustrative, hypothetical costs and outcomes only, not verified project data or guaranteed forecasts of charitable impact."}</p>
       </div>
       <div class="ss-sim-tabs">
         ${D.MODULE_B.map((p) => `
@@ -426,6 +433,7 @@
       <div class="ss-section-head" style="margin-top:36px;">
         <h2>${t("nav.wall")}</h2>
       </div>
+      <p class="ss-editorial-note">${isRTL()?"القصص الخمس التالية أمثلة تخيلية للتدريب على الكتابة، وليست شهادات واقعية أو حملات تبرع مؤكدة.":"The five example stories below are fictional writing exercises, not verified testimonials or documented fundraising projects."}</p>
       <div class="ss-wall">
         ${D.MODULE_D.samples.map((s,i) => `
           <div class="ss-wall-card" data-go="sample" data-id="${i}">
@@ -456,6 +464,7 @@
       <div class="ss-back" data-go="module-d">← ${t("nav.wall")}</div>
       <h2 class="ss-detail-title">${L(s,"title")}</h2>
       <p class="ss-teaser">${L(s,"teaser")}</p>
+      <p class="ss-editorial-note">${isRTL()?"مثال تخيلي للكتابة. ليس شهادة واقعية أو مشروعاً موثقاً.":"Fictional writing example. Not a factual personal testimony or verified project."}</p>
       <div class="ss-prose">${arr.map((p)=>`<p>${p}</p>`).join("")}</div>`;
   }
 

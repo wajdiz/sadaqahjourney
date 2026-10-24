@@ -1,751 +1,2521 @@
-﻿/* Auto-generated from English/englishstories.html and Arabic/ArabicStories.html. */
-window.SADAQAH_STORIES = { en: [], ar: [] };
-window.SADAQAH_STORIES.en = [
-  { id: "01", title: "The Mosque of Amr ibn al-As - A Legacy of Faith and Community", pages: [
-    { img: "stories_en/en_01_p1.jpg", text: "In the year 641 CE, during the early Islamic conquests, Amr ibn al-As, a prominent Companion of the Prophet Muhammad (peace be upon him), led the Muslim army into Egypt. Upon establishing control over the region, he recognized the need for a central place of worship and community gathering." },
-    { img: "stories_en/en_01_p2.jpg", text: "Amr ibn al-As purchased a piece of land in Fustat, the newly established capital of Egypt, and began construction of a mosque. This mosque, known as the Mosque of Amr ibn al-As, was not only a place for prayer but also served as a center for education, community meetings, and social welfare." },
-    { img: "stories_en/en_01_p3.jpg", text: "The mosque was built with the intention of being a waqf (endowment), ensuring its maintenance and continued use for generations to come. The endowment included provisions for the upkeep of the mosque, support for scholars and students, and assistance for the poor and needy." },
-    { img: "stories_en/en_01_p4.jpg", text: "The Mosque of Amr ibn al-As became a cornerstone of Islamic life in Egypt, fostering a sense of community and providing essential services. It remains one of the oldest and most significant mosques in Africa and continues to serve as a vital institution in Egyptian society." }
-  ] },
-  { id: "02", title: "The Well of Rumah - Uthman ibn Affan's Endowment", pages: [
-    { img: "stories_en/en_02_p1.jpg", text: "During the early years of Islam in Madinah (9 AH/630 CE), the Muslim community faced water scarcity. The Well of Rumah (Bi'r Rumah) was owned privately and water was sold at high prices, creating hardship for the poor." },
-    { img: "stories_en/en_02_p2.jpg", text: "Prophet Muhammad (peace be upon him) announced: \"Who will buy the Well of Rumah and make it available for Muslims, and he will have better than it in Paradise?\" Uthman ibn Affan, one of the wealthiest Companions, negotiated with the Jewish owner and purchased half the well for 12,000 dirhams. When the owner saw Muslims preferring Uthman's free days, he sold the other half for 8,000 dirhams. Uthman declared the entire well a waqf - inalienable endowment for perpetual public use." },
-    { img: "stories_en/en_02_p3.jpg", text: "The well served Madinah's population for centuries. Historical chronicles record that it continued functioning through the Umayyad and Abbasid periods." },
-    { img: "stories_en/en_02_p4.jpg", text: "According to Saudi historical preservation records, the well's location is identified in the modern city of Madinah, though urban expansion has changed the surrounding landscape. This exemplifies Sadaqah Jariyah - the Prophet's teaching that when a person dies, three things continue: ongoing charity, beneficial knowledge, and righteous offspring who pray for them. The well's benefit transcended Uthman's lifetime, earning continuous reward." }
-  ] },
-  { id: "03", title: "Al-Qarawiyyin - Fatima al-Fihri's University Waqf", pages: [
-    { img: "stories_en/en_03_p1.jpg", text: "In 859 CE (245 AH), Fatima al-Fihri, daughter of a wealthy merchant who had migrated from Kairouan (Tunisia) to Fez, Morocco, inherited substantial wealth after her father's death. Rather than keeping this wealth, she dedicated it entirely to building a mosque and educational center for her community." },
-    { img: "stories_en/en_03_p2.jpg", text: "Fatima supervised the construction personally, reportedly fasting throughout the entire building period as a spiritual commitment. She established the Al-Qarawiyyin Mosque with an attached madrasa (educational institution), endowing it with properties whose revenue would sustain scholars, students, and the facility's maintenance in perpetuity. The institution became a major center of Islamic learning, attracting scholars in theology, jurisprudence, astronomy, medicine, and mathematics." },
-    { img: "stories_en/en_03_p3.jpg", text: "Historical records show students came from across the Muslim world and beyond. Notable scholars who studied there include the Berber geographer Muhammad al-Idrisi (12th century) and the Jewish philosopher Maimonides." },
-    { img: "stories_en/en_03_p4.jpg", text: "UNESCO and Guinness World Records recognize Al-Qarawiyyin as the world's oldest continuously operating degree-granting university. The waqf structure Fatima established - dedicating revenue-generating properties to sustain educational operations - became a model replicated across the Islamic world. Her endowment continues functioning today, over 1,160 years later." }
-  ] },
-  { id: "04", title: "The Adudi Hospital - Baghdad's Advanced Medical Waqf", pages: [
-    { img: "stories_en/en_04_p1.jpg", text: "In 981 CE (371 AH), Adud al-Dawla, the Buyid emir controlling Baghdad, established the Bimaristan al-Adudi on the western bank of the Tigris River. This wasn't merely a treatment facility but a comprehensive medical institution structured as a perpetual waqf." },
-    { img: "stories_en/en_04_p2.jpg", text: "The hospital was divided into specialized departments: internal medicine, surgery, ophthalmology, and orthopedics - an advanced organizational model for the 10th century. It employed 24 physicians, including specialists, and maintained separate wards for men and women. The endowment provided free medication, food, and post-recovery stipends to patients." },
-    { img: "stories_en/en_04_p3.jpg", text: "The physician Ibn Butlan (11th century) documented that patients were given new clothing upon discharge so they wouldn't return home in soiled garments. The waqf deed allocated revenue from commercial properties, agricultural lands, and public baths to sustain operations. This financial structure ensured physicians received regular salaries, liberating them from dependence on wealthy patrons and enabling them to treat the poor." },
-    { img: "stories_en/en_04_p4.jpg", text: "Medical students received free training, and the hospital maintained an extensive medical library. Historical accounts by the geographer al-Muqaddasi and physician Ibn Abi Usaybi'a describe the facility's advanced standards. The Adudi Hospital operated for over 400 years before being destroyed during the Mongol invasion of Baghdad in 1258." }
-  ] },
-  { id: "05", title: "The Year of Ashes (Aam ar-Ramadah) - Umar's Famine Relief", pages: [
-    { img: "stories_en/en_05_p1.jpg", text: "In 18 AH (639 CE), a devastating drought struck the Arabian Peninsula, particularly affecting Madinah and surrounding regions. The year became known as 'Aam ar-Ramadah (عام الرمادة) - the Year of Ashes - because the scorched earth resembled ash. Crops failed, livestock died, and widespread famine threatened the population." },
-    { img: "stories_en/en_05_p2.jpg", text: "Caliph Umar ibn al-Khattab immediately organized systematic relief. He dispatched urgent messages to provincial governors in regions with food surplus - Syria, Egypt, Iraq - requesting grain shipments. Historical chronicles record that Umar wrote to Amr ibn al-Aas in Egypt and Abu Ubayda in Syria, who sent caravans laden with wheat, dates, and oil." },
-    { img: "stories_en/en_05_p3.jpg", text: "Some accounts mention over 4,000 camels arriving in relief caravans. Umar personally supervised food distribution in Madinah. He established public kitchens preparing meals twice daily for anyone in need - Muslim or non-Muslim, resident or Bedouin refugee." },
-    { img: "stories_en/en_05_p4.jpg", text: "Historical accounts report Umar refused to eat anything but bread and olive oil during the famine, saying, \"How can I understand the plight of the poor if I haven't experienced what they experience?\" His skin darkened from the harsh diet, leading companions to note the visible change. The relief efforts continued for nine months until rain finally came. Historians estimate thousands of lives were saved through this coordinated emergency response. Umar's administrative system - central coordination, provincial resource mobilization, and equitable distribution - became a model for Islamic governance during crises." }
-  ] },
-  { id: "06", title: "The Orphans' Stipend - Umar's Institutionalized Welfare System", pages: [
-    { img: "stories_en/en_06_p1.jpg", text: "In 15 AH (636 CE), following the rapid expansion of the Islamic state and increasing revenue from conquered lands, Caliph Umar ibn al-Khattab established the Diwan - the first organized system of public welfare distribution in Islamic history. While primarily known as a military register, the Diwan included dedicated provisions for orphans, widows, elderly, and disabled persons." },
-    { img: "stories_en/en_06_p2.jpg", text: "Umar mandated that every orphan receive a regular stipend from the Bayt al-Mal (public treasury). The amount varied based on age and circumstance - infants received an immediate allowance, which increased when they could eat solid food and again when weaned. Historical records from the period indicate that orphans of companions who fell in battle at Badr or Uhud received higher allocations as a form of honor to their parents' sacrifice." },
-    { img: "stories_en/en_06_p3.jpg", text: "The caliph personally reviewed cases to ensure fairness. Al-Tabari records an incident where Umar noticed a woman feeding her infant child broth rather than milk. When he inquired, she explained that orphans only received the adult food stipend after weaning, so she was forcing early weaning." },
-    { img: "stories_en/en_06_p4.jpg", text: "Umar was distressed, immediately revised the policy, and led the prayer that night asking Allah's forgiveness for his oversight. This wasn't merely charitable giving but institutional welfare - predictable, rights-based support administered through a bureaucratic structure. The system continued through successive caliphates, evolving into the waqf khairi (charitable endowments) that sustained orphanages, schools, and social services throughout Islamic history." }
-  ] },
-  { id: "07", title: "The Expansion of the Prophet's Mosque - Uthman ibn Affan's Endowment", pages: [
-    { img: "stories_en/en_07_p1.jpg", text: "During the early years of Islam in Madinah (9 AH/630 CE), the Prophet's Mosque (Masjid an-Nabawi) became too small to accommodate the growing Muslim community. The Prophet Muhammad (peace be upon him) announced: \"Who will buy this plot of land with his own wealth and use it like the rest of the Muslims (i.e., donate it to the Muslims and share it with them) and he will have something better than it in Paradise?\" Uthman ibn Affan, one of the wealthiest Companions, negotiated with the owners of the adjacent plot and purchased it for 20,000 dirhams." },
-    { img: "stories_en/en_07_p2.jpg", text: "He then donated the land to the Muslim community, expanding the mosque and providing a larger space for worship. The expanded mosque served the Muslim community for centuries." },
-    { img: "stories_en/en_07_p3.jpg", text: "Historical chronicles record that it continued to be a central place of worship and learning through the Umayyad and Abbasid periods. According to Saudi historical preservation records, the location of the expanded mosque is identified in the modern city of Madinah, though urban expansion has changed the surrounding landscape." },
-    { img: "stories_en/en_07_p4.jpg", text: "This exemplifies Sadaqah Jariyah - the Prophet's teaching that when a person dies, three things continue: ongoing charity, beneficial knowledge, and righteous offspring who pray for them. The mosque's benefit transcended Uthman's lifetime, earning continuous reward." }
-  ] },
-  { id: "08", title: "Feeding the hungry in Medina during the time of the Prophet Muhammad (peace be upon him)", pages: [
-    { img: "stories_en/en_08_p1.jpg", text: "Feeding the hungry people of Medina during the time of the Prophet Muhammad ﷺ The full narrative: When the Prophet Muhammad ﷺ arrived in Medina, he found that many people were suffering from poverty and hunger." },
-    { img: "stories_en/en_08_p2.jpg", text: "The Prophet (peace and blessings be upon him) began to organize a system for feeding the poor and needy. One prominent example of this is the story of Sa'd ibn Abi Waqqas (may God be pleased with him), who owned a large agricultural land." },
-    { img: "stories_en/en_08_p3.jpg", text: "When the Prophet (peace and blessings be upon him) learned of hungry people in Medina, he instructed Sa'd to give a portion of his harvest in charity to feed them. Sa'd (may God be pleased with him) obeyed the Prophet's command and gave a large quantity of dates and wheat to feed the poor." },
-    { img: "stories_en/en_08_p4.jpg", text: "The Prophet, peace and blessings be upon him, himself was a role model in this regard, as he used to divide his food among his companions and was careful not to leave any of them without food. The Prophet (peace and blessings be upon him) also encouraged his companions to give charity and feed the poor, saying: &ldquo;Then when they have reached their term, either retain them in a good manner or release them in a good manner, and call to witness two just men from among you and establish the testimony for Allah. That is instructed to whoever believes in Allah and the Last Day. And whoever fears Allah - He will make for him a way out.&rdquo; [2](https://quran.com/65/2) So let him honor his guest." }
-  ] },
-  { id: "09", title: "The light of knowledge in the library of Cordoba", pages: [
-    { img: "stories_en/en_09_p1.jpg", text: "In the 10th century CE, during the reign of the Umayyad Caliph Abd al-Rahman III in Cordoba, Andalusia, one of the greatest libraries of the Middle Ages was established. The aim of this library was to collect, translate, and disseminate knowledge from various cultures and civilizations." },
-    { img: "stories_en/en_09_p2.jpg", text: "The library succeeded in achieving this goal thanks to the generous support it received from the Caliph and his minister, al-Hasan ibn Nasr. It housed over 400,000 volumes and manuscripts, making it the largest library of its time. The library was not merely a place for storing books, but a vital center for scientific research, translation, and cultural exchange." },
-    { img: "stories_en/en_09_p3.jpg", text: "Famous translators such as Hunayn ibn Ishaq worked there, translating numerous Greek and Persian works into Arabic. The library also attracted scholars and philosophers from various regions, contributing to the exchange of ideas and knowledge between East and West." },
-    { img: "stories_en/en_09_p4.jpg", text: "The Prophet Muhammad (peace and blessings be upon him) said: &ldquo;Whoever travels a path seeking knowledge, Allah will make easy for him a path to Paradise.&rdquo; This hadith reflects the importance of seeking and disseminating knowledge in Islam. The Library of Cordoba was a prime example of this principle, providing a fertile environment for the growth and exchange of knowledge." }
-  ] },
-  { id: "10", title: "The Healing Hands of Bimaristan Nuri: A Legacy of Compassionate Healthcare in Damascus", pages: [
-    { img: "stories_en/en_10_p1.jpg", text: "In the heart of Damascus, Syria, during the reign of Nur ad-Din Zangi in the 12th century, a groundbreaking initiative took shape. Inspired by his commitment to alleviating human suffering, Nur ad-Din founded Bimaristan Nuri, a state-of-the-art hospital dedicated to providing free medical treatment to everyone, irrespective of their social class or financial means. This innovative institution marked a significant advancement in healthcare provision, setting new standards for compassionate and accessible medical services." },
-    { img: "stories_en/en_10_p2.jpg", text: "Bimaristan Nuri was designed to cater to a wide range of medical needs. It featured specialized wards for different ailments, including separate sections for men and women, children, and even mental health patients. The hospital employed skilled physicians, surgeons, pharmacists, and nurses who received rigorous training and adhered to strict ethical guidelines." },
-    { img: "stories_en/en_10_p3.jpg", text: "Beyond clinical care, the hospital also served as a teaching institution, offering apprenticeships and continuing education opportunities for aspiring medical professionals. The hospital's operations were funded through generous endowments known as *waqf*, which ensured its sustainability over centuries. These endowments covered everything from staff salaries and equipment maintenance to patient meals and medication costs." },
-    { img: "stories_en/en_10_p4.jpg", text: "The *waqf* system allowed Bimaristan Nuri to operate independently of government funding fluctuations, guaranteeing continuous service to the community. The Prophet Muhammad (peace be upon him) emphasized the importance of caring for the sick when he said, \"Whoever relieves the hardship of a believer in this world, Allah will relieve his hardship on the Day of Resurrection.\" This principle guided the actions of those involved in Bimaristan Nuri, motivating them to serve humanity selflessly. The hospital's success inspired similar establishments across the Islamic world, transforming healthcare delivery and improving public health outcomes." }
-  ] },
-  { id: "11", title: "The Legacy of Al-Walid ibn Abd al-Malik and the Orphanage in Damascus", pages: [
-    { img: "stories_en/en_11_p1.jpg", text: "In the early 8th century, during the reign of the Umayyad Caliph Al-Walid ibn Abd al-Malik, a significant initiative was undertaken to address the welfare of orphans in the Islamic world. Recognizing the importance of caring for those who had lost their parents, Al-Walid established a large orphanage in Damascus, the capital of the Umayyad Caliphate." },
-    { img: "stories_en/en_11_p2.jpg", text: "This institution was not merely a place of shelter but a comprehensive center designed to provide orphans with education, vocational training, and economic empowerment. The orphanage in Damascus was a testament to the caliph's commitment to social welfare. It housed hundreds of orphans, providing them with food, clothing, and medical care." },
-    { img: "stories_en/en_11_p3.jpg", text: "More importantly, it offered educational programs that included religious studies, literacy, and practical skills such as carpentry and agriculture. By equipping orphans with knowledge and skills, Al-Walid aimed to ensure that they could become self-sufficient members of society once they left the orphanage. The impact of this initiative was profound." },
-    { img: "stories_en/en_11_p4.jpg", text: "Orphans who would have otherwise been left to fend for themselves were given a chance to thrive. They received not only physical sustenance but also the tools necessary for a dignified life. The establishment of such an institution set a precedent for future generations, demonstrating the importance of state-sponsored social welfare programs in Islam." }
-  ] },
-  { id: "12", title: "Qatar Charity's Education Support in Gaza - \"Build a School\" Campaign", pages: [
-    { img: "stories_en/en_12_p1.jpg", text: "Qatar Charity, one of the Gulf's largest humanitarian organizations established in 1992, has maintained long-term educational support programs in the Gaza Strip as documented in their annual reports and official communications. The organization's \"Build a School\" initiative addresses the severe shortage of educational facilities caused by conflict damage and population growth, with some schools operating triple shifts to accommodate students." },
-    { img: "stories_en/en_12_p2.jpg", text: "According to Qatar Charity's published project documentation, the organization has constructed and rehabilitated multiple educational facilities in Gaza, providing classrooms, libraries, and safe learning spaces for thousands of students. The projects include not only physical infrastructure but also provision of educational supplies, teacher training programs, and psychosocial support for children affected by trauma. The organization structures these as waqf projects, where donors can dedicate school construction as ongoing charity (Sadaqah Jariyah) in their name or in memory of deceased relatives." },
-    { img: "stories_en/en_12_p3.jpg", text: "The educational support extends beyond infrastructure to include orphan sponsorship programs integrated with educational access. Qatar Charity's \"Rofaqa\" program, documented in their Gaza operations, provides comprehensive support including school fees, supplies, uniforms, and tutoring for orphaned children." },
-    { img: "stories_en/en_12_p4.jpg", text: "This holistic approach reflects the Islamic principle that education is both a right and a means of breaking cycles of poverty and dependency. These contemporary projects directly parallel historical Islamic educational endowments like Fatima al-Fihri's Al-Qarawiyyin University, demonstrating continuity in the Islamic tradition of making education accessible to all. Qatar Charity operates under the oversight of Qatar's Regulatory Authority for Charitable Activities (RACA), ensuring transparency and compliance with both Qatari regulations and international humanitarian standards." }
-  ] },
-  { id: "13", title: "Qatar Red Crescent's Mobile Health Clinics in Yemen", pages: [
-    { img: "stories_en/en_13_p1.jpg", text: "The Qatar Red Crescent Society has maintained healthcare operations in Yemen throughout the ongoing humanitarian crisis, addressing the collapse of Yemen's health system where over half of medical facilities ceased functioning. QRCS's mobile health clinic program, documented in their operational reports and verified through UN humanitarian coordination mechanisms, brings basic medical care to rural and conflict-affected populations unable to reach functioning hospitals." },
-    { img: "stories_en/en_13_p2.jpg", text: "The mobile units, equipped medical vehicles staffed by trained healthcare workers, rotate through predetermined routes serving remote villages and internally displaced person settlements. According to QRCS documentation, services include primary healthcare consultations, treatment of common illnesses, management of chronic conditions like diabetes and hypertension, maternal and child health services including prenatal care and vaccinations, and emergency stabilization with referral to hospitals for serious cases. The organization provides medications and supplies free of charge, eliminating financial barriers that prevent poor families from seeking care." },
-    { img: "stories_en/en_13_p3.jpg", text: "QRCS implements these programs in coordination with Yemen's health authorities and international partners including WHO and UNICEF, ensuring services align with national health priorities and humanitarian standards. The organization publishes patient statistics and service delivery data through humanitarian reporting mechanisms, demonstrating accountability and impact measurement. Medical teams include both international staff and Yemeni healthcare workers, combining expertise with local knowledge and language capabilities." },
-    { img: "stories_en/en_13_p4.jpg", text: "RACA oversight ensures funds designated for Yemen health programs reach intended purposes. This contemporary mobile healthcare model parallels historical Islamic medical charity like the Adudi Hospital in Baghdad, which provided free care regardless of patients' ability to pay. The" }
-  ] },
-  { id: "14", title: "Dar Al-Hikma Library - Al-Ma'mun Knowledge Treasury", pages: [
-    { img: "stories_en/en_14_p1.jpg", text: "The House of Wisdom Library - Al-Ma'mun's Treasury of Knowledge: A Brief Summary: The Abbasid Caliph Al-Ma'mun established the House of Wisdom in Baghdad as a charitable endowment for translation and scientific research, preserving human heritage and advancing the sciences. Main Charitable Idea: Endowment of a scientific institution (translation, research, and a public library). Story: In 215 AH / 830 CE, the Abbasid Caliph Al-Ma'mun ibn Harun al-Rashid founded the House of Wisdom in Baghdad, transforming it from a royal library into a major scientific academy organized as a public endowment. The institution's mission was to collect, translate, and develop knowledge in all fields&mdash;philosophy, mathematics, astronomy, medicine, and geography." },
-    { img: "stories_en/en_14_p2.jpg", text: "Al-Ma'mun attracted scholars from diverse backgrounds&mdash;Muslims, Christians, Jews, and Sabians&mdash;and offered them generous salaries from government endowments. The renowned translator Hunayn ibn Ishaq was reportedly rewarded with the weight of his translations in gold. The caliph dispatched missions to Byzantine lands to purchase Greek manuscripts and paid high prices for the works of Aristotle, Euclid, Ptolemy, and Galen." },
-    { img: "stories_en/en_14_p3.jpg", text: "The institution included translation offices, astronomical observatories, and libraries where scribes produced manuscripts for public access. Scholars such as al-Khwarizmi (mathematics and algebra), al-Kindi (philosophy), and the Banu Musa (geometry) worked there. The translation movement preserved Greek philosophy and sciences that had been lost in Europe, and these were later returned to the West during the Renaissance through translations from Arabic into Latin." },
-    { img: "stories_en/en_14_p4.jpg", text: "Al-Ma'mun organized the institution as a charitable endowment, with the proceeds from agricultural lands and commercial properties funding its operations, thus ensuring its sustainability independent of direct royal patronage. Although the original building was destroyed during the Mongol invasion of 656 AH/1258 CE, its intellectual legacy profoundly shaped world civilization. Quranic/Hadith Reference: Quran 39:9: \"Say, 'Are those who know equal to those who do not know?'\" Quran 20:114: \"My Lord, increase me in knowledge.\" Sahih Muslim, Hadith 1631: Beneficial knowledge is among the ongoing charities that do not cease after death. Sunan Ibn Majah, Hadith 224: \"Seeking knowledge is an obligation upon every Muslim.\" Historical Source: Ibn al-Nadim, Al-Fihrist (Bibliographical Encyclopedia, 10th Century, mentions scholars of Dar al-Hikma); Al-Qifti, Tarikh al-Hukama (mentions the institution); Dimitri Gutas, Greek Thought and Arab Culture (a modern academic analysis); Jim al-Khalili, Dar al-Hikma (a popular history with academic precision)." }
-  ] },
-  { id: "15", title: "Fatima al-Zahra's generosity: a symbol of generosity and selflessness in Islam", pages: [
-    { img: "stories_en/en_15_p1.jpg", text: "The Generosity of Fatima al-Zahra: A Symbol of Generosity and Selflessness in Islam. Short Summary: This story showcases the generosity of Fatima al-Zahra, the daughter of the Prophet Muhammad (peace be upon him), and how she was a role model in giving and selflessness. The Story's Theme: In the harsh desert environment, Fatima al-Zahra, the daughter of the Prophet Muhammad (peace be upon him) and the wife of Ali ibn Abi Talib, lived a simple life filled with sacrifices. Despite her modest economic circumstances, she was an example of generosity and selflessness. It was narrated by Asma bint Umays that she said: \"Fatima, the daughter of the Messenger of God (peace be upon him), brought some tharid (a type of bread soup) in a bowl and said: 'O Asma!'\"" },
-    { img: "stories_en/en_15_p2.jpg", text: "Ali brought food, and she sent me this tharid (a type of bread soup). By Him Who sent Muhammad with the truth, the family of Muhammad have not lit a fire for three days. Then she said, &ldquo;O Asma! Let us go to the Messenger of God (peace and blessings be upon him) and tell him what is happening to us.&rdquo; Fatima went with Asma to the Prophet&rsquo;s house (peace and blessings be upon him), and they found him praying." },
-    { img: "stories_en/en_15_p3.jpg", text: "When he finished his prayer, they told him of their situation. The Prophet (peace and blessings be upon him) said to them, \"Be patient, my daughters, for you will be the first to join me.\" This was a clear example of Fatima's patience and her deep faith in God's decree and destiny. Despite her own need for food, she chose to share what she had with her husband and her small family." },
-    { img: "stories_en/en_15_p4.jpg", text: "Fatima's generosity and selflessness had a profound impact on those around her. They learned from her the value of giving and selflessness, and that contentment with little can be a source of happiness and peace of mind. Her story also helped to strengthen community spirit and social solidarity within the nascent Muslim community. References from the Quran and Prophetic traditions: * The Holy Quran: &ldquo;And those who had settled in the city and [embraced] the faith before them love those who emigrated to them and do not find in their hearts any need for what they have been given and give preference to them over themselves, even though they are in dire need. And whoever is protected from the stinginess of his soul - it is those who will be the successful.&rdquo; [9] (https://quran.com/59/9) (Surah Al-Hashr, verse 9) * Hadith The Prophet (peace and blessings be upon him) said: &ldquo;When they reach their term, then either retain them in a good manner or release them in a good manner, and call to witness two just men from among you and establish the testimony for Allah. That is admonition to whoever believes in Allah and the Last Day. And whoever fears Allah - He will make for him a way out.&rdquo; [2] (https://quran.com/65/2) So let him honor his neighbor.&rdquo; (Agreed upon) Historical sources: * The book &ldquo;The Biography of the Prophet&rdquo; by Ibn Hisham * The book &ldquo;Imamate and Politics&rdquo; by Ibn Qutaybah al-Dinawari * Modern sources: Academic articles and official documents confirming Fatima al-Zahra&rsquo;s role in spreading the values ​​of generosity and altruism." }
-  ] },
-  { id: "16", title: "The Prophet's Generosity During Ramadan", pages: [
-    { img: "stories_en/en_16_p1.jpg", text: "During the blessed month of Ramadan, the Prophet Muhammad (PBUH) would increase his acts of charity and kindness." },
-    { img: "stories_en/en_16_p2.jpg", text: "He was known to be the most generous of people, and his generosity reached its peak during this holy month." },
-    { img: "stories_en/en_16_p3.jpg", text: "The Prophet (PBUH) would meet with Jibril (Gabriel) to study the Quran, and this spiritual connection would inspire him to be even more generous in bestowing goodness upon others." },
-    { img: "stories_en/en_16_p4.jpg", text: "He would provide food and sustenance to those in need, ensuring that no one went hungry during this sacred time. His companions would often witness his generosity and be inspired to follow his example." }
-  ] },
-  { id: "17", title: "The Generous Farmer and the Divine Rain", pages: [
-    { img: "stories_en/en_17_p1.jpg", text: "In a time when generosity was rare, a righteous farmer lived in a barren land." },
-    { img: "stories_en/en_17_p2.jpg", text: "He divided the produce of his garden into three parts: one-third for charity, one-third for himself and his dependents, and one-third to invest back into the garden." },
-    { img: "stories_en/en_17_p3.jpg", text: "One day, a man heard a voice from a cloud saying, \"Water the garden of so-and-so,\" and followed the water to the farmer's garden." },
-    { img: "stories_en/en_17_p4.jpg", text: "The farmer explained his practice of charity, and the man realized that this was the reason for the divine providence." }
-  ] },
-  { id: "18", title: "The Compassionate Legacy of Zakat al-Fitr: Ensuring Dignity During Ramadan", pages: [
-    { img: "stories_en/en_18_p1.jpg", text: "In the early days of Islam, Prophet Muhammad ﷺ established the tradition of Zakat al-Fitr, emphasizing its importance as a means to purify those fasting from idle talk and obscene language, and to provide sustenance for the poor so they could also partake in the joy of Eid al-Fitr." },
-    { img: "stories_en/en_18_p2.jpg", text: "This act of charity became an integral part of Ramadan, ensuring that no Muslim went hungry during this blessed month. The process involved calculating a specific amount of food staples like dates, barley, raisins, or wheat per individual in a household, which was then distributed to the needy before the Eid prayer." },
-    { img: "stories_en/en_18_p3.jpg", text: "This ensured that even the most vulnerable members of society had access to basic necessities and could join in the festive celebrations without feeling excluded. Over centuries, this practice has continued to evolve while maintaining its core purpose." },
-    { img: "stories_en/en_18_p4.jpg", text: "Today, many Muslims choose to give cash equivalents based on local market prices, allowing for greater flexibility and efficiency in reaching those in need. The impact extends beyond just providing food; it fosters a sense of community solidarity and reminds us of our shared responsibility towards each other." }
-  ] },
-  { id: "19", title: "The Najashi's Welcome - Asylum for Persecuted Muslims in Abyssinia", pages: [
-    { img: "stories_en/en_19_p1.jpg", text: "In 615 CE (5th year of Prophethood), persecution of Muslims in Makkah intensified under Quraysh hostility. The early Muslim community faced torture, economic boycott, and death threats for abandoning traditional polytheism." },
-    { img: "stories_en/en_19_p2.jpg", text: "Prophet Muhammad (peace be upon him) advised a group of companions to seek refuge in Abyssinia (modern Ethiopia), saying: \"There is a king there who does not wrong anyone. It is a land of truthfulness. Stay there until Allah provides relief for you.\" Eighty-three men and women, including Uthman ibn Affan and his wife Ruqayyah (the Prophet's daughter), Ja'far ibn Abi Talib (the Prophet's cousin), and Umm Salamah, undertook the dangerous journey across the Red Sea." },
-    { img: "stories_en/en_19_p3.jpg", text: "King Najashi (Negus) Ashama ibn Abjar received them with dignity despite pressure from Quraysh emissaries who brought expensive gifts demanding the refugees' extradition, claiming they had abandoned their ancestral religion and split their community. Historical accounts describe Najashi organizing a formal court hearing to adjudicate the matter." },
-    { img: "stories_en/en_19_p4.jpg", text: "The Quraysh delegation accused the Muslims of rejecting established religion and disrupting social order. Ja'far ibn Abi Talib defended the refugees by explaining Islamic monotheism and reciting verses from Surah Maryam (Chapter 19) about the virgin birth of Jesus and Mary's piety. The Christian king wept upon hearing the" }
-  ] },
-  { id: "20", title: "Qatar Charity - Iftar Project for Fasting People in Ramadan", pages: [
-    { img: "stories_en/en_20_p1.jpg", text: "Qatar Charity - Iftar Project in Ramadan: Brief Summary: Qatar Charity implements large-scale food programs during Ramadan, providing daily Iftar meals to fasting Muslims worldwide, serving millions of meals to the poor and displaced. Main Charity Concept: Food assistance during Ramadan and providing Iftar (a religious seasonal charity). Story: Qatar Charity's annual Ramadan campaigns, prominently featured in its public awareness campaigns and documented in its annual reports, represent one of the organization's largest seasonal initiatives. The \"Iftar for the Fasting\" program operates on the Islamic principle that providing food to a fasting person to break their fast earns a similar spiritual reward, as established in the Prophetic traditions." },
-    { img: "stories_en/en_20_p2.jpg", text: "This theological foundation drives the massive participation of donors among Qatari Muslims during Ramadan. The program operates in multiple formats adapted to different contexts. In conflict zones such as Syria, Yemen, and Gaza, Qatar Charity establishes Iftar centers that provide daily hot meals throughout Ramadan to displaced families and those unable to afford sufficient food. In refugee camps across Jordan, Lebanon, and Bangladesh, the organization distributes pre-packaged Iftar meals or food baskets that allow families to prepare their own meals according to their cultural preferences." },
-    { img: "stories_en/en_20_p3.jpg", text: "In countries with large Muslim populations, such as Pakistan, Indonesia, and African nations, Qatar Charity collaborates with local mosques and charitable organizations to operate community iftar kitchens serving the poor and travelers. According to statistics published in Qatar Charity's Ramadan campaign reports, the organization provides millions of iftar meals annually across dozens of countries. Donors can contribute specific amounts&mdash;large donations that provide iftar for one person for the entire month, and smaller donations that support daily iftar meals. The organization utilizes digital platforms that allow Qataris to easily donate, along with automated distribution systems that ensure meals reach beneficiaries at the appropriate times." },
-    { img: "stories_en/en_20_p4.jpg", text: "Oversight by the Charity Regulatory Authority (RACA) ensures financial accountability and the proper use of funds. The widespread provision of communal iftar meals continues a Ramadan tradition dating back to the time of the Prophet Muhammad (peace be upon him), when the mosque in Medina served as a community iftar center. This practice reflects the Quranic emphasis on feeding the needy (feeding the hungry) as a fundamental aspect of faith and righteousness. Quranic/Hadith Reference: Quran 2:184: On fasting Ramadan and feeding the poor as expiation or charity. Sunan al-Tirmidhi, Hadith 807: \"Whoever provides food for a fasting person will have a reward like his, without diminishing anything from the reward of the fasting person.\" Quran 76:8: \"And they give food, in spite of their love for it, to the needy, the orphan, and the captive.\" Quran 2:177: Righteousness in feeding the needy. Historical Source: Qatar Charity's official website: www.qcharity.org (Ramadan Campaigns section). Qatar Charity's annual reports with Ramadan project statistics. Media coverage in Gulf Times and The Peninsula (Qatari newspapers) for the annual Ramadan launch. Campaign registration and approvals from the Regulatory Authority for Charitable Activities (RACA)." }
-  ] },
-  { id: "21", title: "The Generosity of Abdurrahman bin Awf: A Model of Early Muslim Philanthropy", pages: [
-    { img: "stories_en/en_21_p1.jpg", text: "Abdurrahman bin Awf, a prominent companion of the Prophet Muhammad (peace be upon him), is celebrated for his extraordinary generosity and commitment to helping others." },
-    { img: "stories_en/en_21_p2.jpg", text: "After embracing Islam, he became a successful merchant in Medina, yet he never allowed his wealth to distance him from the values of humility and compassion instilled by the Prophet. Upon his death, Abdurrahman bin Awf bequeathed half of his vast fortune to the Muslim community, ensuring that his wealth would continue to serve the greater good even after his passing." },
-    { img: "stories_en/en_21_p3.jpg", text: "He directed that this portion be used to support widows, orphans, and those in need, reflecting his profound understanding of the Islamic principle of sharing prosperity with the less fortunate." },
-    { img: "stories_en/en_21_p4.jpg", text: "His actions set a powerful precedent for future generations, illustrating how personal success can be harnessed for the collective benefit of society. The impact of his endowment extended beyond immediate relief; it fostered a culture of giving and solidarity within the nascent Muslim community, reinforcing the bonds of brotherhood and sisterhood among believers." }
-  ] },
-  { id: "22", title: "Public Library Endowment - Book Repositories in Baghdad", pages: [
-    { img: "stories_en/en_22_p1.jpg", text: "Public Library Endowments - Baghdad's Book Repositories: A Brief Summary: Muslim scholars and rulers established public libraries as endowments in Baghdad, providing free access to manuscripts and books for students and researchers from all backgrounds. Main Philanthropic Idea: Public Library Endowments (Free Access to Knowledge). The Story: During the Islamic Golden Age in Baghdad (9th-13th centuries CE), wealthy scholars, rulers, and merchants established public libraries as charitable endowments, recognizing that access to books was limited due to the cost of hand-copied manuscripts. These endowed libraries (book repositories) provided students, scholars, and readers of all economic levels with free access to vast collections of manuscripts in the sciences, philosophy, literature, and religion." },
-    { img: "stories_en/en_22_p2.jpg", text: "According to historians such as Yaqut al-Hamawi, who documented libraries in his Geographical Dictionary, some of these libraries contained tens of thousands of volumes. Endowment deeds stipulated that books could not be sold or removed from the institution&mdash;only loaned for internal reading or copying. Librarians and scribes were employed from the proceeds of the endowment properties. Some libraries also provided free paper and ink to poor students so they could copy texts for themselves." },
-    { img: "stories_en/en_22_p3.jpg", text: "The Mustansiriya Library, attached to the Mustansiriya School founded by Caliph al-Mustansir Billah in 1227 CE, was one of the most famous examples. It housed thousands of manuscripts in all branches of knowledge and was open not only to registered students but to any serious scholar. The building was designed with spacious reading rooms, natural light, and organized classification systems." },
-    { img: "stories_en/en_22_p4.jpg", text: "The Mongol invasion of Baghdad in 1258 CE destroyed many of these libraries, with soldiers throwing thousands of manuscripts into the Tigris River. Nevertheless, the tradition of endowed libraries spread throughout the Islamic world&mdash;Cairo, Damascus, Andalusia, and Central Asia&mdash;making knowledge accessible regardless of economic privilege. This principle&mdash;that access to knowledge is a public right, not a private commodity&mdash;aligns with the Islamic teaching that concealing beneficial knowledge is a sin. Quranic/Hadith Reference: Quran 96:1-5: The first revelation emphasizes reading and knowledge - \"Read in the name of your Lord who created.\" Hadith (Sunan Abi Dawud): \"Whoever is asked about knowledge and conceals it, Allah will bridle him with a bridle of fire on the Day of Resurrection.\" Sahih Muslim, Hadith 1631: Beneficial knowledge is a form of ongoing charity. Quran 39:9: \"Say, 'Are those who know equal to those who do not know?'\" Historical Source: Yaqut al-Hamawi, Mu'jam al-Buldan (a geographical dictionary documenting libraries); Ibn al-Nadim, al-Fihrist (mentions library collections); Ibn Khaldun, al-Muqaddimah (discusses educational institutions and libraries). Modern Studies: Yusuf Ash, \"Ancient Book Collections in Iraq.\"" }
-  ] },
-  { id: "23", title: "The Debt Relief Initiative - Abu Bakr's Payment of Community Debts", pages: [
-    { img: "stories_en/en_23_p1.jpg", text: "During the caliphate of Abu Bakr al-Siddiq (11-13 AH / 632-634 CE), the first caliph after Prophet Muhammad's death, a policy emerged addressing the debts of deceased Muslims. Islamic law prohibited inheriting debt in ways that would impoverish families, but creditors still had legitimate claims." },
-    { img: "stories_en/en_23_p2.jpg", text: "Abu Bakr established a practice of using Bayt al-Mal (public treasury) funds to settle the debts of those who died unable to pay, ensuring neither creditors were wronged nor families burdened with inherited financial obligations. Historical accounts in early Islamic chronicles describe how Abu Bakr would investigate cases where someone died leaving unpaid debts." },
-    { img: "stories_en/en_23_p3.jpg", text: "If the deceased had made genuine efforts to repay but lacked means, or if repayment would have left their family destitute, Abu Bakr authorized payment from the treasury. This wasn't blanket debt forgiveness but targeted relief for those who struggled despite good faith efforts." },
-    { img: "stories_en/en_23_p4.jpg", text: "The policy recognized that debt could trap families in multigenerational poverty if not addressed. The theological basis came from" }
-  ] },
-  { id: "24", title: "The Caravanserais - Roadside Shelters for Travelers as Waqf", pages: [
-    { img: "stories_en/en_24_p1.jpg", text: "Throughout the Islamic world from the 9th to 16th centuries, caravanserais (also called khans or funduqs) were established as charitable endowments serving travelers along major trade and pilgrimage routes. These weren't commercial inns charging fees but waqf institutions providing free hospitality - lodging, meals, medical care, and security - to merchants, pilgrims, students, and any travelers in need." },
-    { img: "stories_en/en_24_p2.jpg", text: "The Seljuk, Mamluk, and Ottoman dynasties built extensive networks of these facilities, recognizing that safe travel infrastructure benefited entire societies economically and spiritually. A typical caravanserai featured secure architecture - thick walls, single entrance gates, and interior courtyards where travelers and their animals found shelter. The ground floor housed stables and storage for goods, while upper floors provided sleeping quarters." },
-    { img: "stories_en/en_24_p3.jpg", text: "Waqf endowments funded permanent staff including gatekeepers who secured the facility, cooks who prepared communal meals, physicians or healers who treated sick travelers, and maintenance workers. Many caravanserais included small mosques or prayer spaces, bathing facilities, and sometimes workshops for minor repairs to equipment or wagons. Historical travel accounts by Ibn Jubayr, Ibn Battuta, and European travelers like Marco Polo describe these institutions." },
-    { img: "stories_en/en_24_p4.jpg", text: "Ibn Battuta noted staying in caravanserais throughout his 30-year journey across the Islamic world, often receiving three days of free lodging and meals as standard practice. The waqf deeds specified this hospitality couldn't be refused to any traveler regardless of religion, ethnicity, or wealth - the only requirement was genuine need for shelter. The theological foundation came from" }
-  ] },
-  { id: "25", title: "The Soup Kitchens of Cordoba", pages: [
-    { img: "stories_en/en_25_p1.jpg", text: "During the golden age of Islamic Spain in the 10th century, the city of Cordoba flourished as a center of learning and commerce. Amidst this prosperity, a significant portion of the population lived in poverty. To address this issue, a unique system of public kitchens emerged, known as al-matbakh al-khayriyah (charitable kitchens)." },
-    { img: "stories_en/en_25_p2.jpg", text: "These establishments were funded through endowments (waqf) established by wealthy individuals and religious institutions. These kitchens served hot meals daily to anyone in need, regardless of faith or origin. Travelers passing through Cordoba also benefited greatly from these facilities, finding respite and nourishment after long journeys." },
-    { img: "stories_en/en_25_p3.jpg", text: "The kitchens were often located near mosques and markets, making them easily accessible to the urban poor. Volunteers from various backgrounds helped prepare and distribute the food, fostering a sense of community solidarity. The impact of these soup kitchens extended beyond mere physical sustenance." },
-    { img: "stories_en/en_25_p4.jpg", text: "They became vital hubs for social interaction and support networks. People shared stories, sought advice, and found comfort in knowing they weren't alone. This initiative reflected the deep-rooted Islamic values of hospitality (diyafah) and caring for the less fortunate (rahmah)." }
-  ] },
-  { id: "26", title: "Qatar Charity's \"Ghaith\" Campaign - Water Wells in Africa", pages: [
-    { img: "stories_en/en_26_p1.jpg", text: "Qatar Charity's \"Ghaith\" (Arabic for \"rain\") water program, documented extensively in their annual reports and publicly accessible project documentation, represents one of the organization's flagship Sadaqah Jariyah initiatives. The program focuses on sub-Saharan African countries where millions lack access to safe drinking water - countries including Chad, Niger, Mali, Somalia, Kenya, and others where chronic water scarcity creates health crises, limits economic development, and forces women and children to spend hours daily collecting water from unsafe sources. According to Qatar Charity's published project reports, the Ghaith program implements multiple water access solutions adapted to different contexts: drilling deep tube wells in areas with underground water tables, installing hand pumps and solar-powered pumping systems for sustainable operation, constructing surface water collection systems in areas with seasonal rainfall, and establishing water filtration points treating contaminated surface water." },
-    { img: "stories_en/en_26_p2.jpg", text: "Each project includes training for local community members in maintenance and repair, ensuring sustainability beyond the organization's direct involvement. The program's distinctive feature is its structure as Sadaqah Jariyah - donors in Qatar and globally sponsor specific wells which are registered in their name or dedicated to deceased relatives. Qatar Charity installs plaques on each well identifying the donor or dedicatee, and provides donors with GPS coordinates, photos, and periodic updates about the well's impact." },
-    { img: "stories_en/en_26_p3.jpg", text: "This model connects contemporary charitable giving directly to classical Islamic concepts of ongoing charity whose benefit and spiritual reward continue perpetually. Published impact statistics indicate Qatar Charity has installed thousands of water points through the Ghaith program, serving millions of beneficiaries. The organization reports significant health improvements in served communities - reduced waterborne disease incidence, decreased child mortality from diarrheal diseases, and increased school attendance (particularly for girls no longer needed for long water collection journeys)." },
-    { img: "stories_en/en_26_p4.jpg", text: "RACA oversight ensures financial transparency and proper fund utilization, with regular audits verifying that donor funds designated for specific wells reach those projects. This contemporary program directly parallels historical Islamic water charity from Uthman ibn Affan's Well of Rumah to Zubayda's pilgrimage route infrastructure, demonstrating continuity in Islamic charitable priorities across 14 centuries. The recognition that water access is fundamental to human dignity and community development remains central to Islamic philanthropy." }
-  ] },
-  { id: "27", title: "The Sulh Initiative - Reconciliation Through Charitable Mediation", pages: [
-    { img: "stories_en/en_27_p1.jpg", text: "In early Islamic society, a distinctive form of charity emerged focused on conflict resolution and preventing violence - the practice of using communal resources to facilitate sulh (reconciliation) between disputing parties. When conflicts arose that threatened to escalate into blood feuds or community divisions, respected mediators would work to negotiate settlements, sometimes drawing on charitable funds or collective contributions to facilitate agreements that restored peace. The most documented historical example occurred during the caliphate of Umar ibn al-Khattab when a murder case threatened to ignite tribal warfare." },
-    { img: "stories_en/en_27_p2.jpg", text: "The victim's family demanded qisas (retributive justice), while the perpetrator's tribe sought forgiveness. Umar negotiated a settlement where the perpetrator's tribe paid diya (blood money) to the victim's family, but when they lacked sufficient funds, Umar authorized payment from Bayt al-Mal (the public treasury) to complete the compensation. His reasoning was that preventing broader violence that would claim more lives justified using communal resources for reconciliation." },
-    { img: "stories_en/en_27_p3.jpg", text: "Classical Islamic jurisprudence developed the principle that zakah funds could be used for \"reconciling hearts\" (mu'allafat qulubuhum) - one of the eight categories of recipients mentioned in Quran 9:60. Scholars interpreted this broadly to include mediation payments that prevented conflict, restored community harmony, or brought hostile parties to peace. Some jurists argued this category specifically addressed situations where charitable payments could prevent violence or resolve disputes threatening social stability." },
-    { img: "stories_en/en_27_p4.jpg", text: "This practice established that charity wasn't only for material poverty but also for \"poverty of peace\" - situations where communities lacked the resources or mechanisms to resolve conflicts non-violently. The Prophet Muhammad himself sometimes personally contributed to diya payments or encouraged his companions to do so collectively, establishing that peacemaking was a communal responsibility deserving charitable support. Modern applications include Islamic organizations that maintain mediation funds helping families settle disputes before they reach courts, community programs that provide financial assistance for reconciliation settlements in honor-based conflicts, and initiatives that use charitable funds to support restorative justice programs. The principle that preventing violence through charitable intervention earns divine reward remains active in contemporary Islamic peacebuilding efforts." }
-  ] },
-  { id: "28", title: "The Prophet's (PBUH) Response to the Tribe of Mudar's Poverty", pages: [
-    { img: "stories_en/en_28_p1.jpg", text: "In the early hours of the morning, a group of people from the tribe of Mudar arrived at the Prophet's (PBUH) gathering. They were barefoot, naked, and wearing striped woollen clothes or cloaks, with their swords hung around their necks." },
-    { img: "stories_en/en_28_p2.jpg", text: "The Prophet (PBUH) noticed their poverty and was deeply moved. He immediately went into his house and then came out, commanding Bilal to pronounce the Adhan." },
-    { img: "stories_en/en_28_p3.jpg", text: "After the prayer, he addressed the congregation, reciting verses from Surah An-Nisa (4:1) and Surah Al-Hashr (59:18), emphasizing the importance of fearing Allah and considering what one sends forth for the morrow. The Prophet (PBUH) then encouraged the people to give in charity, even if it was just half a date." },
-    { img: "stories_en/en_28_p4.jpg", text: "The response was overwhelming; people began to donate generously, bringing food, clothing, and other items. The Prophet (PBUH) was overjoyed to see two heaps of food and clothing, and his face was radiant with joy. He emphasized that whoever sets a good precedent in Islam will have a reward for that act and for those who follow it, without any deduction from their rewards." }
-  ] },
-  { id: "29", title: "The Qalawun Complex in Cairo", pages: [
-    { img: "stories_en/en_29_p1.jpg", text: "In the heart of historic Cairo, the Qalawun Complex stands as a monumental tribute to the philanthropic spirit of Sultan al-Nasir Muhammad ibn Qalawun. Constructed between 1284 and 1285 CE, this sprawling waqf (charitable endowment) encompassed multiple functions designed to benefit society at large." },
-    { img: "stories_en/en_29_p2.jpg", text: "At its core was a magnificent hospital, staffed by expert physicians and surgeons who provided free medical care to all comers. Adjacent to the hospital was a mosque, where worshippers could gather for daily prayers and religious instruction." },
-    { img: "stories_en/en_29_p3.jpg", text: "A madrasa (school) within the complex fostered intellectual growth, attracting scholars and students eager to delve into various fields of study. The inclusion of a mausoleum allowed the sultan to ensure his final resting place would continue to inspire future generations." },
-    { img: "stories_en/en_29_p4.jpg", text: "The Qalawun Complex exemplified the principle of integrated charity, recognizing that true well-being encompasses physical health, spiritual nourishment, and intellectual enrichment. By combining these elements under one roof, Sultan Qalawun created a self-sustaining ecosystem of benevolence that thrived for centuries. Today, parts of the complex remain active, continuing to serve as places of worship and centers of learning." }
-  ] },
-  { id: "30", title: "The Legacy of Al-Walid ibn Abd al-Malik and the Orphanage in Damascus", pages: [
-    { img: "stories_en/en_30_p1.jpg", text: "In the early 8th century, during the reign of the Umayyad Caliph Al-Walid ibn Abd al-Malik, a significant initiative was undertaken to care for orphans and vulnerable children. Recognizing the importance of providing a safe and nurturing environment for those who had lost their parents, Al-Walid established the first known orphanage in Islamic history in Damascus." },
-    { img: "stories_en/en_30_p2.jpg", text: "This institution was not merely a place of shelter but a comprehensive center where children received education, healthcare, and emotional support. The orphanage was funded through the state treasury and donations from wealthy individuals, reflecting a strong sense of communal responsibility." },
-    { img: "stories_en/en_30_p3.jpg", text: "The caliph himself took a keen interest in the welfare of the children, often visiting the institution to ensure their needs were met. This act of compassion and foresight set a precedent for future generations, demonstrating that caring for orphans was not just a religious duty but a societal obligation." },
-    { img: "stories_en/en_30_p4.jpg", text: "The impact of this initiative was profound. It provided a model for other regions within the Islamic empire to follow, leading to the establishment of similar institutions in other major cities. The orphanage in Damascus became a symbol of Islamic social welfare, ensuring that vulnerable children were not left to fend for themselves but were given the opportunity to grow into healthy, educated adults." }
-  ] },
-  { id: "31", title: "Eid Charity Foundation Supports Syrian Refugees in Jordan Through Winterization Program", pages: [
-    { img: "stories_en/en_31_p1.jpg", text: "Eid Charity Foundation has initiated a crucial winterization program aimed at alleviating the suffering of Syrian refugees residing in Jordan." },
-    { img: "stories_en/en_31_p2.jpg", text: "As temperatures drop significantly during the winter months, the foundation distributed thousands of warm clothing items, blankets, and heaters to families living in refugee camps and informal settlements. This effort ensures that vulnerable individuals, including women, children, and the elderly, are protected from the cold and associated health risks." },
-    { img: "stories_en/en_31_p3.jpg", text: "The program underscores Eid Charity Foundation's dedication to improving the lives of displaced persons and upholding human dignity. By partnering with local authorities and community leaders, the foundation ensures that aid reaches those most in need efficiently and effectively." },
-    { img: "stories_en/en_31_p4.jpg", text: "This initiative aligns with broader humanitarian goals of providing immediate relief and fostering resilience among refugee communities. It also reflects the values of compassion and solidarity emphasized in Islamic teachings." }
-  ] },
-  { id: "32", title: "The Manumission Fund - Freeing Slaves as Organized Charity", pages: [
-    { img: "stories_en/en_32_p1.jpg", text: "The Quran explicitly designates \"freeing slaves\" (fi al-riqab) as one of the eight categories entitled to receive zakah funds, establishing manumission as both a pious act and a communal charitable responsibility." },
-    { img: "stories_en/en_32_p2.jpg", text: "Early Islamic sources document that this wasn't merely rhetorical but practically implemented through organized charitable mechanisms." },
-    { img: "stories_en/en_32_p3.jpg", text: "The most direct evidence comes from the" },
-    { img: "stories_en/en_32_p4.jpg", text: "" }
-  ] },
-  { id: "33", title: "Marriage Assistance - Charitable Support for Couples Unable to Afford Marriage", pages: [
-    { img: "stories_en/en_33_p1.jpg", text: "Islamic jurisprudence recognizes marriage assistance as a legitimate charitable cause, with some scholars arguing it can be funded from zakah under the category of \"those in need\" (al-masakin) or more broadly as serving community welfare. The theological foundation rests on prophetic teachings that marriage protects individuals from sin and that facilitating lawful unions serves both individual and societal good. The most explicit scriptural support comes from Quran 24:32-33, which commands: \"Marry those among you who are single...If they are poor, Allah will enrich them from His bounty.\" Classical commentators interpreted this as establishing communal responsibility to help economically disadvantaged individuals marry rather than remaining single due to poverty." },
-    { img: "stories_en/en_33_p2.jpg", text: "The verse suggests Allah promises to provide sustenance for married couples, but community support through charity can serve as the means of that divine provision. Historical implementation took various forms documented in legal texts and chronicles. Wealthy individuals sometimes sponsored mass weddings, covering mahr payments and celebration costs for multiple poor couples simultaneously. Some waqf endowments allocated funds specifically for marriage assistance." },
-    { img: "stories_en/en_33_p3.jpg", text: "Community leaders mediated arrangements where families waived or reduced customary mahr requirements for couples facing poverty. In some cases, public treasuries provided grants to enable marriages, particularly for orphans lacking family support. The practice addressed a recognized social problem: when marriage costs became prohibitive, young people either delayed marriage indefinitely (risking moral challenges) or families accumulated debts that impoverished them for years. Charitable intervention removed these barriers while maintaining Islamic legal requirements - mahr still existed but was made affordable through donation rather than eliminated." },
-    { img: "stories_en/en_33_p4.jpg", text: "Contemporary Islamic charitable organizations continue this tradition. Many maintain marriage support funds providing grants for mahr, wedding expenses, or household setup costs. Some negotiate with venues and service providers for reduced rates for couples receiving charitable assistance. The emphasis remains on facilitating dignified marriages without excessive expenses while ensuring Islamic legal requirements are met." }
-  ] },
-  { id: "34", title: "The Muhtasib's Fund - Market Regulation and Consumer Protection Charity", pages: [
-    { img: "stories_en/en_34_p1.jpg", text: "The institution of hisbah (market regulation and public morality enforcement) in Islamic societies included charitable dimensions beyond simple law enforcement. The muhtasib (market inspector) enforced fair weights and measures, prevented fraud and price manipulation, and maintained market order. Less widely known is that some muhtasibs administered charitable funds addressing economic injustices and supporting marketplace participants facing hardship." },
-    { img: "stories_en/en_34_p2.jpg", text: "Historical manuals on hisbah, particularly works by Ibn al-Ukhuwwa and al-Shayzari (12th-13th centuries), describe these charitable functions. When consumers were defrauded but couldn't recover losses because the perpetrator fled or lacked assets, some muhtasib offices maintained compensation funds. When honest merchants faced temporary crises - shipwreck destroying goods, fire consuming inventory, illness preventing work - charitable intervention could prevent bankruptcy and preserve livelihoods. The system also addressed structural inequalities." },
-    { img: "stories_en/en_34_p3.jpg", text: "Some markets reserved specific times or spaces for poor vendors unable to afford permanent stalls, ensuring they could sell goods to support families. Disabled craftsmen sometimes received priority placement or assistance from hisbah-administered funds. The muhtasib might arrange interest-free loans from charitable endowments to help artisans purchase materials, preventing them from falling into debt to wealthy creditors. The theological foundation combined economic justice principles from Quran and Sunnah with practical recognition that unregulated markets could concentrate wealth unjustly and marginalize vulnerable participants." },
-    { img: "stories_en/en_34_p4.jpg", text: "The Prophet Muhammad himself intervened in marketplace disputes and prohibited certain business practices as exploitative. The hisbah institution formalized this prophetic concern for market justice, with charity as one enforcement tool alongside regulation and penalties. While the formal muhtasib institution no longer exists in most Muslim-majority countries, its functions have been absorbed into modern consumer protection agencies, business regulation bureaus, and charitable organizations focused on economic justice. The principle that marketplace fairness sometimes requires charitable intervention to protect the vulnerable remains relevant in contemporary Islamic economic thought." }
-  ] },
-  { id: "35", title: "Burial Assistance - Charitable Societies for Funeral Costs", pages: [
-    { img: "stories_en/en_35_p1.jpg", text: "Islamic law establishes burial as a communal obligation (fard kifayah) - if no individual ensures a deceased Muslim receives proper burial, the entire community bears collective sin." },
-    { img: "stories_en/en_35_p2.jpg", text: "This theological principle spawned charitable institutions ensuring even the poorest received dignified burials." },
-    { img: "stories_en/en_35_p3.jpg", text: "" },
-    { img: "stories_en/en_35_p4.jpg", text: "" }
-  ] },
-  { id: "36", title: "The Stranded Pilgrims Fund - Assistance for Hajj Travelers in Distress", pages: [
-    { img: "stories_en/en_36_p1.jpg", text: "In Islamic history, charitable initiatives emerged to support pilgrims encountering difficulties during Hajj. These efforts addressed issues like robbery on travel routes, prolonged illnesses necessitating extensive care, unforeseen resource shortages due to delays, or the loss of fellow travelers. Unlike general traveler aid programs, these interventions recognized the unique needs of pilgrims away from home while fulfilling a religious obligation, deserving community backing." },
-    { img: "stories_en/en_36_p2.jpg", text: "Historically, various methods were employed. Authorities in Makkah and Madinah set up funds to aid distressed pilgrims. Waqf endowments occasionally allocated revenue for this purpose." },
-    { img: "stories_en/en_36_p3.jpg", text: "Wealthy individuals also deployed agents during peak pilgrimage periods to locate and assist needy pilgrims. Additionally, caravanserais along pilgrimage paths offered extended stays at no cost to ill pilgrims recuperating from sickness. Assistance encompassed diverse measures: providing financial aid for food and shelter during recovery from illness; offering interest-free loans for return travel costs (often waived if repayment proved impossible); delivering medical care to pilgrims falling ill far from home; safeguarding and securing pilgrims who had been robbed; and arranging transportation for the remains of deceased pilgrims back to their families or facilitating burial in holy sites upon family request." },
-    { img: "stories_en/en_36_p4.jpg", text: "Today, Saudi authorities uphold this legacy via structured systems. The Ministry of Hajj collaborates with charities to support pilgrims in emergencies. Globally, Islamic charitable groups operate Hajj relief funds aiding pilgrims confronting crises. This enduring principle underscores that Muslims undertaking the sacred pilgrimage merit collective support when confronted with unanticipated hardships, guaranteeing that financial setbacks do not impede the completion of this essential Islamic rite." }
-  ] },
-  { id: "37", title: "The Public Bathhouse Waqf - Hygiene and Health Infrastructure", pages: [
-    { img: "stories_en/en_37_p1.jpg", text: "Public bathhouses in Islamic cities served both hygienic and religious functions - ritual purification required water access, and maintaining cleanliness was emphasized as part of faith." },
-    { img: "stories_en/en_37_p2.jpg", text: "Recognizing that poor families often lacked private bathing facilities, waqf endowments funded public hammams where the destitute could bathe for free while others paid modest fees, with revenues supporting the facility's operation. Historical records document that many bathhouses operated on mixed charitable and commercial models." },
-    { img: "stories_en/en_37_p3.jpg", text: "Waqf deeds specified certain hours reserved for free access to the poor, with revenue from paying customers during other hours covering operational costs. Some facilities maintained separate sections or times for women, ensuring access across gender lines." },
-    { img: "stories_en/en_37_p4.jpg", text: "The architectural sophistication of surviving hammams - elaborate water heating systems, changing rooms, hot and cold pools - indicates these weren't minimal charity but quality public infrastructure. The bathhouses served medical functions beyond basic hygiene." }
-  ] },
-  { id: "38", title: "The Forest Preservation Waqf - Environmental Protection Through Endowment", pages: [
-    { img: "stories_en/en_38_p1.jpg", text: "Ottoman waqf documents record instances where forests were designated as protected endowments, preventing deforestation while allowing regulated community access for essential needs like firewood collection and limited livestock grazing. This represented early environmental conservation through legal-charitable mechanisms, recognizing that unrestricted exploitation would deplete resources harming future generations." },
-    { img: "stories_en/en_38_p2.jpg", text: "The theological basis drew from Islamic legal principles of collective ownership and intergenerational responsibility. Jurists argued that certain environmental resources - water sources, pastures, forests - constituted public goods (al-mubahhat) that no individual could monopolize. Establishing them as waqf formalized this protection, with designated administrators ensuring sustainable use while preventing commercial exploitation that would deplete the resource." },
-    { img: "stories_en/en_38_p3.jpg", text: "Some forest waqfs generated revenue through controlled timber harvesting or grazing permits, with proceeds funding other charitable activities. This model aligned conservation with economic sustainability - the forest's value derived from its preservation and careful management rather than exploitation." },
-    { img: "stories_en/en_38_p4.jpg", text: "Violations incurred penalties, with waqf administrators empowered to enforce protection rules. While comprehensive environmental waqfs were less common than other endowment types, their existence demonstrates that Islamic charitable mechanisms extended beyond human welfare to environmental stewardship. Contemporary efforts to establish conservation waqfs draw on these historical precedents, arguing that protecting natural resources serves current and future communities, fulfilling the charitable principle of ongoing benefit." }
-  ] },
-  { id: "39", title: "The Guilds' Mutual Aid - Craftsmen Supporting Fellow Artisans", pages: [
-    { img: "stories_en/en_39_p1.jpg", text: "Professional guilds in medieval Islamic cities combined trade regulation with charitable mutual support for members. Craftsmen and merchants in the same trade organized into associations that maintained collective funds providing assistance when members faced hardship - illness preventing work, workshop fires destroying tools and inventory, disabilities from work accidents, or death leaving widows and orphans without support. The system operated through regular member contributions, sometimes structured as obligatory dues and other times as voluntary charitable giving." },
-    { img: "stories_en/en_39_p2.jpg", text: "When a guild member fell sick and couldn't work, the fund provided stipends supporting their family during recovery. If a member died, the guild sometimes covered funeral expenses and provided temporary support to the widow and children. For craftsmen injured at work and permanently disabled, some guilds arranged ongoing assistance or helped transition them to less physically demanding work within the trade." },
-    { img: "stories_en/en_39_p3.jpg", text: "Beyond financial support, guilds provided professional solidarity. When a member's workshop burned, fellow craftsmen sometimes donated materials or loaned tools enabling them to resume work. Master craftsmen might take in orphaned apprentices whose fathers died, completing their training without charging fees normally associated with apprenticeship." },
-    { img: "stories_en/en_39_p4.jpg", text: "This mutual aid reflected Islamic principles of brotherhood and communal responsibility within professional communities. While guilds primarily served members, some extended charity to the broader community. Bakers' guilds sometimes distributed bread to the poor, textile guilds provided fabric for shrouding deceased paupers, and various guilds sponsored public works or contributed to waqf projects benefiting their neighborhoods. The guild system demonstrated how occupational groups could organize charitable support addressing vulnerabilities specific to their trades." }
-  ] },
-  { id: "40", title: "The Guilds' Mutual Aid - Craftsmen Supporting Fellow Artisans", pages: [
-    { img: "stories_en/en_40_p1.jpg", text: "Professional guilds in medieval Islamic cities combined trade regulation with charitable mutual support for members. Craftsmen and merchants organized into associations that maintained collective funds through regular contributions, providing assistance when members faced hardship - illness preventing work, workshop fires destroying inventory, work-related disabilities, or death leaving families without support." },
-    { img: "stories_en/en_40_p2.jpg", text: "When members fell sick, funds provided family stipends during recovery. If a member died, guilds covered funeral expenses and supported widows and orphans temporarily." },
-    { img: "stories_en/en_40_p3.jpg", text: "For permanently disabled craftsmen, guilds arranged ongoing assistance or helped transition them to less demanding work. Beyond financial support, guilds provided professional solidarity through material aid and skill transmission." },
-    { img: "stories_en/en_40_p4.jpg", text: "Fellow craftsmen donated materials or loaned tools when workshops burned. Master craftsmen took in orphaned apprentices, completing their training without fees. While guilds primarily served members, some extended charity broadly - bakers' guilds distributed bread to the poor, textile guilds provided burial shrouds for paupers, and various guilds contributed to neighborhood waqf projects, demonstrating how occupational groups organized charitable support addressing trade-specific vulnerabilities." }
-  ] },
-  { id: "41", title: "Sultan Qalawun's Hospital in Cairo (1284 CE)", pages: [
-    { img: "stories_en/en_41_p1.jpg", text: "In 1284 CE, Mamluk Sultan al-Mansur Qalawun established the Maristan al-Mansuri in Cairo, one of the largest hospitals in the medieval Islamic world." },
-    { img: "stories_en/en_41_p2.jpg", text: "The waqf deed specified the facility would treat all patients free of charge - Muslim, Christian, or Jewish, rich or poor, male or female." },
-    { img: "stories_en/en_41_p3.jpg", text: "The hospital included separate wards for different diseases, a pharmacy, lecture halls for medical training, and accommodation for staff." },
-    { img: "stories_en/en_41_p4.jpg", text: "Revenues from Qalawun's designated properties funded physician salaries, medications, patient meals, and even new clothing given to discharged patients so they wouldn't leave in soiled garments. The hospital remained operational for over 600 years." }
-  ] },
-  { id: "42", title: "The Azraq Lodge for Pilgrims (Jordan, 13th Century)", pages: [
-    { img: "stories_en/en_42_p1.jpg", text: "The castle-caravanserai at Azraq in eastern Jordan was rebuilt in the 13th century CE as a fortified rest station on the Damascus to Makkah pilgrimage route." },
-    { img: "stories_en/en_42_p2.jpg", text: "The massive structure provided secure accommodation, access to the oasis water supply, and protection from desert raiders." },
-    { img: "stories_en/en_42_p3.jpg", text: "Pilgrims traveling through this harsh desert section could rest, water their animals, and resupply before continuing." },
-    { img: "stories_en/en_42_p4.jpg", text: "The facility operated as a waqf with staff maintaining the building and ensuring pilgrims' safety. The structure remains standing today, preserved as a heritage site documenting medieval Islamic pilgrimage infrastructure." }
-  ] },
-  { id: "43", title: "Saladin's Soup Kitchen in Jerusalem (1187 CE)", pages: [
-    { img: "stories_en/en_43_p1.jpg", text: "When Saladin (Salah al-Din al-Ayyubi) reconquered Jerusalem in 1187 CE, he established charitable kitchens (takaya) that served free meals to the poor, travelers, and religious students." },
-    { img: "stories_en/en_43_p2.jpg", text: "Historical accounts describe bread and cooked food distributed daily." },
-    { img: "stories_en/en_43_p3.jpg", text: "Saladin designated specific properties whose rental income would permanently fund these operations, making the charitable feeding sustainable beyond his lifetime." },
-    { img: "stories_en/en_43_p4.jpg", text: "The kitchens operated near major religious sites, ensuring pilgrims and poor Jerusalem residents had access to food." }
-  ] },
-  { id: "44", title: "The Great Plague Relief - Cairo 1430s", pages: [
-    { img: "stories_en/en_44_p1.jpg", text: "When plague struck Cairo repeatedly in the 1430s CE, Mamluk Sultan Barsbay organized governmental and charitable response." },
-    { img: "stories_en/en_44_p2.jpg", text: "The state treasury funded mass burial services for victims who died without family to arrange funerals, ensuring Islamic burial rites weren't neglected during crisis." },
-    { img: "stories_en/en_44_p3.jpg", text: "Food distribution to quarantined areas prevented starvation when neighborhoods were sealed." },
-    { img: "stories_en/en_44_p4.jpg", text: "Medical services were provided free to plague victims. The chronicle of Ibn Taghribirdi documents these relief efforts, noting thousands of deaths daily at the epidemic's peak, with the sultan's charitable provisions preventing complete social collapse." }
-  ] },
-  { id: "45", title: "Shajar al-Durr's Madrasa Endowment (Cairo, 1250 CE)", pages: [
-    { img: "stories_en/en_45_p1.jpg", text: "Shajar al-Durr, who briefly ruled as Sultan of Egypt in 1250 CE, established a madrasa (school) in Cairo bearing her name." },
-    { img: "stories_en/en_45_p2.jpg", text: "The waqf deed designated commercial properties whose revenues would fund teacher salaries, student stipends, building maintenance, and a library." },
-    { img: "stories_en/en_45_p3.jpg", text: "The institution taught Islamic jurisprudence," },
-    { img: "stories_en/en_45_p4.jpg", text: "" }
-  ] },
-  { id: "46", title: "Qatar Charity's School Rebuilding in Gaza (2021-2023)", pages: [
-    { img: "stories_en/en_46_p1.jpg", text: "Following the May 2021 conflict in Gaza, Qatar Charity implemented school reconstruction projects documented in their 2021-2023 annual reports." },
-    { img: "stories_en/en_46_p2.jpg", text: "The program rebuilt schools damaged or destroyed during fighting, rehabilitated facilities with structural damage, and provided furniture and educational supplies." },
-    { img: "stories_en/en_46_p3.jpg", text: "According to published reports, the projects aimed to restore educational access for thousands of students whose schools were unusable." },
-    { img: "stories_en/en_46_p4.jpg", text: "The organization coordinated with local education authorities and RACA oversight ensured transparency in fund utilization." }
-  ] },
-  { id: "47", title: "The Bread Waqf of Aleppo (16th Century Ottoman)", pages: [
-    { img: "stories_en/en_47_p1.jpg", text: "Ottoman waqf records document a charitable endowment in 16th century Aleppo where a benefactor established bakeries as waqf property." },
-    { img: "stories_en/en_47_p2.jpg", text: "The bakeries operated commercially, selling bread at market prices to paying customers." },
-    { img: "stories_en/en_47_p3.jpg", text: "A specified portion of daily production was distributed free to the poor, and any surplus revenue beyond operational costs went to other charitable purposes." },
-    { img: "stories_en/en_47_p4.jpg", text: "The endowment structure ensured sustainable food provision - the commercial operation covered costs while generating charitable distribution. Documents show this waqf continued functioning for over two centuries." }
-  ] },
-  { id: "48", title: "Sitt Nafisa's Water Distribution in Cairo (19th Century)", pages: [
-    { img: "stories_en/en_48_p1.jpg", text: "In 19th century Cairo, a wealthy woman known as Sitt Nafisa established water distribution points (sabil) in poor neighborhoods." },
-    { img: "stories_en/en_48_p2.jpg", text: "These structures provided free drinking water, particularly critical during Cairo's hot summers when water-borne illness spiked." },
-    { img: "stories_en/en_48_p3.jpg", text: "Historical accounts describe decorated fountains where the poor could fill containers or drink directly." },
-    { img: "stories_en/en_48_p4.jpg", text: "The endowment funded water carriers who kept the sabils supplied. Some of these water fountains survive as architectural heritage in Old Cairo." }
-  ] },
-  { id: "49", title: "The Ransom of Spanish Muslim Captives (14th Century)", pages: [
-    { img: "stories_en/en_49_p1.jpg", text: "As Christian kingdoms gradually conquered Muslim Andalusia, thousands of Muslims were enslaved or held for ransom." },
-    { img: "stories_en/en_49_p2.jpg", text: "Historical chronicles document that North African Muslim communities in Morocco and Tunisia organized charitable collections to redeem these captives." },
-    { img: "stories_en/en_49_p3.jpg", text: "Negotiators traveled to Christian territories with collected funds, bargaining for prisoners' release." },
-    { img: "stories_en/en_49_p4.jpg", text: "Some accounts describe hundreds of captives being freed in single transactions. The rescued individuals were transported to North Africa and provided assistance to restart their lives after displacement and captivity." }
-  ] },
-  { id: "50", title: "Aisha's Teaching Circle in Madinah (7th Century)", pages: [
-    { img: "stories_en/en_50_p1.jpg", text: "After Prophet Muhammad's death in 632 CE, his wife Aisha bint Abi Bakr became one of the most important scholars of early Islam, teaching" },
-    { img: "stories_en/en_50_p2.jpg", text: "" },
-    { img: "stories_en/en_50_p3.jpg", text: "" },
-    { img: "stories_en/en_50_p4.jpg", text: "" }
-  ] },
-  { id: "51", title: "Nusaybah bint Ka'b's Medical Care at Uhud (625 CE)", pages: [
-    { img: "stories_en/en_51_p1.jpg", text: "Nusaybah bint Ka'b al-Ansariyah, known as Umm Amarah, participated in the Battle of Uhud (625 CE) where she provided water and medical care to wounded Muslim fighters." },
-    { img: "stories_en/en_51_p2.jpg", text: "Historical accounts document she treated injuries, provided water to the thirsty, and even defended the Prophet Muhammad when the Muslim lines broke. After the battle, she continued caring for wounded soldiers, demonstrating that women's charitable service extended to emergency medical care during conflicts." },
-    { img: "stories_en/en_51_p3.jpg", text: "Her actions established precedent for women providing humanitarian assistance in crisis situations." },
-    { img: "stories_en/en_51_p4.jpg", text: "The Prophet Muhammad specifically praised Nusaybah's service, and she became a model for Muslim women's active participation in community welfare during emergencies. Her medical care for wounded soldiers - regardless of their social status or relationship to her - exemplified Islamic principles that saving life and relieving suffering take precedence in crisis situations, and that women's charitable contributions are valued equally to men's when serving communal needs." }
-  ] },
-  { id: "52", title: "Abu Dharr al-Ghifari's Wealth Distribution Advocacy (7th Century)", pages: [
-    { img: "stories_en/en_52_p1.jpg", text: "Abu Dharr al-Ghifari, one of the earliest companions of Prophet Muhammad, became known for his strict interpretation that Muslims possessing wealth beyond basic needs must distribute it to the poor." },
-    { img: "stories_en/en_52_p2.jpg", text: "He cited" },
-    { img: "stories_en/en_52_p3.jpg", text: "" },
-    { img: "stories_en/en_52_p4.jpg", text: "" }
-  ] },
-  { id: "53", title: "Umm Salamah's Inheritance Guidance (7th Century)", pages: [
-    { img: "stories_en/en_53_p1.jpg", text: "Umm Salamah, one of the Prophet Muhammad's wives, became an authority on Islamic law, particularly inheritance rights." },
-    { img: "stories_en/en_53_p2.jpg", text: "She taught women their legal entitlements, ensuring widows and daughters understood their inheritance shares and weren't cheated by male relatives. In pre-Islamic Arabia, women often received no inheritance, and even after Islamic law granted them fixed shares, many lacked knowledge to claim rights." },
-    { img: "stories_en/en_53_p3.jpg", text: "Umm Salamah's teaching constituted charitable education protecting women from financial exploitation and poverty after male relatives' deaths. Her legal teaching continued after the Prophet's death, with women seeking her guidance on inheritance, marriage, and divorce matters." },
-    { img: "stories_en/en_53_p4.jpg", text: "By educating women about their legal rights, she provided charitable service protecting vulnerable women from destitution when male family members attempted to withhold their lawful inheritance shares. This represented knowledge charity with direct economic impact for women's financial security." }
-  ] },
-  { id: "54", title: "The Mamluk Fire Brigade Waqf (14th Century Cairo)", pages: [
-    { img: "stories_en/en_54_p1.jpg", text: "Medieval Cairo's dense wooden construction made fires catastrophic threats." },
-    { img: "stories_en/en_54_p2.jpg", text: "Mamluk authorities established fire-fighting services funded through waqf endowments, with designated crews stationed throughout the city." },
-    { img: "stories_en/en_54_p3.jpg", text: "" },
-    { img: "stories_en/en_54_p4.jpg", text: "" }
-  ] },
-  { id: "55", title: "The Fatimid Grain Reserves in Cairo (10th-11th Century)", pages: [
-    { img: "stories_en/en_55_p1.jpg", text: "The Fatimid dynasty in Egypt established large-scale grain storage facilities in Cairo designed for famine relief. Historical chronicles document that during shortages, these reserves were opened and grain distributed at controlled prices or free to the destitute." },
-    { img: "stories_en/en_55_p2.jpg", text: "The system aimed to prevent both starvation and merchant price manipulation during crises. Designated officials supervised distribution ensuring the poor received allocations." },
-    { img: "stories_en/en_55_p3.jpg", text: "This represented institutionalized food security as charitable state function rather than ad hoc emergency response. The grain reserve system acknowledged that famine prevention required advance preparation, not just crisis reaction." },
-    { img: "stories_en/en_55_p4.jpg", text: "By maintaining stocks during abundant years, the Fatimids could intervene when harvests failed, protecting populations from starvation. While primarily serving Cairo's population, the system influenced Islamic governmental approaches to food security and the principle that rulers have charitable responsibility to prevent mass hunger." }
-  ] },
-  { id: "56", title: "Bilal ibn Rabah's Call to Prayer Service (7th Century)", pages: [
-    { img: "stories_en/en_56_p1.jpg", text: "Bilal ibn Rabah, among the earliest converts to Islam and a former enslaved person freed by Abu Bakr, became the first muezzin (caller to prayer) in Madinah." },
-    { img: "stories_en/en_56_p2.jpg", text: "He performed this service five times daily for years without salary, considering it religious duty and charitable contribution to the community. His call to prayer oriented the Muslim community's daily worship schedule, and he served in this capacity throughout the Prophet's lifetime and into Abu Bakr's caliphate." },
-    { img: "stories_en/en_56_p3.jpg", text: "This established precedent that religious services could be voluntary charitable contributions rather than compensated employment. After the Prophet's death, Bilal's grief prevented him from continuing as muezzin in Madinah, and he eventually settled in Syria." },
-    { img: "stories_en/en_56_p4.jpg", text: "His decades of unpaid service demonstrated that contributing skills and time to enable communal worship constituted charity, and his status as a former slave who freely gave service to the community exemplified Islamic principles of dignity and equality. The muezzin role became one of the most visible religious services in Islamic communities worldwide." }
-  ] },
-  { id: "57", title: "Qatar Charity's Cataract Surgery Campaign in Africa (2020-2023)", pages: [
-    { img: "stories_en/en_57_p1.jpg", text: "Qatar Charity's medical programs in Africa included cataract surgery campaigns documented in 2020-2023 annual reports, addressing preventable blindness in elderly populations and others unable to afford the simple procedure restoring sight." },
-    { img: "stories_en/en_57_p2.jpg", text: "The program brought ophthalmologists and equipment to underserved regions, screened patients for cataracts, and performed free operations. According to published reports, the initiative targeted individuals who lost livelihoods or became dependent on families due to blindness from a treatable condition." },
-    { img: "stories_en/en_57_p3.jpg", text: "Post-operative care and follow-up ensured successful outcomes. The program recognized that cataract surgery is among the most cost-effective medical interventions - a brief procedure costing relatively little that restores functional independence to blind individuals." },
-    { img: "stories_en/en_57_p4.jpg", text: "QRCS coordinated with local health ministries and published beneficiary statistics. The Islamic principle that restoring someone's sight equals tremendous spiritual reward motivated donor support, connecting contemporary ophthalmology to prophetic traditions about the merit of helping the blind." }
-  ] },
-  { id: "58", title: "Imam Abu Hanifa's Anonymous Student Support (8th Century)", pages: [
-    { img: "stories_en/en_58_p1.jpg", text: "Imam Abu Hanifa (d." },
-    { img: "stories_en/en_58_p2.jpg", text: "767 CE), founder of the Hanafi legal school, supported his students financially while concealing his charity to preserve their dignity." },
-    { img: "stories_en/en_58_p3.jpg", text: "Biographical sources describe him placing money in students' shoes at night or arranging anonymous assistance for those he knew struggled financially." },
-    { img: "stories_en/en_58_p4.jpg", text: "This allowed poor students to continue their studies without the shame of openly receiving charity or the burden of indebtedness. His concealment of charitable giving reflected" }
-  ] },
-  { id: "59", title: "The Ayyubid Earthquake Relief in Syria (1202 CE)", pages: [
-    { img: "stories_en/en_59_p1.jpg", text: "A major earthquake struck Syria in 1202 CE causing massive destruction in multiple cities. Ayyubid authorities, particularly under Sultan al-Adil, organized systematic relief response including emergency shelter for displaced populations, food distribution preventing starvation, medical care for injured survivors, and reconstruction assistance for destroyed homes and mosques." },
-    { img: "stories_en/en_59_p2.jpg", text: "The response combined state treasury funds with charitable collections from wealthy individuals. Historical chronicles document the scale of destruction and governmental coordination of relief efforts across affected regions." },
-    { img: "stories_en/en_59_p3.jpg", text: "The disaster response demonstrated Islamic governmental responsibility for subjects' welfare during catastrophes. Beyond immediate emergency aid, the Ayyubids organized longer-term reconstruction including rebuilding fortifications, mosques, and infrastructure." },
-    { img: "stories_en/en_59_p4.jpg", text: "This established precedent for organized disaster response as state charitable obligation rather than leaving affected populations to individual charitable initiatives alone. The coordination prevented the chaos of unorganized relief and ensured systematic coverage of affected areas." }
-  ] },
-  { id: "60", title: "The Shepherd's Employment Charity (Prophetic Model)", pages: [
-    { img: "stories_en/en_60_p1.jpg", text: "The Prophet Muhammad worked as a hired shepherd for Makkan families before receiving revelation, an occupation he later noted all prophets had performed." },
-    { img: "stories_en/en_60_p2.jpg", text: "This biographical detail established that providing employment - paying someone fairly for their labor - constituted charitable service to those needing income. The principle that enabling people to earn through work was superior to giving handouts became embedded in Islamic charitable thought." },
-    { img: "stories_en/en_60_p3.jpg", text: "Employers who hired poor individuals, paid fair wages, and treated workers with dignity performed charitable acts by creating economic opportunity." },
-    { img: "stories_en/en_60_p4.jpg", text: "This prophetic model influenced Islamic approaches to poverty relief, emphasizing employment creation alongside direct charity. The" }
-  ] },
-  { id: "61", title: "The Nishapur Public Kitchen (11th Century Persia)", pages: [
-    { img: "stories_en/en_61_p1.jpg", text: "Nishapur, a major city in medieval Persia, operated public kitchens (matbakh) funded through waqf endowments that served free meals daily to the poor, students, and travelers. Historical accounts describe these kitchens serving thousands of people daily, with bread, cooked food, and sometimes fruit distributed." },
-    { img: "stories_en/en_61_p2.jpg", text: "The waqf structure ensured sustainable food provision beyond any individual's lifetime or governmental budget fluctuations. Designated administrators supervised operations, maintaining quality and preventing corruption." },
-    { img: "stories_en/en_61_p3.jpg", text: "The kitchens operated year-round, providing baseline food security for the city's poorest residents. The system recognized that chronic hunger prevented people from working, studying, or contributing to society, and that communal welfare required institutional food provision for those unable to feed themselves." },
-    { img: "stories_en/en_61_p4.jpg", text: "Some accounts describe separate facilities for different populations - one for students, another for general poor - ensuring each group's needs were met appropriately. The Nishapur model influenced other Islamic cities' charitable food distribution systems." }
-  ] },
-  { id: "62", title: "Safiyyah bint Huyayy's Jewelry Charity (7th Century)", pages: [
-    { img: "stories_en/en_62_p1.jpg", text: "Safiyyah bint Huyayy, one of the Prophet Muhammad's wives from Jewish background who converted to Islam, became known for charitable giving from her personal wealth and jewelry." },
-    { img: "stories_en/en_62_p2.jpg", text: "Biographical sources document her support for poor relatives and formerly enslaved people, distributing her possessions generously. Her charitable activity demonstrated that Muslim women had independent authority over their property and wealth, able to give charity without requiring male relatives' permission." },
-    { img: "stories_en/en_62_p3.jpg", text: "This established important precedent for women's autonomous charitable participation. Islamic law granted women full property rights, and Safiyyah's charitable giving exemplified this principle in practice." },
-    { img: "stories_en/en_62_p4.jpg", text: "She made decisions about wealth distribution independently, supporting causes she prioritized including helping people from her former Jewish community who had converted to Islam and faced economic hardship. Her example influenced Islamic charitable culture's recognition that women's charitable contributions were equal to men's and that women exercised full agency over their property for religious purposes." }
-  ] }
-];
-
-window.SADAQAH_STORIES.ar = [
-  { id: "01", title: "مسجد عمرو بن العاص - إرث من الإيمان والمجتمع", pages: [
-    { img: "stories_ar/ar_01_p1.jpg", text: "في عام 641 ميلادي، خلال الفتوحات الإسلامية الأولى، قاد عمرو بن العاص، أحد أبرز صحابة النبي محمد (صلى الله عليه وسلم)، الجيش الإسلامي إلى مصر. وبعد أن بسط سيطرته على المنطقة، أدرك الحاجة إلى مكان مركزي للعبادة والتجمع المجتمعي." },
-    { img: "stories_ar/ar_01_p2.jpg", text: "اشترى عمرو بن العاص قطعة أرض في الفسطاط، العاصمة الجديدة لمصر، وبدأ ببناء مسجد. لم يكن هذا المسجد، المعروف بمسجد عمرو بن العاص، مكانًا للصلاة فحسب، بل كان أيضًا مركزًا للتعليم، واجتماعات المجتمع، والرعاية الاجتماعية." },
-    { img: "stories_ar/ar_01_p3.jpg", text: "بُني المسجد بقصد أن يكون وقفاً، يضمن صيانته واستمرار استخدامه للأجيال القادمة. وشمل الوقف بنوداً لصيانة المسجد، ودعم العلماء والطلاب، ومساعدة الفقراء والمحتاجين." },
-    { img: "stories_ar/ar_01_p4.jpg", text: "أصبح مسجد عمرو بن العاص ركيزة أساسية للحياة الإسلامية في مصر، إذ عزز روح التكاتف المجتمعي وقدم خدمات حيوية. ولا يزال يُعدّ من أقدم وأهم المساجد في أفريقيا، ويستمر في أداء دوره كمؤسسة نابضة بالحياة في المجتمع المصري." }
-  ] },
-  { id: "02", title: "بئر رومة &ndash; وقف عثمان بن عفان", pages: [
-    { img: "stories_ar/ar_02_p1.jpg", text: "خلال السنوات الأولى للإسلام في المدينة المنورة (9 هـ/630 م)، واجه المجتمع المسلم ندرة في المياه. كان بئر رمه ملكية خاصة، وكانت المياه تُباع بأسعار مرتفعة، مما تسبب في معاناة الفقراء." },
-    { img: "stories_ar/ar_02_p2.jpg", text: "أعلن النبي محمد صلى الله عليه وسلم: &laquo;من يشتري بئر رمى ويهيئها للمسلمين، فله خير منها في الجنة؟&raquo;. تفاوض عثمان بن عفان، أحد أثرى الصحابة، مع مالك البئر اليهودي واشترى نصفها باثني عشر ألف درهم. ولما رأى المالك أن المسلمين يفضلون أيام عثمان المجانية، باع النصف الآخر بثمانية آلاف درهم. فأعلن عثمان البئر وقفًا كاملاً، أي وقفًا غير قابل للتصرف للاستخدام العام الدائم." },
-    { img: "stories_ar/ar_02_p3.jpg", text: "خدمت هذه الآبار سكان المدينة المنورة لقرون. وتشير السجلات التاريخية إلى أنها استمرت في العمل خلال العصرين الأموي والعباسي." },
-    { img: "stories_ar/ar_02_p4.jpg", text: "بحسب سجلات الحفاظ على التراث التاريخي السعودي، يقع البئر في المدينة المنورة الحديثة، على الرغم من أن التوسع العمراني قد غيّر معالم المنطقة المحيطة به. وهذا يجسّد الصدقة الجارية، وهي تعاليم النبي صلى الله عليه وسلم التي تنص على أن ثلاثة أمور تبقى بعد وفاة الإنسان: صدقة جارية، وعلم نافع، وذرية صالحة تدعو له. وقد تجاوزت فضل البئر حياة عثمان بن عفان، إذ لا ينقطع أجرها." }
-  ] },
-  { id: "03", title: "جامع القرويين - وقف فاطمة الفهرية الجامعي", pages: [
-    { img: "stories_ar/ar_03_p1.jpg", text: "في عام 859 ميلادي (245 هجري)، ورثت فاطمة الفهرية، ابنة تاجر ثري هاجر من القيروان (تونس) إلى فاس بالمغرب، ثروة طائلة بعد وفاة والدها. وبدلاً من الاحتفاظ بهذه الثروة، خصصتها بالكامل لبناء مسجد ومركز تعليمي لأبناء مجتمعها." },
-    { img: "stories_ar/ar_03_p2.jpg", text: "أشرفت فاطمة بنفسها على بناء المسجد، ويُقال إنها صامت طوال فترة البناء التزامًا روحيًا. أسست مسجد القرويين مع مدرسة ملحقة به، وأوقفت عليه عقاراتٍ تُدرّ دخلًا يكفي لدعم العلماء والطلاب وصيانة المسجد إلى الأبد. وأصبحت المدرسة مركزًا رئيسيًا للدراسات الإسلامية، جاذبةً علماء في علم الكلام والفقه والفلك والطب والرياضيات." },
-    { img: "stories_ar/ar_03_p3.jpg", text: "تشير السجلات التاريخية إلى أن الطلاب قدموا من مختلف أنحاء العالم الإسلامي وخارجه. ومن بين العلماء البارزين الذين درسوا هناك الجغرافي البربري محمد الإدريسي (القرن الثاني عشر) والفيلسوف اليهودي موسى بن ميمون." },
-    { img: "stories_ar/ar_03_p4.jpg", text: "تُقرّ اليونسكو وموسوعة غينيس للأرقام القياسية بأن جامعة القرويين هي أقدم جامعة في العالم تمنح شهادات جامعية بشكل مستمر. وقد أصبح نظام الوقف الذي أسسته فاطمة، والذي يخصص العقارات المدرة للدخل لدعم العمليات التعليمية، نموذجًا يُحتذى به في جميع أنحاء العالم الإسلامي. ولا يزال وقفها قائمًا حتى اليوم، بعد مرور أكثر من 1160 عامًا." }
-  ] },
-  { id: "04", title: "مستشفى العضدي - الوقف الطبي المتقدم في بغداد", pages: [
-    { img: "stories_ar/ar_04_p1.jpg", text: "في عام 981 ميلادي (371 هجري)، أنشأ عدود الدولة، أمير البويهيين الحاكم في بغداد، بيمارستان العضدي على الضفة الغربية لنهر دجلة. لم يكن هذا مجرد مرفق علاجي، بل مؤسسة طبية شاملة مصممة على شكل وقف دائم." },
-    { img: "stories_ar/ar_04_p2.jpg", text: "كان المستشفى مقسماً إلى أقسام متخصصة: الطب الباطني، والجراحة، وطب العيون، وجراحة العظام - وهو نموذج تنظيمي متطور بالنسبة للقرن العاشر. وكان يعمل فيه 24 طبيباً، من بينهم أخصائيون، وكان يضم أجنحة منفصلة للرجال والنساء. وكانت المؤسسة الخيرية توفر الأدوية والطعام مجاناً، بالإضافة إلى إعانات ما بعد النقاهة للمرضى." },
-    { img: "stories_ar/ar_04_p3.jpg", text: "وثّق الطبيب ابن بطلان (القرن الحادي عشر) أن المرضى كانوا يُمنحون ملابس جديدة عند خروجهم من المستشفى حتى لا يعودوا إلى منازلهم بملابس متسخة. وقد خصّصت وثيقة الوقف عائدات العقارات التجارية والأراضي الزراعية والحمامات العامة لتمويل العمليات. ضمن هذا النظام المالي حصول الأطباء على رواتب منتظمة، مما حرّرهم من الاعتماد على الرعاة الأثرياء ومكّنهم من علاج الفقراء." },
-    { img: "stories_ar/ar_04_p4.jpg", text: "تلقى طلاب الطب تدريباً مجانياً، وامتلك المستشفى مكتبة طبية واسعة. وتصف الروايات التاريخية للجغرافي المقدسي والطبيب ابن أبي صيبية المعايير المتقدمة للمستشفى. استمر مستشفى العضدي في العمل لأكثر من 400 عام قبل أن يُدمر خلال الغزو المغولي لبغداد عام 1258." }
-  ] },
-  { id: "05", title: "عام الرمادة - إغاثة عمر بن الخطاب من المجاعة", pages: [
-    { img: "stories_ar/ar_05_p1.jpg", text: "في عام ١٨ هـ (٦٣٩ م)، ضرب جفافٌ مدمر شبه الجزيرة العربية، وأثّر بشكل خاص على المدينة المنورة والمناطق المحيطة بها. عُرف ذلك العام بعام الرماد، لأن الأرض المحروقة بدت كالرماد. تَلِفت المحاصيل، ونفقت الماشية، وهددت المجاعة السكان." },
-    { img: "stories_ar/ar_05_p2.jpg", text: "بادر الخليفة عمر بن الخطاب بتنظيم إغاثة منظمة على الفور. فأرسل رسائل عاجلة إلى ولاة الأقاليم في المناطق التي تتمتع بفائض غذائي - سوريا ومصر والعراق - يطلب فيها شحنات من الحبوب. وتشير المصادر التاريخية إلى أن عمر كتب إلى عمرو بن العاص في مصر وإلى أبي عبيدة في سوريا، فأرسلا قوافل محملة بالقمح والتمر والزيت." },
-    { img: "stories_ar/ar_05_p3.jpg", text: "تذكر بعض الروايات وصول أكثر من 4000 جمل في قوافل الإغاثة. أشرف عمر شخصياً على توزيع الطعام في المدينة المنورة، وأنشأ مطابخ عامة تُعدّ وجبات الطعام مرتين يومياً لكل محتاج، مسلماً كان أو غير مسلم، مقيماً أو لاجئاً بدوياً." },
-    { img: "stories_ar/ar_05_p4.jpg", text: "تذكر الروايات التاريخية أن عمر بن الخطاب رضي الله عنه رفض تناول أي شيء سوى الخبز وزيت الزيتون خلال المجاعة، قائلاً: \"كيف لي أن أفهم معاناة الفقراء إن لم أعشها؟\" وقد اسودّ جلده من جراء هذا النظام الغذائي القاسي، ما دفع أصحابه إلى ملاحظة هذا التغيير الواضح. واستمرت جهود الإغاثة تسعة أشهر حتى هطل المطر أخيرًا. ويُقدّر المؤرخون أن آلاف الأرواح أُنقذت بفضل هذه الاستجابة الطارئة المنسقة. وأصبح نظام عمر الإداري - الذي يقوم على التنسيق المركزي، وتعبئة الموارد على مستوى المحافظات، والتوزيع العادل - نموذجًا للحكم الإسلامي في أوقات الأزمات." }
-  ] },
-  { id: "06", title: "إعانة الأيتام - نظام الرعاية الاجتماعية المؤسسي لعمر", pages: [
-    { img: "stories_ar/ar_06_p1.jpg", text: "في عام 15 هـ (636 م)، وبعد التوسع السريع للدولة الإسلامية وازدياد عائدات الأراضي المفتوحة، أنشأ الخليفة عمر بن الخطاب الديوان، وهو أول نظام منظم لتوزيع المساعدات العامة في التاريخ الإسلامي. وبينما كان الديوان معروفًا في المقام الأول كسجل عسكري، فقد تضمن أحكامًا خاصة للأيتام والأرامل وكبار السن وذوي الاحتياجات الخاصة." },
-    { img: "stories_ar/ar_06_p2.jpg", text: "أمر عمر بن الخطاب رضي الله عنه بأن يحصل كل يتيم على راتب منتظم من بيت المال. وكان مقدار هذا الراتب يختلف باختلاف العمر والظروف؛ إذ كان الرضع يحصلون على راتب فوري، ثم يزداد عندما يبدأون بتناول الطعام الصلب، ثم مرة أخرى عند فطامهم. وتشير السجلات التاريخية لتلك الفترة إلى أن أيتام الصحابة الذين استشهدوا في معركتي بدر وأحد كانوا يحصلون على مخصصات أكبر تكريمًا لتضحية آبائهم." },
-    { img: "stories_ar/ar_06_p3.jpg", text: "كان الخليفة يراجع القضايا بنفسه لضمان العدالة. يروي الطبري حادثةً لاحظ فيها عمر بن الخطاب امرأةً تُطعم طفلها الرضيع مرقًا بدلًا من الحليب. ولما سألها، أوضحت أن الأيتام لا يحصلون على إعانة الطعام المخصصة للبالغين إلا بعد الفطام، لذا فهي تُجبر الطفل على الفطام المبكر." },
-    { img: "stories_ar/ar_06_p4.jpg", text: "شعر عمر بالضيق، فراجع السياسة على الفور، وأمّ المصلين في تلك الليلة طالباً من الله المغفرة على خطئه. لم يكن هذا مجرد عمل خيري، بل رعاية مؤسسية - دعمٌ مُنظّمٌ قائمٌ على الحقوق، يُدار عبر هيكل بيروقراطي. استمر هذا النظام عبر الخلافات المتعاقبة، وتطور إلى الأوقاف الخيرية التي دعمت دور الأيتام والمدارس والخدمات الاجتماعية على مر التاريخ الإسلامي." }
-  ] },
-  { id: "07", title: "توسيع المسجد النبوي - وقف عثمان بن عفان", pages: [
-    { img: "stories_ar/ar_07_p1.jpg", text: "في السنوات الأولى للإسلام في المدينة المنورة (9 هـ/630 م)، ضاق المسجد النبوي بأعداد المسلمين المتزايدة. فقال النبي محمد صلى الله عليه وسلم: &laquo;من يشتري هذه الأرض بماله الخاص، فيعمل بها كما يعمل بها المسلمون، فيكون له خير منها في الجنة؟&raquo;. فقام عثمان بن عفان، أحد أثرى الصحابة، بالتفاوض مع ملاك الأرض المجاورة واشتراها بعشرين ألف درهم." },
-    { img: "stories_ar/ar_07_p2.jpg", text: "ثم تبرع بالأرض للجالية المسلمة، فقام بتوسيع المسجد وتوفير مساحة أكبر للعبادة. وقد خدم المسجد الموسع الجالية المسلمة لقرون." },
-    { img: "stories_ar/ar_07_p3.jpg", text: "تُشير السجلات التاريخية إلى أن المسجد ظل مركزًا رئيسيًا للعبادة والتعلم خلال العصرين الأموي والعباسي. ووفقًا لسجلات الحفاظ على التراث التاريخي السعودي، يقع المسجد بعد توسيعه في المدينة المنورة الحديثة، على الرغم من أن التوسع العمراني قد غيّر معالم المنطقة المحيطة به." },
-    { img: "stories_ar/ar_07_p4.jpg", text: "يُجسّد هذا مثالاً على الصدقة الجارية، وهي تعليم النبي صلى الله عليه وسلم بأن ثلاثة أمور تستمر بعد وفاة الإنسان: صدقة جارية، وعلم نافع، وذرية صالحة تدعو له. وقد تجاوزت منافع المسجد حياة عثمان، إذ يُثاب عليه الأجر باستمرار." }
-  ] },
-  { id: "08", title: "إطعام جياع المدينة المنورة في عهد النبي محمد ﷺ", pages: [
-    { img: "stories_ar/ar_08_p1.jpg", text: "إطعام جياع المدينة المنورة في عهد النبي محمد ﷺ السرد الكامل: عندما وصل النبي محمد ﷺ إلى المدينة المنورة، وجد أن الكثير من الناس يعانون من الفقر والجوع." },
-    { img: "stories_ar/ar_08_p2.jpg", text: "بدأ النبي ﷺ بتنظيم نظام لإطعام الفقراء والمحتاجين. أحد الأمثلة البارزة على ذلك هو قصة سعد بن أبي وقاص رضي الله عنه، الذي كان يملك أرضًا زراعية كبيرة." },
-    { img: "stories_ar/ar_08_p3.jpg", text: "عندما علم النبي ﷺ بوجود جائعين في المدينة، أمر سعدًا بأن يتصدق بجزء من محصوله لإطعامهم. سعد رضي الله عنه استجاب لأمر النبي ﷺ وتصدق بكمية كبيرة من التمر والقمح لإطعام الفقراء." },
-    { img: "stories_ar/ar_08_p4.jpg", text: "النبي ﷺ نفسه كان قدوة في هذا المجال، حيث كان يقسم طعامه بين أصحابه ويحرص على عدم ترك أحد منهم دون طعام. كما شجع النبي ﷺ أصحابه على الصدقة وإطعام الفقراء، قائلاً: \"فَإِذَا بَلَغْنَ أَجَلَهُنَّ فَأَمْسِكُوهُنَّ بِمَعْرُوفٍ أَوْ فَارِقُوهُنَّ بِمَعْرُوفٍ وَأَشْهِدُوا ذَوَىْ عَدْلٍ مِّنكُمْ وَأَقِيمُوا ٱلشَّهَـٰدَةَ لِلَّهِ ۚ ذَٰلِكُمْ يُوعَظُ بِهِۦ مَن كَانَ يُؤْمِنُ بِٱللَّهِ وَٱلْيَوْمِ ٱلْـَٔاخِرِ ۚ وَمَن يَتَّقِ ٱللَّهَ يَجْعَل لَّهُۥ مَخْرَجًا [٢](https://quran.com/65/2) فليُكرم ضيفه\"." }
-  ] },
-  { id: "09", title: "نور المعرفة في مكتبة قرطبة", pages: [
-    { img: "stories_ar/ar_09_p1.jpg", text: "في القرن العاشر الميلادي، خلال فترة حكم الخليفة الأموي عبد الرحمن الثالث في قرطبة بالأندلس، تم تأسيس واحدة من أعظم المكتبات في العصور الوسطى. كان الهدف من هذه المكتبة هو جمع وترجمة وتوزيع المعرفة من مختلف الثقافات والحضارات." },
-    { img: "stories_ar/ar_09_p2.jpg", text: "وقد نجحت المكتبة في تحقيق هذا الهدف بفضل الدعم الكبير الذي تلقته من الخليفة ووزيره الحسن بن نصر. كانت المكتبة تحتوي على أكثر من 400 ألف مجلد ومخطوط، مما جعلها أكبر مكتبة في ذلك الوقت. لم تكن المكتبة مجرد مكان لتخزين الكتب، بل كانت مركزًا حيويًا للبحث العلمي والترجمة والنقل الثقافي." },
-    { img: "stories_ar/ar_09_p3.jpg", text: "عمل فيها مترجمون مشهورون مثل حنين بن إسحاق، الذين قاموا بترجمة العديد من الأعمال اليونانية والفارسية إلى العربية. كما جذبت المكتبة علماء وفلاسفة من مختلف المناطق، مما ساهم في تبادل الأفكار والمعارف بين الشرق والغرب." },
-    { img: "stories_ar/ar_09_p4.jpg", text: "قال النبي محمد صلى الله عليه وسلم: \"من سلك طريقًا يلتمس فيه علمًا سهل الله له به طريقًا إلى الجنة\". وهذا الحديث يعكس أهمية طلب العلم ونشره في الإسلام. وكانت مكتبة قرطبة مثالًا حيًا لهذا المبدأ، حيث وفرت بيئة خصبة لنمو المعرفة وتبادلها." }
-  ] },
-  { id: "10", title: "أيادي الشفاء في بيمارستان نوري: إرث من الرعاية الصحية الرحيمة في دمشق", pages: [
-    { img: "stories_ar/ar_10_p1.jpg", text: "في قلب دمشق، سوريا، خلال عهد نور الدين زنكي في القرن الثاني عشر، انطلقت مبادرة رائدة. انطلاقًا من التزامه بتخفيف معاناة الإنسان، أسس نور الدين مستشفى بيمارستان نوري، وهو مستشفى متطور يُعنى بتقديم العلاج الطبي المجاني للجميع، بغض النظر عن طبقتهم الاجتماعية أو وضعهم المادي. وقد مثّلت هذه المؤسسة المبتكرة نقلة نوعية في مجال الرعاية الصحية، ووضعت معايير جديدة للخدمات الطبية الرحيمة والمتاحة للجميع." },
-    { img: "stories_ar/ar_10_p2.jpg", text: "صُمم مستشفى بيمارستان نوري لتلبية طيف واسع من الاحتياجات الطبية. يضم المستشفى أجنحة متخصصة لأمراض مختلفة، بما في ذلك أقسام منفصلة للرجال والنساء والأطفال، وحتى مرضى الصحة النفسية. ويعمل في المستشفى أطباء وجراحون وصيادلة وممرضون ذوو كفاءة عالية، تلقوا تدريباً مكثفاً والتزموا بأعلى معايير الأخلاق الطبية." },
-    { img: "stories_ar/ar_10_p3.jpg", text: "إلى جانب الرعاية السريرية، كان المستشفى بمثابة مؤسسة تعليمية، حيث قدم برامج تدريب مهني وفرصًا للتطوير المهني المستمر للمهنيين الطبيين الطموحين. وقد مُوّلت عمليات المستشفى من خلال أوقاف سخية، مما ضمن استدامته على مر القرون. وغطت هذه الأوقاف كل شيء بدءًا من رواتب الموظفين وصيانة المعدات وصولًا إلى وجبات المرضى وتكاليف الأدوية." },
-    { img: "stories_ar/ar_10_p4.jpg", text: "أتاح نظام الوقف لمستشفى بيمارستان نوري العمل باستقلالية تامة عن تقلبات التمويل الحكومي، مما يضمن استمرار تقديم الخدمات للمجتمع. وقد أكد النبي محمد صلى الله عليه وسلم على أهمية رعاية المرضى بقوله: &laquo;من فرج كربة مؤمن في الدنيا فرج الله كربة له يوم القيامة&raquo;. وقد استرشد العاملون في بيمارستان نوري بهذا المبدأ، وحفزهم على خدمة الإنسانية بإخلاص وتفانٍ. وقد ألهم نجاح المستشفى إنشاء مؤسسات مماثلة في أنحاء العالم الإسلامي، مما أحدث نقلة نوعية في تقديم الرعاية الصحية وحسّن من نتائج الصحة العامة." }
-  ] },
-  { id: "11", title: "إرث الوليد بن عبد الملك ودار الأيتام في دمشق", pages: [
-    { img: "stories_ar/ar_11_p1.jpg", text: "في أوائل القرن الثامن الميلادي، خلال عهد الخليفة الأموي الوليد بن عبد الملك، انطلقت مبادرة هامة لرعاية الأيتام في العالم الإسلامي. وإدراكاً منه لأهمية رعاية من فقدوا آباءهم، أنشأ الوليد داراً كبيرة للأيتام في دمشق، عاصمة الخلافة الأموية." },
-    { img: "stories_ar/ar_11_p2.jpg", text: "لم تكن هذه المؤسسة مجرد مأوى، بل مركزًا متكاملًا مصممًا لتزويد الأيتام بالتعليم والتدريب المهني والتمكين الاقتصادي. وكانت دار الأيتام في دمشق شاهدًا على التزام الخليفة بالرعاية الاجتماعية، إذ آوت مئات الأيتام، ووفرت لهم الطعام والملابس والرعاية الطبية." },
-    { img: "stories_ar/ar_11_p3.jpg", text: "والأهم من ذلك، أنها قدمت برامج تعليمية شملت الدراسات الدينية، ومحو الأمية، ومهارات عملية كالنجارة والزراعة. ومن خلال تزويد الأيتام بالمعرفة والمهارات، سعت مؤسسة الوليد إلى ضمان قدرتهم على أن يصبحوا أفرادًا مكتفين ذاتيًا في المجتمع بمجرد مغادرتهم دار الأيتام. وكان أثر هذه المبادرة بالغًا." },
-    { img: "stories_ar/ar_11_p4.jpg", text: "أُتيحت الفرصة للأيتام الذين كانوا سيُتركون لمصيرهم لولا ذلك، لينعموا بحياة كريمة. لم يقتصر الأمر على توفير الغذاء المادي لهم، بل شمل أيضاً تزويدهم بالأدوات اللازمة لحياة كريمة. وقد شكّل إنشاء هذه المؤسسة سابقةً للأجيال القادمة، مُظهراً أهمية برامج الرعاية الاجتماعية التي ترعاها الدولة في الإسلام." }
-  ] },
-  { id: "12", title: "حملة قطر الخيرية لدعم التعليم في غزة - \"بناء مدرسة\"", pages: [
-    { img: "stories_ar/ar_12_p1.jpg", text: "تُواصل مؤسسة قطر الخيرية، إحدى أكبر المنظمات الإنسانية في الخليج والتي تأسست عام ١٩٩٢، برامج دعم تعليمي طويلة الأمد في قطاع غزة، كما هو موثق في تقاريرها السنوية وبياناتها الرسمية. وتُعالج مبادرة \"بناء مدرسة\" التابعة للمؤسسة النقص الحاد في المرافق التعليمية الناجم عن أضرار النزاع والنمو السكاني، حيث تعمل بعض المدارس بنظام الدوام الثلاثي لاستيعاب الطلاب." },
-    { img: "stories_ar/ar_12_p2.jpg", text: "بحسب وثائق مشاريع قطر الخيرية المنشورة، قامت المنظمة ببناء وتأهيل العديد من المرافق التعليمية في غزة، موفرةً فصولاً دراسية ومكتبات ومساحات تعليمية آمنة لآلاف الطلاب. وتشمل هذه المشاريع البنية التحتية المادية، بالإضافة إلى توفير المستلزمات التعليمية، وبرامج تدريب المعلمين، والدعم النفسي والاجتماعي للأطفال المتضررين من الصدمات. وتُقدّم المنظمة هذه المشاريع كأوقاف، حيث يُمكن للمتبرعين تخصيص بناء المدارس كصدقة جارية باسمهم أو تخليداً لذكرى ذويهم المتوفين." },
-    { img: "stories_ar/ar_12_p3.jpg", text: "لا يقتصر الدعم التعليمي على البنية التحتية فحسب، بل يشمل برامج كفالة الأيتام المتكاملة مع توفير فرص التعليم. ويقدم برنامج \"رفاقات\" التابع لقطر الخيرية، والموثق في عملياتها في غزة، دعماً شاملاً يشمل الرسوم الدراسية واللوازم المدرسية والزي المدرسي والدروس الخصوصية للأطفال الأيتام." },
-    { img: "stories_ar/ar_12_p4.jpg", text: "يعكس هذا النهج الشامل المبدأ الإسلامي القائل بأن التعليم حقٌّ ووسيلةٌ لكسر حلقات الفقر والتبعية. وتُحاكي هذه المشاريع المعاصرة بشكلٍ مباشرٍ الأوقاف التعليمية الإسلامية التاريخية، مثل جامعة القرويين التي أسستها فاطمة الفهرية، مما يُؤكد استمرارية التقاليد الإسلامية في إتاحة التعليم للجميع. وتعمل مؤسسة قطر الخيرية تحت إشراف هيئة تنظيم العمل الخيري في قطر، ما يضمن الشفافية والامتثال للوائح القطرية والمعايير الإنسانية الدولية." }
-  ] },
-  { id: "13", title: "عيادات الصحة المتنقلة التابعة للهلال الأحمر القطري في اليمن", pages: [
-    { img: "stories_ar/ar_13_p1.jpg", text: "واصلت جمعية الهلال الأحمر القطري تقديم خدمات الرعاية الصحية في اليمن طوال فترة الأزمة الإنسانية الراهنة، ساعيةً إلى معالجة انهيار النظام الصحي اليمني حيث توقف أكثر من نصف المرافق الطبية عن العمل. ويُقدّم برنامج العيادات الصحية المتنقلة التابع للجمعية، والموثّق في تقاريرها التشغيلية والمُدقّق من خلال آليات التنسيق الإنساني التابعة للأمم المتحدة، الرعاية الطبية الأساسية للسكان الريفيين والمتضررين من النزاع الذين لا يستطيعون الوصول إلى المستشفيات العاملة." },
-    { img: "stories_ar/ar_13_p2.jpg", text: "تتنقل الوحدات المتنقلة، وهي عبارة عن مركبات طبية مجهزة بكوادر طبية مدربة، عبر مسارات محددة مسبقًا لخدمة القرى النائية ومواقع تجمعات النازحين داخليًا. ووفقًا لوثائق الهلال الأحمر القطري، تشمل الخدمات استشارات الرعاية الصحية الأولية، وعلاج الأمراض الشائعة، وإدارة الحالات المزمنة كالسكري وارتفاع ضغط الدم، وخدمات صحة الأم والطفل بما في ذلك رعاية ما قبل الولادة والتطعيمات، والتدخلات الطارئة مع إحالة الحالات الخطيرة إلى المستشفيات. وتوفر المنظمة الأدوية والمستلزمات الطبية مجانًا، مما يزيل العوائق المالية التي تحول دون حصول الأسر الفقيرة على الرعاية الصحية." },
-    { img: "stories_ar/ar_13_p3.jpg", text: "تُنفّذ جمعية الهلال الأحمر القطري هذه البرامج بالتنسيق مع السلطات الصحية اليمنية والشركاء الدوليين، بما في ذلك منظمة الصحة العالمية واليونيسف، لضمان توافق الخدمات مع الأولويات الصحية الوطنية والمعايير الإنسانية. وتنشر المنظمة إحصاءات المرضى وبيانات تقديم الخدمات من خلال آليات الإبلاغ الإنساني، ما يُبرز المساءلة وقياس الأثر. وتضم الفرق الطبية كوادر دولية وعاملين في مجال الرعاية الصحية اليمنيين، ما يجمع بين الخبرة والمعرفة المحلية والقدرات اللغوية." },
-    { img: "stories_ar/ar_13_p4.jpg", text: "تضمن رقابة هيئة تنظيم الرعاية الصحية في اليمن وصول الأموال المخصصة لبرامج الصحة في اليمن إلى أغراضها المرجوة. ويُشابه هذا النموذج المعاصر للرعاية الصحية المتنقلة نموذج العمل الخيري الطبي الإسلامي التاريخي، مثل مستشفى العضدي في بغداد، الذي كان يقدم الرعاية مجاناً بغض النظر عن قدرة المرضى على الدفع." }
-  ] },
-  { id: "14", title: "مكتبة دار الحكمة - خزانة المأمون للمعرفة", pages: [
-    { img: "stories_ar/ar_14_p1.jpg", text: "مكتبة دار الحكمة - خزانة المأمون للمعرفة ملخص قصير: أسس الخليفة العباسي المأمون دار الحكمة في بغداد كمؤسسة وقفية للترجمة والبحث العلمي، حافظت على التراث الإنساني وطورت العلوم. الفكرة الخيرية الرئيسية: وقف مؤسسة علمية (ترجمة وبحث ومكتبة عامة) القصة: في عام 215 هـ / 830 م، أسس الخليفة العباسي المأمون بن هارون الرشيد دار الحكمة في بغداد، محولاً إياها من مكتبة ملكية إلى أكاديمية علمية كبرى منظمة كوقف عام. كانت مهمة المؤسسة جمع المعرفة وترجمتها وتطويرها في جميع المجالات - الفلسفة والرياضيات والفلك والطب والجغرافيا." },
-    { img: "stories_ar/ar_14_p2.jpg", text: "استقطب المأمون علماء من خلفيات متنوعة - مسلمين ومسيحيين ويهود وصابئة - وقدم لهم رواتب سخية من عائدات الأوقاف الحكومية. المترجم الشهير حنين بن إسحاق كان يُكافأ بوزن ترجماته ذهباً حسب الروايات التاريخية. أرسل الخليفة بعثات إلى الأراضي البيزنطية لشراء المخطوطات اليونانية، ودفع أثماناً مرتفعة لأعمال أرسطو وإقليدس وبطليموس وجالينوس." },
-    { img: "stories_ar/ar_14_p3.jpg", text: "ضمت المؤسسة مكاتب للترجمة ومراصد فلكية ومكتبات حيث ينتج النساخون المخطوطات للوصول العام. عمل فيها علماء مثل الخوارزمي (الرياضيات والجبر) والكندي (الفلسفة) وبنو موسى (الهندسة). حركة الترجمة حفظت الفلسفة والعلوم اليونانية التي كانت قد فُقدت في أوروبا، وعادت لاحقاً إلى الغرب خلال عصر النهضة عبر الترجمات من العربية إلى اللاتينية." },
-    { img: "stories_ar/ar_14_p4.jpg", text: "نظم المأمون المؤسسة كوقف خيري - حيث مولت عائدات الأراضي الزراعية والممتلكات التجارية المخصصة العمليات، مما يضمن الاستدامة بعيداً عن الرعاية الملكية المباشرة. رغم تدمير المبنى الأصلي خلال الغزو المغولي عام 656 هـ / 1258 م، إلا أن إرثها الفكري شكل الحضارة العالمية بعمق. المرجع القرآني/الحديث: القرآن 39:9: \"قُلْ هَلْ يَسْتَوِي الَّذِينَ يَعْلَمُونَ وَالَّذِينَ لَا يَعْلَمُونَ\" القرآن 20:114: \"رَبِّ زِدْنِي عِلْمًا\" صحيح مسلم، حديث 1631: العلم النافع من الصدقات الجارية التي لا تنقطع بعد الموت سنن ابن ماجه، حديث 224: \"طلب العلم فريضة على كل مسلم\" المصدر التاريخي: ابن النديم، الفهرست (موسوعة ببليوغرافية، القرن العاشر، تذكر علماء دار الحكمة) القفطي، تاريخ الحكماء (يذكر المؤسسة) ديمتري غوتاس، الفكر اليوناني والثقافة العربية (تحليل أكاديمي حديث) جيم الخليلي، دار الحكمة (تاريخ شعبي بدقة أكاديمية" }
-  ] },
-  { id: "15", title: "عطاء فاطمة الزهراء: رمز الكرم والإيثار في الإسلام", pages: [
-    { img: "stories_ar/ar_15_p1.jpg", text: "عطاء فاطمة الزهراء: رمز الكرم والإيثار في الإسلام ملخص قصير: تستعرض هذه القصة كرم فاطمة الزهراء ابنة الرسول محمد ﷺ، وكيف كانت قدوة في العطاء والبذل. فكرة القصة: في بيئة الصحراء القاسية، عاشت فاطمة الزهراء، ابنة الرسول محمد ﷺ وزوجة علي بن أبي طالب، حياة بسيطة مليئة بالتضحيات. وعلى الرغم من ظروفها الاقتصادية المتواضعة، إلا أنها كانت مثالاً للكرم والإيثار. روي عن أسماء بنت عميس أنها قالت: \"جاءت فاطمة بنت رسول الله ﷺ بشيء من ثريد في تورٍ (إناء)، فقالت: 'يا أسماء!" },
-    { img: "stories_ar/ar_15_p2.jpg", text: "إن علياً قد جاء بطعام، فأرسلت إليّ منه بهذا الثريد، والذي بعث محمداً بالحق لقد أصبح آل محمد ثلاثة أيام ما أوقدوا ناراً'. ثم قالت: 'يا أسماء! انطلقي بنا نأتي رسول الله ﷺ فنخبره بما نحن فيه'\". ذهبت فاطمة مع أسماء إلى بيت النبي ﷺ، فوجداه يصلي." },
-    { img: "stories_ar/ar_15_p3.jpg", text: "وعندما انتهى من صلاته، أخبرتاه بحالهما. فقال لهما النبي ﷺ: \"اصبرا يا بنيّة، فإنكما أول من يلحق بي\". كان هذا الموقف دليلاً واضحاً على صبر فاطمة وإيمانها العميق بقضاء الله وقدره. وعلى الرغم من حاجتها الشخصية للطعام، إلا أنها فضلت مشاركة ما لديها مع زوجها وعائلتها الصغيرة." },
-    { img: "stories_ar/ar_15_p4.jpg", text: "كان لكرم فاطمة وإيثارها تأثير كبير على المحيطين بها. فقد تعلموا منها قيمة العطاء والبذل، وأن الرضا بالقليل يمكن أن يكون مصدر سعادة وراحة نفسية. كما ساعدت قصتها في تعزيز الروح الجماعية والتكاتف الاجتماعي داخل المجتمع الإسلامي الناشئ. مراجع قرآنية وأحاديث نبوية: * القرآن الكريم: \"وَٱلَّذِينَ تَبَوَّءُو ٱلدَّارَ وَٱلْإِيمَـٰنَ مِن قَبْلِهِمْ يُحِبُّونَ مَنْ هَاجَرَ إِلَيْهِمْ وَلَا يَجِدُونَ فِى صُدُورِهِمْ حَاجَةً مِّمَّآ أُوتُوا وَيُؤْثِرُونَ عَلَىٰٓ أَنفُسِهِمْ وَلَوْ كَانَ بِهِمْ خَصَاصَةٌ ۚ وَمَن يُوقَ شُحَّ نَفْسِهِۦ فَأُولَـٰٓئِكَ هُمُ ٱلْمُفْلِحُونَ [٩](https://quran.com/59/9)\" (سورة الحشر، الآية 9) * الحديث النبوي: روي عن أبي هريرة أن النبي ﷺ قال: \"فَإِذَا بَلَغْنَ أَجَلَهُنَّ فَأَمْسِكُوهُنَّ بِمَعْرُوفٍ أَوْ فَارِقُوهُنَّ بِمَعْرُوفٍ وَأَشْهِدُوا ذَوَىْ عَدْلٍ مِّنكُمْ وَأَقِيمُوا ٱلشَّهَـٰدَةَ لِلَّهِ ۚ ذَٰلِكُمْ يُوعَظُ بِهِۦ مَن كَانَ يُؤْمِنُ بِٱللَّهِ وَٱلْيَوْمِ ٱلْـَٔاخِرِ ۚ وَمَن يَتَّقِ ٱللَّهَ يَجْعَل لَّهُۥ مَخْرَجًا [٢](https://quran.com/65/2) فليكرم جاره\" (متفق عليه) مصادر تاريخية: * كتاب \"السيرة النبوية\" لابن هشام * كتاب \"الإمامة والسياسة\" لابن قتيبة الدينوري * مصادر حديثة: مقالات أكاديمية ووثائق رسمية تؤكد دور فاطمة الزهراء في نشر قيم الكرم والإيثار." }
-  ] },
-  { id: "16", title: "كرم النبي خلال شهر رمضان", pages: [
-    { img: "stories_ar/ar_16_p1.jpg", text: "خلال شهر رمضان المبارك، كان النبي محمد (صلى الله عليه وسلم) يزيد من أعماله الخيرية والإحسانية." },
-    { img: "stories_ar/ar_16_p2.jpg", text: "كان معروفاً بأنه من أكثر الناس سخاءً، وقد بلغ سخاؤه ذروته خلال هذا الشهر الفضيل." },
-    { img: "stories_ar/ar_16_p3.jpg", text: "كان النبي (صلى الله عليه وسلم) يلتقي بجبريل (عليه السلام) لدراسة القرآن، وكان هذا التواصل الروحي يلهمه ليكون أكثر سخاءً في منح الخير للآخرين." },
-    { img: "stories_ar/ar_16_p4.jpg", text: "كان يُقدّم الطعام والرزق للمحتاجين، ويضمن ألا يجوع أحد خلال هذا الوقت المقدس. وكثيراً ما كان رفاقه يشهدون كرمه ويستلهمون منه ليقتدوا به." }
-  ] },
-  { id: "17", title: "المزارع الكريم والمطر الإلهي", pages: [
-    { img: "stories_ar/ar_17_p1.jpg", text: "في زمنٍ كان فيه الكرم نادراً، عاش مزارعٌ صالحٌ في أرضٍ قاحلة." },
-    { img: "stories_ar/ar_17_p2.jpg", text: "قام بتقسيم محصول حديقته إلى ثلاثة أجزاء: ثلث للأعمال الخيرية، وثلث لنفسه ولمن يعولهم، وثلث لإعادة استثماره في الحديقة." },
-    { img: "stories_ar/ar_17_p3.jpg", text: "في أحد الأيام، سمع رجل صوتاً من سحابة يقول: \"اسقِ حديقة فلان\"، فتبع الماء إلى حديقة المزارع." },
-    { img: "stories_ar/ar_17_p4.jpg", text: "شرح المزارع ممارسته للأعمال الخيرية، فأدرك الرجل أن هذا هو سبب العناية الإلهية." }
-  ] },
-  { id: "18", title: "الإرث الرحيم لزكاة الفطر: ضمان الكرامة خلال شهر رمضان", pages: [
-    { img: "stories_ar/ar_18_p1.jpg", text: "في الأيام الأولى للإسلام، أسس النبي محمد ﷺ سنة زكاة الفطر، مؤكداً على أهميتها كوسيلة لتطهير الصائمين من الكلام الفارغ واللغة البذيئة، ولتوفير الرزق للفقراء حتى يتمكنوا هم أيضاً من المشاركة في فرحة عيد الفطر." },
-    { img: "stories_ar/ar_18_p2.jpg", text: "أصبح هذا العمل الخيري جزءًا لا يتجزأ من شهر رمضان، ضامنًا عدم معاناة أي مسلم من الجوع خلال هذا الشهر المبارك. وتضمنت العملية حساب كمية محددة من المواد الغذائية الأساسية، كالتمر والشعير والزبيب والقمح، لكل فرد في الأسرة، ثم توزيعها على المحتاجين قبل صلاة العيد." },
-    { img: "stories_ar/ar_18_p3.jpg", text: "وقد ضمن ذلك حصول حتى أكثر أفراد المجتمع ضعفاً على الاحتياجات الأساسية، وتمكينهم من المشاركة في الاحتفالات دون الشعور بالإقصاء. وعلى مر القرون، استمرت هذه الممارسة في التطور مع الحفاظ على هدفها الأساسي." },
-    { img: "stories_ar/ar_18_p4.jpg", text: "يختار العديد من المسلمين اليوم تقديم مساعدات نقدية تعادل أسعار السوق المحلية، مما يتيح مرونة وكفاءة أكبر في الوصول إلى المحتاجين. ولا يقتصر أثر ذلك على توفير الطعام فحسب، بل يعزز الشعور بالتضامن المجتمعي ويذكرنا بمسؤوليتنا المشتركة تجاه بعضنا البعض." }
-  ] },
-  { id: "19", title: "استقبال النجاشي - ملجأ للمسلمين المضطهدين في الحبشة", pages: [
-    { img: "stories_ar/ar_19_p1.jpg", text: "في عام 615 ميلادي (السنة الخامسة من النبوة)، اشتد اضطهاد المسلمين في مكة المكرمة بسبب عداء قريش. وواجه المجتمع الإسلامي الأول التعذيب والمقاطعة الاقتصادية والتهديدات بالقتل لتركه الشرك التقليدي." },
-    { img: "stories_ar/ar_19_p2.jpg", text: "نصح النبي محمد (صلى الله عليه وسلم) مجموعة من الصحابة باللجوء إلى الحبشة (إثيوبيا الحديثة)، قائلاً: &laquo;هناك ملك لا يظلم أحداً، وهي أرض الحق، فابقوا فيها حتى يفرج الله عنكم&raquo;. وانطلق ثلاثة وثمانون رجلاً وامرأة، من بينهم عثمان بن عفان وزوجته رقية (ابنة النبي)، وجعفر بن أبي طالب (ابن عم النبي)، وأم سلمة، في رحلة محفوفة بالمخاطر عبر البحر الأحمر." },
-    { img: "stories_ar/ar_19_p3.jpg", text: "استقبل الملك النجاشي (النجاشي) أشاما بن أبجر اللاجئين بكرامة رغم ضغوط مبعوثي قريش الذين قدموا هدايا ثمينة مطالبين بتسليمهم، زاعمين أنهم تخلوا عن دين أجدادهم وتسببوا في انقسام مجتمعهم. وتصف الروايات التاريخية قيام النجاشي بتنظيم جلسة محكمة رسمية للفصل في القضية." },
-    { img: "stories_ar/ar_19_p4.jpg", text: "اتهم وفد قريش المسلمين برفض الدين الرسمي وزعزعة النظام الاجتماعي. دافع جعفر بن أبي طالب عن اللاجئين بشرح التوحيد الإسلامي وتلاوة آيات من سورة مريم (الفصل 19) حول ولادة عيسى من عذراء وتقوى مريم. بكى الملك المسيحي عند سماعه ذلك." }
-  ] },
-  { id: "20", title: "قطر الخيرية - مشروع إفطار صائم في رمضان", pages: [
-    { img: "stories_ar/ar_20_p1.jpg", text: "قطر الخيرية - مشروع إفطار صائم في رمضان ملخص قصير: تنفذ قطر الخيرية برامج غذائية واسعة النطاق في رمضان توفر وجبات إفطار يومية للمسلمين الصائمين في جميع أنحاء العالم، تخدم ملايين الوجبات للفقراء والنازحين. الفكرة الخيرية الرئيسية: المساعدات الغذائية في رمضان وتوفير الإفطار (صدقة موسمية دينية) القصة: تمثل حملات رمضان السنوية لقطر الخيرية، والمذكورة بشكل بارز في توعيتها العامة والموثقة في التقارير السنوية، واحدة من أكبر المبادرات الموسمية للمنظمة. يعمل برنامج \"إفطار صائم\" على المبدأ الإسلامي بأن توفير الطعام لشخص صائم لكسر صيامه يكسب ثواباً روحياً مماثلاً، كما ثبت في التقاليد النبوية." },
-    { img: "stories_ar/ar_20_p2.jpg", text: "هذا الأساس اللاهوتي يدفع المشاركة الهائلة للمتبرعين بين المسلمين القطريين خلال رمضان. يعمل البرنامج عبر أشكال متعددة مُكيّفة مع سياقات مختلفة. في مناطق النزاع مثل سوريا واليمن وغزة، تنشئ قطر الخيرية مراكز إفطار تقدم وجبات ساخنة يومياً طوال رمضان للعائلات النازحة وأولئك غير القادرين على تحمل تكاليف الطعام الكافي. في مخيمات اللاجئين عبر الأردن ولبنان وبنغلاديش، توزع المنظمة وجبات إفطار معبأة مسبقاً أو سلال غذائية تسمح للعائلات بإعداد وجباتهم الخاصة وفقاً للتفضيلات الثقافية." },
-    { img: "stories_ar/ar_20_p3.jpg", text: "في البلدان ذات التعداد المسلم الكبير مثل باكستان وإندونيسيا والدول الأفريقية، تتعاون قطر الخيرية مع المساجد المحلية والمنظمات الخيرية لتشغيل مطابخ إفطار مجتمعية تخدم الفقراء والمسافرين. وفقاً للإحصاءات المنشورة في تقارير حملة رمضان لقطر الخيرية، تقدم المنظمة ملايين وجبات الإفطار سنوياً عبر عشرات الدول. يمكن للمتبرعين المساهمة بمبالغ محددة - مبالغ مخصصة توفر إفطاراً لشخص واحد طوال الشهر، ومبالغ أصغر تدعم توفير الإفطار اليومي. توظف المنظمة منصات رقمية تسمح للقطريين بالتبرع بسهولة، مع أنظمة توزيع آلية تضمن وصول الوجبات إلى المستفيدين في الأوقات المناسبة." },
-    { img: "stories_ar/ar_20_p4.jpg", text: "إشراف هيئة تنظيم الأعمال الخيرية (راكا) يضمن المساءلة المالية والاستخدام السليم للأموال. يستمر توفير الإفطار الجماعي المعاصر على نطاق واسع تقليد رمضان الذي يعود إلى زمن النبي محمد صلى الله عليه وسلم، عندما كان المسجد في المدينة بمثابة مركز إفطار مجتمعي. تعكس الممارسة التأكيد القرآني على إطعام المحتاجين (إطعام الطعام) كمظهر أساسي للإيمان والبر. المرجع القرآني/الحديث: القرآن 2:184: عن صيام رمضان وإطعام الفقراء كفدية أو صدقة سنن الترمذي، حديث 807: \"من فطّر صائماً كان له مثل أجره من غير أن ينقص من أجر الصائم شيئاً\" القرآن 76:8: \"وَيُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا\" القرآن 2:177: البر في إطعام المحتاجين المصدر التاريخي: الموقع الرسمي لقطر الخيرية: www.qcharity.org (قسم حملات رمضان) التقارير السنوية لقطر الخيرية مع إحصاءات مشاريع رمضان التغطية الإعلامية في جلف تايمز والبينينسولا (صحف قطرية) لإطلاق رمضان السنوي تسجيل وموافقات الحملات من هيئة تنظيم الأعمال الخيرية (راكا)" }
-  ] },
-  { id: "21", title: "كرم عبد الرحمن بن عوف: نموذج للعمل الخيري في وقت مبكر من حياة المسلمين", pages: [
-    { img: "stories_ar/ar_21_p1.jpg", text: "عبد الرحمن بن عوف، أحد أبرز صحابة النبي محمد (صلى الله عليه وسلم)، يشتهر بكرمه الاستثنائي والتزامه بمساعدة الآخرين." },
-    { img: "stories_ar/ar_21_p2.jpg", text: "بعد اعتناقه الإسلام، أصبح تاجرًا ناجحًا في المدينة المنورة، لكنه لم يسمح لثروته قط بأن تُبعده عن قيم التواضع والرحمة التي غرسها النبي صلى الله عليه وسلم. وعند وفاته، أوصى عبد الرحمن بن عوف بنصف ثروته الطائلة للمسلمين، ضامنًا بذلك استمرار نفعها للخير العام حتى بعد رحيله." },
-    { img: "stories_ar/ar_21_p3.jpg", text: "وأمر بأن يُستخدم هذا الجزء لدعم الأرامل والأيتام والمحتاجين، مما يعكس فهمه العميق للمبدأ الإسلامي المتمثل في مشاركة الرخاء مع الأقل حظاً." },
-    { img: "stories_ar/ar_21_p4.jpg", text: "أرست أفعاله سابقةً قويةً للأجيال القادمة، مُظهرةً كيف يُمكن تسخير النجاح الشخصي لتحقيق المنفعة الجماعية للمجتمع. تجاوز أثر وقفه الإغاثة المباشرة؛ فقد عزز ثقافة العطاء والتضامن داخل المجتمع الإسلامي الناشئ، مُقوياً روابط الأخوة بين المؤمنين." }
-  ] },
-  { id: "22", title: "وقف المكتبة العامة - خزائن الكتب في بغداد", pages: [
-    { img: "stories_ar/ar_22_p1.jpg", text: "وقف المكتبة العامة - خزائن الكتب في بغداد ملخص قصير: أسس العلماء والحكام المسلمون مكتبات عامة كأوقاف في بغداد، توفر وصولاً مجانياً للمخطوطات والكتب للطلاب والباحثين من جميع الخلفيات. الفكرة الخيرية الرئيسية: وقف المكتبات العامة (الوصول المجاني إلى المعرفة) القصة: خلال العصر الذهبي الإسلامي في بغداد (القرن التاسع إلى الثالث عشر الميلادي)، أنشأ العلماء الأثرياء والحكام والتجار مكتبات عامة كأوقاف خيرية، معترفين بأن الوصول إلى الكتب كان محدوداً بسبب تكلفة المخطوطات المنسوخة يدوياً. كانت هذه المكتبات الوقفية (خزائن الكتب) توفر للطلاب والعلماء والقراء من جميع المستويات الاقتصادية إمكانية الوصول المجاني إلى مجموعات واسعة من المخطوطات في العلوم والفلسفة والأدب والدين." },
-    { img: "stories_ar/ar_22_p2.jpg", text: "وفقاً للمؤرخين مثل ياقوت الحموي الذي وثق المكتبات في معجم البلدان، كانت بعض هذه المكتبات تضم عشرات الآلاف من المجلدات. نصت وثائق الوقف على أن الكتب لا يمكن بيعها أو إزالتها من المؤسسة - فقط إقراضها للقراءة الداخلية أو نسخها. وظف أمناء المكتبات والنساخ من عائدات الممتلكات الوقفية. بعض المكتبات قدمت أيضاً ورقاً وحبراً مجانياً للطلاب الفقراء لنسخ النصوص لأنفسهم." },
-    { img: "stories_ar/ar_22_p3.jpg", text: "كانت المكتبة المستنصرية، المرفقة بالمدرسة المستنصرية التي أسسها الخليفة المستنصر بالله عام 1227 م، واحدة من أشهر الأمثلة. احتوت على آلاف المخطوطات في جميع فروع المعرفة وكانت مفتوحة ليس فقط للطلاب المسجلين ولكن لأي باحث جاد. صمم المبنى بقاعات قراءة واسعة وإضاءة طبيعية وأنظمة تصنيف منظمة." },
-    { img: "stories_ar/ar_22_p4.jpg", text: "دمر الغزو المغولي لبغداد عام 1258 م العديد من هذه المكتبات، حيث ألقى الجنود آلاف المخطوطات في نهر دجلة. ومع ذلك، فإن تقليد المكتبات الوقفية انتشر في جميع أنحاء العالم الإسلامي - القاهرة ودمشق والأندلس وآسيا الوسطى - مما يجعل المعرفة متاحة بعيداً عن الامتياز الاقتصادي. هذا المبدأ - أن الوصول إلى المعرفة حق عام وليس سلعة خاصة - يتماشى مع التعاليم الإسلامية بأن إخفاء المعرفة المفيدة خطيئة. المرجع القرآني/الحديث: القرآن 96:1-5: أول الوحي يشدد على القراءة والمعرفة - \"اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ\" حديث (سنن أبي داود): \"من سُئل عن علم فكتمه ألجمه الله بلجام من نار يوم القيامة\" صحيح مسلم، حديث 1631: العلم النافع من الصدقات الجارية القرآن 39:9: \"قُلْ هَلْ يَسْتَوِي الَّذِينَ يَعْلَمُونَ وَالَّذِينَ لَا يَعْلَمُونَ\" المصدر التاريخي: ياقوت الحموي، معجم البلدان (قاموس جغرافي يوثق المكتبات) ابن النديم، الفهرست (يذكر مجموعات المكتبات) ابن خلدون، المقدمة (يناقش المؤسسات التعليمية والمكتبات) دراسات حديثة: يوسف عش، \"خزائن الكتب القديمة في العراق\"" }
-  ] },
-  { id: "23", title: "مبادرة تخفيف الديون - سداد أبو بكر لديون المجتمع", pages: [
-    { img: "stories_ar/ar_23_p1.jpg", text: "خلال خلافة أبي بكر الصديق (11-13 هـ / 632-634 م)، أول خليفة بعد وفاة النبي محمد، ظهرت سياسة لمعالجة ديون المسلمين المتوفين. وقد حظرت الشريعة الإسلامية توريث الديون بطرق تُفقر العائلات، لكن الدائنين ظلوا يتمتعون بحقوق مشروعة." },
-    { img: "stories_ar/ar_23_p2.jpg", text: "أسس أبو بكر منهجًا يقضي باستخدام أموال بيت المال لسداد ديون المتوفين العاجزين عن السداد، ضامنًا بذلك عدم ظلم الدائنين وعدم إثقال كاهل الأسر بديون موروثة. وتصف الروايات التاريخية في كتب الإسلام المبكرة كيف كان أبو بكر يحقق في حالات وفاة من تركوا ديونًا غير مسددة." },
-    { img: "stories_ar/ar_23_p3.jpg", text: "إذا بذل المتوفى جهودًا صادقة لسداد دينه ولكنه لم يكن يملك المال، أو إذا كان السداد سيترك أسرته في فقر مدقع، فقد أذن أبو بكر بالدفع من الخزانة. لم يكن هذا إعفاءً شاملاً من الديون، بل كان إغاثة موجهة لمن عانوا رغم بذلهم جهودًا صادقة." },
-    { img: "stories_ar/ar_23_p4.jpg", text: "أقرت السياسة بأن الديون قد تُوقع الأسر في براثن الفقر لأجيال متعاقبة إذا لم تُعالج. وقد استندت في ذلك إلى أسس لاهوتية." }
-  ] },
-  { id: "24", title: "الخانات - ملاجئ على جانب الطريق للمسافرين كأوقاف", pages: [
-    { img: "stories_ar/ar_24_p1.jpg", text: "في جميع أنحاء العالم الإسلامي، من القرن التاسع إلى القرن السادس عشر، أُنشئت الخانات (وتُسمى أيضًا الفنادق أو النُزُل) كأوقاف خيرية لخدمة المسافرين على طول طرق التجارة والحج الرئيسية. لم تكن هذه نُزُلًا تجارية تتقاضى رسومًا، بل كانت مؤسسات وقفية تُقدم الضيافة مجانًا - من سكن وطعام ورعاية طبية وأمن - للتجار والحجاج والطلاب وأي مسافر محتاج." },
-    { img: "stories_ar/ar_24_p2.jpg", text: "أنشأت السلالات السلجوقية والمملوكية والعثمانية شبكات واسعة من هذه المرافق، إدراكًا منها أن البنية التحتية الآمنة للسفر تُفيد المجتمعات بأكملها اقتصاديًا وروحيًا. تميز الخان النموذجي بتصميم معماري آمن - جدران سميكة، وبوابة دخول واحدة، وساحات داخلية تأوي المسافرين وحيواناتهم. ضم الطابق الأرضي إسطبلات ومخازن للبضائع، بينما وفرت الطوابق العليا أماكن للنوم." },
-    { img: "stories_ar/ar_24_p3.jpg", text: "موّلت الأوقاف طاقمًا دائمًا، ضمّ حراسًا لتأمين المنشأة، وطهاةً لإعداد وجبات الطعام الجماعية، وأطباءً أو معالجين لعلاج المسافرين المرضى، وعمال صيانة. احتوت العديد من الخانات على مساجد صغيرة أو أماكن للصلاة، ومرافق للاستحمام، وأحيانًا ورش لإجراء إصلاحات بسيطة للمعدات أو العربات. وقد وصفت رحلات تاريخية، مثل رحلات ابن جبير وابن بطوطة، ورحلات رحالة أوروبيين مثل ماركو بولو، هذه المؤسسات." },
-    { img: "stories_ar/ar_24_p4.jpg", text: "أشار ابن بطوطة إلى إقامته في الخانات طوال رحلته التي امتدت ثلاثين عامًا عبر العالم الإسلامي، حيث كان يحصل في كثير من الأحيان على ثلاثة أيام من الإقامة والطعام مجانًا كأمر معتاد. وقد نصت وثائق الوقف على أنه لا يجوز رفض هذه الضيافة لأي مسافر بغض النظر عن دينه أو عرقه أو ثروته، والشرط الوحيد هو الحاجة الحقيقية للمأوى. أما الأساس اللاهوتي فقد جاء من" }
-  ] },
-  { id: "25", title: "مطابخ حساء قرطبة", pages: [
-    { img: "stories_ar/ar_25_p1.jpg", text: "خلال العصر الذهبي للإسلام في القرن العاشر الميلادي، ازدهرت مدينة قرطبة كمركز للعلم والتجارة. وفي خضم هذا الازدهار، عاش جزء كبير من السكان في فقر. ولمعالجة هذه المشكلة، ظهر نظام فريد من نوعه للمطابخ العامة، يُعرف باسم \"المطابخ الخيرية\"." },
-    { img: "stories_ar/ar_25_p2.jpg", text: "مُوّلت هذه المؤسسات من خلال الأوقاف التي أنشأها أفراد أثرياء ومؤسسات دينية. وكانت هذه المطابخ تُقدّم وجبات ساخنة يوميًا لكل محتاج، بغض النظر عن دينه أو أصله. كما استفاد المسافرون المارّون بقرطبة استفادةً كبيرة من هذه المرافق، حيث وجدوا فيها الراحة والتغذية بعد رحلاتهم الطويلة." },
-    { img: "stories_ar/ar_25_p3.jpg", text: "كانت المطابخ الخيرية تقع غالبًا بالقرب من المساجد والأسواق، مما سهّل وصول الفقراء في المدن إليها. وساعد متطوعون من مختلف الخلفيات في إعداد الطعام وتوزيعه، مما عزز الشعور بالتضامن المجتمعي. ولم يقتصر أثر هذه المطابخ على مجرد توفير الغذاء المادي." },
-    { img: "stories_ar/ar_25_p4.jpg", text: "أصبحت هذه الأماكن مراكز حيوية للتفاعل الاجتماعي وشبكات الدعم. تبادل الناس القصص، وطلبوا المشورة، ووجدوا العزاء في معرفة أنهم ليسوا وحدهم. عكست هذه المبادرة القيم الإسلامية الراسخة المتمثلة في الضيافة (الضيافة) ورعاية المحتاجين (الرحمة)." }
-  ] },
-  { id: "26", title: "حملة \"غيث\" التابعة لقطر الخيرية - آبار المياه في أفريقيا", pages: [
-    { img: "stories_ar/ar_26_p1.jpg", text: "يمثل برنامج \"غيث\" (وهو مصطلح عربي يعني \"المطر\") التابع لقطر الخيرية، والموثق بشكل شامل في تقاريرها السنوية ووثائق المشروع المتاحة للجمهور، إحدى أبرز مبادرات المؤسسة في مجال الصدقة الجارية. ويركز البرنامج على دول أفريقيا جنوب الصحراء الكبرى حيث يفتقر الملايين إلى مياه الشرب الآمنة، ومنها تشاد والنيجر ومالي والصومال وكينيا وغيرها، حيث يؤدي نقص المياه المزمن إلى أزمات صحية، ويحدّ من التنمية الاقتصادية، ويجبر النساء والأطفال على قضاء ساعات يوميًا في جلب المياه من مصادر غير آمنة. ووفقًا لتقارير مشاريع قطر الخيرية المنشورة، ينفذ برنامج \"غيث\" حلولًا متعددة لتوفير المياه تتناسب مع مختلف السياقات، منها: حفر آبار أنبوبية عميقة في المناطق ذات منسوب المياه الجوفية، وتركيب مضخات يدوية وأنظمة ضخ تعمل بالطاقة الشمسية لضمان التشغيل المستدام، وإنشاء أنظمة تجميع مياه الأمطار السطحية في المناطق ذات الأمطار الموسمية، وإنشاء نقاط ترشيح لمعالجة مياه الأمطار السطحية الملوثة." },
-    { img: "stories_ar/ar_26_p2.jpg", text: "يشمل كل مشروع تدريبًا لأفراد المجتمع المحلي على الصيانة والإصلاح، مما يضمن استدامته حتى بعد انتهاء مشاركة المنظمة المباشرة. ويتميز البرنامج بهيكليته كـ\"صدقة جارية\"، حيث يتبرع المتبرعون في قطر والعالم بآبار محددة تُسجل بأسمائهم أو تُهدى لذكرى أقاربهم المتوفين. وتقوم قطر الخيرية بتركيب لوحات تعريفية على كل بئر تُحدد هوية المتبرع أو المستفيد، وتزود المتبرعين بإحداثيات الموقع وصوره، بالإضافة إلى تحديثات دورية حول أثر البئر." },
-    { img: "stories_ar/ar_26_p3.jpg", text: "يربط هذا النموذج العطاء الخيري المعاصر مباشرةً بالمفاهيم الإسلامية الكلاسيكية للصدقة المستمرة التي يستمر نفعها وأجرها الروحي إلى الأبد. وتشير الإحصاءات المنشورة إلى أن قطر الخيرية قد أنشأت آلاف نقاط المياه من خلال برنامج الغيث، لتخدم ملايين المستفيدين. وتفيد المنظمة بتحسنات صحية ملحوظة في المجتمعات التي تخدمها، حيث انخفضت معدلات الإصابة بالأمراض المنقولة بالمياه، وتراجعت وفيات الأطفال بسبب أمراض الإسهال، وزادت نسبة الحضور المدرسي (خاصةً للفتيات اللاتي لم يعدن بحاجة إلى القيام برحلات طويلة لجلب المياه)." },
-    { img: "stories_ar/ar_26_p4.jpg", text: "تضمن رقابة هيئة إدارة الأصول الزراعية (RACA) الشفافية المالية والاستخدام الأمثل للأموال، حيث تُجرى عمليات تدقيق دورية للتحقق من وصول أموال المانحين المخصصة لآبار محددة إلى تلك المشاريع. ويتوازى هذا البرنامج المعاصر بشكل مباشر مع تاريخ العمل الخيري الإسلامي في مجال المياه، بدءًا من بئر رمح الذي بناه عثمان بن عفان وصولًا إلى بنية طريق الحج التي أنشأتها زبيدة، مما يُظهر استمرارية أولويات العمل الخيري الإسلامي على مدى أربعة عشر قرنًا. ولا يزال الاعتراف بأن الحصول على المياه أساسي لكرامة الإنسان وتنمية المجتمع محورًا رئيسيًا في العمل الخيري الإسلامي." }
-  ] },
-  { id: "27", title: "مبادرة الصلح - المصالحة من خلال الوساطة الخيرية", pages: [
-    { img: "stories_ar/ar_27_p1.jpg", text: "في المجتمعات الإسلامية المبكرة، ظهر شكل مميز من أشكال العمل الخيري يركز على حل النزاعات ومنع العنف، وهو استخدام الموارد العامة لتيسير الصلح بين الأطراف المتنازعة. فعندما كانت تنشأ نزاعات تهدد بالتصعيد إلى ثأر أو انقسامات مجتمعية، كان الوسطاء الموثوقون يعملون على التفاوض للتوصل إلى تسويات، مستعينين أحيانًا بالأموال الخيرية أو المساهمات الجماعية لتيسير اتفاقيات تعيد السلام. ولعل أبرز مثال تاريخي موثق على ذلك ما حدث في عهد الخليفة عمر بن الخطاب، عندما هددت قضية قتل بإشعال حرب قبلية." },
-    { img: "stories_ar/ar_27_p2.jpg", text: "طالبت عائلة الضحية بالقصاص، بينما سعت قبيلة الجاني إلى العفو. تفاوض عمر على تسوية دفعت بموجبها قبيلة الجاني الدية لعائلة الضحية، ولكن عندما لم تكن لديهم الأموال الكافية، أذن عمر بالدفع من بيت المال لاستكمال التعويض. وكان مبرره أن منع عنف أوسع نطاقًا قد يودي بحياة المزيد من الناس يبرر استخدام موارد المجتمع للمصالحة." },
-    { img: "stories_ar/ar_27_p3.jpg", text: "طوّر الفقه الإسلامي الكلاسيكي مبدأ جواز استخدام أموال الزكاة في \"مُعَلّفة القلوب\" (مُعَلّفة القلوب)، وهو أحد الفئات الثماني للمستحقين المذكورة في الآية 60 من سورة التوبة. وقد فسّر العلماء هذا المبدأ تفسيراً واسعاً ليشمل مدفوعات الوساطة التي تمنع النزاعات، وتُعيد الوئام المجتمعي، وتُحقق السلام بين الأطراف المتخاصمة. ورأى بعض الفقهاء أن هذه الفئة تُعنى تحديداً بالحالات التي يمكن فيها للمدفوعات الخيرية أن تمنع العنف أو تُسوّي النزاعات التي تُهدد الاستقرار الاجتماعي." },
-    { img: "stories_ar/ar_27_p4.jpg", text: "أرست هذه الممارسة أن الصدقة لا تقتصر على الفقر المادي فحسب، بل تشمل أيضًا \"فقر السلام\" - أي الحالات التي تفتقر فيها المجتمعات إلى الموارد أو الآليات اللازمة لحل النزاعات سلميًا. وقد ساهم النبي محمد صلى الله عليه وسلم شخصيًا في دفع الدية، أو شجع أصحابه على القيام بذلك جماعيًا، مؤكدًا أن صنع السلام مسؤولية جماعية تستحق الدعم الخيري. وتشمل التطبيقات الحديثة منظمات إسلامية تدير صناديق وساطة لمساعدة الأسر على تسوية النزاعات قبل وصولها إلى المحاكم، وبرامج مجتمعية تقدم مساعدات مالية لتسوية النزاعات القائمة على الشرف، ومبادرات تستخدم الأموال الخيرية لدعم برامج العدالة التصالحية. ولا يزال مبدأ أن منع العنف من خلال التدخل الخيري يُكسب أجرًا إلهيًا حاضرًا في جهود بناء السلام الإسلامية المعاصرة." }
-  ] },
-  { id: "28", title: "رد النبي (صلى الله عليه وسلم) على فقر قبيلة مضر", pages: [
-    { img: "stories_ar/ar_28_p1.jpg", text: "في الساعات الأولى من الصباح، وصلت مجموعة من الناس من قبيلة مضر إلى مجلس النبي (صلى الله عليه وسلم). كانوا حفاة وعراة، يرتدون ملابس أو عباءات صوفية مخططة، وسيوفهم معلقة حول أعناقهم." },
-    { img: "stories_ar/ar_28_p2.jpg", text: "لاحظ النبي (صلى الله عليه وسلم) فقرهم وتأثر بشدة. فدخل بيته على الفور ثم خرج وأمر بلالاً برفع الأذان." },
-    { img: "stories_ar/ar_28_p3.jpg", text: "بعد الصلاة، خطب النبي صلى الله عليه وسلم المصلين، متلواً آيات من سورة النساء (4:1) وسورة الحشر (59:18)، مؤكداً على أهمية تقوى الله والتأمل فيما يُرسل المرء إلى الغد. ثم حثّ النبي صلى الله عليه وسلم الناس على إخراج الزكاة، ولو بنصف تمرة." },
-    { img: "stories_ar/ar_28_p4.jpg", text: "كانت الاستجابة هائلة؛ فقد بدأ الناس بالتبرع بسخاء، حاملين الطعام والملابس وغيرها من الأشياء. فرح النبي صلى الله عليه وسلم فرحًا عظيمًا لرؤية كومتي طعام وملابس، وأشرق وجهه فرحًا. وأكد أن من عمل صالحًا في الإسلام فله أجر على عمله وعلى من اتبعه، دون أن ينقص من أجرهم شيء." }
-  ] },
-  { id: "29", title: "مجمع قلاوون في القاهرة", pages: [
-    { img: "stories_ar/ar_29_p1.jpg", text: "في قلب القاهرة التاريخية، يقف مجمع قلاوون شامخاً كشاهدٍ على روح العطاء التي تحلى بها السلطان الناصر محمد بن قلاوون. شُيّد هذا الوقف الواسع بين عامي 1284 و1285 ميلادي، وشمل وظائف متعددة تهدف إلى خدمة المجتمع ككل." },
-    { img: "stories_ar/ar_29_p2.jpg", text: "كان في قلبها مستشفى فخم، يعمل فيه أطباء وجراحون خبراء يقدمون الرعاية الطبية المجانية لجميع المرضى. وبجوار المستشفى كان هناك مسجد، حيث كان المصلون يجتمعون لأداء الصلوات اليومية وتلقي الدروس الدينية." },
-    { img: "stories_ar/ar_29_p3.jpg", text: "ساهمت المدرسة الدينية داخل المجمع في تعزيز النمو الفكري، جاذبةً العلماء والطلاب الراغبين في الخوض في مختلف مجالات الدراسة. كما مكّن وجود الضريح السلطان من ضمان أن يظل مثواه الأخير مصدر إلهام للأجيال القادمة." },
-    { img: "stories_ar/ar_29_p4.jpg", text: "جسّد مجمع قلاوون مبدأ العمل الخيري المتكامل، إيماناً منه بأنّ الرفاه الحقيقي يشمل الصحة البدنية، والتغذية الروحية، والإثراء الفكري. وبجمعه هذه العناصر تحت سقف واحد، أنشأ السلطان قلاوون منظومة خيرية مكتفية ذاتياً ازدهرت لقرون. واليوم، لا تزال أجزاء من المجمع قائمة، تُستخدم كأماكن للعبادة ومراكز للعلم." }
-  ] },
-  { id: "30", title: "إرث الوليد بن عبد الملك ودار الأيتام في دمشق", pages: [
-    { img: "stories_ar/ar_30_p1.jpg", text: "في أوائل القرن الثامن الميلادي، في عهد الخليفة الأموي الوليد بن عبد الملك، انطلقت مبادرة هامة لرعاية الأيتام والأطفال المعرضين للخطر. وإدراكًا منه لأهمية توفير بيئة آمنة وحاضنة لمن فقدوا آباءهم، أنشأ الوليد أول دار أيتام معروفة في التاريخ الإسلامي في دمشق." },
-    { img: "stories_ar/ar_30_p2.jpg", text: "لم تكن هذه المؤسسة مجرد مكان لإيواء الأطفال، بل كانت مركزًا متكاملًا يوفر لهم التعليم والرعاية الصحية والدعم النفسي. وقد مُوِّلَت دار الأيتام من خزينة الدولة وتبرعات الأفراد الأثرياء، مما يعكس شعورًا قويًا بالمسؤولية المجتمعية." },
-    { img: "stories_ar/ar_30_p3.jpg", text: "أولى الخليفة نفسه اهتماماً بالغاً برفاهية الأطفال، فكان يزور المؤسسة باستمرار للتأكد من تلبية احتياجاتهم. وقد أرست هذه اللفتة الإنسانية والرؤية الثاقبة سابقةً للأجيال اللاحقة، مُظهرةً أن رعاية الأيتام لم تكن مجرد واجب ديني، بل واجب اجتماعي أيضاً." },
-    { img: "stories_ar/ar_30_p4.jpg", text: "كان لهذا المشروع أثر بالغ، إذ شكّل نموذجًا يحتذى به في مناطق أخرى من الإمبراطورية الإسلامية، ما أدى إلى إنشاء مؤسسات مماثلة في مدن رئيسية أخرى. وأصبح دار الأيتام في دمشق رمزًا للرعاية الاجتماعية الإسلامية، ضامنًا عدم ترك الأطفال الضعفاء يواجهون مصيرهم وحدهم، بل منحهم فرصة النمو ليصبحوا بالغين أصحاء ومتعلمين." }
-  ] },
-  { id: "31", title: "مؤسسة عيد الخيرية تدعم اللاجئين السوريين في الأردن من خلال برنامج المأوى الشتوي", pages: [
-    { img: "stories_ar/ar_31_p1.jpg", text: "أطلقت مؤسسة عيد الخيرية برنامجاً شتوياً بالغ الأهمية يهدف إلى تخفيف معاناة اللاجئين السوريين المقيمين في الأردن." },
-    { img: "stories_ar/ar_31_p2.jpg", text: "مع انخفاض درجات الحرارة بشكل ملحوظ خلال فصل الشتاء، وزّعت المؤسسة آلاف القطع من الملابس الشتوية الدافئة والبطانيات وأجهزة التدفئة على العائلات المقيمة في مخيمات اللاجئين والمستوطنات العشوائية. ويضمن هذا الجهد حماية الفئات الأكثر ضعفاً، بمن فيهم النساء والأطفال وكبار السن، من البرد وما يرتبط به من مخاطر صحية." },
-    { img: "stories_ar/ar_31_p3.jpg", text: "يؤكد هذا البرنامج التزام مؤسسة عيد الخيرية بتحسين حياة النازحين والحفاظ على كرامة الإنسان. ومن خلال الشراكة مع السلطات المحلية وقادة المجتمع، تضمن المؤسسة وصول المساعدات إلى من هم في أمس الحاجة إليها بكفاءة وفعالية." },
-    { img: "stories_ar/ar_31_p4.jpg", text: "تنسجم هذه المبادرة مع الأهداف الإنسانية الأوسع نطاقاً المتمثلة في تقديم الإغاثة الفورية وتعزيز قدرة مجتمعات اللاجئين على الصمود. كما أنها تعكس قيم الرحمة والتضامن التي تؤكد عليها التعاليم الإسلامية." }
-  ] },
-  { id: "32", title: "صندوق تحرير العبيد - تحرير العبيد كمؤسسة خيرية منظمة", pages: [
-    { img: "stories_ar/ar_32_p1.jpg", text: "يُحدد القرآن صراحةً \"تحرير الرقاب\" كواحد من الفئات الثماني التي يحق لها الحصول على أموال الزكاة، مما يجعل التحرير عملاً صالحاً ومسؤولية خيرية جماعية." },
-    { img: "stories_ar/ar_32_p2.jpg", text: "تشير المصادر الإسلامية المبكرة إلى أن هذا لم يكن مجرد كلام بل تم تنفيذه عملياً من خلال آليات خيرية منظمة." },
-    { img: "stories_ar/ar_32_p3.jpg", text: "تأتي الأدلة الأكثر مباشرة من" },
-    { img: "stories_ar/ar_32_p4.jpg", text: "" }
-  ] },
-  { id: "33", title: "مساعدة الزواج - دعم خيري للأزواج غير القادرين على تحمل تكاليف الزواج", pages: [
-    { img: "stories_ar/ar_33_p1.jpg", text: "يُقرّ الفقه الإسلامي بمساعدة المتزوجين كعمل خيري مشروع، ويرى بعض العلماء إمكانية تمويلها من الزكاة تحت بند \"المساكين\"، أو بشكل أوسع باعتبارها خدمةً لرفاهية المجتمع. ويستند الأساس اللاهوتي إلى تعاليم نبوية مفادها أن الزواج يحمي الأفراد من الإثم، وأن تيسير الزيجات المشروعة يخدم مصلحة الفرد والمجتمع على حد سواء. ويأتي أوضح دليل نصي على ذلك من سورة النور (24: 32-33)، حيث يقول الله تعالى: \"وَأَنكِحُوا الْأَيَّانَ مِنكُمْ ۖ إِن كَانَ فَقِيرًا يُغْنِيهُم اللَّهُ مِن فَضْلِهِ\". وقد فسّر المفسرون القدماء هذا على أنه يُرسي مسؤولية جماعية لمساعدة المحتاجين على الزواج بدلاً من تركهم عُزّاباً بسبب الفقر." },
-    { img: "stories_ar/ar_33_p2.jpg", text: "تشير الآية إلى أن الله وعد بتوفير الرزق للأزواج، وأن دعم المجتمع من خلال الصدقة يمكن أن يكون وسيلة لتحقيق هذا الرزق الإلهي. وقد اتخذ التطبيق التاريخي أشكالاً متنوعة موثقة في النصوص القانونية والسجلات التاريخية. ففي بعض الأحيان، كان الأثرياء يرعون حفلات زفاف جماعية، متكفلين بمهر وتكاليف الاحتفال لعدد من الأزواج الفقراء في آن واحد. كما خصصت بعض الأوقاف أموالاً لدعم الزواج تحديداً." },
-    { img: "stories_ar/ar_33_p3.jpg", text: "قام قادة المجتمع بتسهيل ترتيباتٍ تنازلت بموجبها العائلات عن متطلبات المهر العرفي أو خفّضتها للأزواج الذين يعانون من الفقر. وفي بعض الحالات، قدّمت الخزائن العامة منحًا لتسهيل الزواج، لا سيما للأيتام الذين يفتقرون إلى الدعم الأسري. وقد عالجت هذه الممارسة مشكلة اجتماعية معروفة: فعندما تصبح تكاليف الزواج باهظة، إما أن يؤجل الشباب الزواج إلى أجل غير مسمى (مخاطرين بمشاكل أخلاقية)، أو تتراكم على العائلات ديونٌ تُفقرها لسنوات. وقد أزالت التدخلات الخيرية هذه العوائق مع الحفاظ على المتطلبات الشرعية الإسلامية - إذ بقي المهر قائمًا، ولكن أصبح في متناول الجميع من خلال التبرعات بدلًا من إلغائه." },
-    { img: "stories_ar/ar_33_p4.jpg", text: "تواصل المنظمات الخيرية الإسلامية المعاصرة هذا التقليد. إذ يُدير العديد منها صناديق دعم الزواج التي تُقدّم منحًا للمهر، ونفقات الزفاف، وتكاليف تجهيز المنزل. كما تتفاوض بعضها مع أماكن إقامة الحفلات ومقدمي الخدمات للحصول على أسعار مخفّضة للأزواج الذين يتلقّون المساعدة الخيرية. ويبقى التركيز منصبًّا على تيسير الزيجات الكريمة دون تكاليف باهظة، مع ضمان استيفاء الأحكام الشرعية الإسلامية." }
-  ] },
-  { id: "34", title: "صندوق المحتسب - مؤسسة خيرية لتنظيم السوق وحماية المستهلك", pages: [
-    { img: "stories_ar/ar_34_p1.jpg", text: "لم تقتصر مؤسسة الحسبة (تنظيم السوق وإنفاذ الآداب العامة) في المجتمعات الإسلامية على مجرد إنفاذ القانون، بل شملت أبعادًا خيرية. فقد كان المحتسب (مفتش السوق) يحرص على تطبيق الأوزان والمقاييس العادلة، ويمنع الغش والتلاعب بالأسعار، ويحافظ على النظام السوقي. لكن ما هو أقل شيوعًا هو أن بعض المحتسبين كانوا يديرون صناديق خيرية لمعالجة الظلم الاقتصادي ودعم المشاركين في السوق الذين يواجهون صعوبات." },
-    { img: "stories_ar/ar_34_p2.jpg", text: "تصف الكتب التاريخية عن الحسبة، ولا سيما مؤلفات ابن الأخووة والشيزري (القرنين الثاني عشر والثالث عشر الميلاديين)، هذه الوظائف الخيرية. فعندما كان المستهلكون يتعرضون للاحتيال ولا يستطيعون استرداد خسائرهم بسبب فرار الجاني أو افتقاره للأصول، كانت بعض مكاتب الحسبة تحتفظ بصناديق تعويض. وعندما كان التجار الشرفاء يواجهون أزمات مؤقتة - كغرق سفينة يدمر البضائع، أو حريق يلتهم المخزون، أو مرض يمنعهم من العمل - كان التدخل الخيري كفيلاً بمنع الإفلاس والحفاظ على سبل العيش. كما ساهم النظام في معالجة أوجه عدم المساواة الهيكلية." },
-    { img: "stories_ar/ar_34_p3.jpg", text: "خصصت بعض الأسواق أوقاتًا أو أماكن محددة للباعة الفقراء غير القادرين على تحمل تكاليف الأكشاك الدائمة، مما يضمن لهم بيع سلعهم لإعالة أسرهم. وفي بعض الأحيان، كان الحرفيون ذوو الإعاقة يحظون بأولوية في التوظيف أو مساعدة من صناديق الحسبة. وقد يُرتب المحتسب قروضًا بدون فوائد من الأوقاف الخيرية لمساعدة الحرفيين على شراء المواد، وحمايتهم من الوقوع في الديون للدائنين الأثرياء. وقد جمع الأساس الديني بين مبادئ العدالة الاقتصادية من القرآن والسنة، والإدراك العملي بأن الأسواق غير المنظمة قد تُركز الثروة بشكل غير عادل وتُهمّش الفئات الضعيفة." },
-    { img: "stories_ar/ar_34_p4.jpg", text: "تدخل النبي محمد صلى الله عليه وسلم بنفسه في النزاعات التجارية، وحظر بعض الممارسات التجارية باعتبارها استغلالية. وقد رسّخت مؤسسة الحسبة هذا الاهتمام النبوي بالعدالة السوقية، وجعلت العمل الخيري إحدى أدوات إنفاذها إلى جانب التنظيم والعقوبات. ورغم أن مؤسسة الحسبة الرسمية لم تعد موجودة في معظم الدول ذات الأغلبية المسلمة، فقد دُمجت وظائفها في هيئات حماية المستهلك الحديثة، ومكاتب تنظيم الأعمال، والمنظمات الخيرية التي تُعنى بالعدالة الاقتصادية. ولا يزال مبدأ أن عدالة السوق تتطلب أحيانًا تدخلًا خيريًا لحماية الفئات الضعيفة ذا صلة بالفكر الاقتصادي الإسلامي المعاصر." }
-  ] },
-  { id: "35", title: "مساعدة في تكاليف الدفن - جمعيات خيرية لتغطية تكاليف الجنازة", pages: [
-    { img: "stories_ar/ar_35_p1.jpg", text: "ينص القانون الإسلامي على أن الدفن واجب جماعي (فرض كفاية) - إذا لم يضمن أي فرد حصول المسلم المتوفى على دفن لائق، فإن المجتمع بأكمله يتحمل إثماً جماعياً." },
-    { img: "stories_ar/ar_35_p2.jpg", text: "أدى هذا المبدأ اللاهوتي إلى ظهور مؤسسات خيرية تضمن حصول حتى أفقر الناس على دفن كريم." },
-    { img: "stories_ar/ar_35_p3.jpg", text: "" },
-    { img: "stories_ar/ar_35_p4.jpg", text: "" }
-  ] },
-  { id: "36", title: "صندوق مساعدة الحجاج العالقين - مساعدة الحجاج المحتاجين", pages: [
-    { img: "stories_ar/ar_36_p1.jpg", text: "في التاريخ الإسلامي، ظهرت مبادرات خيرية لدعم الحجاج الذين يواجهون صعوبات خلال الحج. وقد تناولت هذه الجهود قضايا مثل السرقة على طرق السفر، والأمراض المزمنة التي تتطلب رعاية مكثفة، والنقص المفاجئ في الموارد نتيجة التأخير، أو فقدان رفاق السفر. وعلى عكس برامج مساعدة المسافرين العامة، فقد راعت هذه التدخلات الاحتياجات الخاصة للحجاج البعيدين عن ديارهم، مع الوفاء بواجب ديني، مما يستحق دعم المجتمع." },
-    { img: "stories_ar/ar_36_p2.jpg", text: "تاريخياً، تم استخدام أساليب متنوعة. فقد أنشأت السلطات في مكة المكرمة والمدينة المنورة صناديق لمساعدة الحجاج المحتاجين. كما خصصت الأوقاف أحياناً عائدات لهذا الغرض." },
-    { img: "stories_ar/ar_36_p3.jpg", text: "كما قام الأثرياء بتوظيف وكلاء خلال مواسم الحج الرئيسية لتحديد أماكن الحجاج المحتاجين ومساعدتهم. بالإضافة إلى ذلك، وفرت الخانات على طول طرق الحج إقامة طويلة مجانية للحجاج المرضى المتعافين. وشملت المساعدة تدابير متنوعة: تقديم مساعدات مالية لتوفير الطعام والمأوى خلال فترة النقاهة؛ وتقديم قروض بدون فوائد لتغطية تكاليف السفر ذهابًا وإيابًا (غالبًا ما يتم التنازل عنها في حال استحالة السداد)؛ وتقديم الرعاية الطبية للحجاج المرضى بعيدًا عن ديارهم؛ وحماية الحجاج الذين تعرضوا للسرقة؛ وترتيب نقل جثامين الحجاج المتوفين إلى ذويهم أو تسهيل دفنهم في الأماكن المقدسة بناءً على طلب العائلة." },
-    { img: "stories_ar/ar_36_p4.jpg", text: "اليوم، تحافظ السلطات السعودية على هذا الإرث من خلال أنظمة منظمة. وتتعاون وزارة الحج مع الجمعيات الخيرية لدعم الحجاج في حالات الطوارئ. وعلى الصعيد العالمي، تدير منظمات خيرية إسلامية صناديق إغاثة للحجاج لمساعدة الحجاج الذين يواجهون الأزمات. ويؤكد هذا المبدأ الراسخ أن المسلمين الذين يؤدون فريضة الحج يستحقون الدعم الجماعي عند مواجهة صعوبات غير متوقعة، مما يضمن ألا تعيق الصعوبات المالية إتمام هذا الركن الإسلامي الأساسي." }
-  ] },
-  { id: "37", title: "الوقف العام للحمامات - البنية التحتية للنظافة والصحة", pages: [
-    { img: "stories_ar/ar_37_p1.jpg", text: "كانت الحمامات العامة في المدن الإسلامية تؤدي وظائف صحية ودينية على حد سواء - إذ كان التطهير الطقسي يتطلب الوصول إلى الماء، وكان الحفاظ على النظافة يُعتبر جزءًا من الإيمان." },
-    { img: "stories_ar/ar_37_p2.jpg", text: "إدراكًا لافتقار الأسر الفقيرة في كثير من الأحيان إلى مرافق الاستحمام الخاصة، موّلت الأوقاف الحمامات العامة حيث كان بإمكان المحتاجين الاستحمام مجانًا بينما يدفع الآخرون رسومًا رمزية، وتُستخدم عائدات هذه الحمامات لدعم تشغيلها. وتُشير السجلات التاريخية إلى أن العديد من الحمامات كانت تعمل وفق نماذج مختلطة تجمع بين العمل الخيري والتجاري." },
-    { img: "stories_ar/ar_37_p3.jpg", text: "حددت صكوك الوقف ساعات معينة مخصصة للدخول المجاني للفقراء، على أن تُغطى تكاليف التشغيل من عائدات الدفع خلال الساعات الأخرى. وخصصت بعض المرافق أقساماً أو أوقاتاً منفصلة للنساء، مما يضمن الوصول للجميع بغض النظر عن الجنس." },
-    { img: "stories_ar/ar_37_p4.jpg", text: "يشير التطور المعماري للحمامات التي لا تزال قائمة - من أنظمة تسخين المياه المتطورة، وغرف تغيير الملابس، وأحواض المياه الساخنة والباردة - إلى أنها لم تكن مجرد أعمال خيرية بسيطة، بل بنية تحتية عامة عالية الجودة. وقد خدمت الحمامات وظائف طبية تتجاوز مجرد النظافة الأساسية." }
-  ] },
-  { id: "38", title: "وقف حماية الغابات - حماية البيئة من خلال الوقف", pages: [
-    { img: "stories_ar/ar_38_p1.jpg", text: "تُوثّق وثائق الأوقاف العثمانية حالاتٍ صُنّفت فيها الغابات كأوقاف محمية، ما حال دون إزالة الغابات مع السماح في الوقت نفسه بوصول المجتمعات المحلية إليها بشكلٍ مُنظّم لتلبية الاحتياجات الأساسية كجمع الحطب ورعي الماشية بشكلٍ محدود. وقد مثّل هذا نهجاً مبكراً في الحفاظ على البيئة من خلال آليات قانونية خيرية، إدراكاً لحقيقة أن الاستغلال غير المقيد سيؤدي إلى استنزاف الموارد والإضرار بالأجيال القادمة." },
-    { img: "stories_ar/ar_38_p2.jpg", text: "استند الأساس اللاهوتي إلى مبادئ الشريعة الإسلامية المتعلقة بالملكية الجماعية والمسؤولية بين الأجيال. وقد جادل الفقهاء بأن بعض الموارد البيئية - كالمياه والمراعي والغابات - تُعدّ منفعة عامة لا يجوز لأي فرد احتكارها. وقد أضفى إنشاء هذه الموارد كأوقاف طابعًا رسميًا على هذه الحماية، حيث يضمن تعيين مسؤولين عنها الاستخدام المستدام لها، ويمنعون استغلالها التجاري الذي من شأنه استنزافها." },
-    { img: "stories_ar/ar_38_p3.jpg", text: "حققت بعض الأوقاف الحرجية إيرادات من خلال عمليات قطع الأخشاب الخاضعة للرقابة أو تصاريح الرعي، حيث تموّل هذه العائدات أنشطة خيرية أخرى. وقد ربط هذا النموذج بين الحفاظ على البيئة والاستدامة الاقتصادية، إذ تستمد قيمة الغابة من صونها وإدارتها الحكيمة بدلاً من استغلالها." },
-    { img: "stories_ar/ar_38_p4.jpg", text: "كانت المخالفات تستوجب عقوبات، وكان لمسؤولي الأوقاف صلاحية إنفاذ قواعد الحماية. ورغم أن الأوقاف البيئية الشاملة كانت أقل شيوعًا من أنواع الأوقاف الأخرى، إلا أن وجودها يُظهر أن آليات العمل الخيري الإسلامي امتدت لتشمل رعاية البيئة إلى جانب رفاهية الإنسان. وتستند الجهود المعاصرة لإنشاء أوقاف الحفاظ على البيئة إلى هذه السوابق التاريخية، انطلاقًا من أن حماية الموارد الطبيعية تخدم المجتمعات الحالية والمستقبلية، مُحققةً بذلك مبدأ المنفعة المستمرة في العمل الخيري." }
-  ] },
-  { id: "39", title: "التعاون المتبادل بين النقابات - الحرفيون يدعمون زملاءهم الحرفيين", pages: [
-    { img: "stories_ar/ar_39_p1.jpg", text: "جمعت النقابات المهنية في المدن الإسلامية في العصور الوسطى بين تنظيم التجارة والدعم الخيري المتبادل لأعضائها. فقد نظم الحرفيون والتجار العاملون في نفس المهنة أنفسهم في جمعيات تدير صناديق مشتركة لتقديم المساعدة للأعضاء عند مواجهة الصعوبات، كالإصابة بمرض يمنعهم من العمل، أو احتراق ورشهم الذي يدمر أدواتهم ومخزونهم، أو الإصابة بإعاقات نتيجة حوادث العمل، أو الوفاة التي تترك الأرامل والأيتام بلا معيل. وكان النظام يعمل من خلال مساهمات منتظمة من الأعضاء، تُنظم أحيانًا كرسوم إلزامية وأحيانًا أخرى كتبرعات خيرية اختيارية." },
-    { img: "stories_ar/ar_39_p2.jpg", text: "عندما يمرض أحد أعضاء النقابة ويعجز عن العمل، يقدم الصندوق إعانات مالية لأسرته خلال فترة النقاهة. وفي حال وفاة أحد الأعضاء، تتكفل النقابة أحيانًا بمصاريف الجنازة وتقدم دعمًا مؤقتًا للأرملة والأطفال. أما بالنسبة للحرفيين الذين يُصابون في العمل ويُصبحون عاجزين بشكل دائم، فتقوم بعض النقابات بتوفير مساعدة مستمرة لهم أو مساعدتهم على الانتقال إلى أعمال أقل إرهاقًا بدنيًا ضمن نفس المهنة." },
-    { img: "stories_ar/ar_39_p3.jpg", text: "إلى جانب الدعم المالي، وفرت النقابات تضامنًا مهنيًا. فعندما تحترق ورشة أحد الأعضاء، كان زملاؤه الحرفيون يتبرعون أحيانًا بالمواد أو يقرضون الأدوات لتمكينهم من استئناف العمل. وقد يستقبل الحرفيون المهرة المتدربين اليتامى الذين توفي آباؤهم، ويكملون تدريبهم دون فرض رسوم تُفرض عادةً على التلمذة المهنية." },
-    { img: "stories_ar/ar_39_p4.jpg", text: "عكست هذه المساعدة المتبادلة مبادئ الإسلام في الأخوة والمسؤولية الجماعية داخل المجتمعات المهنية. فبينما كانت النقابات تخدم أعضاءها في المقام الأول، امتدت أعمال الخير في بعضها لتشمل المجتمع الأوسع. فكانت نقابات الخبازين توزع الخبز على الفقراء، ونقابات النسيج توفر الأقمشة لتكفين المتوفين الفقراء، كما رعت نقابات أخرى مشاريع عامة أو ساهمت في مشاريع الوقف التي تعود بالنفع على أحيائها. وقد أظهر نظام النقابات كيف يمكن للمجموعات المهنية تنظيم الدعم الخيري لمعالجة مواطن الضعف الخاصة بمهنها." }
-  ] },
-  { id: "40", title: "التعاون المتبادل بين النقابات - الحرفيون يدعمون زملاءهم الحرفيين", pages: [
-    { img: "stories_ar/ar_40_p1.jpg", text: "جمعت النقابات المهنية في المدن الإسلامية في العصور الوسطى بين تنظيم التجارة والدعم الخيري المتبادل لأعضائها. فقد نظم الحرفيون والتجار أنفسهم في جمعيات حافظت على صناديق جماعية من خلال مساهمات منتظمة، وقدمت المساعدة عندما واجه الأعضاء صعوبات - كالمرض الذي يمنعهم من العمل، أو حرائق الورش التي تدمر المخزون، أو الإعاقات المرتبطة بالعمل، أو الوفاة التي تترك العائلات بلا معيل." },
-    { img: "stories_ar/ar_40_p2.jpg", text: "عندما يمرض الأعضاء، توفر الصناديق إعانات مالية لأسرهم خلال فترة النقاهة. وفي حال وفاة أحد الأعضاء، تتكفل النقابات بنفقات الجنازة وتقدم الدعم المؤقت للأرامل والأيتام." },
-    { img: "stories_ar/ar_40_p3.jpg", text: "بالنسبة للحرفيين ذوي الإعاقة الدائمة، قامت النقابات بتوفير مساعدة مستمرة أو ساعدتهم على الانتقال إلى أعمال أقل إرهاقاً. وإلى جانب الدعم المالي، قدمت النقابات تضامناً مهنياً من خلال المساعدات المادية ونقل المهارات." },
-    { img: "stories_ar/ar_40_p4.jpg", text: "تبرع الحرفيون بالمواد أو أعاروا الأدوات عندما احترقت ورشهم. واستقبل الحرفيون المهرة المتدربين اليتامى، وأكملوا تدريبهم مجانًا. وبينما كانت النقابات تخدم أعضاءها في المقام الأول، فقد امتدت أعمال الخير لتشمل مجالات أوسع - فنقابات الخبازين وزعت الخبز على الفقراء، ووفرت نقابات النسيج أكفانًا للمحتاجين، وساهمت نقابات مختلفة في مشاريع الأوقاف المحلية، مما يدل على كيفية تنظيم المجموعات المهنية للدعم الخيري لمعالجة مواطن الضعف الخاصة بكل مهنة." }
-  ] },
-  { id: "41", title: "مستشفى السلطان قلاوون في القاهرة (1284 م)", pages: [
-    { img: "stories_ar/ar_41_p1.jpg", text: "في عام 1284 م، أنشأ السلطان المملوكي المنصور قلاوون المستشفى المنصوري بالقاهرة، وهو أحد أكبر المستشفيات في العالم الإسلامي في العصور الوسطى." },
-    { img: "stories_ar/ar_41_p2.jpg", text: "نصت وثيقة الوقف على أن المنشأة ستعالج جميع المرضى مجاناً - مسلمين أو مسيحيين أو يهود، أغنياء أو فقراء، ذكوراً أو إناثاً." },
-    { img: "stories_ar/ar_41_p3.jpg", text: "كان المستشفى يضم أجنحة منفصلة لأمراض مختلفة، وصيدلية، وقاعات محاضرات للتدريب الطبي، وسكن للموظفين." },
-    { img: "stories_ar/ar_41_p4.jpg", text: "استُخدمت عائدات ممتلكات قلاوون المخصصة لتمويل رواتب الأطباء والأدوية ووجبات المرضى، بل وحتى الملابس الجديدة التي مُنحت للمرضى بعد خروجهم من المستشفى حتى لا يغادروا بملابس متسخة. وظل المستشفى يعمل لأكثر من 600 عام." }
-  ] },
-  { id: "42", title: "نُزُل الأزرق للحجاج (الأردن، القرن الثالث عشر)", pages: [
-    { img: "stories_ar/ar_42_p1.jpg", text: "أُعيد بناء قلعة خان القوافل في الأزرق بشرق الأردن في القرن الثالث عشر الميلادي كمحطة استراحة محصنة على طريق الحج من دمشق إلى مكة المكرمة." },
-    { img: "stories_ar/ar_42_p2.jpg", text: "وفر الهيكل الضخم أماكن إقامة آمنة، وإمكانية الوصول إلى إمدادات المياه في الواحة، والحماية من غزاة الصحراء." },
-    { img: "stories_ar/ar_42_p3.jpg", text: "كان بإمكان الحجاج المسافرين عبر هذا الجزء الصحراوي القاسي أن يستريحوا ويسقوا حيواناتهم ويعيدوا التزود بالمؤن قبل مواصلة رحلتهم." },
-    { img: "stories_ar/ar_42_p4.jpg", text: "كان المرفق يعمل كوقف، حيث كان الموظفون يتولون صيانة المبنى وضمان سلامة الحجاج. ولا يزال المبنى قائماً حتى اليوم، محفوظاً كموقع تراثي يوثق البنية التحتية للحج الإسلامي في العصور الوسطى." }
-  ] },
-  { id: "43", title: "مطبخ صلاح الدين للحساء في القدس (1187 م)", pages: [
-    { img: "stories_ar/ar_43_p1.jpg", text: "عندما استعاد صلاح الدين الأيوبي القدس عام 1187 م، أنشأ مطابخ خيرية (تكاية) تقدم وجبات مجانية للفقراء والمسافرين والطلاب الدينيين." },
-    { img: "stories_ar/ar_43_p2.jpg", text: "تصف الروايات التاريخية توزيع الخبز والطعام المطبوخ يومياً." },
-    { img: "stories_ar/ar_43_p3.jpg", text: "خصص صلاح الدين عقارات محددة لتمويل هذه العمليات بشكل دائم من خلال دخل الإيجار، مما جعل إطعام المحتاجين الخيري مستداماً حتى بعد وفاته." },
-    { img: "stories_ar/ar_43_p4.jpg", text: "كانت المطابخ تعمل بالقرب من المواقع الدينية الرئيسية، مما يضمن حصول الحجاج وسكان القدس الفقراء على الطعام." }
-  ] },
-  { id: "44", title: "الإغاثة من الطاعون الكبير في القاهرة - ثلاثينيات القرن الخامس عشر", pages: [
-    { img: "stories_ar/ar_44_p1.jpg", text: "عندما ضرب الطاعون القاهرة مراراً وتكراراً في ثلاثينيات القرن الخامس عشر الميلادي، قام السلطان المملوكي برسباي بتنظيم استجابة حكومية وخيرية." },
-    { img: "stories_ar/ar_44_p2.jpg", text: "قامت خزينة الدولة بتمويل خدمات الدفن الجماعي للضحايا الذين ماتوا دون وجود عائلات لهم لتنظيم الجنازات، مما يضمن عدم إهمال طقوس الدفن الإسلامية أثناء الأزمة." },
-    { img: "stories_ar/ar_44_p3.jpg", text: "ساهم توزيع الطعام على المناطق الخاضعة للحجر الصحي في منع حدوث المجاعة عندما تم إغلاق الأحياء." },
-    { img: "stories_ar/ar_44_p4.jpg", text: "قُدّمت الخدمات الطبية مجاناً لضحايا الطاعون. ويوثّق كتاب ابن تغريبيردي هذه الجهود الإغاثية، مشيراً إلى آلاف الوفيات يومياً في ذروة الوباء، حيث حالت تدابير السلطان الخيرية دون انهيار اجتماعي كامل." }
-  ] },
-  { id: "45", title: "وقف مدرسة شجرة الدر (القاهرة، 1250 م)", pages: [
-    { img: "stories_ar/ar_45_p1.jpg", text: "أسست شجر الدر، التي حكمت لفترة وجيزة كسلطان لمصر في عام 1250 م، مدرسة (مدرسة) في القاهرة تحمل اسمها." },
-    { img: "stories_ar/ar_45_p2.jpg", text: "نصّ صك الوقف على تخصيص عقارات تجارية لتمويل رواتب المعلمين، ومنح الطلاب، وصيانة المباني، والمكتبة." },
-    { img: "stories_ar/ar_45_p3.jpg", text: "كانت المؤسسة تُدرّس الفقه الإسلامي،" },
-    { img: "stories_ar/ar_45_p4.jpg", text: "" }
-  ] },
-  { id: "46", title: "مشروع قطر الخيرية لإعادة بناء المدارس في غزة (2021-2023)", pages: [
-    { img: "stories_ar/ar_46_p1.jpg", text: "في أعقاب نزاع مايو 2021 في غزة، نفذت قطر الخيرية مشاريع إعادة بناء المدارس الموثقة في تقاريرها السنوية للفترة 2021-2023." },
-    { img: "stories_ar/ar_46_p2.jpg", text: "أعاد البرنامج بناء المدارس المتضررة أو المدمرة أثناء القتال، وأعاد تأهيل المرافق التي لحقت بها أضرار هيكلية، ووفر الأثاث واللوازم التعليمية." },
-    { img: "stories_ar/ar_46_p3.jpg", text: "وبحسب التقارير المنشورة، تهدف المشاريع إلى استعادة فرص التعليم لآلاف الطلاب الذين أصبحت مدارسهم غير صالحة للاستخدام." },
-    { img: "stories_ar/ar_46_p4.jpg", text: "وقد نسقت المنظمة مع السلطات التعليمية المحلية، وضمنت هيئة الإشراف على هيئة RACA الشفافية في استخدام الأموال." }
-  ] },
-  { id: "47", title: "وقف الخبز في حلب (القرن السادس عشر العثماني)", pages: [
-    { img: "stories_ar/ar_47_p1.jpg", text: "توثق سجلات الأوقاف العثمانية وقفاً خيرياً في حلب في القرن السادس عشر حيث أنشأ أحد المحسنين مخابز كملكية وقفية." },
-    { img: "stories_ar/ar_47_p2.jpg", text: "كانت المخابز تعمل تجارياً، وتبيع الخبز بأسعار السوق للزبائن الذين يدفعون ثمنه." },
-    { img: "stories_ar/ar_47_p3.jpg", text: "تم توزيع جزء محدد من الإنتاج اليومي مجاناً على الفقراء، وذهبت أي إيرادات فائضة تتجاوز تكاليف التشغيل إلى أغراض خيرية أخرى." },
-    { img: "stories_ar/ar_47_p4.jpg", text: "ضمن هيكل الوقف توفير الغذاء بشكل مستدام، حيث غطت العمليات التجارية التكاليف مع توليد توزيعات خيرية. وتشير الوثائق إلى أن هذا الوقف استمر في العمل لأكثر من قرنين." }
-  ] },
-  { id: "48", title: "توزيع المياه في القاهرة من قبل ست نفيسة (القرن التاسع عشر)", pages: [
-    { img: "stories_ar/ar_48_p1.jpg", text: "في القاهرة في القرن التاسع عشر، قامت امرأة ثرية تُعرف باسم ست نفيسة بإنشاء نقاط توزيع المياه (سبيل) في الأحياء الفقيرة." },
-    { img: "stories_ar/ar_48_p2.jpg", text: "وفرت هذه المنشآت مياه شرب مجانية، وهو أمر بالغ الأهمية بشكل خاص خلال فصول الصيف الحارة في القاهرة عندما ارتفعت معدلات الإصابة بالأمراض المنقولة بالمياه." },
-    { img: "stories_ar/ar_48_p3.jpg", text: "تصف الروايات التاريخية نوافير مزخرفة كان بإمكان الفقراء من خلالها ملء الأوعية أو الشرب مباشرة." },
-    { img: "stories_ar/ar_48_p4.jpg", text: "موّلت الأوقاف حاملي المياه الذين كانوا يزودون السبل بالماء. ولا تزال بعض هذه النوافير قائمة كإرث معماري في القاهرة القديمة." }
-  ] },
-  { id: "49", title: "فدية الأسرى المسلمين الإسبان (القرن الرابع عشر)", pages: [
-    { img: "stories_ar/ar_49_p1.jpg", text: "مع غزو الممالك المسيحية تدريجياً للأندلس الإسلامية، تم استعباد آلاف المسلمين أو احتجازهم مقابل فدية." },
-    { img: "stories_ar/ar_49_p2.jpg", text: "تُوثّق السجلات التاريخية أن المجتمعات الإسلامية في شمال إفريقيا، وتحديداً في المغرب وتونس، نظمت حملات تبرعات خيرية لتحرير هؤلاء الأسرى." },
-    { img: "stories_ar/ar_49_p3.jpg", text: "سافر المفاوضون إلى الأراضي المسيحية حاملين الأموال التي جمعوها، للتفاوض من أجل إطلاق سراح السجناء." },
-    { img: "stories_ar/ar_49_p4.jpg", text: "تصف بعض الروايات تحرير مئات الأسرى في عمليات فردية. نُقل الأشخاص الذين تم إنقاذهم إلى شمال أفريقيا، وقُدمت لهم المساعدة لإعادة بناء حياتهم بعد النزوح والأسر." }
-  ] },
-  { id: "50", title: "حلقة عائشة التعليمية في المدينة المنورة (القرن السابع الميلادي)", pages: [
-    { img: "stories_ar/ar_50_p1.jpg", text: "بعد وفاة النبي محمد عام 632 ميلادي، أصبحت زوجته عائشة بنت أبي بكر واحدة من أهم علماء صدر الإسلام، حيث قامت بتدريس" },
-    { img: "stories_ar/ar_50_p2.jpg", text: "" },
-    { img: "stories_ar/ar_50_p3.jpg", text: "" },
-    { img: "stories_ar/ar_50_p4.jpg", text: "" }
-  ] },
-  { id: "51", title: "رعاية نسيبة بنت كعب الطبية في أحد (625 م)", pages: [
-    { img: "stories_ar/ar_51_p1.jpg", text: "شاركت نسيبة بنت كعب الأنصارية، المعروفة باسم أم عمارة، في معركة أحد (625 م) حيث قدمت الماء والرعاية الطبية للمقاتلين المسلمين الجرحى." },
-    { img: "stories_ar/ar_51_p2.jpg", text: "تُوثّق الروايات التاريخية أنها عالجت الجرحى، وسقت العطشى، بل ودافعت عن النبي محمد حين انهارت صفوف المسلمين. وبعد المعركة، واصلت رعاية الجنود الجرحى، مُظهرةً أن العمل الخيري للمرأة امتدّ ليشمل الرعاية الطبية الطارئة أثناء النزاعات." },
-    { img: "stories_ar/ar_51_p3.jpg", text: "أرست أفعالها سابقة للنساء في تقديم المساعدة الإنسانية في حالات الأزمات." },
-    { img: "stories_ar/ar_51_p4.jpg", text: "أشاد النبي محمد صلى الله عليه وسلم بخدمة نسيبة رضي الله عنها، وأصبحت مثالاً يُحتذى به للمرأة المسلمة في مشاركتها الفعّالة في رعاية المجتمع أثناء الأزمات. وقد جسّدت رعايتها الطبية للجنود الجرحى - بغض النظر عن مكانتهم الاجتماعية أو صلتهم بها - المبادئ الإسلامية التي تُعطي الأولوية لإنقاذ الأرواح وتخفيف المعاناة في حالات الأزمات، وأنّ مساهمات المرأة الخيرية تُقدّر على قدم المساواة مع مساهمات الرجل عند تلبية احتياجات المجتمع." }
-  ] },
-  { id: "52", title: "دعوة أبي ذر الغفاري لتوزيع الثروة (القرن السابع الميلادي)", pages: [
-    { img: "stories_ar/ar_52_p1.jpg", text: "أبو ذر الغفاري، أحد أوائل صحابة النبي محمد، اشتهر بتفسيره الصارم بأن المسلمين الذين يملكون ثروة تتجاوز احتياجاتهم الأساسية يجب أن يوزعوها على الفقراء." },
-    { img: "stories_ar/ar_52_p2.jpg", text: "واستشهد" },
-    { img: "stories_ar/ar_52_p3.jpg", text: "" },
-    { img: "stories_ar/ar_52_p4.jpg", text: "" }
-  ] },
-  { id: "53", title: "دليل ميراث أم سلمة (القرن السابع)", pages: [
-    { img: "stories_ar/ar_53_p1.jpg", text: "أصبحت أم سلمة، إحدى زوجات النبي محمد، مرجعاً في الشريعة الإسلامية، وخاصة في حقوق الميراث." },
-    { img: "stories_ar/ar_53_p2.jpg", text: "قامت بتعليم النساء حقوقهن القانونية، وضمنت أن تفهم الأرامل والفتيات حصصهن في الميراث، وألا يتعرضن للخداع من قبل الأقارب الذكور. ففي الجزيرة العربية قبل الإسلام، غالباً ما كانت النساء لا يحصلن على أي ميراث، وحتى بعد أن منحهن القانون الإسلامي حصصاً محددة، ظلت الكثيرات يفتقرن إلى المعرفة اللازمة للمطالبة بحقوقهن." },
-    { img: "stories_ar/ar_53_p3.jpg", text: "شكّلت تعاليم أم سلمة تعليماً خيرياً يحمي النساء من الاستغلال المالي والفقر بعد وفاة أقاربهن الذكور. واستمرت تعاليمها الفقهية بعد وفاة النبي، حيث كانت النساء يلتحقن بها في مسائل الميراث والزواج والطلاق." },
-    { img: "stories_ar/ar_53_p4.jpg", text: "من خلال تثقيف النساء بشأن حقوقهن القانونية، قدمت خدمات خيرية لحماية النساء المستضعفات من الفقر المدقع عندما حاول أفراد أسرهن الذكور حجب حصصهن الموروثة. وقد مثّل هذا العمل الخيري القائم على المعرفة أثراً اقتصادياً مباشراً على الأمن المالي للمرأة." }
-  ] },
-  { id: "54", title: "وقف فرقة إطفاء المماليك (القاهرة، القرن الرابع عشر الميلادي)", pages: [
-    { img: "stories_ar/ar_54_p1.jpg", text: "كانت المباني الخشبية الكثيفة في القاهرة في العصور الوسطى تشكل تهديدات كارثية بسبب الحرائق." },
-    { img: "stories_ar/ar_54_p2.jpg", text: "أنشأت السلطات المملوكية خدمات مكافحة الحرائق الممولة من خلال الأوقاف، مع وجود فرق مخصصة متمركزة في جميع أنحاء المدينة." },
-    { img: "stories_ar/ar_54_p3.jpg", text: "" },
-    { img: "stories_ar/ar_54_p4.jpg", text: "" }
-  ] },
-  { id: "55", title: "مخازن الحبوب الفاطمية في القاهرة (القرن العاشر - الحادي عشر الميلادي)", pages: [
-    { img: "stories_ar/ar_55_p1.jpg", text: "أنشأت الدولة الفاطمية في مصر مخازن حبوب ضخمة في القاهرة، صُممت خصيصاً للإغاثة من المجاعات. وتوثّق السجلات التاريخية أنه خلال فترات النقص، فُتحت هذه المخازن ووُزّعت الحبوب بأسعار محددة أو مجاناً على المحتاجين." },
-    { img: "stories_ar/ar_55_p2.jpg", text: "كان الهدف من النظام منع كل من المجاعة والتلاعب بأسعار التجار أثناء الأزمات. أشرف مسؤولون معينون على التوزيع لضمان حصول الفقراء على مخصصاتهم." },
-    { img: "stories_ar/ar_55_p3.jpg", text: "وقد مثّل هذا النظام الأمن الغذائي المؤسسي كوظيفة خيرية للدولة بدلاً من كونه استجابة طارئة مؤقتة. وأقرّ نظام احتياطي الحبوب بأنّ الوقاية من المجاعة تتطلب استعداداً مسبقاً، وليس مجرد رد فعل على الأزمة." },
-    { img: "stories_ar/ar_55_p4.jpg", text: "من خلال الحفاظ على المخزونات خلال سنوات الوفرة، تمكن الفاطميون من التدخل عند فشل المحاصيل، وحماية السكان من المجاعة. وبينما كان هذا النظام يخدم في المقام الأول سكان القاهرة، فقد أثر على المناهج الحكومية الإسلامية للأمن الغذائي ومبدأ مسؤولية الحكام الخيرية لمنع المجاعة الجماعية." }
-  ] },
-  { id: "56", title: "خدمة الأذان التطوعية لبلال بن رباح (القرن السابع الميلادي)", pages: [
-    { img: "stories_ar/ar_56_p1.jpg", text: "أصبح بلال بن رباح، من أوائل المتحولين إلى الإسلام، وكان عبداً سابقاً أعتقه أبو بكر، أول مؤذن في المدينة المنورة." },
-    { img: "stories_ar/ar_56_p2.jpg", text: "كان يؤدي هذه الخدمة خمس مرات يومياً لسنوات دون مقابل، معتبراً إياها واجباً دينياً ومساهمة خيرية للمجتمع. وكان أذانه للصلاة يُنظّم برنامج العبادة اليومية للمسلمين، واستمر في هذا الدور طوال حياة النبي صلى الله عليه وسلم وحتى في خلافة أبي بكر الصديق رضي الله عنه." },
-    { img: "stories_ar/ar_56_p3.jpg", text: "وقد أرست هذه الخطوة سابقة مفادها أن الخدمات الدينية يمكن أن تكون تبرعات خيرية طوعية وليست عملاً بأجر. بعد وفاة النبي، حال حزن بلال دون استمراره في أداء الأذان في المدينة المنورة، فاستقر في نهاية المطاف في الشام." },
-    { img: "stories_ar/ar_56_p4.jpg", text: "أثبتت عقود خدمته التطوعية أن المساهمة بالمهارات والوقت لتمكين العبادة الجماعية تُعدّ صدقة، كما أن كونه عبداً سابقاً قدّم خدماته للمجتمع طواعيةً يُجسّد مبادئ الإسلام في الكرامة والمساواة. وأصبح دور المؤذن من أبرز الشعائر الدينية في المجتمعات الإسلامية حول العالم." }
-  ] },
-  { id: "57", title: "حملة قطر الخيرية لجراحة الساد في أفريقيا (2020-2023)", pages: [
-    { img: "stories_ar/ar_57_p1.jpg", text: "تضمنت البرامج الطبية لقطر الخيرية في أفريقيا حملات جراحة الساد الموثقة في التقارير السنوية للفترة 2020-2023، والتي تعالج حالات العمى التي يمكن الوقاية منها لدى كبار السن وغيرهم ممن لا يستطيعون تحمل تكلفة الإجراء البسيط الذي يعيد البصر." },
-    { img: "stories_ar/ar_57_p2.jpg", text: "قدّم البرنامج أطباء عيون ومعدات طبية للمناطق المحرومة، وفحص المرضى للكشف عن إعتام عدسة العين، وأجرى عمليات جراحية مجانية. ووفقًا لتقارير منشورة، استهدفت المبادرة الأفراد الذين فقدوا مصادر رزقهم أو أصبحوا معتمدين على أسرهم بسبب فقدان البصر نتيجة حالة قابلة للعلاج." },
-    { img: "stories_ar/ar_57_p3.jpg", text: "ساهمت الرعاية والمتابعة بعد العملية في تحقيق نتائج ناجحة. وقد أقر البرنامج بأن جراحة الساد تُعد من بين أكثر التدخلات الطبية فعالية من حيث التكلفة، فهي إجراء قصير التكلفة نسبيًا، ويعيد الاستقلالية الوظيفية للأفراد المكفوفين." },
-    { img: "stories_ar/ar_57_p4.jpg", text: "نسّقت جمعية الهلال الأحمر القطري مع وزارات الصحة المحلية ونشرت إحصاءات المستفيدين. وقد حفّز المبدأ الإسلامي القائل بأن استعادة البصر تُعادل أجرًا روحيًا عظيمًا دعم المتبرعين، رابطًا طب العيون المعاصر بالأحاديث النبوية حول فضل مساعدة المكفوفين." }
-  ] },
-  { id: "58", title: "دعم الطلاب المجهولين للإمام أبي حنيفة (القرن الثامن الميلادي)", pages: [
-    { img: "stories_ar/ar_58_p1.jpg", text: "الإمام أبو حنيفة (توفي)" },
-    { img: "stories_ar/ar_58_p2.jpg", text: "(767 م)، مؤسس المدرسة الفقهية الحنفية، كان يدعم طلابه مالياً بينما يخفي أعماله الخيرية للحفاظ على كرامتهم." },
-    { img: "stories_ar/ar_58_p3.jpg", text: "تصف المصادر السيرية قيامه بوضع المال في أحذية الطلاب ليلاً أو ترتيب مساعدة مجهولة الهوية لأولئك الذين كان يعلم أنهم يعانون من ضائقة مالية." },
-    { img: "stories_ar/ar_58_p4.jpg", text: "أتاح ذلك للطلاب الفقراء مواصلة دراستهم دون الشعور بالخجل من تلقي الصدقات علنًا أو عبء الديون. وقد انعكس إخفاؤه لتبرعاته الخيرية على..." }
-  ] },
-  { id: "59", title: "إغاثة الأيوبيين من الزلزال في سوريا (1202 م)", pages: [
-    { img: "stories_ar/ar_59_p1.jpg", text: "ضرب زلزال مدمر سوريا عام 1202 ميلادي، مخلفاً دماراً هائلاً في العديد من المدن. وقد نظمت السلطات الأيوبية، ولا سيما في عهد السلطان العادل، استجابة إغاثية منهجية شملت توفير مأوى طارئ للنازحين، وتوزيع الغذاء لمنع المجاعة، وتقديم الرعاية الطبية للجرحى الناجين، والمساعدة في إعادة بناء المنازل والمساجد المدمرة." },
-    { img: "stories_ar/ar_59_p2.jpg", text: "جمعت الاستجابة بين أموال خزينة الدولة والتبرعات الخيرية من الأفراد الأثرياء. وتوثق السجلات التاريخية حجم الدمار والتنسيق الحكومي لجهود الإغاثة في جميع أنحاء المناطق المتضررة." },
-    { img: "stories_ar/ar_59_p3.jpg", text: "أظهرت استجابة الدولة للكوارث مسؤولية الحكومة الإسلامية تجاه رعاياها أثناء الكوارث. فإلى جانب المساعدات الطارئة الفورية، نظم الأيوبيون عملية إعادة إعمار طويلة الأمد شملت إعادة بناء التحصينات والمساجد والبنية التحتية." },
-    { img: "stories_ar/ar_59_p4.jpg", text: "وقد أرست هذه الخطوة سابقةً للاستجابة المنظمة للكوارث باعتبارها التزاماً خيرياً من الدولة، بدلاً من ترك السكان المتضررين يعتمدون على المبادرات الخيرية الفردية فقط. وقد حال التنسيق دون فوضى الإغاثة غير المنظمة، وضمن تغطيةً منهجيةً للمناطق المتضررة." }
-  ] },
-  { id: "60", title: "مؤسسة الراعي الخيرية للتوظيف (النموذج النبوي)", pages: [
-    { img: "stories_ar/ar_60_p1.jpg", text: "عمل النبي محمد كراعٍ مأجور لعائلات مكية قبل أن يتلقى الوحي، وهي مهنة أشار لاحقاً إلى أن جميع الأنبياء قد مارسوها." },
-    { img: "stories_ar/ar_60_p2.jpg", text: "أثبتت هذه التفاصيل السيرية أن توفير فرص العمل - أي دفع أجر عادل مقابل العمل - يُعدّ خدمة خيرية للمحتاجين. وقد ترسخ مبدأ تفضيل تمكين الناس من الكسب عن طريق العمل على تقديم الصدقات في الفكر الإسلامي الخيري." },
-    { img: "stories_ar/ar_60_p3.jpg", text: "أصحاب العمل الذين وظفوا أفراداً فقراء، ودفعوا أجوراً عادلة، وعاملوا العمال بكرامة، قاموا بأعمال خيرية من خلال خلق فرص اقتصادية." },
-    { img: "stories_ar/ar_60_p4.jpg", text: "أثر هذا النموذج النبوي على المناهج الإسلامية في مكافحة الفقر، حيث ركز على خلق فرص العمل إلى جانب العمل الخيري المباشر." }
-  ] },
-  { id: "61", title: "مطبخ نيشابور العام (بلاد فارس في القرن الحادي عشر)", pages: [
-    { img: "stories_ar/ar_61_p1.jpg", text: "كانت مدينة نيسابور، وهي مدينة رئيسية في بلاد فارس في العصور الوسطى، تُدير مطابخ عامة (مطَبَّخ) ممولة من الأوقاف، تُقدّم وجبات مجانية يوميًا للفقراء والطلاب والمسافرين. وتصف الروايات التاريخية هذه المطابخ بأنها كانت تُقدّم الطعام لآلاف الأشخاص يوميًا، من خلال الخبز والطعام المطبوخ، وأحيانًا الفاكهة." },
-    { img: "stories_ar/ar_61_p2.jpg", text: "ضمن هيكل الوقف توفير الغذاء بشكل مستدام بغض النظر عن عمر أي فرد أو تقلبات الميزانية الحكومية. وأشرف مديرون معينون على العمليات، وحافظوا على الجودة ومنعوا الفساد." },
-    { img: "stories_ar/ar_61_p3.jpg", text: "كانت المطابخ تعمل على مدار السنة، موفرةً الحد الأدنى من الأمن الغذائي لأفقر سكان المدينة. وقد أدرك النظام أن الجوع المزمن يمنع الناس من العمل أو الدراسة أو المساهمة في المجتمع، وأن الرفاه المجتمعي يتطلب توفير الغذاء المؤسسي لمن لا يستطيعون إطعام أنفسهم." },
-    { img: "stories_ar/ar_61_p4.jpg", text: "تصف بعض الروايات مرافق منفصلة لفئات سكانية مختلفة - واحدة للطلاب، وأخرى للفقراء عموماً - لضمان تلبية احتياجات كل فئة على النحو الأمثل. وقد أثر نموذج نيسابور على أنظمة توزيع الطعام الخيرية في مدن إسلامية أخرى." }
-  ] },
-  { id: "62", title: "صدقة صفية بنت حيي بمجوهراتها (القرن السابع الميلادي)", pages: [
-    { img: "stories_ar/ar_62_p1.jpg", text: "اشتهرت صفية بنت حيي، إحدى زوجات النبي محمد من أصل يهودي والتي اعتنقت الإسلام، بأعمالها الخيرية من ثروتها الشخصية ومجوهراتها." },
-    { img: "stories_ar/ar_62_p2.jpg", text: "تُوثّق المصادر السيرية دعمها لأقاربها الفقراء والمحررين من العبودية، وتوزيعها ممتلكاتها بسخاء. وقد أظهر نشاطها الخيري أن للمرأة المسلمة سلطة مستقلة على ممتلكاتها وثروتها، وقدرتها على تقديم الصدقات دون الحاجة إلى إذن من أقاربها الذكور." },
-    { img: "stories_ar/ar_62_p3.jpg", text: "وقد أرست هذه الحادثة سابقة مهمة لمشاركة المرأة المستقلة في الأعمال الخيرية. فقد منح القانون الإسلامي المرأة حقوقاً كاملة في الملكية، وكان عطاء صفية الخيري مثالاً عملياً على هذا المبدأ." },
-    { img: "stories_ar/ar_62_p4.jpg", text: "اتخذت قراراتها بشأن توزيع الثروة باستقلالية، ودعمت القضايا التي أولتها الأولوية، بما في ذلك مساعدة أفراد من مجتمعها اليهودي السابق الذين اعتنقوا الإسلام وواجهوا صعوبات اقتصادية. وقد أثر مثالها في ثقافة العمل الخيري الإسلامي، حيث أقرت بأن تبرعات المرأة الخيرية مساوية لتبرعات الرجل، وأن للمرأة كامل الحق في التصرف بممتلكاتها لأغراض دينية." }
-  ] }
-];
+/* Bilingual reviewed stories with evidence status and sources. */
+window.SADAQAH_STORIES = {
+  "en": [
+    {
+      "id": "01",
+      "title": "The Mosque of Amr ibn al-As - A Legacy of Faith and Community",
+      "pages": [
+        {
+          "img": "stories_en/en_01_p1.jpg",
+          "text": "In 641 CE, Amr ibn al-As founded a mosque in Fustat, the new Muslim capital of Egypt. This happened when Umar ibn al-Khattab was caliph. A caliph was the leader of the Muslim community."
+        },
+        {
+          "img": "stories_en/en_01_p2.jpg",
+          "text": "This mosque was one of the earliest Islamic places of worship in Africa. People came there to pray and to gather together, while the city of Fustat grew around it."
+        },
+        {
+          "img": "stories_en/en_01_p3.jpg",
+          "text": "Over the centuries, people repaired and rebuilt the mosque many times. So the building you can see today is not exactly the same building from the seventh century."
+        },
+        {
+          "img": "stories_en/en_01_p4.jpg",
+          "text": "People have used this mosque for a very long time. This shows how shared places of worship keep helping everyone. A waqf is a gift set aside so it keeps helping people for a long time. Some popular stories describe a waqf paper for this mosque and exact help for the poor and students. But old records do not prove these details."
+        }
+      ],
+      "evidenceStatus": "Documented historical or organizational source",
+      "sources": [
+        {
+          "name": "Egyptian Ministry of Tourism and Antiquities",
+          "url": "https://egymonuments.gov.eg/monuments/the-mosque-of-amr-ibn-al-as/"
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "title": "The Well of Rumah - Uthman ibn Affan's Endowment",
+      "pages": [
+        {
+          "img": "stories_en/en_02_p1.jpg",
+          "text": "Imagine how much a town needs clean water every single day. In Madinah in the early days of Islam, getting drinking water was very important. The Well of Rumah was a precious source of water."
+        },
+        {
+          "img": "stories_en/en_02_p2.jpg",
+          "text": "Sahih al-Bukhari 2778 tells us something special. The Prophet Muhammad (peace be upon him) promised Paradise to whoever would dig the Well of Rumah. Later, Uthman ibn Affan reminded the Companions, the Prophet's followers, that he had done it, and they agreed."
+        },
+        {
+          "img": "stories_en/en_02_p3.jpg",
+          "text": "This hadith, a report about the Prophet's words and actions, tells us about Uthman's great act of generosity. People often add extra details: who owned the well, buying it half at a time on alternate days, and exact prices. These come from later history books, not from this authentic hadith."
+        },
+        {
+          "img": "stories_en/en_02_p4.jpg",
+          "text": "The well is a famous example of giving that helps the public for a long time. Sahih Muslim 1631 teaches about ongoing charity, giving that keeps on helping people. Its reward is part of our religious teaching, but it does not prove every story told later about the well."
+        }
+      ],
+      "evidenceStatus": "Authenticated hadith cited",
+      "sources": [
+        {
+          "name": "Sahih al-Bukhari 2778; Sahih Muslim 1631",
+          "url": "https://sunnah.com/bukhari:2778"
+        },
+        {
+          "name": "Further source",
+          "url": "https://sunnah.com/muslim:1631"
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "title": "Al-Qarawiyyin: A Historic Center of Learning",
+      "pages": [
+        {
+          "img": "stories_en/en_03_p1.jpg",
+          "text": "The Qarawiyyin mosque in the city of Fez dates back to 859 CE. A famous Moroccan story from history says it was founded by Fatima al-Fihri. Her family came from the city of Kairouan."
+        },
+        {
+          "img": "stories_en/en_03_p2.jpg",
+          "text": "Later stories say she spent her family's wealth to build it. Some also say she fasted every day while it was built, and set up a whole university endowment herself. These are traditional stories, so we cannot be sure they happened exactly this way."
+        },
+        {
+          "img": "stories_en/en_03_p3.jpg",
+          "text": "Over the centuries, the mosque grew into an important place of learning. Some people say certain famous thinkers studied there. But we need proof from the stories of their own lives before we can be sure."
+        },
+        {
+          "img": "stories_en/en_03_p4.jpg",
+          "text": "Guinness World Records lists Qarawiyyin as the oldest higher-learning institution that has kept working without stopping. But this does not mean it has given out university degrees like today's, without a break, since 859."
+        }
+      ],
+      "evidenceStatus": "Historical tradition; details may vary",
+      "sources": [
+        {
+          "name": "Guinness World Records: Oldest higher-learning institution; account of Fatima is a historical tradition",
+          "url": "https://www.guinnessworldrecords.com/world-records/oldest-university"
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "title": "The Adudi Hospital - Baghdad's Advanced Medical Waqf",
+      "pages": [
+        {
+          "img": "stories_en/en_04_p1.jpg",
+          "text": "Around 981 CE, the Adudi hospital was founded in Baghdad. This happened under the Buyid ruler Adud al-Dawla. Writers in the Middle Ages remembered it as an important place for treating the sick and for learning medicine."
+        },
+        {
+          "img": "stories_en/en_04_p2.jpg",
+          "text": "Doctors worked there together to treat patients and to train new doctors. Some stories give an exact number of departments, or describe wards for women and the staff. We cannot be sure of these details without checking records from that time."
+        },
+        {
+          "img": "stories_en/en_04_p3.jpg",
+          "text": "Long ago, hospitals were often paid for by charity and by endowments, gifts set aside to keep helping for a long time. But we have no proof of special gift papers for this hospital. We also cannot be sure it gave patients extra help or money when they left."
+        },
+        {
+          "img": "stories_en/en_04_p4.jpg",
+          "text": "The Adudi hospital kept working until the Mongols captured Baghdad in 1258. That is about 277 years after it was founded. Some people say it lasted more than 400 years, but that is not correct."
+        }
+      ],
+      "evidenceStatus": "Documented historical or organizational source",
+      "sources": [
+        {
+          "name": "TDV Islam Ansiklopedisi: Bimaristan",
+          "url": "https://islamansiklopedisi.org.tr/bimaristan"
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "title": "The Year of Ashes (Aam ar-Ramadah) - Umar's Famine Relief",
+      "pages": [
+        {
+          "img": "stories_en/en_05_p1.jpg",
+          "text": "In the Islamic year 18 AH, a terrible drought and famine hit the area around Madinah. A drought is a long time without rain, and a famine is when there is not enough food. Historians call this hard time the Year of Ashes (Am al-Ramadah)."
+        },
+        {
+          "img": "stories_en/en_05_p2.jpg",
+          "text": "History books describe how Caliph Umar ibn al-Khattab, the leader of the Muslims, arranged food supplies for the people. They also say he asked officials in other provinces, or regions, to send help."
+        },
+        {
+          "img": "stories_en/en_05_p3.jpg",
+          "text": "The old reports also say Umar lived very simply and kept his own food plain during this hard time. You may have heard a famous English sentence about Umar “understanding the poor”. It is a modern way of putting it, not words we know for sure that he said."
+        },
+        {
+          "img": "stories_en/en_05_p4.jpg",
+          "text": "This story shows why it matters to plan and work together when helping in a crisis. Old books give different numbers of camels, meal times, how long the famine lasted and how many lives were saved. So we cannot be sure of these details."
+        }
+      ],
+      "evidenceStatus": "Historical tradition; details may vary",
+      "sources": [
+        {
+          "name": "Early Islamic historical chronicles (details and dates vary); Qur’an 2:177",
+          "url": "https://quran.com/2/177"
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "title": "Umar and Family Allowances: A Historical Report",
+      "pages": [
+        {
+          "img": "stories_en/en_06_p1.jpg",
+          "text": "In history books, Caliph Umar ibn al-Khattab is linked with improving the public treasury. This was the money kept to serve the people. He is also linked with registers, or official lists, used to share out support from the state."
+        },
+        {
+          "img": "stories_en/en_06_p2.jpg",
+          "text": "Reports from early Islamic history describe help for families and children. Some stories give exact amounts for every orphan, or special payments linked to certain battles. We need stronger proof before we can be sure of these details."
+        },
+        {
+          "img": "stories_en/en_06_p3.jpg",
+          "text": "An old story says Umar changed the rules for a children's allowance, a regular payment for children. He did this after learning it pushed a mother to wean her baby, or stop breastfeeding, too early. This is a report from history. It is not a saying of the Prophet (peace be upon him), or a hadith in the two Sahih collections."
+        },
+        {
+          "img": "stories_en/en_06_p4.jpg",
+          "text": "The important lesson is this: good intentions are not enough. We may make a plan to help people who are weak or in need. We must also check that it does not harm them by mistake."
+        }
+      ],
+      "evidenceStatus": "Historical tradition; details may vary",
+      "sources": [
+        {
+          "name": "Early biographical accounts of Umar; some details are not hadith-authenticated",
+          "url": "https://sunnah.com/bukhari:6005"
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "title": "Uthman ibn Affan and the Expansion of the Prophet's Mosque",
+      "pages": [
+        {
+          "img": "stories_en/en_07_p1.jpg",
+          "text": "Think about a place of prayer that keeps getting fuller and fuller. As the Muslim community in Madinah grew bigger, the Prophet's Mosque needed more land so everyone could fit."
+        },
+        {
+          "img": "stories_en/en_07_p2.jpg",
+          "text": "Musnad Ahmad 555 is a report in a famous hadith collection. In it, Uthman ibn Affan describes how he bought a piece of land with his own money for the mosque. Scholars who checked this report judged it to be reliable."
+        },
+        {
+          "img": "stories_en/en_07_p3.jpg",
+          "text": "This story is about giving land so people had a place to pray together. It is different from other, later reports about Uthman repairing and improving the mosque when he was caliph."
+        },
+        {
+          "img": "stories_en/en_07_p4.jpg",
+          "text": "Sahih Muslim 1631 teaches about ongoing charity, giving that keeps helping others. It is one of the good deeds whose benefit can continue even after the giver has died."
+        }
+      ],
+      "evidenceStatus": "Authenticated hadith cited",
+      "sources": [
+        {
+          "name": "Musnad Ahmad 555 (authenticated in cited edition); Sahih Muslim 1631",
+          "url": "https://sunnah.com/ahmad:555"
+        },
+        {
+          "name": "Further source",
+          "url": "https://sunnah.com/muslim:1631"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "The Healing Hands of Bimaristan Nuri: A Legacy of Compassionate Healthcare in Damascus",
+      "pages": [
+        {
+          "img": "stories_en/en_10_p1.jpg",
+          "text": "In 1154 CE, Nur al-Din Mahmud Zangi founded the Nuri hospital in Damascus. Its building is well recorded in history. It is a clear example of how Muslims in the Middle Ages cared for the sick through charity."
+        },
+        {
+          "img": "stories_en/en_10_p2.jpg",
+          "text": "The hospital treated patients and was also a place to train doctors. Some stories describe separate wards for children and for mental illness, or rules for doctors like today's. We need more historical sources before we can be sure of these details."
+        },
+        {
+          "img": "stories_en/en_10_p3.jpg",
+          "text": "Endowments, gifts set aside to keep helping for a long time, helped places like this keep going. People remember the Nuri hospital as a lasting place of medical care and learning."
+        },
+        {
+          "img": "stories_en/en_10_p4.jpg",
+          "text": "The Prophet (peace be upon him) taught that easing someone's hardship is a deed of great merit (Sahih Muslim 2699a). This hadith is authentic. But we cannot say what the hospital's founder believed or said without other sources."
+        }
+      ],
+      "evidenceStatus": "Documented historical or organizational source",
+      "sources": [
+        {
+          "name": "Museum With No Frontiers: Hospital Nur al-Din; Sahih Muslim 2699a",
+          "url": "https://islamicart.museumwnf.org/database_item.php?id=monument%3BISL%3Bsy%3BMon01%3B15%3Ben"
+        },
+        {
+          "name": "Further source",
+          "url": "https://sunnah.com/muslim:2699a"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "title": "Al-Walid ibn Abd al-Malik and Early Disability Welfare",
+      "pages": [
+        {
+          "img": "stories_en/en_11_p1.jpg",
+          "text": "History books say that the Umayyad caliph al-Walid ibn Abd al-Malik took steps to help people with disabilities and serious illnesses. A caliph was a leader of the Muslims."
+        },
+        {
+          "img": "stories_en/en_11_p2.jpg",
+          "text": "A report linked to Ibn Asakir, a writer of history, says he arranged help for people with leprosy, a serious illness. It also says he gave helpers or guides to some people who could not walk or could not see."
+        },
+        {
+          "img": "stories_en/en_11_p3.jpg",
+          "text": "Some popular stories also describe a large orphanage in Damascus, a home for children who have lost a parent. They say hundreds of children learned carpentry and farming there. But early history books do not confirm these details."
+        },
+        {
+          "img": "stories_en/en_11_p4.jpg",
+          "text": "Caring for orphans is still an important Islamic value. The Prophet (peace be upon him) said that a person who looks after an orphan will be close to him in Paradise. He showed this with two fingers (Sahih al-Bukhari 6005). This is a hadith, not a verse of the Qur'an."
+        }
+      ],
+      "evidenceStatus": "Historical tradition; details may vary",
+      "sources": [
+        {
+          "name": "Historical accounts of al-Walid’s disability welfare, attributed to Ibn Asakir; Sahih al-Bukhari 6005",
+          "url": "https://en.wikisource.org/wiki/Historical_Tales_and_Anecdotes_of_the_Time_of_the_Early_Khalifahs/The_Reign_of_el-Walld-ibn-%27Abd-el-Malik"
+        },
+        {
+          "name": "Further source",
+          "url": "https://sunnah.com/bukhari:6005"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "title": "Qatar Charity’s Documented Education Projects in Gaza",
+      "pages": [
+        {
+          "img": "stories_en/en_12_p1.jpg",
+          "text": "Think about how much a good classroom helps children learn. Qatar Charity has helped schools and students in Gaza through educational projects that are well recorded. Its help began before the 2021 conflict."
+        },
+        {
+          "img": "stories_en/en_12_p2.jpg",
+          "text": "Reported projects include building classrooms and furnishing them, as well as school labs and other learning facilities. One project that was publicly reported supplied six classrooms at the Fahd Al-Sabah School."
+        },
+        {
+          "img": "stories_en/en_12_p3.jpg",
+          "text": "Other projects in Gaza have provided places to learn and school equipment. A waqf is a gift set aside to keep helping for a long time. Some people talk about a campaign called “Build a School”, exact numbers of people helped, or waqf rules. We cannot be sure of these without papers for each project."
+        },
+        {
+          "img": "stories_en/en_12_p4.jpg",
+          "text": "This example shows how helping education can do good for a long time. To learn exactly what each project did, we can read Qatar Charity's own dated reports."
+        }
+      ],
+      "evidenceStatus": "Documented historical or organizational source",
+      "sources": [
+        {
+          "name": "Qatar Charity: Gaza education projects reported in 2019–2021",
+          "url": "https://www.qatar-tribune.com/article/206771/NATION/Qatar-Charity-implements-projects-to-support-Palestinian-education-sector"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "title": "Qatar Red Crescent's Mobile Health Clinics in Yemen",
+      "pages": [
+        {
+          "img": "stories_en/en_13_p1.jpg",
+          "text": "Yemen has faced a humanitarian crisis, a time when many people urgently need help. During this crisis, Qatar Red Crescent Society, or QRCS, has supported health services there. These services help displaced people, who have had to leave their homes, and other vulnerable people."
+        },
+        {
+          "img": "stories_en/en_13_p2.jpg",
+          "text": "QRCS reports that it has supported clinics and also run outreach services, which bring care out to where people are. Its reports describe free consultations, which are visits with a doctor, as well as medicines and referrals to other care. They also mention other essential health services."
+        },
+        {
+          "img": "stories_en/en_13_p3.jpg",
+          "text": "Some projects treat patients in health centers that stay in one place. Others use mobile teams that travel to people. How the work is done, and who helps, changes from place to place and year to year. So we should not mix them all together and imagine they are one big program."
+        },
+        {
+          "img": "stories_en/en_13_p4.jpg",
+          "text": "QRCS publishes reports that give the dates, health facilities and numbers for specific projects. The lesson is simple: medical charity can reach people who have lost their homes and find it hard to get care."
+        }
+      ],
+      "evidenceStatus": "Documented historical or organizational source",
+      "sources": [
+        {
+          "name": "Qatar Red Crescent Society: Yemen mobile clinics and health-project reporting",
+          "url": "https://www.qrcs.org.qa/en/News/Pages/QRCS-provides-medical-care-for-refugees-and-locals-in-Yemen.aspx?NewsId=yC8un7F3UVA%3D"
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "title": "The Prophet's Generosity During Ramadan",
+      "pages": [
+        {
+          "img": "stories_en/en_16_p1.jpg",
+          "text": "Ibn Abbas reported something special about the Prophet Muhammad (peace be upon him). He said the Prophet was especially generous during Ramadan. Being generous means giving freely to others."
+        },
+        {
+          "img": "stories_en/en_16_p2.jpg",
+          "text": "This report is recorded in Sahih al-Bukhari 1902, a trusted collection of hadith, the sayings and actions of the Prophet. It says he was the most generous of people. And in Ramadan, his generosity grew even more."
+        },
+        {
+          "img": "stories_en/en_16_p3.jpg",
+          "text": "The report also tells us about the nights of Ramadan. Every night, the angel Jibril (Gabriel) came to meet him. Together they reviewed the Qur'an, going over its words."
+        },
+        {
+          "img": "stories_en/en_16_p4.jpg",
+          "text": "The report compares his generosity to a fast-moving wind that brings good things. It does not say that he fed every hungry person himself. It also does not say that no one ever went hungry."
+        }
+      ],
+      "evidenceStatus": "Authenticated hadith cited",
+      "sources": [
+        {
+          "name": "Sahih al-Bukhari 1902",
+          "url": "https://sunnah.com/bukhari:1902"
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "title": "The Generous Farmer and the Divine Rain",
+      "pages": [
+        {
+          "img": "stories_en/en_17_p1.jpg",
+          "text": "A hadith in Sahih Muslim 2984a tells a story about a traveler. Once, he heard a voice coming from a cloud. The voice told the cloud to water the garden of a certain person."
+        },
+        {
+          "img": "stories_en/en_17_p2.jpg",
+          "text": "The traveler followed the water until he reached a garden. There he met the garden's owner. He asked the owner why his garden had been chosen in this special way."
+        },
+        {
+          "img": "stories_en/en_17_p3.jpg",
+          "text": "The gardener explained what he did with everything his garden produced. He divided it into three parts. One part went to the poor, one part to his family, and one part back into growing more crops."
+        },
+        {
+          "img": "stories_en/en_17_p4.jpg",
+          "text": "This story comes to us as a report recorded in Sahih Muslim. It is not a dated event from history, so we do not know when it happened. Its lesson is about being generous and taking good care of what we have."
+        }
+      ],
+      "evidenceStatus": "Authenticated hadith cited",
+      "sources": [
+        {
+          "name": "Sahih Muslim 2984a",
+          "url": "https://sunnah.com/muslim:2984a"
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "title": "The Compassionate Legacy of Zakat al-Fitr: Ensuring Dignity During Ramadan",
+      "pages": [
+        {
+          "img": "stories_en/en_18_p1.jpg",
+          "text": "Zakat al-Fitr is a special charity linked to the end of Ramadan. It is obligatory, which means it must be given. It is different from Sadaqah, which is extra charity that people choose to give."
+        },
+        {
+          "img": "stories_en/en_18_p2.jpg",
+          "text": "Sahih al-Bukhari 1503 reports that the Prophet (peace be upon him) set it as a sa of dates or barley. A sa is an old measure for food. He also ordered that it be paid before the Eid prayer."
+        },
+        {
+          "img": "stories_en/en_18_p3.jpg",
+          "text": "Another report is found in Sunan Abi Dawud 1609. It is graded hasan, which means good and acceptable. It says Zakat al-Fitr purifies, or cleans, the fasting person. It also gives food to people in need."
+        },
+        {
+          "img": "stories_en/en_18_p4.jpg",
+          "text": "Scholars of Islamic law truly disagree about whether it can be paid in money instead of food. So it is best to follow trusted local scholars. They can explain how much to give, who should receive it and how to pay it."
+        }
+      ],
+      "evidenceStatus": "Authenticated hadith cited",
+      "sources": [
+        {
+          "name": "Sahih al-Bukhari 1503; Sunan Abi Dawud 1609 (hasan)",
+          "url": "https://sunnah.com/bukhari:1503"
+        },
+        {
+          "name": "Further source",
+          "url": "https://sunnah.com/abudawud:1609"
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "title": "The Najashi's Welcome - Asylum for Persecuted Muslims in Abyssinia",
+      "pages": [
+        {
+          "img": "stories_en/en_19_p1.jpg",
+          "text": "In the early years of Islam, some Muslims in Makkah were treated cruelly because of their faith. To stay safe, some of them traveled across the Red Sea. They went to a land called Abyssinia."
+        },
+        {
+          "img": "stories_en/en_19_p2.jpg",
+          "text": "Early books about the life of the Prophet (peace be upon him) are called the sira. They say he advised the Muslims to seek safety with a just ruler. A famous description speaks of a king who wronged no one. But it comes from the sira books, not from the two Sahih collections of hadith."
+        },
+        {
+          "img": "stories_en/en_19_p3.jpg",
+          "text": "The ruler is usually called the Najashi (Negus). He is remembered for letting the refugees, people who fled to stay safe, explain their side. He did not hand them straight back to the people who were against them."
+        },
+        {
+          "img": "stories_en/en_19_p4.jpg",
+          "text": "The stories say that Jafar ibn Abi Talib recited from Surah Maryam to explain the Muslim faith. Muslims went to Abyssinia more than once, and the reports give different numbers for each group. So we should not mix all the groups into one party with a fixed date of 615 CE."
+        }
+      ],
+      "evidenceStatus": "Historical tradition; details may vary",
+      "sources": [
+        {
+          "name": "Accounts of the first migration to Abyssinia in the early sira literature",
+          "url": "https://quran.com/19"
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "title": "Ramadan Food Assistance and Feeding Those Who Fast",
+      "pages": [
+        {
+          "img": "stories_en/en_20_p1.jpg",
+          "text": "Giving food to people so they can break their Ramadan fast is a valued kind of charity. Qatar Charity has run Ramadan campaigns to help people get food."
+        },
+        {
+          "img": "stories_en/en_20_p2.jpg",
+          "text": "The Prophet Muhammad (peace be upon him) taught something wonderful. Whoever feeds a fasting person gets a reward like theirs. And the fasting person does not lose any of their own reward. This hadith is recorded in Jami at-Tirmidhi 807 and graded authentic."
+        },
+        {
+          "img": "stories_en/en_20_p3.jpg",
+          "text": "Qatar Charity's projects change from year to year and from place to place. Sometimes they may give out meals, and sometimes food baskets. But to know exactly where they happened, how many there were or how many people were helped, we need a dated report."
+        },
+        {
+          "img": "stories_en/en_20_p4.jpg",
+          "text": "The Qur'an also praises feeding people in need (76:8). If you want to know about a charity's programs and how they are supervised, check its own official reports. We should not treat these descriptions as guarantees."
+        }
+      ],
+      "evidenceStatus": "Documented historical or organizational source",
+      "sources": [
+        {
+          "name": "Jami at-Tirmidhi 807 (sahih); Qatar Charity official website",
+          "url": "https://sunnah.com/tirmidhi:807"
+        },
+        {
+          "name": "Further source",
+          "url": "https://www.qcharity.org/"
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "title": "The Generosity of Abdurrahman bin Awf: A Model of Early Muslim Philanthropy",
+      "pages": [
+        {
+          "img": "stories_en/en_21_p1.jpg",
+          "text": "Abdurrahman ibn Awf was a Companion of the Prophet Muhammad (peace be upon him). A Companion is someone who met the Prophet and believed in him. Abdurrahman became known as a successful merchant, or trader, in Madinah."
+        },
+        {
+          "img": "stories_en/en_21_p2.jpg",
+          "text": "Sahih al-Bukhari 2048 tells a lovely story about him. His new brother from the Ansar, the Muslims of Madinah, offered him generous help. But Abdurrahman asked instead to be shown the way to the marketplace."
+        },
+        {
+          "img": "stories_en/en_21_p3.jpg",
+          "text": "Later history books describe the money he gave to charity. Some people repeat exact amounts, or say he left half of everything he owned to the community. But we cannot be sure of these details without a specific, reliable source."
+        },
+        {
+          "img": "stories_en/en_21_p4.jpg",
+          "text": "His story can inspire us to work responsibly and to give generously. The authentic hadith shows that he chose to stand on his own feet and to trade. It does not prove every later story about how rich he was."
+        }
+      ],
+      "evidenceStatus": "Authenticated hadith cited",
+      "sources": [
+        {
+          "name": "Sahih al-Bukhari 2048; further generosity narratives require separate historical sourcing",
+          "url": "https://sunnah.com/bukhari:2048"
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "title": "Libraries and Learning in Medieval Baghdad",
+      "pages": [
+        {
+          "img": "stories_en/en_22_p1.jpg",
+          "text": "Long ago, before printing was invented, books were very expensive. In many cities of the medieval Islamic world, rulers and kind supporters built up collections of books. People used them to study and to copy books."
+        },
+        {
+          "img": "stories_en/en_22_p2.jpg",
+          "text": "In Baghdad, the Mustansiriyya school opened in 1233 CE. It became known for its learning spaces and its books. Other book collections were very different from each other, both in who could use them and in how they were paid for."
+        },
+        {
+          "img": "stories_en/en_22_p3.jpg",
+          "text": "You may hear that a library had tens of thousands of books. Some say every student got free supplies, or that anyone at all could come in. To know if this is true for a particular library, we need evidence from that library's own records."
+        },
+        {
+          "img": "stories_en/en_22_p4.jpg",
+          "text": "Islamic teachings place great value on learning. Qur'an 96:1–5 begins with the command to read. And Sahih Muslim 1631 says that beneficial knowledge is one of the deeds whose reward can continue even after a person dies."
+        }
+      ],
+      "evidenceStatus": "General historical overview; not a verified individual incident",
+      "sources": [
+        {
+          "name": "Qur’an 96:1-5; Sahih Muslim 1631; individual library claims require archival verification",
+          "url": "https://quran.com/96/1-5"
+        },
+        {
+          "name": "Further source",
+          "url": "https://sunnah.com/muslim:1631"
+        }
+      ]
+    },
+    {
+      "id": "23",
+      "title": "The Prophet’s Care for the Debts of the Deceased",
+      "pages": [
+        {
+          "img": "stories_en/en_23_p1.jpg",
+          "text": "Sahih al-Bukhari 2298 tells us how the Prophet Muhammad (peace be upon him) viewed debts. When a person died without paying back what they owed, he treated it as a very serious matter. A debt is money that someone has borrowed and must return."
+        },
+        {
+          "img": "stories_en/en_23_p2.jpg",
+          "text": "At first, he would ask whether the person who died had left enough to pay their debts. Later, when more resources became available, he said he would take responsibility himself. He would cover the unpaid debts of believers who qualified."
+        },
+        {
+          "img": "stories_en/en_23_p3.jpg",
+          "text": "There is also a different story, told in a separate report. In it, Abu Bakr kept a promise that the Prophet (peace be upon him) had made to Jabir ibn Abdullah. That is a separate event, so we should not mix it up with using public money to pay the debts of people who had died."
+        },
+        {
+          "img": "stories_en/en_23_p4.jpg",
+          "text": "Qur'an 9:60 lists people in debt among those who may receive zakat, the charity that Islam makes obligatory. This depends on conditions set by Islamic law. Helping someone pay off a lawful debt can protect both the borrower and the people they owe."
+        }
+      ],
+      "evidenceStatus": "Authenticated hadith cited",
+      "sources": [
+        {
+          "name": "Sahih al-Bukhari 2298; Qur’an 9:60",
+          "url": "https://sunnah.com/bukhari:2298"
+        },
+        {
+          "name": "Further source",
+          "url": "https://quran.com/9/60"
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "title": "The Caravanserais - Roadside Shelters for Travelers as Waqf",
+      "pages": [
+        {
+          "img": "stories_en/en_24_p1.jpg",
+          "text": "In the medieval Islamic world, merchants and pilgrims traveled through many lands. Along the way, they could stop at caravanserais and other roadside lodgings, places where travelers could rest. These places helped them on their journeys."
+        },
+        {
+          "img": "stories_en/en_24_p2.jpg",
+          "text": "Not all caravanserais were the same. Some were businesses that charged money. Others were supported by charitable foundations or by rulers and other patrons. So it is not correct to say that every caravanserai was a free waqf, a gift set aside so it keeps helping people for a long time."
+        },
+        {
+          "img": "stories_en/en_24_p3.jpg",
+          "text": "These buildings could give shelter to travelers and their animals. But whether they offered meals or medical care was different from place to place. How long guests could stay, and what fees they paid, also depended on the place and its rules."
+        },
+        {
+          "img": "stories_en/en_24_p4.jpg",
+          "text": "The lesson is that building places to help travelers can be a way to serve the public. If you hear a story about one particular inn, check it against its endowment deed, the document that set up its waqf, if it survives, or against a historical account."
+        }
+      ],
+      "evidenceStatus": "General historical overview; not a verified individual incident",
+      "sources": [
+        {
+          "name": "Historical overview of waqf hospitality; specific buildings and access policies vary",
+          "url": "https://quran.com/9/60"
+        }
+      ]
+    },
+    {
+      "id": "26",
+      "title": "Qatar Charity and Access to Safe Water",
+      "pages": [
+        {
+          "img": "stories_en/en_26_p1.jpg",
+          "text": "Clean, safe water is something every person needs. Helping people get it is one of the most important ways to help others. Qatar Charity has worked on water projects in a number of countries."
+        },
+        {
+          "img": "stories_en/en_26_p2.jpg",
+          "text": "A water project might include wells, pumps or ways to keep everything working. Each one is built to suit the place where it is. If you want to give, it is a good idea to read about each project first."
+        },
+        {
+          "img": "stories_en/en_26_p3.jpg",
+          "text": "Every project is planned around what the local people need and what their area is like. Qatar Charity shares the details of its projects in its official reports."
+        },
+        {
+          "img": "stories_en/en_26_p4.jpg",
+          "text": "Giving clean water is a great example of Sadaqah Jariyah, ongoing charity that keeps helping long after it is given. A well can give water to people and animals for many years after it is built."
+        }
+      ],
+      "evidenceStatus": "Documented historical or organizational source",
+      "sources": [
+        {
+          "name": "Qatar Charity water-project information; project name, numbers and procedures need original documentation",
+          "url": "https://www.qcharity.org/"
+        }
+      ]
+    },
+    {
+      "id": "28",
+      "title": "The Prophet's (PBUH) Response to the Tribe of Mudar's Poverty",
+      "pages": [
+        {
+          "img": "stories_en/en_28_p1.jpg",
+          "text": "Early in the morning, a group of people from the tribe of Mudar came to the gathering of the Prophet (peace be upon him). They were barefoot and barely clothed, wearing only striped woollen clothes or cloaks. Their swords hung around their necks."
+        },
+        {
+          "img": "stories_en/en_28_p2.jpg",
+          "text": "The Prophet (peace be upon him) saw how poor they were, and he was deeply moved. He went straight into his house and then came out again. He asked Bilal to give the Adhan, the call to prayer."
+        },
+        {
+          "img": "stories_en/en_28_p3.jpg",
+          "text": "After the prayer, he spoke to the people. He recited verses from Surah An-Nisa (4:1) and Surah Al-Hashr (59:18). These verses remind us to be mindful of Allah and to think about what good we send ahead for tomorrow. Then he encouraged everyone to give in charity, even if it was only half a date."
+        },
+        {
+          "img": "stories_en/en_28_p4.jpg",
+          "text": "The people answered with great generosity. They brought food, clothing and other things, until there were two heaps of food and clothes. The face of the Prophet (peace be upon him) shone with joy. He taught that whoever starts a good practice in Islam gets its reward, and a reward for everyone who follows it, without their rewards becoming any less (Sahih Muslim 1017a)."
+        }
+      ],
+      "evidenceStatus": "Authenticated hadith cited",
+      "sources": [
+        {
+          "name": "Sahih Muslim 1017a",
+          "url": "https://sunnah.com/muslim:1017a"
+        }
+      ]
+    },
+    {
+      "id": "31",
+      "title": "Helping Displaced Families Through Winter",
+      "pages": [
+        {
+          "img": "stories_en/en_31_p1.jpg",
+          "text": "Imagine winter without warm clothes, blankets or a safe way to stay warm. For displaced families, people who have had to leave their homes, this can make winter very hard."
+        },
+        {
+          "img": "stories_en/en_31_p2.jpg",
+          "text": "Humanitarian groups, which help people in times of crisis, sometimes give out winter kits. They may also repair shelters and hand out supplies that suit the weather. First, they check what local families really need."
+        },
+        {
+          "img": "stories_en/en_31_p3.jpg",
+          "text": "Many charities run special winter campaigns. They bring blankets, warm clothes and safe heating to refugee and displaced families."
+        },
+        {
+          "img": "stories_en/en_31_p4.jpg",
+          "text": "This story is an example to help us learn about winter help. It is not about one particular project. The Qur'an praises people who feed those in need (76:8)."
+        }
+      ],
+      "evidenceStatus": "Educational example, not a verified named event",
+      "sources": [
+        {
+          "name": "Winter assistance explained as a general humanitarian example; named foundation project not verified",
+          "url": "https://quran.com/76/8"
+        }
+      ]
+    },
+    {
+      "id": "32",
+      "title": "Freeing Those in Bondage - Fi al-Riqab as Charity",
+      "pages": [
+        {
+          "img": "stories_en/en_32_p1.jpg",
+          "text": "Zakat is a charity that Muslims are required to give. Qur’an 9:60 lists the ways zakat may be used. One of them is fi al-riqab, which means helping to free people from bondage, or slavery."
+        },
+        {
+          "img": "stories_en/en_32_p2.jpg",
+          "text": "Qur’an 90:11–14 puts two good deeds side by side. One is freeing a person from bondage. The other is feeding the hungry in a time of hardship."
+        },
+        {
+          "img": "stories_en/en_32_p3.jpg",
+          "text": "Early Islamic history remembers Abu Bakr for freeing Bilal ibn Rabah. The Qur’an also speaks about agreements through which enslaved people could seek their freedom (24:33)."
+        },
+        {
+          "img": "stories_en/en_32_p4.jpg",
+          "text": "Later Islamic books include reports praising rulers who used zakat to free people from bondage. But some popular stories have details we cannot be sure about. Today, scholars explain how fi al-riqab applies to life in our own time."
+        }
+      ],
+      "evidenceStatus": "Qur’an and authenticated reports",
+      "sources": [
+        {
+          "name": "Qur’an 9:60, 90:11-14, 24:33",
+          "url": "https://quran.com/9/60"
+        },
+        {
+          "name": "Further source",
+          "url": "https://quran.com/90/11-14"
+        }
+      ]
+    },
+    {
+      "id": "33",
+      "title": "Marriage Assistance - Charitable Support for Couples Unable to Afford Marriage",
+      "pages": [
+        {
+          "img": "stories_en/en_33_p1.jpg",
+          "text": "Qur’an 24:32 encourages the community to make marriage easier for people who are not married. Qur’an 24:33 guides those who cannot yet afford to marry to keep themselves modest. These verses give moral guidance. They do not describe one particular charity fund from history."
+        },
+        {
+          "img": "stories_en/en_33_p2.jpg",
+          "text": "In many communities, relatives, neighbours and kind donors help a couple pay for the things they really need. This way, being short of money does not have to stop people from getting married."
+        },
+        {
+          "img": "stories_en/en_33_p3.jpg",
+          "text": "Help might include a modest amount toward the mahr, the marriage gift from the groom to the bride, or basic things for the home. If someone tells a story about a famous mass wedding from history, or a named endowment, we would need a reliable record to know it is true."
+        },
+        {
+          "img": "stories_en/en_33_p4.jpg",
+          "text": "Can zakat be used to help someone marry? That is a separate question for scholars. The answer depends on people's needs, the views of different schools of Islamic law, and local rules. Voluntary sadaqah, extra charity you choose to give, can usually be used in more ways than zakat."
+        }
+      ],
+      "evidenceStatus": "General guidance; details depend on context",
+      "sources": [
+        {
+          "name": "Qur’an 24:32; juristic eligibility for zakat depends on circumstances and school",
+          "url": "https://quran.com/24/32"
+        },
+        {
+          "name": "Qur’an 24:33",
+          "url": "https://quran.com/24/33"
+        }
+      ]
+    },
+    {
+      "id": "35",
+      "title": "Burial Assistance - A Dignified Farewell for Every Muslim",
+      "pages": [
+        {
+          "img": "stories_en/en_35_p1.jpg",
+          "text": "When a Muslim passes away, there are important funeral rites and a burial to carry out. Most Muslim scholars call this a fard kifayah, a duty on the whole community: when some people do it, the duty is done for everyone. Details differ between schools of Islamic law and situations."
+        },
+        {
+          "img": "stories_en/en_35_p2.jpg",
+          "text": "Communities have often helped families who could not afford the basic costs of a funeral. We only name a particular endowment or burial organization when there are records of its own history."
+        },
+        {
+          "img": "stories_en/en_35_p3.jpg",
+          "text": "The necessary funeral costs are first paid from what the person who died left behind, or by those responsible for them by law. If there is not enough money, the community may need to help. The exact order of who pays depends on the school of Islamic law and local law."
+        },
+        {
+          "img": "stories_en/en_35_p4.jpg",
+          "text": "The Prophet Muhammad (peace be upon him) encouraged believers to take part. Whoever attends a funeral until the prayer is offered earns one qirat of reward. Whoever stays until the burial earns two qirats, each like a great mountain (Sahih al-Bukhari and Sahih Muslim). Today, charities and public authorities across the Muslim world carry on this duty, so every person is laid to rest with dignity."
+        }
+      ],
+      "evidenceStatus": "Hadith with juristic interpretation",
+      "sources": [
+        {
+          "name": "Sahih al-Bukhari 1325; juristic obligations vary by school",
+          "url": "https://sunnah.com/bukhari:1325"
+        }
+      ]
+    },
+    {
+      "id": "36",
+      "title": "Charitable Support for Travelers and Pilgrims",
+      "pages": [
+        {
+          "img": "stories_en/en_36_p1.jpg",
+          "text": "Pilgrims travel far from home. On the way, they might fall ill, be robbed or suddenly lose their money. Helping travelers who are in trouble has long been an important kind of charity."
+        },
+        {
+          "img": "stories_en/en_36_p2.jpg",
+          "text": "Qur’an 9:60 includes the traveler in need, called ibn al-sabil, among the people who may receive zakat. Scholars explain the conditions for this."
+        },
+        {
+          "img": "stories_en/en_36_p3.jpg",
+          "text": "Over the centuries, some endowments, gifts set aside to keep helping people for a long time, gave water, places to stay or other help along pilgrimage routes. What they offered was different from place to place and from one time to another."
+        },
+        {
+          "img": "stories_en/en_36_p4.jpg",
+          "text": "This story is a general look at charity toward travelers, not the history of one fund. Today, pilgrims rely on official information to learn about the services available to them."
+        }
+      ],
+      "evidenceStatus": "General guidance; details depend on context",
+      "sources": [
+        {
+          "name": "Qur’an 9:60: wayfarers are an eligible zakat category, subject to jurisprudential conditions",
+          "url": "https://quran.com/9/60"
+        }
+      ]
+    },
+    {
+      "id": "37",
+      "title": "The Public Bathhouse Waqf - Hygiene and Health Infrastructure",
+      "pages": [
+        {
+          "img": "stories_en/en_37_p1.jpg",
+          "text": "In many Islamic cities long ago, public bathhouses were important places. People needed water and somewhere to wash, and bathhouses gave them both."
+        },
+        {
+          "img": "stories_en/en_37_p2.jpg",
+          "text": "Some bathhouses belonged to private owners. Others were waqf, property set aside for good causes. The rent they earned helped support religious or charitable institutions."
+        },
+        {
+          "img": "stories_en/en_37_p3.jpg",
+          "text": "Some people might think that waqf bathhouses usually gave free bathing hours to the poor, with the same rules everywhere. We do not have evidence that this was true everywhere. To know it for a particular bathhouse, we would need to see its real waqf document."
+        },
+        {
+          "img": "stories_en/en_37_p4.jpg",
+          "text": "Bathhouses show how buildings, and the money they earned, could help a whole community. How they were paid for, and the rules for who could come in, were different in each place and time."
+        }
+      ],
+      "evidenceStatus": "General historical overview; not a verified individual incident",
+      "sources": [
+        {
+          "name": "Overview of historic hammams and charitable endowment; specific access rules need deed citations",
+          "url": "https://quran.com/2/222"
+        }
+      ]
+    },
+    {
+      "id": "38",
+      "title": "Protecting Trees as an Act of Ongoing Benefit",
+      "pages": [
+        {
+          "img": "stories_en/en_38_p1.jpg",
+          "text": "Taking care of trees and water can help many generations, even people not yet born. Islam encourages us to look after plants, farming and the environment."
+        },
+        {
+          "img": "stories_en/en_38_p2.jpg",
+          "text": "A reliable hadith, a saying of the Prophet (peace be upon him), in Sahih al-Bukhari 2320 tells us about a reward. When people or animals eat from what a Muslim plants, the planter is rewarded."
+        },
+        {
+          "img": "stories_en/en_38_p3.jpg",
+          "text": "Throughout history, communities and leaders protected forests and grazing lands in different ways. They wanted these resources to last for the generations to come."
+        },
+        {
+          "img": "stories_en/en_38_p4.jpg",
+          "text": "Think about planting a tree today. Inspired by these Islamic values, planting and caring for trees can be a form of ongoing charity. Whatever a person, bird or animal eats from a tree is counted as charity for the one who planted it."
+        }
+      ],
+      "evidenceStatus": "General guidance; details depend on context",
+      "sources": [
+        {
+          "name": "Sahih al-Bukhari 2320; Ottoman forest-waqf examples require archival citations",
+          "url": "https://sunnah.com/bukhari:2320"
+        }
+      ]
+    },
+    {
+      "id": "39",
+      "title": "The Guilds' Mutual Aid - Craftsmen Supporting Fellow Artisans",
+      "pages": [
+        {
+          "img": "stories_en/en_39_p1.jpg",
+          "text": "Long ago, craftspeople in cities often turned to their colleagues, families and neighbours for help. They did this when they were ill or short of money."
+        },
+        {
+          "img": "stories_en/en_39_p2.jpg",
+          "text": "Groups of people who did the same trade, often called guilds, could help organize training and support each other. But how these groups worked, and what members had to do, was very different from place to place and from one time to another."
+        },
+        {
+          "img": "stories_en/en_39_p3.jpg",
+          "text": "Some stories say that every guild had a fund for members who could no longer work, cared for widows, or gave out cloth and bread. To know if this is true, we would need records from particular, named guilds."
+        },
+        {
+          "img": "stories_en/en_39_p4.jpg",
+          "text": "This story is a general example of people helping one another, not a report about one real case. Qur’an 5:2 encourages us to cooperate in goodness and piety."
+        }
+      ],
+      "evidenceStatus": "General historical overview; not a verified individual incident",
+      "sources": [
+        {
+          "name": "Overview of professional mutual aid; concrete guild case studies require historical sources",
+          "url": "https://quran.com/5/2"
+        }
+      ]
+    },
+    {
+      "id": "41",
+      "title": "Sultan Qalawun's Hospital in Cairo (1284–1285 CE)",
+      "pages": [
+        {
+          "img": "stories_en/en_41_p1.jpg",
+          "text": "In Cairo, in the late thirteenth century, Sultan al-Mansur Qalawun founded a hospital called the Mansuri hospital. It was part of a larger group of charitable buildings, called a complex."
+        },
+        {
+          "img": "stories_en/en_41_p2.jpg",
+          "text": "History books describe it as a major medical center. It treated sick people, and it also helped to teach medicine."
+        },
+        {
+          "img": "stories_en/en_41_p3.jpg",
+          "text": "Property was set aside as a waqf, a gift that keeps on giving, to help pay for the care at the complex. To know exactly who could be treated, what sections it had and what supplies it used, we would need to read the actual waqf document."
+        },
+        {
+          "img": "stories_en/en_41_p4.jpg",
+          "text": "Buildings from Qalawun’s complex are still an important part of the old architecture of medieval Cairo. It is hard to give one simple number for how long the hospital kept working. The answer depends on which years and what kind of care we mean."
+        }
+      ],
+      "evidenceStatus": "Documented historical or organizational source",
+      "sources": [
+        {
+          "name": "Egyptian Ministry of Tourism and Antiquities",
+          "url": "https://egymonuments.gov.eg/monuments/madrasa-mausaleum-and-bimaristan-of-al-mansur-qalawun/"
+        },
+        {
+          "name": "Museum With No Frontiers: Qalawun Complex",
+          "url": "https://islamicart.museumwnf.org/database_item.php?id=monument%3BISL%3Beg%3BMon01%3B15%3Ben"
+        }
+      ]
+    },
+    {
+      "id": "45",
+      "title": "The Salihiyya Madrasa and Shajar al-Durr’s Mausoleum",
+      "pages": [
+        {
+          "img": "stories_en/en_45_p1.jpg",
+          "text": "Around 1243 CE, in Cairo, Sultan al-Salih Najm al-Din Ayyub built a school called the Salihiyya madrasa. A madrasa is a school for learning. This one was special because it taught all four Sunni schools of law, four well-known traditions of studying Islamic law."
+        },
+        {
+          "img": "stories_en/en_45_p2.jpg",
+          "text": "In 1249, the sultan died. After that, his wife Shajar al-Durr ordered a mausoleum to be built for him, right next to the madrasa. A mausoleum is a special building that holds a person's tomb."
+        },
+        {
+          "img": "stories_en/en_45_p3.jpg",
+          "text": "So Shajar al-Durr was the one who supported and ordered the mausoleum. She did not found the madrasa itself; her husband did. Together, these buildings show care for learning and for remembering those who have passed away."
+        },
+        {
+          "img": "stories_en/en_45_p4.jpg",
+          "text": "Parts of these buildings still stand today, and Egypt's Ministry of Tourism and Antiquities keeps records of them. Separately, Sahih Muslim 1631 teaches that useful knowledge keeps bringing reward. That is a religious lesson, not part of the building's history."
+        }
+      ],
+      "evidenceStatus": "Documented historical or organizational source",
+      "sources": [
+        {
+          "name": "Egyptian Ministry of Tourism and Antiquities; MIT OpenCourseWare",
+          "url": "https://egymonuments.gov.eg/monuments/madrasa-and-mausoleum-of-al-salih-nagm-al-din-ayyub/"
+        },
+        {
+          "name": "Further source",
+          "url": "https://ocw.mit.edu/courses/4-615-the-architecture-of-cairo-spring-2002/pages/lecture-notes/lec8/"
+        }
+      ]
+    },
+    {
+      "id": "46",
+      "title": "Documented Qatar Charity School Projects in Gaza",
+      "pages": [
+        {
+          "img": "stories_en/en_46_p1.jpg",
+          "text": "Qatar Charity has kept records of its work on schools in Gaza over several years. This work included building schools, adding new classrooms and repairing school buildings."
+        },
+        {
+          "img": "stories_en/en_46_p2.jpg",
+          "text": "Reports published before 2021 mention two of these projects. One is the Al-Shaimaa girls' school. The other is the new classrooms added at Fahd Al-Sabah School."
+        },
+        {
+          "img": "stories_en/en_46_p3.jpg",
+          "text": "Qatar Charity has kept helping children in Gaza to learn. It has done this through more projects and emergency programmes. The details are published in its official reports."
+        },
+        {
+          "img": "stories_en/en_46_p4.jpg",
+          "text": "Building and equipping schools helps children keep learning, even in hard times. It is a lasting kind of charity. It helps one generation after another."
+        }
+      ],
+      "evidenceStatus": "Documented historical or organizational source",
+      "sources": [
+        {
+          "name": "Qatar Charity project reporting 2018–2021; dates of individual reconstruction works must be exact",
+          "url": "https://www.qatar-tribune.com/article/206771/NATION/Qatar-Charity-implements-projects-to-support-Palestinian-education-sector"
+        }
+      ]
+    },
+    {
+      "id": "49",
+      "title": "Charitable Ransom and the Release of Captives",
+      "pages": [
+        {
+          "img": "stories_en/en_49_p1.jpg",
+          "text": "Long ago, in medieval Iberia, there were wars. Some people were captured and held as prisoners. Others made efforts to set these captives free."
+        },
+        {
+          "img": "stories_en/en_49_p2.jpg",
+          "text": "Sometimes families, rulers and whole communities collected or sent money to free captives. Paying money to free a captive is called ransom. The ways people did this changed a lot over the centuries and from one land to another."
+        },
+        {
+          "img": "stories_en/en_49_p3.jpg",
+          "text": "Old history sources mention efforts in North Africa and al-Andalus to ransom captives. But these efforts were not all the same size, and they were not organized in the same way. We do not always know the details, because they were not always written down."
+        },
+        {
+          "img": "stories_en/en_49_p4.jpg",
+          "text": "So this is not the story of one person. It is a general picture from history. Qur'an 9:60 lists freeing people from bondage as one of the uses of zakat, the charity that Muslims with enough wealth must give. Ransoming captives has long been seen as a noble act of charity."
+        }
+      ],
+      "evidenceStatus": "General historical overview; not a verified individual incident",
+      "sources": [
+        {
+          "name": "General account of captive ransom traditions; claimed transaction totals need primary sources",
+          "url": "https://quran.com/9/60"
+        }
+      ]
+    },
+    {
+      "id": "50",
+      "title": "Aisha's Teaching Circle in Madinah (7th Century)",
+      "pages": [
+        {
+          "img": "stories_en/en_50_p1.jpg",
+          "text": "Aisha bint Abi Bakr was one of the most important early Muslims who passed on hadith, the reports of what the Prophet (peace be upon him) said and did. She was also a leading teacher of Islamic knowledge."
+        },
+        {
+          "img": "stories_en/en_50_p2.jpg",
+          "text": "Abu Musa al-Ashari said that when the Companions, the people who knew the Prophet, found a hadith hard to understand, they asked Aisha. And they found knowledge with her. This is recorded in Jami at-Tirmidhi 3883 and graded hasan, which means good and acceptable."
+        },
+        {
+          "img": "stories_en/en_50_p3.jpg",
+          "text": "Scholars of the next generation learned from her and passed her knowledge on to others. In a separate teaching, recorded in Sahih Muslim 1631, the Prophet (peace be upon him) spoke about knowledge that keeps on benefiting others."
+        },
+        {
+          "img": "stories_en/en_50_p4.jpg",
+          "text": "Old biography books also tell of large gifts that Aisha gave away. But we do not know the exact amounts, dates or details for sure. So we cannot tell them as certain facts unless a specific source reports them."
+        }
+      ],
+      "evidenceStatus": "Authenticated hadith cited",
+      "sources": [
+        {
+          "name": "Jami at-Tirmidhi 3883 (hasan); Sahih Muslim 1631",
+          "url": "https://sunnah.com/tirmidhi:3883"
+        },
+        {
+          "name": "Further source",
+          "url": "https://sunnah.com/muslim:1631"
+        }
+      ]
+    },
+    {
+      "id": "51",
+      "title": "Nusaybah bint Ka’b and Her Courage at Uhud",
+      "pages": [
+        {
+          "img": "stories_en/en_51_p1.jpg",
+          "text": "Nusaybah bint Ka'b was also known as Umm Amarah. Early Islamic books about the lives of famous Muslims remember her for taking part in the Battle of Uhud."
+        },
+        {
+          "img": "stories_en/en_51_p2.jpg",
+          "text": "These old accounts pay special attention to one part of her story. They tell how she defended the Prophet Muhammad (peace be upon him) during the battle."
+        },
+        {
+          "img": "stories_en/en_51_p3.jpg",
+          "text": "Some of these books also say that she gave water to the wounded and cared for their injuries. Like many details of the battle, these come from history reports, not from the collections of authentic hadith."
+        },
+        {
+          "img": "stories_en/en_51_p4.jpg",
+          "text": "People remember her courage. Her story teaches us about serving others, being loyal and taking responsibility. She is still an inspiring example of a woman's contribution to her community."
+        }
+      ],
+      "evidenceStatus": "Historical tradition; details may vary",
+      "sources": [
+        {
+          "name": "Early sira and biographical traditions about Nusaybah; detailed battlefield claims need evaluation",
+          "url": "https://quran.com/5/2"
+        }
+      ]
+    },
+    {
+      "id": "52",
+      "title": "Abu Dharr al-Ghifari: Generosity and Simple Living (7th Century)",
+      "pages": [
+        {
+          "img": "stories_en/en_52_p1.jpg",
+          "text": "Abu Dharr al-Ghifari was one of the very first people to accept Islam. He was known for being honest, living simply and caring deeply about the poor. He urged Muslims to give generously from any wealth they had beyond their needs."
+        },
+        {
+          "img": "stories_en/en_52_p2.jpg",
+          "text": "He pointed to the Quran's warning against people who hoard gold and silver and do not spend it in the way of Allah (Quran 9:34-35). To hoard means to store wealth away and keep it from others. He kept reminding people to share with those in need."
+        },
+        {
+          "img": "stories_en/en_52_p3.jpg",
+          "text": "Early Muslims had different views on how widely to understand these verses. Later scholars of Islamic law explained that wealth on which the required zakat has been paid is different from the hoarding that is condemned. Abu Dharr is remembered for urging very generous giving and simple living."
+        },
+        {
+          "img": "stories_en/en_52_p4.jpg",
+          "text": "Abu Dharr's life reminds Muslims that wealth is a trust from Allah. We can share through Zakat, the charity Muslims must give, or through Sadaqah, extra charity given freely. Sharing what we have purifies wealth and makes the community stronger."
+        }
+      ],
+      "evidenceStatus": "Qur’anic teaching and historical commentary",
+      "sources": [
+        {
+          "name": "Qur’an 9:34–35; early companion biographical reports",
+          "url": "https://quran.com/9/34-35"
+        }
+      ]
+    },
+    {
+      "id": "54",
+      "title": "Firefighting in Mamluk Cairo (14th Century)",
+      "pages": [
+        {
+          "img": "stories_en/en_54_p1.jpg",
+          "text": "Long ago, in medieval Cairo, fire was a real danger. It threatened homes, markets and wooden buildings. Other crowded cities faced the same danger too."
+        },
+        {
+          "img": "stories_en/en_54_p2.jpg",
+          "text": "When a fire broke out, many people could help. Neighbors, water carriers and city officials were among them. The way they worked together was not the same in every time and every part of the city."
+        },
+        {
+          "img": "stories_en/en_54_p3.jpg",
+          "text": "Sometimes firefighters pulled down nearby buildings so the flames could not spread. When serious fires happened, city leaders gave instructions. The exact rules changed from one time and district to another."
+        },
+        {
+          "img": "stories_en/en_54_p4.jpg",
+          "text": "Sahih al-Bukhari 6294 records that the Prophet (peace be upon him) warned that fire is an enemy and should be put out before sleeping. Sahih Muslim 1009 teaches that removing something harmful from a road is an act of charity."
+        }
+      ],
+      "evidenceStatus": "Authenticated hadith cited",
+      "sources": [
+        {
+          "name": "Sahih al-Bukhari 6294; Sahih Muslim 1009",
+          "url": "https://sunnah.com/bukhari:6294"
+        },
+        {
+          "name": "Further source",
+          "url": "https://sunnah.com/muslim:1009"
+        }
+      ]
+    },
+    {
+      "id": "56",
+      "title": "Bilal ibn Rabah and the Early Call to Prayer",
+      "pages": [
+        {
+          "img": "stories_en/en_56_p1.jpg",
+          "text": "Bilal ibn Rabah was one of the early Muslims. He had once been enslaved, and then he was set free. He became one of the best-known callers to prayer in the lifetime of the Prophet (peace be upon him)."
+        },
+        {
+          "img": "stories_en/en_56_p2.jpg",
+          "text": "The call to prayer, called the adhan, helps a community gather for its daily prayers. Bilal's important role is still remembered throughout the Islamic world."
+        },
+        {
+          "img": "stories_en/en_56_p3.jpg",
+          "text": "Old books about his life describe how devoted Bilal was to this service throughout the Prophet's lifetime. But the stories differ about his later life. They do not agree on when he stopped giving the adhan, or why."
+        },
+        {
+          "img": "stories_en/en_56_p4.jpg",
+          "text": "Bilal's story shows that we can serve others with our voice and our time. But it should not be used to say that Islam forbids a muezzin, the person who gives the call to prayer, from being paid for this work."
+        }
+      ],
+      "evidenceStatus": "Historical tradition; details may vary",
+      "sources": [
+        {
+          "name": "Bilal’s role reported in early Islamic tradition; salary and duration details not verified",
+          "url": "https://sunnah.com/bukhari:604"
+        }
+      ]
+    },
+    {
+      "id": "58",
+      "title": "Imam Abu Hanifa's Support for His Students (8th Century)",
+      "pages": [
+        {
+          "img": "stories_en/en_58_p1.jpg",
+          "text": "Abu Yusuf grew up in a poor family in Kufa. He loved to study. But his mother wanted him to leave his lessons and earn a living to help the family."
+        },
+        {
+          "img": "stories_en/en_58_p2.jpg",
+          "text": "His teacher was Imam Abu Hanifa al-Nu'man ibn Thabit, who died in 767 CE. He founded the Hanafi school of law and was also a successful cloth merchant. Biographers report that he gave money to Abu Yusuf's family so the young student could keep learning."
+        },
+        {
+          "img": "stories_en/en_58_p3.jpg",
+          "text": "Writers of life stories say Abu Hanifa helped other students with money too, so that being poor would not stop them from learning. The stories do not agree on the exact amounts and details."
+        },
+        {
+          "img": "stories_en/en_58_p4.jpg",
+          "text": "Abu Yusuf later became the chief judge of the Abbasid state and one of the greatest Hanafi scholars. His teacher's example matches the Quran's teaching that giving charity in secret is better for the giver (Quran 2:271). Supporting just one student can help the whole Muslim community for generations."
+        }
+      ],
+      "evidenceStatus": "Historical tradition; details may vary",
+      "sources": [
+        {
+          "name": "Biographical accounts of Abu Hanifa and Abu Yusuf; Qur’an 2:271",
+          "url": "https://quran.com/2/271"
+        }
+      ]
+    },
+    {
+      "id": "60",
+      "title": "The Dignity of Work - Lessons from the Prophet's Years as a Shepherd",
+      "pages": [
+        {
+          "img": "stories_en/en_60_p1.jpg",
+          "text": "Before revelation came to him, the Prophet Muhammad (peace be upon him) worked as a shepherd. He looked after the flocks of the people of Makkah for a few qirats, small amounts of money. He later said: \"Allah did not send any prophet except that he herded sheep\" (Sahih al-Bukhari 2262)."
+        },
+        {
+          "img": "stories_en/en_60_p2.jpg",
+          "text": "Islam honours honest work. The Prophet taught that no one eats better food than what he earns with his own hands (Sahih al-Bukhari 2072). He also taught that gathering firewood to sell is better than asking people for charity (Sahih al-Bukhari 1471). Earning a living with dignity is better than depending on others."
+        },
+        {
+          "img": "stories_en/en_60_p3.jpg",
+          "text": "Employers have duties too. In a hadith qudsi, words of Allah shared by the Prophet, Allah says that on the Day of Judgement He will oppose a man who hires a worker, takes full work from him and does not pay his wage (Sahih al-Bukhari 2270). Paying fair wages on time and respecting workers is justice and kindness."
+        },
+        {
+          "img": "stories_en/en_60_p4.jpg",
+          "text": "So helping people earn their own living, by offering fair work or teaching useful skills, adds to direct charity. It protects the dignity of people in need and helps them stand on their own feet. The Prophet's own humble work as a shepherd teaches this lesson to every generation."
+        }
+      ],
+      "evidenceStatus": "Authenticated hadith cited",
+      "sources": [
+        {
+          "name": "Sahih al-Bukhari 2262, 2072, 2270",
+          "url": "https://sunnah.com/bukhari:2262"
+        },
+        {
+          "name": "Further source",
+          "url": "https://sunnah.com/bukhari:2270"
+        },
+        {
+          "name": "Sahih al-Bukhari 1471; 2072",
+          "url": "https://sunnah.com/bukhari:1471"
+        },
+        {
+          "name": "Sahih al-Bukhari 2072",
+          "url": "https://sunnah.com/bukhari:2072"
+        }
+      ]
+    }
+  ],
+  "ar": [
+    {
+      "id": "01",
+      "title": "مسجد عمرو بن العاص - إرث من الإيمان والمجتمع",
+      "pages": [
+        {
+          "img": "stories_ar/ar_01_p1.jpg",
+          "text": "في عام 641م، أسس عمرو بن العاص مسجداً في الفسطاط، وهي العاصمة الإسلامية الجديدة لمصر. وكان ذلك في عهد الخليفة عمر بن الخطاب. والخليفة هو قائد المسلمين."
+        },
+        {
+          "img": "stories_ar/ar_01_p2.jpg",
+          "text": "كان هذا المسجد من أقدم المساجد في إفريقيا. وكان الناس يأتون إليه للصلاة والاجتماع، بينما كانت مدينة الفسطاط تكبر وتنمو من حوله."
+        },
+        {
+          "img": "stories_ar/ar_01_p3.jpg",
+          "text": "على مر القرون، أصلح الناس المسجد وأعادوا بناءه مرات كثيرة. لذلك فالمبنى الذي نراه اليوم ليس هو نفسه تماماً المبنى الذي بُني في القرن السابع."
+        },
+        {
+          "img": "stories_ar/ar_01_p4.jpg",
+          "text": "استخدم الناس هذا المسجد زمناً طويلاً جداً، وهذا يبين كيف تنفع أماكن العبادة المشتركة الجميع. وتذكر بعض القصص الشائعة وثيقة وقف، والوقف عطاء يُحبس ليبقى نفعه زمناً طويلاً، ومساعدات محددة للفقراء والطلاب. لكن السجلات التاريخية لا تثبت هذه التفاصيل."
+        }
+      ],
+      "evidenceStatus": "مصدر تاريخي أو مؤسسي موثق",
+      "sources": [
+        {
+          "name": "المصدر: Egyptian Ministry of Tourism and Antiquities",
+          "url": "https://egymonuments.gov.eg/monuments/the-mosque-of-amr-ibn-al-as/"
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "title": "بئر رومة - وقف عثمان بن عفان",
+      "pages": [
+        {
+          "img": "stories_ar/ar_02_p1.jpg",
+          "text": "تخيّل كم تحتاج المدينة إلى الماء النظيف كل يوم. ففي المدينة المنورة في أول عهد الإسلام، كان الحصول على ماء الشرب أمراً مهماً جداً. وكانت بئر رومة من مصادر الماء الثمينة."
+        },
+        {
+          "img": "stories_ar/ar_02_p2.jpg",
+          "text": "يخبرنا صحيح البخاري (2778) بأمر عظيم، فقد وعد النبي ﷺ بالجنة من يحفر بئر رومة. وبعد ذلك ذكّر عثمان بن عفان رضي الله عنه الصحابة، وهم أتباع النبي ﷺ، بأنه هو من فعل ذلك، فصدّقوه."
+        },
+        {
+          "img": "stories_ar/ar_02_p3.jpg",
+          "text": "يثبت هذا الحديث، وهو خبر عن أقوال النبي ﷺ وأفعاله، أصل هذا العمل الكريم. ويضيف كثير من الناس تفاصيل أخرى، مثل صاحب البئر، وشرائها نصفاً بعد نصف في أيام متناوبة، ومقدار ثمنها. وهذه التفاصيل من روايات تاريخية متأخرة، وليست من الحديث الصحيح."
+        },
+        {
+          "img": "stories_ar/ar_02_p4.jpg",
+          "text": "تُعد البئر مثالاً مشهوراً على الخير الذي ينفع الناس زمناً طويلاً. ويعلّمنا صحيح مسلم (1631) فضل الصدقة الجارية، وهي العطاء الذي يستمر نفعه. لكن هذا الأجر العظيم لا يعني أن كل قصة رُويت لاحقاً عن البئر صحيحة."
+        }
+      ],
+      "evidenceStatus": "حديث صحيح موثق",
+      "sources": [
+        {
+          "name": "المصدر: Sahih al-Bukhari 2778; Sahih Muslim 1631",
+          "url": "https://sunnah.com/bukhari:2778"
+        },
+        {
+          "name": "مصدر إضافي",
+          "url": "https://sunnah.com/muslim:1631"
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "title": "القرويين: مركز تاريخي للعلم",
+      "pages": [
+        {
+          "img": "stories_ar/ar_03_p1.jpg",
+          "text": "يعود تاريخ جامع القرويين في مدينة فاس إلى سنة 859م. وتقول رواية تاريخية مغربية مشهورة إن فاطمة الفهرية هي التي أسسته، وقد جاءت أسرتها من مدينة القيروان."
+        },
+        {
+          "img": "stories_ar/ar_03_p2.jpg",
+          "text": "وتذكر روايات جاءت بعد ذلك أنها أنفقت من مال أسرتها لبنائه. ويقول بعضهم إنها صامت كل يوم أثناء البناء، وإنها أنشأت بنفسها وقفاً جامعياً كاملاً. وهذه أخبار تراثية، فلا نستطيع أن نتأكد أنها حدثت بهذه التفاصيل."
+        },
+        {
+          "img": "stories_ar/ar_03_p3.jpg",
+          "text": "مع مرور القرون، أصبح الجامع مركزاً مهماً للعلم. ويقول بعض الناس إن علماء مشهورين درسوا فيه، لكننا نحتاج إلى دليل من سيرة كل واحد منهم قبل أن نتأكد من ذلك."
+        },
+        {
+          "img": "stories_ar/ar_03_p4.jpg",
+          "text": "تذكر موسوعة غينيس للأرقام القياسية أن القرويين أقدم مؤسسة للتعليم العالي ما زالت تعمل دون انقطاع. لكن هذا لا يعني أنها منحت شهادات جامعية مثل شهادات اليوم دون توقف منذ عام 859م."
+        }
+      ],
+      "evidenceStatus": "رواية تاريخية؛ قد تختلف تفاصيلها",
+      "sources": [
+        {
+          "name": "المصدر: Guinness World Records: Oldest higher-learning institution; account of Fatima is a historical tradition",
+          "url": "https://www.guinnessworldrecords.com/world-records/oldest-university"
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "title": "مستشفى العضدي - الوقف الطبي المتقدم في بغداد",
+      "pages": [
+        {
+          "img": "stories_ar/ar_04_p1.jpg",
+          "text": "نحو سنة 981م، تأسس البيمارستان العضدي في بغداد، والبيمارستان هو المستشفى. وكان ذلك في عهد الأمير البويهي عضد الدولة. وقد ذكره المؤرخون القدماء مركزاً مهماً لعلاج المرضى وتعلم الطب."
+        },
+        {
+          "img": "stories_ar/ar_04_p2.jpg",
+          "text": "اجتمع فيه الأطباء لعلاج المرضى وتدريب أطباء جدد. وتذكر بعض القصص عدداً محدداً لأقسامه، أو تصف أجنحة للنساء والعاملين فيه. لكننا لا نستطيع التأكد من هذه التفاصيل دون الرجوع إلى مصادر من ذلك الزمن."
+        },
+        {
+          "img": "stories_ar/ar_04_p3.jpg",
+          "text": "كانت المستشفيات قديماً تعتمد كثيراً على أموال الخير والأوقاف، والوقف عطاء يُحبس ليبقى نفعه زمناً طويلاً. لكن لا دليل على وثائق وقف خاصة بهذا البيمارستان. ولا نستطيع التأكد من أنه قدّم للمرضى مساعدات أو أموالاً عند خروجهم منه."
+        },
+        {
+          "img": "stories_ar/ar_04_p4.jpg",
+          "text": "ظل البيمارستان العضدي يعمل حتى استولى المغول على بغداد سنة 1258م. أي إنه بقي نحو 277 سنة منذ تأسيسه. ويقول بعض الناس إنه بقي أكثر من 400 سنة، لكن هذا غير صحيح."
+        }
+      ],
+      "evidenceStatus": "مصدر تاريخي أو مؤسسي موثق",
+      "sources": [
+        {
+          "name": "المصدر: TDV Islam Ansiklopedisi: Bimaristan",
+          "url": "https://islamansiklopedisi.org.tr/bimaristan"
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "title": "عام الرمادة - إغاثة عمر بن الخطاب من المجاعة",
+      "pages": [
+        {
+          "img": "stories_ar/ar_05_p1.jpg",
+          "text": "في سنة 18هـ، أصاب منطقة المدينة المنورة جفاف شديد ومجاعة قاسية. والجفاف هو انقطاع المطر زمناً طويلاً، والمجاعة هي قلة الطعام حتى يجوع الناس. ويسمي المؤرخون هذه الأزمة عام الرمادة."
+        },
+        {
+          "img": "stories_ar/ar_05_p2.jpg",
+          "text": "وتصف كتب التاريخ كيف عمل الخليفة عمر بن الخطاب، قائد المسلمين، على توفير الطعام للناس. وتذكر أيضاً أنه طلب المساعدة من الولاة في الأقاليم الأخرى، أي المناطق الأخرى من الدولة."
+        },
+        {
+          "img": "stories_ar/ar_05_p3.jpg",
+          "text": "وتذكر الروايات أيضاً أن عمر عاش حياة بسيطة واكتفى بطعام متواضع أثناء الأزمة. أما العبارة الإنجليزية المشهورة عن «فهم معاناة الفقراء» فهي تعبير معاصر يلخص معنى الموقف، وليست نصاً ثابتاً عنه."
+        },
+        {
+          "img": "stories_ar/ar_05_p4.jpg",
+          "text": "تبين هذه القصة أهمية تنظيم الإغاثة والتعاون وقت الأزمات. وتختلف الكتب القديمة في عدد الإبل، ومواعيد الوجبات، ومدة المجاعة، وعدد الأرواح التي أُنقذت. لذلك لا نستطيع الجزم بهذه التفاصيل."
+        }
+      ],
+      "evidenceStatus": "رواية تاريخية؛ قد تختلف تفاصيلها",
+      "sources": [
+        {
+          "name": "المصدر: Early Islamic historical chronicles (details and dates vary); Qur’an 2:177",
+          "url": "https://quran.com/2/177"
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "title": "عمر بن الخطاب وعطاء الأطفال: رواية تاريخية",
+      "pages": [
+        {
+          "img": "stories_ar/ar_06_p1.jpg",
+          "text": "تربط كتب التاريخ اسم الخليفة عمر بن الخطاب بتطوير بيت المال، وهو المكان الذي تُحفظ فيه أموال الدولة لخدمة الناس. كما ترتبط باسمه السجلات، أي القوائم الرسمية، التي كانت تنظم توزيع العطاء على الناس."
+        },
+        {
+          "img": "stories_ar/ar_06_p2.jpg",
+          "text": "وتذكر أخبار من بداية التاريخ الإسلامي مساعدات للأسر والأطفال. وتحدد بعض القصص مبلغاً ثابتاً لكل يتيم، أو عطاءً خاصاً مرتبطاً بمعارك معينة. لكننا نحتاج إلى أدلة أقوى قبل أن نتأكد من هذه التفاصيل."
+        },
+        {
+          "img": "stories_ar/ar_06_p3.jpg",
+          "text": "وتروي بعض المصادر أن عمر غيّر نظام عطاء الأطفال عندما علم أنه قد يدفع أماً إلى فطام رضيعها مبكراً، أي إيقاف إرضاعه قبل وقته. وهذا خبر تاريخي، وليس حديثاً نبوياً عن النبي ﷺ في الصحيحين."
+        },
+        {
+          "img": "stories_ar/ar_06_p4.jpg",
+          "text": "والدرس المهم هنا أن النية الحسنة وحدها لا تكفي. فعندما نضع خطة لمساعدة الضعفاء والمحتاجين، يجب أن نراجعها حتى لا تضرهم من غير قصد."
+        }
+      ],
+      "evidenceStatus": "رواية تاريخية؛ قد تختلف تفاصيلها",
+      "sources": [
+        {
+          "name": "المصدر: Early biographical accounts of Umar; some details are not hadith-authenticated",
+          "url": "https://sunnah.com/bukhari:6005"
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "title": "عثمان بن عفان وتوسعة المسجد النبوي",
+      "pages": [
+        {
+          "img": "stories_ar/ar_07_p1.jpg",
+          "text": "تخيّل مكاناً للصلاة يزداد عدد المصلين فيه يوماً بعد يوم. فمع نمو المجتمع المسلم في المدينة المنورة، احتاج المسجد النبوي إلى أرض إضافية ليتسع للمصلين."
+        },
+        {
+          "img": "stories_ar/ar_07_p2.jpg",
+          "text": "ورد في مسند أحمد (555)، وهو من كتب الحديث المشهورة، أن عثمان بن عفان رضي الله عنه ذكر أنه اشترى أرضاً من ماله الخاص لتوسعة المسجد. وقد حكم العلماء الذين حققوا هذه الرواية بأنها صحيحة."
+        },
+        {
+          "img": "stories_ar/ar_07_p3.jpg",
+          "text": "تتحدث هذه القصة عن التبرع بأرض ليصلي فيها الناس معاً. وهي تختلف عن أخبار أخرى جاءت بعدها عن تجديد عثمان للمسجد عندما أصبح خليفة."
+        },
+        {
+          "img": "stories_ar/ar_07_p4.jpg",
+          "text": "ويذكر صحيح مسلم (1631) الصدقة الجارية، وهي العطاء الذي يستمر نفعه. وهي من الأعمال التي يبقى خيرها حتى بعد وفاة صاحبها."
+        }
+      ],
+      "evidenceStatus": "حديث صحيح موثق",
+      "sources": [
+        {
+          "name": "المصدر: Musnad Ahmad 555 (authenticated in cited edition); Sahih Muslim 1631",
+          "url": "https://sunnah.com/ahmad:555"
+        },
+        {
+          "name": "مصدر إضافي",
+          "url": "https://sunnah.com/muslim:1631"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "أيادي الشفاء في بيمارستان نوري: إرث من الرعاية الصحية الرحيمة في دمشق",
+      "pages": [
+        {
+          "img": "stories_ar/ar_10_p1.jpg",
+          "text": "في سنة 1154م، أنشأ نور الدين محمود زنكي البيمارستان النوري في دمشق، والبيمارستان هو المستشفى. ومبناه موثق جيداً في كتب التاريخ، وهو مثال واضح على علاج المرضى بأموال الخير في العصور الإسلامية القديمة."
+        },
+        {
+          "img": "stories_ar/ar_10_p2.jpg",
+          "text": "كان البيمارستان يعالج المرضى، وكان أيضاً مكاناً لتدريب الأطباء. وتصف بعض القصص أجنحة منفصلة للأطفال وللأمراض النفسية، أو قواعد لاعتماد الأطباء مثل قواعد اليوم. لكننا نحتاج إلى مصادر تاريخية أكثر قبل أن نتأكد من ذلك."
+        },
+        {
+          "img": "stories_ar/ar_10_p3.jpg",
+          "text": "ساعدت الأوقاف على استمرار مثل هذه المؤسسات، والوقف عطاء يُحبس ليبقى نفعه زمناً طويلاً. ويتذكر الناس البيمارستان النوري مكاناً دائماً لعلاج المرضى وتعليم الطب."
+        },
+        {
+          "img": "stories_ar/ar_10_p4.jpg",
+          "text": "علّمنا النبي ﷺ فضل تفريج كرب الناس، كما ورد في صحيح مسلم (2699أ). وهذا الحديث صحيح، لكننا لا نستطيع أن نجزم بما قاله مؤسس البيمارستان أو بما كان يعتقده دون مصدر آخر."
+        }
+      ],
+      "evidenceStatus": "مصدر تاريخي أو مؤسسي موثق",
+      "sources": [
+        {
+          "name": "المصدر: Museum With No Frontiers: Hospital Nur al-Din; Sahih Muslim 2699a",
+          "url": "https://islamicart.museumwnf.org/database_item.php?id=monument%3BISL%3Bsy%3BMon01%3B15%3Ben"
+        },
+        {
+          "name": "مصدر إضافي",
+          "url": "https://sunnah.com/muslim:2699a"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "title": "الوليد بن عبد الملك ورعاية ذوي الإعاقة",
+      "pages": [
+        {
+          "img": "stories_ar/ar_11_p1.jpg",
+          "text": "تذكر مصادر تاريخية أن الخليفة الأموي الوليد بن عبد الملك اتخذ خطوات لرعاية ذوي الإعاقة وبعض المصابين بأمراض خطيرة. والخليفة هو قائد المسلمين."
+        },
+        {
+          "img": "stories_ar/ar_11_p2.jpg",
+          "text": "ويذكر خبر منسوب إلى المؤرخ ابن عساكر أنه خصص مساعدات للمصابين بالجذام، وهو مرض خطير. كما خصص أعواناً أو مرشدين لبعض من لا يستطيعون المشي أو الإبصار."
+        },
+        {
+          "img": "stories_ar/ar_11_p3.jpg",
+          "text": "وتصف بعض القصص الشائعة داراً كبيرة للأيتام في دمشق، فيها مئات الأطفال يتعلمون النجارة والزراعة. لكن كتب التاريخ المبكرة لا تؤكد هذه التفاصيل."
+        },
+        {
+          "img": "stories_ar/ar_11_p4.jpg",
+          "text": "وتبقى كفالة اليتيم قيمة إسلامية عظيمة. فقد أخبر النبي ﷺ أن كافل اليتيم يكون قريباً منه في الجنة، وأشار بإصبعيه، كما ورد في صحيح البخاري (6005). وهذا حديث نبوي، وليس آية من القرآن الكريم."
+        }
+      ],
+      "evidenceStatus": "رواية تاريخية؛ قد تختلف تفاصيلها",
+      "sources": [
+        {
+          "name": "المصدر: Historical accounts of al-Walid’s disability welfare, attributed to Ibn Asakir; Sahih al-Bukhari 6005",
+          "url": "https://en.wikisource.org/wiki/Historical_Tales_and_Anecdotes_of_the_Time_of_the_Early_Khalifahs/The_Reign_of_el-Walld-ibn-%27Abd-el-Malik"
+        },
+        {
+          "name": "مصدر إضافي",
+          "url": "https://sunnah.com/bukhari:6005"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "title": "مشروعات قطر الخيرية التعليمية الموثقة في غزة",
+      "pages": [
+        {
+          "img": "stories_ar/ar_12_p1.jpg",
+          "text": "فكّر في مدى أهمية الفصل الدراسي الجيد لتعلم الأطفال. لقد قدمت قطر الخيرية دعماً موثقاً للمدارس والطلاب في غزة من خلال مشروعات تعليمية. وبدأ هذا الدعم قبل أحداث عام 2021."
+        },
+        {
+          "img": "stories_ar/ar_12_p2.jpg",
+          "text": "ومن المشروعات المعلن عنها بناء فصول دراسية وتجهيزها، وتوفير مختبرات مدرسية ومرافق تعليمية. ومن الأمثلة المعلنة إضافة ستة فصول إلى مدرسة فهد الصباح."
+        },
+        {
+          "img": "stories_ar/ar_12_p3.jpg",
+          "text": "كما وفرت مشروعات أخرى في غزة أماكن للتعلم ومعدات مدرسية. ويتحدث بعض الناس عن حملة باسم «ابنِ مدرسة»، أو عن أعداد محددة للمستفيدين، أو عن شروط وقف، والوقف عطاء يُحبس ليبقى نفعه. لكننا لا نستطيع التأكد من ذلك دون وثائق لكل مشروع."
+        },
+        {
+          "img": "stories_ar/ar_12_p4.jpg",
+          "text": "يبين هذا المثال كيف يمكن لدعم التعليم أن ينفع الناس زمناً طويلاً. ولمعرفة ما قدمه كل مشروع بالتحديد، يمكننا الرجوع إلى تقارير قطر الخيرية المؤرخة."
+        }
+      ],
+      "evidenceStatus": "مصدر تاريخي أو مؤسسي موثق",
+      "sources": [
+        {
+          "name": "المصدر: Qatar Charity: Gaza education projects reported in 2019–2021",
+          "url": "https://www.qatar-tribune.com/article/206771/NATION/Qatar-Charity-implements-projects-to-support-Palestinian-education-sector"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "title": "عيادات الصحة المتنقلة التابعة للهلال الأحمر القطري في اليمن",
+      "pages": [
+        {
+          "img": "stories_ar/ar_13_p1.jpg",
+          "text": "مرّ اليمن بأزمة إنسانية، أي وقت يحتاج فيه كثير من الناس إلى مساعدة عاجلة. وخلال هذه الأزمة، دعمت جمعية الهلال الأحمر القطري خدمات صحية هناك. وهذه الخدمات تساعد النازحين، وهم الذين اضطروا إلى ترك بيوتهم، وغيرهم من الفئات الضعيفة."
+        },
+        {
+          "img": "stories_ar/ar_13_p2.jpg",
+          "text": "تذكر تقارير الجمعية أنها دعمت عيادات، وقدّمت أيضاً خدمات ميدانية تصل إلى الناس في أماكنهم. وتصف تقاريرها استشارات طبية مجانية، أي زيارات للطبيب، وأدوية، وتحويل المرضى إلى جهات علاج أخرى. وتذكر كذلك خدمات صحية أساسية أخرى."
+        },
+        {
+          "img": "stories_ar/ar_13_p3.jpg",
+          "text": "بعض المشروعات تعالج المرضى في مراكز صحية ثابتة، وبعضها يستخدم فرقاً متنقلة تذهب إلى الناس. وتختلف طريقة العمل والشركاء الذين يساعدون بحسب المكان والسنة. لذلك لا ينبغي أن نجمعها كلها ونتخيل أنها برنامج واحد كبير."
+        },
+        {
+          "img": "stories_ar/ar_13_p4.jpg",
+          "text": "تنشر الجمعية تقارير تذكر التواريخ والمرافق الصحية والأعداد الخاصة بمشروعات محددة. والعبرة بسيطة: يمكن للعمل الخيري الطبي أن يصل إلى الناس الذين نزحوا عن بيوتهم ويصعب عليهم الحصول على العلاج."
+        }
+      ],
+      "evidenceStatus": "مصدر تاريخي أو مؤسسي موثق",
+      "sources": [
+        {
+          "name": "المصدر: Qatar Red Crescent Society: Yemen mobile clinics and health-project reporting",
+          "url": "https://www.qrcs.org.qa/en/News/Pages/QRCS-provides-medical-care-for-refugees-and-locals-in-Yemen.aspx?NewsId=yC8un7F3UVA%3D"
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "title": "كرم النبي خلال شهر رمضان",
+      "pages": [
+        {
+          "img": "stories_ar/ar_16_p1.jpg",
+          "text": "روى ابن عباس رضي الله عنهما أمراً جميلاً عن النبي محمد ﷺ. فقد ذكر أنه ﷺ كان يكثر من الجود في شهر رمضان. والجود هو العطاء بسخاء للآخرين."
+        },
+        {
+          "img": "stories_ar/ar_16_p2.jpg",
+          "text": "وهذا الخبر مذكور في صحيح البخاري (1902)، وهو من كتب الحديث الموثوقة. والحديث هو ما نُقل عن النبي ﷺ من أقوال وأفعال. ويقول الخبر إنه ﷺ كان أجود الناس، وكان أجود ما يكون في رمضان."
+        },
+        {
+          "img": "stories_ar/ar_16_p3.jpg",
+          "text": "ويخبرنا الحديث أيضاً عن ليالي رمضان. فقد كان جبريل عليه السلام يلقى النبي ﷺ كل ليلة من رمضان. وكانا يتدارسان القرآن الكريم معاً."
+        },
+        {
+          "img": "stories_ar/ar_16_p4.jpg",
+          "text": "ويشبّه الحديث جوده ﷺ بالريح المرسلة، وهي ريح سريعة تحمل الخير. لكنه لا يقول إنه أطعم بنفسه كل جائع. ولا يقول كذلك إن الجوع اختفى تماماً بين الناس."
+        }
+      ],
+      "evidenceStatus": "حديث صحيح موثق",
+      "sources": [
+        {
+          "name": "المصدر: Sahih al-Bukhari 1902",
+          "url": "https://sunnah.com/bukhari:1902"
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "title": "المزارع الكريم والمطر الإلهي",
+      "pages": [
+        {
+          "img": "stories_ar/ar_17_p1.jpg",
+          "text": "يروي حديث في صحيح مسلم (2984أ) قصة رجل مسافر. فقد سمع صوتاً يأتي من سحابة. وكان الصوت يأمر السحابة بأن تسقي حديقة شخص معيّن."
+        },
+        {
+          "img": "stories_ar/ar_17_p2.jpg",
+          "text": "تبع المسافر الماء حتى وصل إلى بستان، وهناك التقى بصاحبه. فسأله عن سبب اختيار بستانه لهذه السقيا دون غيره."
+        },
+        {
+          "img": "stories_ar/ar_17_p3.jpg",
+          "text": "فشرح صاحب البستان ما يفعله بكل ما تُخرجه أرضه. فهو يقسمه ثلاثة أقسام: قسماً للفقراء، وقسماً لأهله، وقسماً يعيده إلى الأرض لزراعتها من جديد."
+        },
+        {
+          "img": "stories_ar/ar_17_p4.jpg",
+          "text": "وصلتنا هذه القصة رواية في صحيح مسلم، وليست حادثة تاريخية معروفة التاريخ، فنحن لا نعرف متى وقعت. وعبرتها أن نكون كرماء، وأن نحسن تدبير ما بين أيدينا من موارد."
+        }
+      ],
+      "evidenceStatus": "حديث صحيح موثق",
+      "sources": [
+        {
+          "name": "المصدر: Sahih Muslim 2984a",
+          "url": "https://sunnah.com/muslim:2984a"
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "title": "الإرث الرحيم لزكاة الفطر: ضمان الكرامة خلال شهر رمضان",
+      "pages": [
+        {
+          "img": "stories_ar/ar_18_p1.jpg",
+          "text": "زكاة الفطر صدقة خاصة مرتبطة بنهاية شهر رمضان. وهي واجبة، أي يجب إخراجها. وهي تختلف عن الصدقة التطوعية التي يقدمها الإنسان باختياره."
+        },
+        {
+          "img": "stories_ar/ar_18_p2.jpg",
+          "text": "وورد في صحيح البخاري (1503) أن النبي ﷺ فرض صاعاً من تمر أو شعير. والصاع مكيال قديم تُقاس به الأطعمة. وأمر ﷺ بإخراجها قبل صلاة العيد."
+        },
+        {
+          "img": "stories_ar/ar_18_p3.jpg",
+          "text": "وجاء في سنن أبي داود (1609) حديث حسّنه بعض المحدثين، أي عدّوه حديثاً حسناً مقبولاً. ويصف الحديث زكاة الفطر بأنها طهرة للصائم، أي تطهّره، وطعمة للمساكين، أي طعام للمحتاجين."
+        },
+        {
+          "img": "stories_ar/ar_18_p4.jpg",
+          "text": "ويختلف الفقهاء، وهم علماء الشريعة، في جواز إخراجها نقوداً بدلاً من الطعام. لذلك من الأفضل أن نرجع إلى جهة إفتاء موثوقة في بلدنا. فهي تبيّن لنا المقدار، ومن يستحقها، وطريقة إخراجها."
+        }
+      ],
+      "evidenceStatus": "حديث صحيح موثق",
+      "sources": [
+        {
+          "name": "المصدر: Sahih al-Bukhari 1503; Sunan Abi Dawud 1609 (hasan)",
+          "url": "https://sunnah.com/bukhari:1503"
+        },
+        {
+          "name": "مصدر إضافي",
+          "url": "https://sunnah.com/abudawud:1609"
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "title": "استقبال النجاشي - ملجأ للمسلمين المضطهدين في الحبشة",
+      "pages": [
+        {
+          "img": "stories_ar/ar_19_p1.jpg",
+          "text": "في السنوات الأولى من الإسلام، تعرّض بعض المسلمين في مكة للأذى بسبب إيمانهم. وطلباً للأمان، عبر بعضهم البحر الأحمر. وهاجروا إلى بلاد تُسمّى الحبشة."
+        },
+        {
+          "img": "stories_ar/ar_19_p2.jpg",
+          "text": "وتُسمّى الكتب التي تروي حياة النبي ﷺ كتب السيرة. وتذكر هذه الكتب أنه ﷺ نصحهم باللجوء إلى ملك عادل. ويشتهر وصف لملك لا يُظلم عنده أحد، لكن مصدر هذا الوصف كتب السيرة، لا الصحيحان من كتب الحديث."
+        },
+        {
+          "img": "stories_ar/ar_19_p3.jpg",
+          "text": "ويُعرف هذا الملك باسم النجاشي. ويُذكر أنه سمح للمهاجرين، وهم الذين فرّوا طلباً للأمان، أن يشرحوا موقفهم. ولم يسلّمهم مباشرة إلى خصومهم الذين طالبوا بإعادتهم."
+        },
+        {
+          "img": "stories_ar/ar_19_p4.jpg",
+          "text": "وتروي الأخبار أن جعفر بن أبي طالب قرأ من سورة مريم ليشرح عقيدة المسلمين. وقد هاجر المسلمون إلى الحبشة أكثر من مرة، وتختلف الأخبار في أعداد كل مجموعة. لذلك لا نجمع المجموعات كلها في مجموعة واحدة بتاريخ محدد هو سنة 615م."
+        }
+      ],
+      "evidenceStatus": "رواية تاريخية؛ قد تختلف تفاصيلها",
+      "sources": [
+        {
+          "name": "المصدر: Accounts of the first migration to Abyssinia in the early sira literature",
+          "url": "https://quran.com/19"
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "title": "المساعدات الغذائية في رمضان وتفطير الصائمين",
+      "pages": [
+        {
+          "img": "stories_ar/ar_20_p1.jpg",
+          "text": "إن تقديم الطعام للناس ليفطروا في رمضان من صور الإحسان والخير. وقد نظّمت قطر الخيرية حملات في رمضان لمساعدة الناس في الحصول على الطعام."
+        },
+        {
+          "img": "stories_ar/ar_20_p2.jpg",
+          "text": "علّمنا النبي محمد ﷺ أمراً عظيماً، وهو أن من فطّر صائماً كان له مثل أجره. ولا ينقص ذلك من أجر الصائم شيئاً. وهذا الحديث أخرجه الترمذي (807)، وحُكم بصحته."
+        },
+        {
+          "img": "stories_ar/ar_20_p3.jpg",
+          "text": "تختلف مشروعات قطر الخيرية من سنة إلى أخرى ومن بلد إلى آخر. فقد تقدّم وجبات أو سلالاً غذائية بحسب الظروف. لكن معرفة الأماكن وأعداد الوجبات والمستفيدين بدقة تحتاج إلى تقرير رسمي مؤرخ لكل حملة."
+        },
+        {
+          "img": "stories_ar/ar_20_p4.jpg",
+          "text": "ويمدح القرآن الكريم إطعام المحتاجين (الإنسان 76:8). وإذا أردنا معرفة برامج أي جمعية خيرية وكيف تُراقَب، فأفضل مكان للتحقق هو تقاريرها الرسمية. ولا ينبغي أن نعدّ وصف هذه البرامج ضماناً."
+        }
+      ],
+      "evidenceStatus": "مصدر تاريخي أو مؤسسي موثق",
+      "sources": [
+        {
+          "name": "المصدر: Jami at-Tirmidhi 807 (sahih); Qatar Charity official website",
+          "url": "https://sunnah.com/tirmidhi:807"
+        },
+        {
+          "name": "مصدر إضافي",
+          "url": "https://www.qcharity.org/"
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "title": "كرم عبد الرحمن بن عوف: نموذج للعمل الخيري في وقت مبكر من حياة المسلمين",
+      "pages": [
+        {
+          "img": "stories_ar/ar_21_p1.jpg",
+          "text": "كان عبد الرحمن بن عوف رضي الله عنه من صحابة النبي ﷺ. والصحابي هو من لقي النبي ﷺ وآمن به. وقد اشتهر عبد الرحمن تاجراً ناجحاً في المدينة المنورة."
+        },
+        {
+          "img": "stories_ar/ar_21_p2.jpg",
+          "text": "ويروي صحيح البخاري (2048) قصة جميلة عنه. فقد عرض عليه أخوه الجديد من الأنصار، وهم مسلمو المدينة، مساعدة سخية. لكن عبد الرحمن طلب بدلاً من ذلك أن يُدلّ على السوق ليعمل ويتاجر."
+        },
+        {
+          "img": "stories_ar/ar_21_p3.jpg",
+          "text": "وتذكر كتب التراجم التي كُتبت لاحقاً إنفاقه في أبواب الخير. ويتداول بعض الناس مبالغ دقيقة، أو يقولون إنه أوصى بنصف ما يملك للأمة. لكننا لا نستطيع الجزم بهذه التفاصيل من غير مصدر خاص موثوق."
+        },
+        {
+          "img": "stories_ar/ar_21_p4.jpg",
+          "text": "وتلهمنا سيرته أن نعمل بمسؤولية وأن نعطي بسخاء. فالحديث الصحيح يبيّن أنه اختار أن يعتمد على نفسه وأن يتاجر. لكنه لا يثبت كل ما قيل لاحقاً عن حجم ثروته."
+        }
+      ],
+      "evidenceStatus": "حديث صحيح موثق",
+      "sources": [
+        {
+          "name": "المصدر: Sahih al-Bukhari 2048; further generosity narratives require separate historical sourcing",
+          "url": "https://sunnah.com/bukhari:2048"
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "title": "المكتبات والتعلم في بغداد الوسيطة",
+      "pages": [
+        {
+          "img": "stories_ar/ar_22_p1.jpg",
+          "text": "قبل اختراع الطباعة، كانت الكتب غالية الثمن جداً. وفي كثير من المدن الإسلامية في العصور الوسطى، جمع حكام ومحسنون مجموعات من الكتب. وكان الناس يستخدمونها للقراءة والدراسة ونسخ الكتب."
+        },
+        {
+          "img": "stories_ar/ar_22_p2.jpg",
+          "text": "وفي بغداد، افتُتحت المدرسة المستنصرية سنة 1233م، واشتهرت بمرافقها التعليمية وكتبها. أما المكتبات الأخرى فكانت تختلف كثيراً فيمن يحق له استخدامها، وفي طريقة تمويلها."
+        },
+        {
+          "img": "stories_ar/ar_22_p3.jpg",
+          "text": "قد نسمع أن مكتبة ما كانت تضم عشرات الآلاف من الكتب، أو أن كل طالب كان يحصل على أدواته مجاناً، أو أن أبوابها كانت مفتوحة للجميع. ولكي نعرف صحة ذلك عن مكتبة معينة، نحتاج إلى وثائق من سجلات تلك المكتبة نفسها."
+        },
+        {
+          "img": "stories_ar/ar_22_p4.jpg",
+          "text": "وتُعلي التعاليم الإسلامية من قيمة العلم. فالآيات من سورة العلق (96:1–5) تبدأ بالأمر بالقراءة. ويذكر صحيح مسلم (1631) أن العلم الذي يُنتفع به من الأعمال التي يمكن أن يستمر أجرها حتى بعد موت الإنسان."
+        }
+      ],
+      "evidenceStatus": "عرض تاريخي عام وليس حادثة موثقة بعينها",
+      "sources": [
+        {
+          "name": "المصدر: Qur’an 96:1-5; Sahih Muslim 1631; individual library claims require archival verification",
+          "url": "https://quran.com/96/1-5"
+        },
+        {
+          "name": "مصدر إضافي",
+          "url": "https://sunnah.com/muslim:1631"
+        }
+      ]
+    },
+    {
+      "id": "23",
+      "title": "عناية النبي ﷺ بديون المتوفين",
+      "pages": [
+        {
+          "img": "stories_ar/ar_23_p1.jpg",
+          "text": "يبيّن صحيح البخاري (2298) كيف كان النبي محمد ﷺ يهتم بأمر الديون. فإذا مات إنسان ولم يسدّد ما عليه، كان ﷺ يعدّ ذلك أمراً خطيراً. والدَّين هو مال يقترضه الإنسان ويجب عليه أن يردّه."
+        },
+        {
+          "img": "stories_ar/ar_23_p2.jpg",
+          "text": "في البداية، كان ﷺ يسأل عمّا إذا كان الميت قد ترك مالاً يكفي لسداد دينه. ثم لمّا اتسعت الموارد بعد ذلك، أعلن أنه سيتحمّل بنفسه قضاء ديون من يستحق ذلك من المؤمنين المتوفين."
+        },
+        {
+          "img": "stories_ar/ar_23_p3.jpg",
+          "text": "وهناك رواية أخرى مستقلة، وفيها وفّى أبو بكر بوعد كان النبي ﷺ قد وعد به جابر بن عبد الله. وهذه حادثة مختلفة، فلا ينبغي أن نخلط بينها وبين قضاء ديون الموتى من الأموال العامة."
+        },
+        {
+          "img": "stories_ar/ar_23_p4.jpg",
+          "text": "وتذكر الآية في سورة التوبة (9:60) الغارمين، أي المدينين، ضمن من يستحقون الزكاة، وهي الصدقة الواجبة في الإسلام، وذلك بشروطها الفقهية. ومساعدة إنسان على سداد دين مشروع قد تحفظ حق المدين وحق الدائن معاً."
+        }
+      ],
+      "evidenceStatus": "حديث صحيح موثق",
+      "sources": [
+        {
+          "name": "المصدر: Sahih al-Bukhari 2298; Qur’an 9:60",
+          "url": "https://sunnah.com/bukhari:2298"
+        },
+        {
+          "name": "مصدر إضافي",
+          "url": "https://quran.com/9/60"
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "title": "الخانات - ملاجئ على جانب الطريق للمسافرين كأوقاف",
+      "pages": [
+        {
+          "img": "stories_ar/ar_24_p1.jpg",
+          "text": "في العصور الوسطى، كان التجار والحجاج يسافرون في مناطق كثيرة من العالم الإسلامي. وعلى طرق التجارة والحج، كانت هناك خانات ونُزُل يستريح فيها المسافرون. وقد ساعدت هذه الأماكن المسافرين في رحلاتهم."
+        },
+        {
+          "img": "stories_ar/ar_24_p2.jpg",
+          "text": "ولم تكن الخانات كلها متشابهة. فبعضها كان تجارياً يأخذ أجراً من النزلاء. وبعضها الآخر كانت تدعمه أوقاف أو حكّام ورعاة آخرون. لذلك لا يصح القول إن كل الخانات كانت أوقافاً مجانية، والوقف هو مال يُحبس ليبقى نفعه للناس مدة طويلة."
+        },
+        {
+          "img": "stories_ar/ar_24_p3.jpg",
+          "text": "كانت هذه المباني توفّر مأوى للمسافرين ودوابّهم. لكن تقديم الطعام أو العلاج كان يختلف من مكان إلى آخر. وكذلك كانت مدة الإقامة والرسوم تعتمد على المكان وعلى شروط كل مؤسسة."
+        },
+        {
+          "img": "stories_ar/ar_24_p4.jpg",
+          "text": "والعبرة أن خدمة المسافرين على الطرق قد تكون نفعاً عاماً للناس. أما إذا سمعنا قصة عن خان معيّن، فعلينا أن نتحقق منها في وثيقة وقفه، وهي الورقة التي سُجّل فيها وقفه، إن بقيت، أو في خبر تاريخي عنه."
+        }
+      ],
+      "evidenceStatus": "عرض تاريخي عام وليس حادثة موثقة بعينها",
+      "sources": [
+        {
+          "name": "المصدر: Historical overview of waqf hospitality; specific buildings and access policies vary",
+          "url": "https://quran.com/9/60"
+        }
+      ]
+    },
+    {
+      "id": "26",
+      "title": "قطر الخيرية وتوفير المياه الآمنة",
+      "pages": [
+        {
+          "img": "stories_ar/ar_26_p1.jpg",
+          "text": "الماء النظيف الآمن يحتاج إليه كل إنسان، وتوفيره من أهم أعمال الخير الإنسانية. وقد عملت قطر الخيرية على مشروعات للمياه في بلدان متعددة."
+        },
+        {
+          "img": "stories_ar/ar_26_p2.jpg",
+          "text": "قد يشمل مشروع المياه آبارًا أو مضخات أو طرقًا لصيانتها حتى تبقى صالحة، ويُبنى كل مشروع بما يناسب ظروف مكانه. وإذا أردت أن تتبرع، فمن الجميل أن تقرأ وصف كل مشروع أولًا."
+        },
+        {
+          "img": "stories_ar/ar_26_p3.jpg",
+          "text": "يُخطَّط كل مشروع حسب حاجات أهل المنطقة وظروفها. وتنشر قطر الخيرية تفاصيل مشروعاتها في تقاريرها الرسمية."
+        },
+        {
+          "img": "stories_ar/ar_26_p4.jpg",
+          "text": "توفير الماء النظيف مثال رائع على الصدقة الجارية، وهي الصدقة التي يستمر نفعها وقتًا طويلًا بعد تقديمها. فالبئر قد تسقي الناس والحيوانات سنوات طويلة بعد حفرها."
+        }
+      ],
+      "evidenceStatus": "مصدر تاريخي أو مؤسسي موثق",
+      "sources": [
+        {
+          "name": "المصدر: Qatar Charity water-project information; project name, numbers and procedures need original documentation",
+          "url": "https://www.qcharity.org/"
+        }
+      ]
+    },
+    {
+      "id": "28",
+      "title": "رد النبي (صلى الله عليه وسلم) على فقر قبيلة مضر",
+      "pages": [
+        {
+          "img": "stories_ar/ar_28_p1.jpg",
+          "text": "في الصباح الباكر، جاءت جماعة من قبيلة مُضَر إلى مجلس النبي ﷺ. كانوا حفاة لا يكاد يسترهم شيء، يلبسون ثيابًا أو عباءات من الصوف المخطط، وسيوفهم معلقة في أعناقهم."
+        },
+        {
+          "img": "stories_ar/ar_28_p2.jpg",
+          "text": "رأى النبي ﷺ فقرهم فتأثر تأثرًا شديدًا. فدخل بيته على الفور ثم خرج، وأمر بلالًا أن يرفع الأذان، وهو النداء إلى الصلاة."
+        },
+        {
+          "img": "stories_ar/ar_28_p3.jpg",
+          "text": "وبعد الصلاة خطب النبي ﷺ في الناس، فتلا آيات من سورة النساء (4:1) وسورة الحشر (59:18). وهذه الآيات تذكّرنا بتقوى الله، وبأن نفكر فيما نقدّمه من خير لغدنا. ثم حثّ الناس على الصدقة ولو بنصف تمرة."
+        },
+        {
+          "img": "stories_ar/ar_28_p4.jpg",
+          "text": "فأقبل الناس يتصدقون بسخاء، وجاؤوا بالطعام والثياب وغيرها، حتى اجتمع كومان من طعام وثياب. ففرح النبي ﷺ فرحًا عظيمًا، وأشرق وجهه بالسرور. وعلّمهم أن من بدأ في الإسلام عملًا حسنًا فله أجره وأجر من عمل به بعده، من غير أن ينقص من أجورهم شيء، صحيح مسلم (1017أ)."
+        }
+      ],
+      "evidenceStatus": "حديث صحيح موثق",
+      "sources": [
+        {
+          "name": "المصدر: Sahih Muslim 1017a",
+          "url": "https://sunnah.com/muslim:1017a"
+        }
+      ]
+    },
+    {
+      "id": "31",
+      "title": "مساعدة الأسر النازحة في الشتاء",
+      "pages": [
+        {
+          "img": "stories_ar/ar_31_p1.jpg",
+          "text": "تخيّل الشتاء بلا ملابس دافئة ولا أغطية ولا وسيلة آمنة للتدفئة. هذا ما قد يواجهه النازحون، وهم الذين اضطروا إلى ترك بيوتهم، فيصبح الشتاء عليهم شديد القسوة."
+        },
+        {
+          "img": "stories_ar/ar_31_p2.jpg",
+          "text": "تقدّم المنظمات الإنسانية، التي تساعد الناس في الأزمات، أحيانًا حقائب للشتاء، وتصلح المأوى، وتوزع مستلزمات تناسب الطقس. لكنها تتعرف أولًا إلى ما تحتاجه الأسر في المكان."
+        },
+        {
+          "img": "stories_ar/ar_31_p3.jpg",
+          "text": "وتنظّم مؤسسات خيرية كثيرة حملات شتوية خاصة، فتوصل البطانيات والملابس الدافئة ووسائل التدفئة الآمنة إلى الأسر اللاجئة والنازحة."
+        },
+        {
+          "img": "stories_ar/ar_31_p4.jpg",
+          "text": "هذه القصة مثال تعليمي عن مساعدة الناس في الشتاء، وليست عن مشروع واحد بعينه. ويمدح القرآن الكريم الذين يطعمون المحتاجين، كما في سورة الإنسان (76:8)."
+        }
+      ],
+      "evidenceStatus": "مثال تعليمي، وليس واقعة محددة موثقة",
+      "sources": [
+        {
+          "name": "المصدر: Winter assistance explained as a general humanitarian example; named foundation project not verified",
+          "url": "https://quran.com/76/8"
+        }
+      ]
+    },
+    {
+      "id": "32",
+      "title": "فكّ الرقاب - تحرير الأرقاء صدقةً وقربة",
+      "pages": [
+        {
+          "img": "stories_ar/ar_32_p1.jpg",
+          "text": "الزكاة صدقة واجبة على المسلمين. وتذكر سورة التوبة (9:60) الجهات التي تُصرف فيها الزكاة، ومنها «في الرقاب»، أي المساعدة على تحرير من وقعوا في الرق والعبودية."
+        },
+        {
+          "img": "stories_ar/ar_32_p2.jpg",
+          "text": "وتجمع الآيات في سورة البلد (90:11–14) بين عملين صالحين: تحرير الإنسان من الرق، وإطعام الجائع في وقت الشدة."
+        },
+        {
+          "img": "stories_ar/ar_32_p3.jpg",
+          "text": "ويذكر تاريخ الإسلام المبكر أن أبا بكر أعتق بلال بن رباح. كما يتحدث القرآن الكريم عن المكاتبة، وهي اتفاق يستطيع به المملوك أن يسعى إلى حريته، سورة النور (24:33)."
+        },
+        {
+          "img": "stories_ar/ar_32_p4.jpg",
+          "text": "وفي كتب التراث روايات تمدح حكامًا أنفقوا من الزكاة في تحرير الأرقاء، لكن بعض الحكايات المشهورة فيها تفاصيل لسنا متأكدين منها. واليوم يبيّن العلماء كيف يُطبَّق مصرف «وفي الرقاب» في زماننا."
+        }
+      ],
+      "evidenceStatus": "قرآن كريم وأحاديث موثقة",
+      "sources": [
+        {
+          "name": "المصدر: Qur’an 9:60, 90:11-14, 24:33",
+          "url": "https://quran.com/9/60"
+        },
+        {
+          "name": "مصدر إضافي",
+          "url": "https://quran.com/90/11-14"
+        }
+      ]
+    },
+    {
+      "id": "33",
+      "title": "مساعدة الزواج - دعم خيري للأزواج غير القادرين على تحمل تكاليف الزواج",
+      "pages": [
+        {
+          "img": "stories_ar/ar_33_p1.jpg",
+          "text": "تشجع سورة النور (24:32) المجتمع على تيسير الزواج لمن لم يتزوجوا، وتوجّه الآية التالية (24:33) من لا يقدر على الزواج بعدُ إلى العفة. وهاتان الآيتان إرشاد أخلاقي، وليستا وصفًا لصندوق خيري معيّن في التاريخ."
+        },
+        {
+          "img": "stories_ar/ar_33_p2.jpg",
+          "text": "في مجتمعات كثيرة، يساعد الأقارب والجيران والمتبرعون الكرام الزوجين في التكاليف الضرورية، حتى لا تصبح قلة المال عائقًا لا داعي له أمام الزواج."
+        },
+        {
+          "img": "stories_ar/ar_33_p3.jpg",
+          "text": "قد تشمل المساعدة جزءًا معتدلًا من المهر، وهو هدية الزواج التي يقدمها الزوج للزوجة، أو أشياء أساسية للبيت. وإذا رُويت قصة عن حفل زواج جماعي مشهور في التاريخ أو عن وقف معيّن، فنحتاج إلى سجل موثوق لنعرف أنها صحيحة."
+        },
+        {
+          "img": "stories_ar/ar_33_p4.jpg",
+          "text": "هل يجوز أن تُعطى الزكاة لمساعدة شخص على الزواج؟ هذا سؤال مستقل يجيب عنه الفقهاء، والجواب يختلف بحسب الحاجة وآراء المذاهب الفقهية والقوانين المحلية. أما الصدقة التطوعية، وهي ما تتبرع به باختيارك، فمجالها في العادة أوسع من الزكاة."
+        }
+      ],
+      "evidenceStatus": "إرشاد عام يختلف حكمه حسب السياق",
+      "sources": [
+        {
+          "name": "المصدر: Qur’an 24:32; juristic eligibility for zakat depends on circumstances and school",
+          "url": "https://quran.com/24/32"
+        },
+        {
+          "name": "سورة النور، الآية 33",
+          "url": "https://quran.com/24/33"
+        }
+      ]
+    },
+    {
+      "id": "35",
+      "title": "المساعدة في الدفن - وداع كريم لكل مسلم",
+      "pages": [
+        {
+          "img": "stories_ar/ar_35_p1.jpg",
+          "text": "عندما يتوفى المسلم، لا بد من تجهيزه ودفنه. ويرى جمهور الفقهاء أن هذا فرض كفاية، أي واجب على المجتمع كله، إذا قام به بعض الناس سقط عن الباقين. وتختلف التفاصيل بحسب المذهب والظروف."
+        },
+        {
+          "img": "stories_ar/ar_35_p2.jpg",
+          "text": "وقد تعاونت مجتمعات كثيرة على دفع التكاليف الأساسية للجنازة عن الأسر التي لا تقدر عليها. ولا نذكر وقفًا أو مؤسسة معينة لهذا العمل إلا إذا وُجدت سجلات لتاريخها."
+        },
+        {
+          "img": "stories_ar/ar_35_p3.jpg",
+          "text": "تُدفع تكاليف التجهيز الضرورية أولًا مما تركه المتوفى، أو ممن تلزمهم نفقته شرعًا. فإذا لم يكفِ المال، قد تحتاج الأسرة إلى مساعدة المجتمع. ويختلف ترتيب هذه النفقات بحسب المذهب والقانون المحلي."
+        },
+        {
+          "img": "stories_ar/ar_35_p4.jpg",
+          "text": "وحثّ النبي ﷺ المؤمنين على المشاركة، فأخبر أن من شهد الجنازة حتى يُصلّى عليها فله قيراط من الأجر، ومن شهدها حتى تُدفن فله قيراطان، كل واحد منهما مثل الجبل العظيم (صحيح البخاري وصحيح مسلم). واليوم تواصل الجمعيات الخيرية والجهات الرسمية في العالم الإسلامي هذا الواجب، ليُدفن كل إنسان بكرامة."
+        }
+      ],
+      "evidenceStatus": "حديث مع تفسير فقهي",
+      "sources": [
+        {
+          "name": "المصدر: Sahih al-Bukhari 1325; juristic obligations vary by school",
+          "url": "https://sunnah.com/bukhari:1325"
+        }
+      ]
+    },
+    {
+      "id": "36",
+      "title": "إغاثة المسافرين والحجاج",
+      "pages": [
+        {
+          "img": "stories_ar/ar_36_p1.jpg",
+          "text": "يسافر الحجاج بعيدًا عن بيوتهم، وقد يمرضون في الطريق أو يتعرضون للسرقة أو يفقدون مالهم فجأة. ومساعدة المسافر المحتاج من أعمال الخير المعروفة منذ زمن بعيد."
+        },
+        {
+          "img": "stories_ar/ar_36_p2.jpg",
+          "text": "تذكر سورة التوبة (9:60) ابن السبيل، وهو المسافر المحتاج، ضمن من يجوز أن يأخذوا من الزكاة، وفق شروط يبيّنها الفقهاء."
+        },
+        {
+          "img": "stories_ar/ar_36_p3.jpg",
+          "text": "وعلى مر القرون، قدّمت بعض الأوقاف، وهي أموال تُحبس ليدوم نفعها للناس، الماء أو المأوى أو غير ذلك من العون على طرق الحج. واختلفت هذه الخدمات باختلاف المكان والزمان."
+        },
+        {
+          "img": "stories_ar/ar_36_p4.jpg",
+          "text": "هذه القصة لمحة عامة عن الإحسان إلى المسافرين، وليست تاريخ صندوق واحد بعينه. واليوم يعتمد الحجاج على المعلومات الرسمية ليعرفوا الخدمات المتاحة لهم."
+        }
+      ],
+      "evidenceStatus": "إرشاد عام يختلف حكمه حسب السياق",
+      "sources": [
+        {
+          "name": "المصدر: Qur’an 9:60: wayfarers are an eligible zakat category, subject to jurisprudential conditions",
+          "url": "https://quran.com/9/60"
+        }
+      ]
+    },
+    {
+      "id": "37",
+      "title": "الوقف العام للحمامات - البنية التحتية للنظافة والصحة",
+      "pages": [
+        {
+          "img": "stories_ar/ar_37_p1.jpg",
+          "text": "في كثير من المدن الإسلامية قديمًا، كانت الحمامات العامة من المرافق المهمة، لأن الناس كانوا يحتاجون إلى الماء وإلى أماكن للاغتسال."
+        },
+        {
+          "img": "stories_ar/ar_37_p2.jpg",
+          "text": "كان بعض الحمامات ملكًا لأشخاص، وكان بعضها وقفًا، أي ملكًا مخصصًا لأعمال الخير، يُنفق من إيجاره على مؤسسات دينية أو خيرية."
+        },
+        {
+          "img": "stories_ar/ar_37_p3.jpg",
+          "text": "قد يظن بعض الناس أن الحمامات الموقوفة كانت عادةً تخصص ساعات استحمام مجانية للفقراء بنظام واحد في كل مكان. لكن ليس لدينا دليل على أن ذلك كان عامًا في كل مكان، ولمعرفته في حمام بعينه نحتاج إلى وثيقة وقفه الحقيقية."
+        },
+        {
+          "img": "stories_ar/ar_37_p4.jpg",
+          "text": "تبيّن لنا الحمامات كيف يمكن للمباني وما تجلبه من مال أن تخدم المجتمع كله. وقد اختلفت طريقة تمويلها وشروط دخولها من مكان إلى آخر ومن زمن إلى آخر."
+        }
+      ],
+      "evidenceStatus": "عرض تاريخي عام وليس حادثة موثقة بعينها",
+      "sources": [
+        {
+          "name": "المصدر: Overview of historic hammams and charitable endowment; specific access rules need deed citations",
+          "url": "https://quran.com/2/222"
+        }
+      ]
+    },
+    {
+      "id": "38",
+      "title": "حماية الأشجار ونفع الأجيال",
+      "pages": [
+        {
+          "img": "stories_ar/ar_38_p1.jpg",
+          "text": "العناية بالأشجار والمياه قد تنفع أجيالًا كثيرة، حتى من لم يولدوا بعد. والإسلام يحثنا على الإحسان إلى الزرع والبيئة."
+        },
+        {
+          "img": "stories_ar/ar_38_p2.jpg",
+          "text": "ورد في حديث صحيح عن النبي ﷺ في صحيح البخاري (2320) أن للمسلم أجرًا إذا أكل الناس أو الحيوانات مما غرسه."
+        },
+        {
+          "img": "stories_ar/ar_38_p3.jpg",
+          "text": "وعلى مر التاريخ، حمت المجتمعات والسلطات الغابات والمراعي بطرق مختلفة، لتبقى هذه الخيرات للأجيال القادمة."
+        },
+        {
+          "img": "stories_ar/ar_38_p4.jpg",
+          "text": "فكّر في غرس شجرة اليوم! إن غرس الأشجار والعناية بها يمكن أن يكون صدقة جارية مستلهمة من هذه القيم، فكل ما يأكل منه إنسان أو طير أو حيوان يُكتب لمن غرسه صدقة."
+        }
+      ],
+      "evidenceStatus": "إرشاد عام يختلف حكمه حسب السياق",
+      "sources": [
+        {
+          "name": "المصدر: Sahih al-Bukhari 2320; Ottoman forest-waqf examples require archival citations",
+          "url": "https://sunnah.com/bukhari:2320"
+        }
+      ]
+    },
+    {
+      "id": "39",
+      "title": "التعاون المتبادل بين النقابات - الحرفيون يدعمون زملاءهم الحرفيين",
+      "pages": [
+        {
+          "img": "stories_ar/ar_39_p1.jpg",
+          "text": "في المدن قديمًا، كان أصحاب الحرف يعتمدون على زملائهم وأسرهم وجيرانهم في الحي عندما يمرضون أو يمرون بضيق في المال."
+        },
+        {
+          "img": "stories_ar/ar_39_p2.jpg",
+          "text": "وكانت تجمعات أهل المهنة الواحدة، التي تُسمى الطوائف المهنية، تساعد أحيانًا في تعليم الحرفة وفي تعاون أفرادها. لكن طريقة تنظيمها وما يلزم أعضاءها اختلفا كثيرًا بحسب المكان والعصر."
+        },
+        {
+          "img": "stories_ar/ar_39_p3.jpg",
+          "text": "تقول بعض الحكايات إن كل طائفة مهنية كان لها صندوق لمن عجز عن العمل، وإنها كانت تكفل الأرامل أو توزع الخبز والأقمشة. ولنعرف إن كان هذا صحيحًا، نحتاج إلى سجلات طوائف محددة بأسمائها."
+        },
+        {
+          "img": "stories_ar/ar_39_p4.jpg",
+          "text": "هذه القصة مثال عام على التكافل، أي تعاون الناس في مساعدة بعضهم، وليست وصفًا لحالة تاريخية موثقة. ويدعونا القرآن الكريم إلى التعاون على البر والتقوى في سورة المائدة (5:2)."
+        }
+      ],
+      "evidenceStatus": "عرض تاريخي عام وليس حادثة موثقة بعينها",
+      "sources": [
+        {
+          "name": "المصدر: Overview of professional mutual aid; concrete guild case studies require historical sources",
+          "url": "https://quran.com/5/2"
+        }
+      ]
+    },
+    {
+      "id": "41",
+      "title": "بيمارستان السلطان قلاوون في القاهرة (1284–1285م)",
+      "pages": [
+        {
+          "img": "stories_ar/ar_41_p1.jpg",
+          "text": "في القاهرة، في أواخر القرن الثالث عشر الميلادي، أنشأ السلطان المنصور قلاوون البيمارستان المنصوري، والبيمارستان يعني المستشفى. وكان جزءًا من مجمع خيري كبير."
+        },
+        {
+          "img": "stories_ar/ar_41_p2.jpg",
+          "text": "وتصفه كتب التاريخ بأنه مؤسسة طبية مهمة، كانت تعالج المرضى وتساعد في تعليم الطب."
+        },
+        {
+          "img": "stories_ar/ar_41_p3.jpg",
+          "text": "وخُصصت أملاك موقوفة، أي محبوسة لأعمال الخير، للمساعدة في الإنفاق على الرعاية في المجمع. ولكي نعرف بدقة من كان يُعالَج فيه، وما أقسامه ومستلزماته، نحتاج إلى قراءة نص حجة الوقف نفسها."
+        },
+        {
+          "img": "stories_ar/ar_41_p4.jpg",
+          "text": "وما زالت مبانٍ من مجمع قلاوون جزءًا مهمًا من تراث القاهرة المعماري في العصور الوسطى. ومن الصعب أن نذكر رقمًا واحدًا لمدة عمل المستشفى، لأن الجواب يتوقف على السنوات التي نقصدها ونوع الخدمة."
+        }
+      ],
+      "evidenceStatus": "مصدر تاريخي أو مؤسسي موثق",
+      "sources": [
+        {
+          "name": "وزارة السياحة والآثار المصرية",
+          "url": "https://egymonuments.gov.eg/monuments/madrasa-mausaleum-and-bimaristan-of-al-mansur-qalawun/"
+        },
+        {
+          "name": "متحف بلا حدود: مجمع السلطان قلاوون",
+          "url": "https://islamicart.museumwnf.org/database_item.php?id=monument%3BISL%3Beg%3BMon01%3B15%3Ben"
+        }
+      ]
+    },
+    {
+      "id": "45",
+      "title": "المدرسة الصالحية وضريح شجر الدر لزوجها",
+      "pages": [
+        {
+          "img": "stories_ar/ar_45_p1.jpg",
+          "text": "في القاهرة، ونحو سنة 1243م، بنى السلطان الصالح نجم الدين أيوب المدرسة الصالحية. وقد اشتهرت هذه المدرسة بأنها كانت تُدرّس المذاهب السنية الأربعة، وهي أربع طرق معروفة لدراسة الفقه الإسلامي."
+        },
+        {
+          "img": "stories_ar/ar_45_p2.jpg",
+          "text": "وفي سنة 1249م توفي السلطان. فأمرت زوجته شجر الدر ببناء ضريح له بجوار المدرسة. والضريح بناء خاص يضم قبر الإنسان."
+        },
+        {
+          "img": "stories_ar/ar_45_p3.jpg",
+          "text": "إذن، شجر الدر هي التي رعت بناء الضريح، أما المدرسة نفسها فقد أسسها زوجها. ويدل هذا المكان على الاهتمام بالعلم وبذكرى من رحلوا عنا."
+        },
+        {
+          "img": "stories_ar/ar_45_p4.jpg",
+          "text": "ما زالت أجزاء من هذه المباني باقية حتى اليوم، وتوثقها وزارة السياحة والآثار المصرية. ونتعلم من صحيح مسلم (1631) أن العلم النافع يبقى أجره مستمرًا، وهذا درس ديني مستقل عن تاريخ المبنى."
+        }
+      ],
+      "evidenceStatus": "مصدر تاريخي أو مؤسسي موثق",
+      "sources": [
+        {
+          "name": "المصدر: Egyptian Ministry of Tourism and Antiquities; MIT OpenCourseWare",
+          "url": "https://egymonuments.gov.eg/monuments/madrasa-and-mausoleum-of-al-salih-nagm-al-din-ayyub/"
+        },
+        {
+          "name": "مصدر إضافي",
+          "url": "https://ocw.mit.edu/courses/4-615-the-architecture-of-cairo-spring-2002/pages/lecture-notes/lec8/"
+        }
+      ]
+    },
+    {
+      "id": "46",
+      "title": "مشروعات قطر الخيرية المدرسية الموثقة في غزة",
+      "pages": [
+        {
+          "img": "stories_ar/ar_46_p1.jpg",
+          "text": "وثّقت قطر الخيرية عملها في مدارس غزة خلال سنوات مختلفة. وشمل هذا العمل بناء مدارس، وإضافة فصول دراسية جديدة، وإصلاح المرافق التعليمية."
+        },
+        {
+          "img": "stories_ar/ar_46_p2.jpg",
+          "text": "وتذكر تقارير نُشرت قبل عام 2021 مشروعين من هذه المشروعات: مدرسة الشيماء للبنات، والفصول التي أضيفت إلى مدرسة فهد الصباح."
+        },
+        {
+          "img": "stories_ar/ar_46_p3.jpg",
+          "text": "وواصلت قطر الخيرية مساعدة أطفال غزة على التعلم، من خلال مشروعات أخرى وبرامج للطوارئ. وتُنشر تفاصيل ذلك في تقاريرها الرسمية."
+        },
+        {
+          "img": "stories_ar/ar_46_p4.jpg",
+          "text": "إن بناء المدارس وتجهيزها يساعد الأطفال على مواصلة التعلم حتى في الأوقات الصعبة. وهو صدقة جارية، أي صدقة يستمر نفعها، فيستفيد منها جيل بعد جيل."
+        }
+      ],
+      "evidenceStatus": "مصدر تاريخي أو مؤسسي موثق",
+      "sources": [
+        {
+          "name": "المصدر: Qatar Charity project reporting 2018–2021; dates of individual reconstruction works must be exact",
+          "url": "https://www.qatar-tribune.com/article/206771/NATION/Qatar-Charity-implements-projects-to-support-Palestinian-education-sector"
+        }
+      ]
+    },
+    {
+      "id": "49",
+      "title": "فداء الأسرى والعمل الخيري",
+      "pages": [
+        {
+          "img": "stories_ar/ar_49_p1.jpg",
+          "text": "في العصور الوسطى، شهدت الأندلس حروبًا. وكان بعض الناس يقعون في الأسر، وكان آخرون يسعون إلى إطلاق سراحهم."
+        },
+        {
+          "img": "stories_ar/ar_49_p2.jpg",
+          "text": "وكانت الأسر والحكام والمجتمعات أحيانًا تجمع المال أو ترسله لفداء الأسرى. والفداء هو دفع المال لتحرير الأسير. وقد اختلفت طرق الفداء كثيرًا باختلاف القرون والبلاد."
+        },
+        {
+          "img": "stories_ar/ar_49_p3.jpg",
+          "text": "وتذكر المصادر التاريخية جهودًا في شمال إفريقيا والأندلس لفداء الأسرى. لكن هذه الجهود لم تكن بالحجم نفسه ولا بالتنظيم نفسه، ولا نعرف تفاصيلها دائمًا، لأنها لم تُسجَّل كلها."
+        },
+        {
+          "img": "stories_ar/ar_49_p4.jpg",
+          "text": "لذلك فهذه ليست قصة شخص واحد، بل صورة عامة من التاريخ. وتذكر سورة التوبة (9:60) تحرير الرقاب، أي مساعدة الناس على نيل حريتهم، ضمن الوجوه التي تُصرف فيها الزكاة. وطالما عُدَّ فداء الأسرى من أنبل أعمال الخير."
+        }
+      ],
+      "evidenceStatus": "عرض تاريخي عام وليس حادثة موثقة بعينها",
+      "sources": [
+        {
+          "name": "المصدر: General account of captive ransom traditions; claimed transaction totals need primary sources",
+          "url": "https://quran.com/9/60"
+        }
+      ]
+    },
+    {
+      "id": "50",
+      "title": "حلقة عائشة التعليمية في المدينة المنورة (القرن السابع الميلادي)",
+      "pages": [
+        {
+          "img": "stories_ar/ar_50_p1.jpg",
+          "text": "كانت عائشة بنت أبي بكر رضي الله عنها من أبرز رواة الحديث في صدر الإسلام، والحديث هو ما نُقل عن النبي ﷺ من قول أو فعل. وكانت كذلك من أبرز معلمي العلم الشرعي."
+        },
+        {
+          "img": "stories_ar/ar_50_p2.jpg",
+          "text": "روى أبو موسى الأشعري أن الصحابة، أي الذين صحبوا النبي ﷺ، كانوا إذا صعب عليهم فهم حديث سألوا عائشة، فوجدوا عندها علمًا به. أخرجه الترمذي (3883)، وحُكم عليه بأنه حسن، أي مقبول."
+        },
+        {
+          "img": "stories_ar/ar_50_p3.jpg",
+          "text": "وتعلّم منها علماء من التابعين، وهم الجيل الذي جاء بعد الصحابة، ونقلوا علمها إلى غيرهم. وفي حديث نبوي مستقل في صحيح مسلم (1631) بيان فضل العلم الذي يبقى نفعه للناس."
+        },
+        {
+          "img": "stories_ar/ar_50_p4.jpg",
+          "text": "وتذكر كتب التراجم، وهي كتب تحكي سِيَر الأعلام، أخبارًا عن صدقات كبيرة لعائشة. لكننا لا نعرف بيقين مقاديرها ولا تواريخها ولا ظروفها الدقيقة، فلا نرويها على أنها حقائق مؤكدة إلا بمصدر خاص."
+        }
+      ],
+      "evidenceStatus": "حديث صحيح موثق",
+      "sources": [
+        {
+          "name": "المصدر: Jami at-Tirmidhi 3883 (hasan); Sahih Muslim 1631",
+          "url": "https://sunnah.com/tirmidhi:3883"
+        },
+        {
+          "name": "مصدر إضافي",
+          "url": "https://sunnah.com/muslim:1631"
+        }
+      ]
+    },
+    {
+      "id": "51",
+      "title": "نسيبة بنت كعب وشجاعتها في أحد",
+      "pages": [
+        {
+          "img": "stories_ar/ar_51_p1.jpg",
+          "text": "تُعرف نسيبة بنت كعب بأم عمارة. وتذكرها كتب السيرة والتراجم القديمة لأنها شاركت في غزوة أحد."
+        },
+        {
+          "img": "stories_ar/ar_51_p2.jpg",
+          "text": "وتهتم هذه الروايات التاريخية بشكل خاص بجانب واحد من قصتها، هو دفاعها عن النبي محمد ﷺ أثناء المعركة."
+        },
+        {
+          "img": "stories_ar/ar_51_p3.jpg",
+          "text": "وتذكر بعض كتب السيرة أيضًا أنها كانت تسقي الجرحى وتداوي جراحهم. وهذه التفاصيل، مثل كثير من تفاصيل المعركة، جاءت من الأخبار التاريخية، لا من كتب الحديث الصحيحة."
+        },
+        {
+          "img": "stories_ar/ar_51_p4.jpg",
+          "text": "ويتذكر الناس شجاعتها. وتعلّمنا سيرتها معنى الخدمة والوفاء وتحمّل المسؤولية، وتبقى مثالًا ملهمًا لإسهام المرأة في خدمة مجتمعها."
+        }
+      ],
+      "evidenceStatus": "رواية تاريخية؛ قد تختلف تفاصيلها",
+      "sources": [
+        {
+          "name": "المصدر: Early sira and biographical traditions about Nusaybah; detailed battlefield claims need evaluation",
+          "url": "https://quran.com/5/2"
+        }
+      ]
+    },
+    {
+      "id": "52",
+      "title": "أبو ذر الغفاري: الجود والزهد (القرن السابع الميلادي)",
+      "pages": [
+        {
+          "img": "stories_ar/ar_52_p1.jpg",
+          "text": "كان أبو ذر الغفاري من أوائل الذين أسلموا. واشتهر بصدقه وزهده، أي رضاه بالعيش البسيط، وبشدة اهتمامه بالفقراء. وكان يحثّ المسلمين على أن ينفقوا بسخاء ما زاد عن حاجتهم من المال."
+        },
+        {
+          "img": "stories_ar/ar_52_p2.jpg",
+          "text": "وكان يستشهد بالتحذير الوارد في سورة التوبة (9:34-35)، ومنه قوله تعالى: ﴿وَالَّذِينَ يَكْنِزُونَ الذَّهَبَ وَالْفِضَّةَ وَلَا يُنفِقُونَهَا فِي سَبِيلِ اللَّهِ فَبَشِّرْهُم بِعَذَابٍ أَلِيمٍ﴾ (التوبة: 34). والكنز هو جمع المال وحبسه عن الناس. وكان يذكّر الناس دائمًا بمساعدة المحتاجين."
+        },
+        {
+          "img": "stories_ar/ar_52_p3.jpg",
+          "text": "واختلف المسلمون الأوائل في مدى تطبيق هذه الآيات. ثم ميّز فقهاء جاؤوا بعدهم بين المال الذي أُدّيت زكاته الواجبة، والكنز المذموم. واشتهر أبو ذر بالدعوة إلى كثرة الإنفاق والعيش البسيط."
+        },
+        {
+          "img": "stories_ar/ar_52_p4.jpg",
+          "text": "وتذكّر سيرة أبي ذر المسلمين بأن المال أمانة من الله. ونستطيع أن نشارك غيرنا بالزكاة الواجبة، أو بالصدقة التي نتطوع بها. فالعطاء يطهّر المال ويقوّي روابط المجتمع."
+        }
+      ],
+      "evidenceStatus": "نص قرآني وشرح تاريخي",
+      "sources": [
+        {
+          "name": "المصدر: Qur’an 9:34–35; early companion biographical reports",
+          "url": "https://quran.com/9/34-35"
+        }
+      ]
+    },
+    {
+      "id": "54",
+      "title": "مكافحة الحرائق في القاهرة المملوكية (القرن الرابع عشر الميلادي)",
+      "pages": [
+        {
+          "img": "stories_ar/ar_54_p1.jpg",
+          "text": "في العصور الوسطى، كانت الحرائق خطرًا كبيرًا في القاهرة. فقد هددت البيوت والأسواق والمباني الخشبية، كما هددت مدنًا مزدحمة أخرى."
+        },
+        {
+          "img": "stories_ar/ar_54_p2.jpg",
+          "text": "وعندما تشتعل النار، كان كثيرون يشاركون في مواجهتها، ومنهم الجيران والسقّاؤون، أي الذين يحملون الماء، والسلطات العامة. ولم يكن التنظيم واحدًا في كل عصر وكل حي."
+        },
+        {
+          "img": "stories_ar/ar_54_p3.jpg",
+          "text": "وكان رجال الإطفاء أحيانًا يهدمون المباني المجاورة حتى لا تمتد النيران. وفي أوقات الحرائق الكبيرة كانت سلطات المدينة تصدر تعليمات، واختلفت القواعد باختلاف الزمان والحي."
+        },
+        {
+          "img": "stories_ar/ar_54_p4.jpg",
+          "text": "ورد في صحيح البخاري (6294) أن النبي ﷺ حذّر من النار وبيّن أنها عدو، وأمر بإطفائها عند النوم. وورد في صحيح مسلم (1009) أن إماطة الأذى عن الطريق، أي إزالة ما يضر الناس منه، صدقة."
+        }
+      ],
+      "evidenceStatus": "حديث صحيح موثق",
+      "sources": [
+        {
+          "name": "المصدر: Sahih al-Bukhari 6294; Sahih Muslim 1009",
+          "url": "https://sunnah.com/bukhari:6294"
+        },
+        {
+          "name": "مصدر إضافي",
+          "url": "https://sunnah.com/muslim:1009"
+        }
+      ]
+    },
+    {
+      "id": "56",
+      "title": "بلال بن رباح والأذان في صدر الإسلام",
+      "pages": [
+        {
+          "img": "stories_ar/ar_56_p1.jpg",
+          "text": "كان بلال بن رباح رضي الله عنه من المسلمين الأوائل. وكان مسترَقًّا، أي مملوكًا، ثم أُعتق وصار حرًّا. وأصبح من أشهر المؤذنين في عهد النبي ﷺ."
+        },
+        {
+          "img": "stories_ar/ar_56_p2.jpg",
+          "text": "والأذان هو النداء الذي يجمع المسلمين للصلاة كل يوم. وما زال دور بلال المهم معروفًا في التراث الإسلامي."
+        },
+        {
+          "img": "stories_ar/ar_56_p3.jpg",
+          "text": "وتصف كتب السيرة إخلاص بلال في هذه الخدمة طوال حياة النبي ﷺ. لكن الروايات تختلف في تفاصيل حياته بعد ذلك، ومنها متى توقف عن الأذان ولماذا."
+        },
+        {
+          "img": "stories_ar/ar_56_p4.jpg",
+          "text": "تعلّمنا سيرة بلال أننا نستطيع أن نخدم مجتمعنا بأصواتنا وأوقاتنا. لكن لا يصح أن نتخذ قصته دليلًا على تحريم أخذ المؤذن أجرًا على عمله."
+        }
+      ],
+      "evidenceStatus": "رواية تاريخية؛ قد تختلف تفاصيلها",
+      "sources": [
+        {
+          "name": "المصدر: Bilal’s role reported in early Islamic tradition; salary and duration details not verified",
+          "url": "https://sunnah.com/bukhari:604"
+        }
+      ]
+    },
+    {
+      "id": "58",
+      "title": "دعم الإمام أبي حنيفة لطلابه (القرن الثامن الميلادي)",
+      "pages": [
+        {
+          "img": "stories_ar/ar_58_p1.jpg",
+          "text": "نشأ أبو يوسف في أسرة فقيرة في الكوفة، وكان يحب العلم. لكن أمه أرادت أن يترك الدروس ليكسب رزقًا يساعد به أهله."
+        },
+        {
+          "img": "stories_ar/ar_58_p2.jpg",
+          "text": "وكان شيخه هو الإمام أبو حنيفة النعمان بن ثابت (توفي 150 هـ / 767 م)، مؤسس المذهب الحنفي، وكان تاجرًا ناجحًا في الأقمشة. ويروي أصحاب السِّيَر أنه تكفّل بنفقة أسرة أبي يوسف حتى يواصل الفتى تعلّمه."
+        },
+        {
+          "img": "stories_ar/ar_58_p3.jpg",
+          "text": "وتذكر كتب التراجم أن أبا حنيفة ساعد طلابًا آخرين بالمال، حتى لا يمنعهم الفقر من طلب العلم. لكن الروايات تختلف في المبالغ والتفاصيل."
+        },
+        {
+          "img": "stories_ar/ar_58_p4.jpg",
+          "text": "وأصبح أبو يوسف فيما بعد قاضي القضاة في الدولة العباسية، ومن أعظم فقهاء الحنفية. ومثال شيخه يوافق قوله تعالى: ﴿وَإِن تُخْفُوهَا وَتُؤْتُوهَا الْفُقَرَاءَ فَهُوَ خَيْرٌ لَّكُمْ﴾ (البقرة: 271)، ويبيّن أن دعم طالب واحد قد ينفع الأمة أجيالًا متعاقبة."
+        }
+      ],
+      "evidenceStatus": "رواية تاريخية؛ قد تختلف تفاصيلها",
+      "sources": [
+        {
+          "name": "المصدر: Biographical accounts of Abu Hanifa and Abu Yusuf; Qur’an 2:271",
+          "url": "https://quran.com/2/271"
+        }
+      ]
+    },
+    {
+      "id": "60",
+      "title": "كرامة العمل - دروس من رعي النبي ﷺ للغنم",
+      "pages": [
+        {
+          "img": "stories_ar/ar_60_p1.jpg",
+          "text": "قبل نزول الوحي، عمل النبي ﷺ راعيًا للغنم لأهل مكة على قراريط، أي مقابل مبلغ قليل من المال. وقال لاحقًا: «ما بعث الله نبيًّا إلا رعى الغنم» (رواه البخاري، 2262)."
+        },
+        {
+          "img": "stories_ar/ar_60_p2.jpg",
+          "text": "والإسلام يُكرم العمل الشريف؛ فقد قال النبي ﷺ: «ما أكل أحد طعامًا قط خيرًا من أن يأكل من عمل يده» (رواه البخاري، 2072). وبيّن أن جمع الحطب وبيعه خير للمرء من أن يسأل الناس (رواه البخاري، 1471). فكسب الرزق بكرامة خير من الاعتماد على الآخرين."
+        },
+        {
+          "img": "stories_ar/ar_60_p3.jpg",
+          "text": "ويفرض الإسلام كذلك واجبات على أصحاب العمل. ففي الحديث القدسي، وهو كلام الله الذي يرويه النبي ﷺ، أن الله تعالى يكون يوم القيامة خصمًا لرجل استأجر عاملًا فأخذ منه العمل كاملًا ولم يعطه أجره (رواه البخاري، 2270). فدفع الأجر العادل في وقته ومعاملة العمال باحترام من العدل والإحسان."
+        },
+        {
+          "img": "stories_ar/ar_60_p4.jpg",
+          "text": "ولذلك فإن مساعدة الناس على كسب رزقهم، بتوفير عمل كريم أو تعليم مهارة نافعة، تُكمل الصدقة المباشرة. فهي تحفظ كرامة المحتاج وتعينه على الاعتماد على نفسه، وهذا درس يقدّمه رعي النبي ﷺ المتواضع للغنم لكل جيل."
+        }
+      ],
+      "evidenceStatus": "حديث صحيح موثق",
+      "sources": [
+        {
+          "name": "المصدر: Sahih al-Bukhari 2262, 2072, 2270",
+          "url": "https://sunnah.com/bukhari:2262"
+        },
+        {
+          "name": "مصدر إضافي",
+          "url": "https://sunnah.com/bukhari:2270"
+        },
+        {
+          "name": "صحيح البخاري 1471 و2072",
+          "url": "https://sunnah.com/bukhari:1471"
+        },
+        {
+          "name": "صحيح البخاري 2072",
+          "url": "https://sunnah.com/bukhari:2072"
+        }
+      ]
+    }
+  ]
+};

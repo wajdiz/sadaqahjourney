@@ -8,11 +8,8 @@ window.SADAQAH_VIDEOS = {
   "05": "aflAqiXCXKo",
   "06": "Bv57c1opbGg",
   "07": "7F8-l3_CkCc",
-  "08": "9-u3Z4WRqSM",
-  "09": "4qUXyfIsLLU",
   "10": "MYe2-x4vCFY",
   "11": "Q_4XHkobAzA",
   "12": "cwT70raGh9A",
   "13": "dwoxMKgCQ5A",
-  "14": "0LwMJJta4lI",
 };

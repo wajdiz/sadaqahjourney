@@ -8,7 +8,7 @@ included for the receiving team to edit.
 - Full **EN / AR** with automatic **RTL** layout flip.
 - Flow: **Home → Language → Age → Age hub → Module selector (6 modules) → Module → Completion → badge + 3 options**.
 - Saves progress (stars, badges, modules done, stories read, games played, submitted stories) in `localStorage`.
-- **Story search** (filter 62 stories by title/text), **lexicon search** (filter 81 terms), **read indicators** on story cards, **keyboard arrows** for the flipbook (RTL-aware), **lazy image loading**, **OG meta tags** for embed previews.
+- **Story search** (filter 41 stories by title/text), **lexicon search** (filter 81 terms), **read indicators** on story cards, **keyboard arrows** for the flipbook (RTL-aware), **lazy image loading**, **OG meta tags** for embed previews.
 
 ---
 
@@ -22,7 +22,7 @@ Home (project title + hero text in EN + AR, logos, About button)
             ├─ 11–14 → "Charity Builders" hub
             └─ 15–18 → "Impact Makers" hub
                  └─ Module selector (6 cards):
-                      ├─ Stories of the Past    (62 stories × 4-page flipbook + videos)
+                      ├─ Stories of the Past    (41 reviewed stories × 4-page flipbook + evidence citations + available videos)
                       ├─ Impact Simulator       (9 projects × Year 1/5/10/20)
                       ├─ Play & Learn           (games for the chosen age)
                       ├─ Community Wall         (guidelines + 5 samples + submit form)
@@ -57,8 +57,8 @@ app/
 ├── styles.css          ← all styling (scoped under #ss-app) + RTL rules
 ├── data.js             ← English content (Modules A–D) + years_art arrays
 ├── data-ar.js          ← Arabic content overlay (merged at boot)
-├── data-stories.js     ← 62 stories × 2 languages (auto-generated)
-├── data-videos.js      ← 14 story videos (story id → YouTube id)
+├── data-stories.js     ← 41 stories × 2 languages (auto-generated)
+├── data-videos.js      ← 11 story-video identifiers (enabled and shown on the final story page)
 ├── data-lexicon.js     ← 81 lexicon entries (auto-generated from lexicon.docx)
 ├── i18n.js             ← EN + AR UI string tables + L()/t() helpers
 ├── app.js              ← router + views + 9 game engines + Helping Hands + Lexicon
@@ -91,17 +91,17 @@ Pages. Works from any static host or LMS that allows iframes.
 
 | Module | Card label | Content |
 |---|---|---|
-| A | Stories of the Past | **62 stories** × 4-page flipbook (image + paragraph per page, drop-cap on page 1, RTL arrows for Arabic). **Stories 1–14** show a YouTube video after the last page. |
+| A | Stories of the Past | **41 stories** × 4-page flipbook (image + paragraph per page, drop-cap on page 1, RTL arrows for Arabic). **Original story videos are enabled** where an identifier exists. Their narration, religious claims and copyright status have not been independently verified. |
 | B | Impact Simulator | 9 charity projects; slide Year 1 → 5 → 10 → 20 with CSS-progression images |
 | C | Play & Learn | Age-gated games (3–4 per age group) — see table below |
 | D | Community Wall | 6 writing guidelines + 5 sample stories + submission form (saves to browser) |
-| E | Helping Hands | Sadaqah introduction + embedded YouTube video (language-following: EN video for EN, AR video for AR) |
+| E | Helping Hands | Sadaqah introduction; video enabled (language-following: EN video for EN, AR video for AR); video content remains unverified |
 | F | Lexicon | 81-term specialised glossary of charitable terminology, wiki-style table. EN columns: Arabic \| Transliteration \| English Usage. AR columns: المصطلح \| الاستخدام. |
 
 ## Stories of the Past (Module A) — editing
 
-- **Data:** `data-stories.js` — `SADAQAH_STORIES.en[]` and `.ar[]` arrays, each with 62 entries: `{ id, title, pages: [{ img, text } × 4] }`.
-- **Images:** `assets/stories_en/en_NN_pY.jpg` and `assets/stories_ar/ar_NN_pY.jpg` (NN = story 01–62, Y = page 1–4). Replace any file to update its image.
+- **Data:** `data-stories.js` — `SADAQAH_STORIES.en[]` and `.ar[]` arrays, each with 41 entries: `{ id, title, pages: [{ img, text } × 4] }`.
+- **Images:** `assets/stories_en/en_NN_pY.jpg` and `assets/stories_ar/ar_NN_pY.jpg` (NN = original story number, Y = page 1–4; story numbers are not consecutive). Replace any file to update its image.
 - **Videos:** `data-videos.js` maps story id → YouTube video id (stories 01–14). Same video shows for EN and AR. To add/change a video, edit the id in this file. Videos use `youtube-nocookie.com` + `referrerpolicy="strict-origin-when-cross-origin"` (Error 153-safe).
 - **Regenerating stories from source:** the HTML files `English/englishstories.html` and `Arabic/ArabicStories.html` are the source of truth. Re-run the extraction script (PowerShell) to rebuild `data-stories.js` + copy images if the source changes.
 
@@ -171,3 +171,8 @@ Each game awards stars + a badge; finishing routes to the completion screen. Gam
 - Full RTL support for Arabic (including mirrored flipbook arrows).
 - No accounts, analytics, or cookies — data stays in the browser.
 - The only external requests are YouTube video embeds (privacy-enhanced mode via `youtube-nocookie.com`).
+
+
+## Sources and evidence
+
+Each story page shows its evidence status and links to its sources (hadith collections, Qur'an references or documented historical and organizational pages). Illustrations are artistic interpretations, and the Impact Simulator figures and Community Wall samples are labelled as illustrative.
