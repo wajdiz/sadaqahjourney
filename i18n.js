@@ -31,6 +31,7 @@ window.SADAQAH_I18N = {
     "age.7-10": "7 – 10 years",
     "age.11-14": "11 – 14 years",
     "age.15-18": "15 – 18 years",
+    "age.adults": "Adults (18+)",
 
     // Age-named hubs
     "hub.7-10.title": "Young Givers",
@@ -39,6 +40,8 @@ window.SADAQAH_I18N = {
     "hub.11-14.desc": "Learn how charity builds communities and changes lives.",
     "hub.15-18.title": "Impact Makers",
     "hub.15-18.desc": "Design lasting impact and think critically about giving.",
+    "hub.adults.title": "Givers and Guardians",
+    "hub.adults.desc": "Work out your zakat, check a charity before you give, plan a year of giving, and design projects that last.",
 
     // Module selector labels (NO "Module A/B/C/D")
     "mod.stories": "Stories of the Past",
@@ -53,6 +56,8 @@ window.SADAQAH_I18N = {
     "mod.lexic.desc": "Glossary of key charity terms.",
     "mod.wall": "Community Wall",
     "mod.wall.desc": "Read stories and share your own.",
+    "mod.project": "Design Your Charity Project",
+    "mod.project.desc": "Plan your own project step by step and see what it could do.",
     "mod.enter": "Enter",
 
     "project.title": "The AI Sadaqah Journey: Explore, Give, Inspire",
@@ -78,6 +83,7 @@ window.SADAQAH_I18N = {
     "nav.allGames": "All games",
     "nav.allProjects": "All projects",
     "nav.modules": "All sections",
+    "nav.help": "Help",
     "nav.wall": "Community wall",
 
     // Stars / badges
@@ -152,6 +158,9 @@ window.SADAQAH_I18N = {
     "b.reader": "Story Reader",
     "b.simulator": "Impact Explorer",
     "b.writer": "Story Sharer",
+    "b.designer": "Project Designer",
+    "b.careful": "Careful Giver",
+    "b.zakatpro": "Zakat Calculator",
   },
 
   ar: {
@@ -175,6 +184,7 @@ window.SADAQAH_I18N = {
     "age.7-10": "7 – 10 سنوات",
     "age.11-14": "11 – 14 سنة",
     "age.15-18": "15 – 18 سنة",
+    "age.adults": "الكبار (18+)",
 
     "hub.7-10.title": "المانحون الصغار",
     "hub.7-10.desc": "اكتشف الصدقة عبر الحكايات واللعب والخيال.",
@@ -182,6 +192,8 @@ window.SADAQAH_I18N = {
     "hub.11-14.desc": "تعلّم كيف تبني الصدقة المجتمعات وتغيّر الحياة.",
     "hub.15-18.title": "صُنّاع الأثر",
     "hub.15-18.desc": "صمّم أثراً يدوم وفكّر بنقد في العطاء.",
+    "hub.adults.title": "المعطاؤون والأمناء",
+    "hub.adults.desc": "احسب زكاتك، وتحقّق من الجمعية قبل أن تتبرع، وخطّط لسنة من العطاء، وصمّم مشاريع يدوم أثرها.",
 
     "mod.stories": "حكايات الماضي",
     "mod.stories.desc": "شخصيات تاريخية لا يزال عطاؤها يدوم حتى اليوم.",
@@ -195,6 +207,8 @@ window.SADAQAH_I18N = {
     "mod.lexic.desc": "مسرد لأهم مصطلحات الصدقة.",
     "mod.wall": "جدار المجتمع",
     "mod.wall.desc": "اقرأ الحكايات وشارك قصتك.",
+    "mod.project": "صمّم مشروعك الخيري",
+    "mod.project.desc": "خطّط لمشروعك خطوة بخطوة وانظر ما الذي يمكن أن يحققه.",
     "mod.enter": "ادخل",
 
     "project.title": "رحلة الصدقة بالذكاء الاصطناعي: استكشف، أعطِ، ألهم",
@@ -219,6 +233,7 @@ window.SADAQAH_I18N = {
     "nav.allGames": "كل الألعاب",
     "nav.allProjects": "كل المشاريع",
     "nav.modules": "كل الأقسام",
+    "nav.help": "مساعدة",
     "nav.wall": "جدار المجتمع",
 
     "stars.count": "نجمة",
@@ -284,6 +299,9 @@ window.SADAQAH_I18N = {
     "b.reader": "قارئ الحكايات",
     "b.simulator": "مستكشف الأثر",
     "b.writer": "مشارك الحكايات",
+    "b.designer": "مصمّم المشاريع",
+    "b.careful": "المتبرّع الحريص",
+    "b.zakatpro": "حاسب الزكاة",
   },
 };
 

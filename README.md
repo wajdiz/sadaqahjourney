@@ -62,6 +62,11 @@ app/
 ├── data-lexicon.js     ← 81 lexicon entries (auto-generated from lexicon.docx)
 ├── data-activities.js  ← Daily Sadaqah challenge (13 acts) + Choose Your Path scenarios (EN/AR)
 ├── data-quiz.js        ← 3-question quiz per story, EN + AR (correct option listed first)
+├── data-help.js        ← Help page content, EN + AR (13 sections)
+├── sim-models.js       ← Impact Simulator assumption models (sliders, formulas)
+├── games.js            ← plug-in games: Charity Match, Fill the Box, Giving Tree,
+│                         Build Your Community, Sort the Zakat, Chain Reaction
+├── games-adult.js      ← adult games + "Design Your Charity Project" module
 ├── i18n.js             ← EN + AR UI string tables + L()/t() helpers
 ├── app.js              ← router + views + 9 game engines + Helping Hands + Lexicon
 ├── embed.html          ← demo showing the iframe embed
@@ -148,13 +153,27 @@ Both use the privacy-enhanced `youtube-nocookie.com` domain with `referrerpolicy
 
 | Age | Games |
 |---|---|
-| 7–10 | Charity Match (memory) · Fill the Donation Box (drag/click) · The Giving Tree (quiz-grow) |
-| 11–14 | Build Your Community (budget) · Sort the Zakat (8 categories) · Charity Chain Reaction |
-| 15–18 | Waqf Architect (20-yr simulation) · The Giving Dilemma (ethics) · Real Impact Calculator · Choose Your Path (branching scenarios) |
+| 7–10 | Charity Match (3 levels, lesson per match) · Fill the Donation Box (9 scenes, explains wrong picks) · The Giving Tree (12-question pool, explanation per answer) |
+| 11–14 | Build Your Community (3 years, upkeep, events) · Sort the Zakat (14 cases + "not from zakat", scholarly differences accepted) · Charity Chain Reaction (3 chains) |
+| 15–18 | Waqf Architect · The Giving Dilemma · Real Impact Calculator (one-time/monthly, compare causes) · Choose Your Path · Check the Charity · Grant Committee |
+| Adults | Zakat Check · Who Can Receive Zakat? · Check the Charity · A Year of Giving · Grant Committee · plus Waqf Architect, Giving Dilemma, Impact Calculator, Choose Your Path |
 
-Every game opens with a one-line "How to play" (EN/AR), kept in the `HOWTO` table in `app.js`.
+Every game opens with a one-line "How to play" (EN/AR). Games in `games.js` and `games-adult.js`
+register themselves in `window.SADAQAH_GAMES` (title, icon, howto, sketch, init/render/act) and
+`app.js` runs them through `ctx()`. Extra games per age group are listed in `SADAQAH_AGE_GAMES`.
 
 Each game awards stars + a badge; finishing routes to the completion screen. Game titles are bilingual via the `GAME_TITLES` table in `app.js`.
+
+## Design Your Charity Project, Help, simulator sliders
+
+- **Design Your Charity Project** (`#/project`, all ages): a form for cause, place, people,
+  one-time or ongoing, upkeep, partner, consultation, privacy and measurement. It returns a
+  project card with an estimate, strengths and tips; projects can be saved (in the browser),
+  reopened, edited, deleted or copied as text.
+- **Help** (`#/help`, `#/help/<section>`): 13 sections in EN and AR, opened from the `?` button
+  in the top bar, the home page, or the "? Help" link beside each screen's back link.
+- **Try your own assumptions** (Impact Simulator): sliders for each project's model in
+  `sim-models.js`. Defaults reproduce the site's figures; the formula is shown under the results.
 
 ## Navigation
 

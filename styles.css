@@ -365,7 +365,8 @@
 
 /* ----------------------------- Misc ------------------------------------- */
 #ss-app .ss-empty { text-align: center; padding: 40px; color: var(--ink-soft); }
-#ss-app .ss-toast {
+/* The toast is attached to <body> (outside #ss-app) so a re-render does not remove it. */
+#ss-app .ss-toast, body > .ss-toast {
   position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
   background: var(--ink); color: #fff; padding: 12px 22px; border-radius: 999px;
   box-shadow: var(--shadow); z-index: 80; font-weight: 700; font-size: 14px;
@@ -697,3 +698,122 @@
 #ss-app .ss-quiz-fb.ok { color: var(--green); }
 #ss-app .ss-quiz-fb.no { color: var(--rose); }
 #ss-app .ss-quiz-score { margin: 12px 0 0; font-weight: 800; color: var(--teal-deep); }
+
+/* ===================== v7: adults, project builder, help, sliders, deeper games ===================== */
+#ss-app .ss-backrow { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+#ss-app .ss-help-chip { background: var(--card); border: 1px solid var(--card-edge); border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 13px; font-weight: 700; color: var(--teal-deep); cursor: pointer; margin-top: 18px; }
+#ss-app .ss-help-chip:hover, #ss-app .ss-help-top:hover { border-color: var(--gold); }
+#ss-app .ss-help-top { width: 38px; height: 38px; border-radius: 50%; background: var(--card); border: 1px solid var(--card-edge); font: inherit; font-weight: 800; font-size: 17px; color: var(--teal-deep); cursor: pointer; box-shadow: var(--shadow-soft); margin-inline-end: 8px; }
+#ss-app .ss-btn-sm { padding: 6px 12px; font-size: 13px; }
+#ss-app .ss-ref { color: var(--teal-deep); font-weight: 700; font-size: .92em; white-space: nowrap; }
+#ss-app .ss-hint { background: rgba(198,107,107,.08); border-inline-start: 3px solid var(--rose); border-radius: 6px; padding: 9px 13px; margin: 10px 0; }
+
+/* Simulator: try your own assumptions */
+#ss-app .ss-sim-assume { margin: 16px; background: var(--card); border: 2px solid var(--teal); border-radius: 14px; padding: 16px 18px; }
+#ss-app .ss-sim-assume h4 { margin: 0 0 4px; color: var(--teal-deep); font-size: 17px; }
+#ss-app .ss-sa-sub, #ss-app .ss-sa-unit, #ss-app .ss-sa-formula, #ss-app .ss-sa-extra { color: var(--ink-soft); font-size: 14px; margin: 6px 0; }
+#ss-app .ss-sa-extra { font-weight: 700; color: var(--ink); }
+#ss-app .ss-sa-grid { display: grid; gap: 10px; margin: 12px 0; }
+#ss-app .ss-sa-row { display: grid; gap: 4px; }
+#ss-app .ss-sa-row input[type=range] { width: 100%; accent-color: var(--teal); min-height: 28px; }
+#ss-app .ss-sa-toggle { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+#ss-app .ss-sa-toggle input { width: 20px; height: 20px; accent-color: var(--teal); }
+#ss-app .ss-sa-out { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; }
+#ss-app .ss-sa-cell { background: var(--bg-soft); border-radius: 10px; padding: 10px; text-align: center; }
+#ss-app .ss-sa-y { font-size: 12px; font-weight: 700; color: var(--ink-soft); }
+#ss-app .ss-sa-n { font-size: clamp(16px, 3vw, 22px); font-weight: 800; color: var(--teal-deep); }
+@media (max-width: 520px) { #ss-app .ss-sa-out { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+
+/* Help page */
+#ss-app .ss-help-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; }
+#ss-app .ss-help-nav a { padding: 8px 12px; border-radius: 999px; background: var(--card); border: 1px solid var(--card-edge); color: var(--ink); text-decoration: none; font-weight: 600; font-size: 14px; }
+#ss-app .ss-help-nav a.active, #ss-app .ss-help-nav a:hover { border-color: var(--teal); color: var(--teal-deep); }
+#ss-app .ss-help-sec { background: var(--card); border: 1px solid var(--card-edge); border-radius: var(--radius-sm); padding: 16px 20px; margin: 0 0 14px; scroll-margin-top: 80px; }
+#ss-app .ss-help-sec.active { border: 2px solid var(--teal); }
+#ss-app .ss-help-sec h3 { margin: 0 0 8px; }
+#ss-app .ss-help-sec p, #ss-app .ss-help-sec li { line-height: 1.65; }
+
+/* Shared game pieces */
+#ss-app button.ss-mem-card, #ss-app button.ss-zbin, #ss-app button.ss-proj-pick, #ss-app button.ss-opt, #ss-app button.ss-prop { font: inherit; color: inherit; }
+#ss-app .ss-mem-6 { grid-template-columns: repeat(4, 1fr); max-width: 520px; }
+#ss-app .ss-mem-8 { grid-template-columns: repeat(4, 1fr); max-width: 560px; }
+#ss-app .ss-mem-emoji { font-size: 30px; }
+#ss-app .ss-lesson { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--card-edge); border-inline-start: 4px solid var(--green); border-radius: 12px; padding: 12px 14px; margin: 14px 0; }
+#ss-app .ss-lesson-e { font-size: 28px; line-height: 1; }
+#ss-app .ss-lesson p { margin: 4px 0 0; line-height: 1.6; }
+#ss-app .ss-summary { background: var(--bg-soft); border-radius: 12px; padding: 12px 16px; margin: 14px 0; }
+#ss-app .ss-summary h4 { margin: 0 0 6px; }
+#ss-app .ss-summary ul { margin: 0; padding-inline-start: 20px; }
+#ss-app .ss-summary li { margin: 6px 0; line-height: 1.55; }
+#ss-app .ss-summary li.ok { color: var(--ink); } #ss-app .ss-summary li.no { color: var(--rose); }
+#ss-app .ss-item.used { opacity: .45; }
+#ss-app .ss-opt.right, #ss-app .ss-choice.right, #ss-app .ss-zbin.right, #ss-app .ss-seg.right { border-color: var(--green); background: rgba(91,140,79,.14); color: var(--ink); }
+#ss-app .ss-opt.wrong, #ss-app .ss-choice.wrong, #ss-app .ss-zbin.wrong, #ss-app .ss-seg.wrong { border-color: var(--rose); background: rgba(198,107,107,.12); color: var(--ink); }
+#ss-app .ss-opt[disabled], #ss-app .ss-zbin[disabled], #ss-app .ss-choice[disabled] { cursor: default; transform: none; }
+#ss-app .ss-tree-big { text-align: center; font-size: 96px; }
+#ss-app .ss-fruits { font-size: 22px; letter-spacing: 2px; min-height: 26px; }
+#ss-app button.ss-zbin { text-align: start; min-height: 96px; cursor: pointer; }
+#ss-app .ss-zbin-none { background: rgba(198,107,107,.06); }
+#ss-app .ss-chain-end { border-color: var(--green); }
+#ss-app .ss-verdicts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 12px 0; }
+#ss-app .ss-verdicts .ss-btn { width: 100%; }
+
+/* Build Your Community */
+#ss-app .ss-needs { display: grid; gap: 6px; margin: 10px 0; max-width: 560px; }
+#ss-app .ss-need { display: grid; grid-template-columns: minmax(0, 210px) minmax(0,1fr) 36px; gap: 8px; align-items: center; font-size: 14px; }
+#ss-app .ss-need-bar { height: 10px; background: var(--bg-soft); border-radius: 5px; overflow: hidden; }
+#ss-app .ss-need-bar i { display: block; height: 100%; background: var(--teal); }
+#ss-app .ss-need b { text-align: end; }
+#ss-app .ss-year-res { border-top: 1px solid var(--card-edge); padding: 10px 0; }
+#ss-app .ss-upkeep { display: grid; gap: 6px; margin: 6px 0 12px; }
+#ss-app .ss-upk { display: flex; gap: 8px; align-items: center; font-weight: 600; }
+#ss-app .ss-upk input { width: 20px; height: 20px; accent-color: var(--teal); }
+#ss-app .ss-pfx { font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+[dir="rtl"] #ss-app .ss-proj-pick { text-align: right; }
+
+/* Zakat Check */
+#ss-app .ss-zk-setup h5 { margin: 16px 0 6px; }
+#ss-app .ss-zk-list { display: grid; gap: 10px; }
+#ss-app .ss-zk-item { background: var(--card); border: 2px solid var(--card-edge); border-radius: 12px; padding: 12px 14px; }
+#ss-app .ss-zk-item.ok { border-color: var(--green); } #ss-app .ss-zk-item.no { border-color: var(--rose); }
+#ss-app .ss-zk-item .ss-segments { margin: 8px 0 0; }
+#ss-app .ss-zk-why { margin: 8px 0 0; font-size: 14px; line-height: 1.55; }
+#ss-app .ss-zk-calc { background: var(--bg-soft); border-radius: 12px; padding: 14px 16px; margin: 14px 0; line-height: 1.8; }
+
+/* Check the Charity, Grant Committee */
+#ss-app .ss-appeal { background: var(--card); border: 1px solid var(--card-edge); border-radius: 12px; padding: 12px 16px; margin: 10px 0; }
+#ss-app .ss-appeal h4 { margin: 0 0 6px; }
+#ss-app .ss-appeal.picked { border: 2px solid var(--teal); } #ss-app .ss-appeal.skipped { opacity: .7; }
+#ss-app .ss-signals { list-style: none; padding: 0; margin: 0; }
+#ss-app .ss-signals li { padding: 3px 0; }
+#ss-app .ss-signals li.good { color: var(--green); font-weight: 600; } #ss-app .ss-signals li.bad { color: var(--rose); font-weight: 600; }
+#ss-app .ss-props { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; margin: 12px 0; }
+#ss-app .ss-prop { background: var(--card); border: 2px solid var(--card-edge); border-radius: 12px; padding: 12px 14px; text-align: start; cursor: pointer; box-shadow: var(--shadow-soft); }
+#ss-app .ss-prop.selected { border-color: var(--teal); background: rgba(47,143,135,.06); }
+#ss-app .ss-prop[disabled] { opacity: .45; cursor: default; }
+#ss-app .ss-prop-h { display: flex; gap: 8px; align-items: baseline; }
+#ss-app .ss-prop-h strong { flex: 1; }
+#ss-app .ss-prop-h b { color: var(--gold-deep); white-space: nowrap; }
+#ss-app .ss-prop p { margin: 6px 0 0; font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; }
+
+/* Project builder */
+#ss-app .ss-pform { background: var(--card); border: 1px solid var(--card-edge); border-radius: var(--radius-sm); padding: 16px 20px; margin: 0 0 16px; }
+#ss-app .ss-pform h5 { margin: 16px 0 6px; font-size: 15px; }
+#ss-app .ss-pform .ss-field { display: grid; gap: 4px; margin: 10px 0; font-weight: 700; }
+#ss-app .ss-pform input[type=text] { font: inherit; font-size: 16px; padding: 10px 12px; border: 1px solid var(--card-edge); border-radius: 10px; background: #fff; }
+#ss-app .ss-project-card { background: var(--card); border: 2px solid var(--gold); border-radius: var(--radius); padding: 18px 20px; margin: 0 0 16px; box-shadow: var(--shadow-soft); }
+#ss-app .ss-pc-head { display: flex; gap: 12px; align-items: center; }
+#ss-app .ss-pc-head h3 { margin: 0; }
+#ss-app .ss-pc-head p { margin: 2px 0 0; }
+#ss-app .ss-pc-head > div:nth-child(2) { flex: 1; }
+#ss-app .ss-pc-e { font-size: 40px; }
+#ss-app .ss-pc-stars { color: var(--gold); font-size: 22px; letter-spacing: 2px; white-space: nowrap; }
+#ss-app .ss-good li { color: var(--green); } #ss-app .ss-tips li { color: var(--ink); }
+#ss-app .ss-good, #ss-app .ss-tips { padding-inline-start: 20px; line-height: 1.6; }
+#ss-app .ss-saved { background: var(--bg-soft); border-radius: 12px; padding: 12px 16px; margin: 16px 0; }
+#ss-app .ss-saved h4 { margin: 0 0 8px; }
+#ss-app .ss-saved-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; padding: 6px 0; border-top: 1px solid var(--card-edge); }
+
+/* Calculator comparison */
+#ss-app .ss-calc-cmp { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; margin: 6px 0 12px; }
+#ss-app .ss-calc-cmp > div { background: var(--bg-soft); border-radius: 10px; padding: 8px 12px; font-size: 14px; }
