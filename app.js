@@ -12,7 +12,7 @@
   // merge Arabic content into module arrays
   if (window.mergeArabic) window.mergeArabic();
   function validLang(v) { return v === "en" || v === "ar" ? v : null; }
-  function validAge(v) { return v === "7-10" || v === "11-14" || v === "15-18" ? v : null; }
+  function validAge(v) { return v === "7-10" || v === "11-14" || v === "15-18" || v === "adults" ? v : null; }
 
   /* ----------------------------- State ---------------------------------- */
   const state = {
@@ -20,7 +20,7 @@
     params: {},
     lang: validLang(localStorage.getItem("ss_lang")) || "en",
     prefLang: validLang(localStorage.getItem("ss_lang")) || validLang(localStorage.getItem("ss_pref_lang")) || "en",
-    age: validAge(localStorage.getItem("ss_age")),   // "7-10" | "11-14" | "15-18"
+    age: validAge(localStorage.getItem("ss_age")),   // "7-10" | "11-14" | "15-18" | "adults"
     lastModule: null,          // for completion screen context
     simId: "water",
     simYear: 0,
@@ -79,9 +79,9 @@
   /* ----------------------------- Router --------------------------------- */
   // Each screen gets its own URL hash (#/route or #/route/id) so the browser
   // Back button, reloads and bookmarks work inside the app.
-  const ROUTES = ["home","language","age","hub","modules","module-a","story","module-b","module-c","play","module-d","sample","helping-hands","lexic","about","progress","complete"];
-  const NEEDS_LANG = ["age","hub","modules","module-a","story","module-b","module-c","play","module-d","sample","helping-hands","lexic","progress","complete"];
-  const NEEDS_AGE = ["hub","modules","module-a","story","module-b","module-c","play","module-d","sample","helping-hands","lexic","complete"];
+  const ROUTES = ["home","language","age","hub","modules","module-a","story","module-b","module-c","play","module-d","sample","helping-hands","lexic","about","progress","complete","project","help"];
+  const NEEDS_LANG = ["age","hub","modules","module-a","story","module-b","module-c","play","module-d","sample","helping-hands","lexic","progress","complete","project","help"];
+  const NEEDS_AGE = ["hub","modules","module-a","story","module-b","module-c","play","module-d","sample","helping-hands","lexic","complete","project"];
   function routeHash(route, params) {
     return "#/" + route + (params && params.id != null && params.id !== "" ? "/" + encodeURIComponent(params.id) : "");
   }
@@ -121,16 +121,22 @@
     "module-a": "modules", "module-b": "modules", "module-c": "modules", "module-d": "modules",
     "helping-hands": "modules", lexic: "modules",
     story: "module-a", play: "module-c", sample: "module-d",
-    about: "home", complete: "modules",
+    about: "home", complete: "modules", project: "modules",
   };
   function backLink() {
     if (state.route === "home") return "";
     let to = PARENT[state.route];
-    if (state.route === "progress") to = state.age && state.lang ? "modules" : "home";
+    if (state.route === "progress" || state.route === "help") to = state.age && state.lang ? "modules" : "home";
     if (!to) return "";
     const label = { home: t("nav.home"), modules: t("nav.modules"), "module-a": t("nav.allStories"), "module-c": t("nav.allGames"), "module-d": t("nav.wall") }[to] || t("nav.back");
-    return `<button type="button" class="ss-back" data-go="${to}">${label}</button>`;
+    const sec = HELP_FOR[state.route];
+    const helpChip = sec ? `<button type="button" class="ss-help-chip" data-go="help" data-id="${sec}" aria-label="${t("nav.help")}">? ${t("nav.help")}</button>` : "";
+    return `<div class="ss-backrow"><button type="button" class="ss-back" data-go="${to}">${label}</button>${helpChip}</div>`;
   }
+  const HELP_FOR = { modules: "start", "module-a": "stories", story: "stories", "module-b": "simulator", "module-c": "games", play: "games",
+    "module-d": "wall", sample: "wall", "helping-hands": "helping-hands", lexic: "lexicon", progress: "progress", project: "project" };
+  // Forward arrow that points the right way in Arabic.
+  function fwd() { return isRTL() ? "←" : "→"; }
 
   /* ----------------------------- Shell ---------------------------------- */
   function dirAttr() { return isRTL() ? "rtl" : "ltr"; }
@@ -151,6 +157,7 @@
         <div class="ss-stars" data-go="progress">
           ⭐ <span id="ss-star-count">${state.stars}</span>
         </div>
+        <button class="ss-help-top" data-go="help" aria-label="${state.lang ? t("nav.help") : "Help / مساعدة"}">?</button>
         ${state.lang ? `<button class="ss-lang-toggle" data-act="toggle-lang">${state.lang === "en" ? "العربية" : "English"}</button>` : ""}
       </div>
       <div class="ss-wrap">
@@ -192,6 +199,7 @@
         <div class="ss-cta" style="margin-top:24px;">
           <button class="ss-btn ss-btn-primary ss-btn-lg" data-go="language">${en["home.cta.start"]} / ${ar["home.cta.start"]}</button>
           <button class="ss-btn ss-btn-ghost" data-go="about">${en["about.title"]} / ${ar["about.title"]}</button>
+          <button class="ss-btn ss-btn-ghost" data-go="help">${en["nav.help"]} / ${ar["nav.help"]}</button>
         </div>
         ${logos()}
       </div>`;
@@ -216,7 +224,7 @@
 
   /* ----------------------------- AGE ------------------------------------ */
   function age() {
-    const ages = [["7-10","age.7-10"],["11-14","age.11-14"],["15-18","age.15-18"]];
+    const ages = [["7-10","age.7-10"],["11-14","age.11-14"],["15-18","age.15-18"],["adults","age.adults"]];
     return `
       <div class="ss-center-screen">
         <h2 class="ss-prompt">${t("home.age")}</h2>
@@ -230,7 +238,7 @@
         </div>
       </div>`;
   }
-  function ageEmoji(a) { return a === "7-10" ? "🌱" : a === "11-14" ? "🏗️" : "🌍"; }
+  function ageEmoji(a) { return a === "7-10" ? "🌱" : a === "11-14" ? "🏗️" : a === "adults" ? "🤝" : "🌍"; }
 
   /* ----------------------------- AGE HUB -------------------------------- */
   function hub() {
@@ -241,7 +249,7 @@
         <div class="ss-hub-emoji">${ageEmoji(state.age)}</div>
         <h2 class="ss-hub-title">${t("hub." + state.age + ".title")}</h2>
         <p class="ss-hub-desc">${t("hub." + state.age + ".desc")}</p>
-        <button class="ss-btn ss-btn-primary ss-btn-lg" data-go="modules">${t("nav.continue")} →</button>
+        <button class="ss-btn ss-btn-primary ss-btn-lg" data-go="modules">${t("nav.continue")} ${fwd()}</button>
       </div>`;
   }
 
@@ -254,6 +262,7 @@
       { go: "module-d", label: t("mod.wall"), desc: t("mod.wall.desc"), art: "food_parcel_a.jpeg" },
       { go: "helping-hands", label: t("mod.help"), desc: t("mod.help.desc"), art: "child_donate.jpeg" },
       { go: "lexic", label: t("mod.lexic"), desc: t("mod.lexic.desc"), art: "stories_en/en_22_p1.jpg" },
+      { go: "project", label: t("mod.project"), desc: t("mod.project.desc"), art: "education.jpeg" },
     ];
     return `
       <div class="ss-section-head">
@@ -268,7 +277,7 @@
             <div class="ss-mod-body">
               <h3>${m.label}</h3>
               <p>${m.desc}</p>
-              <span class="ss-mod-go">${t("mod.enter")} →</span>
+              <span class="ss-mod-go">${t("mod.enter")} ${fwd()}</span>
             </div>
           </div>`).join("")}
       </div>`;
@@ -370,7 +379,7 @@
         </div>
         ${(last && window.SADAQAH_VIDEOS && window.SADAQAH_VIDEOS[s.id]) ? `<div class="ss-story-video"><div class="ss-video"><iframe src="https://www.youtube-nocookie.com/embed/${window.SADAQAH_VIDEOS[s.id]}?rel=0" title="YouTube video player" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>` : ''}
         ${last ? storyQuiz(s) : ''}
-        ${last ? `<button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="stories">${t("complete.opt.progress")} →</button>` : ''}
+        ${last ? `<button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="stories">${t("complete.opt.progress")} ${fwd()}</button>` : ''}
       </div>`;
   }
 
@@ -442,8 +451,60 @@
           <ul>${(L(yr,"points") || yr.points).map((p) => `<li>${p}</li>`).join("")}</ul>
         </div>
         ${sim.how ? `<div class="ss-sim-how"><h4>${isRTL()?"كيف قدّرنا هذه الأرقام":"How these numbers are estimated"}</h4><p>${L(sim,"how")}</p></div>` : ""}
+        ${simAssumePanel(sim)}
       </div>
-      <button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="impact">${t("complete.opt.progress")} →</button>`;
+      <button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="impact">${t("complete.opt.progress")} ${fwd()}</button>`;
+  }
+
+  /* ---- "Try your own assumptions": sliders for the model behind each project.
+     Models (defaults, ranges, formulas) are in sim-models.js; the defaults
+     reproduce the site's headline figures. Sliders update the numbers in
+     place so dragging is not interrupted by a re-render. */
+  const SIM_MODELS = window.SADAQAH_SIM_MODELS || {};
+  const YEARS = [1, 5, 10, 20];
+  function simVals(id) {
+    const m = SIM_MODELS[id]; if (!m) return null;
+    state.simAssume = state.simAssume || {};
+    if (!state.simAssume[id]) { const v = {}; m.params.forEach((p) => (v[p.k] = p.def)); state.simAssume[id] = v; }
+    return state.simAssume[id];
+  }
+  function fmtParam(p, v) {
+    const ar = isRTL();
+    if (p.type === "toggle") return v ? (ar ? "نعم" : "Yes") : (ar ? "لا" : "No");
+    if (p.fmt === "$") return ar ? Math.round(v).toLocaleString("en-US") + " دولار" : "$" + Math.round(v).toLocaleString("en-US");
+    if (p.fmt === "%") return v + "%";
+    return Number(v).toLocaleString("en-US");
+  }
+  function simOut(id) {
+    const m = SIM_MODELS[id], v = simVals(id);
+    return YEARS.map((y) => Math.round(m.calc(v, y)));
+  }
+  function simAssumePanel(sim) {
+    const m = SIM_MODELS[sim.id]; if (!m) return "";
+    const v = simVals(sim.id), ar = isRTL(), T = (o) => (ar ? o.ar : o.en);
+    const out = simOut(sim.id);
+    return `<div class="ss-sim-assume">
+      <h4>${ar ? "جرّب افتراضاتك" : "Try your own assumptions"}</h4>
+      <p class="ss-sa-sub">${ar ? "غيّر الأرقام التي يقوم عليها التقدير وشاهد كيف تتغيّر النتائج. القيم الأولى هي قيم الموقع." : "Change the numbers behind the estimate and watch the results change. The starting values are the ones the site uses."}</p>
+      <div class="ss-sa-grid">${m.params.map((p) => p.type === "toggle"
+        ? `<label class="ss-sa-row ss-sa-toggle"><input type="checkbox" data-sim-assume="${p.k}" ${v[p.k] ? "checked" : ""}> <span>${T(p.label)}</span></label>`
+        : `<label class="ss-sa-row"><span class="ss-sa-l">${T(p.label)}: <strong id="ss-sa-v-${p.k}">${fmtParam(p, v[p.k])}</strong></span>
+            <input type="range" min="${p.min}" max="${p.max}" step="${p.step}" value="${v[p.k]}" data-sim-assume="${p.k}"></label>`).join("")}</div>
+      <div class="ss-sa-out">${YEARS.map((y, i) => `<div class="ss-sa-cell"><div class="ss-sa-y">${t("year." + y)}</div><div class="ss-sa-n" id="ss-sa-y${i}">${out[i].toLocaleString("en-US")}</div></div>`).join("")}</div>
+      <p class="ss-sa-unit">${T(m.unit)}</p>
+      ${m.extra ? `<p class="ss-sa-extra" id="ss-sa-extra">${T(m.extra(v))}</p>` : ""}
+      <p class="ss-sa-formula"><strong>${ar ? "المعادلة" : "Formula"}:</strong> ${T(m.formula)}</p>
+      <button type="button" class="ss-btn ss-btn-ghost" data-act="sim-reset">↺ ${ar ? "إعادة قيم الموقع" : "Back to site values"}</button>
+    </div>`;
+  }
+  function simAssumeInput(k, el) {
+    const id = state.simId, m = SIM_MODELS[id]; if (!m) return;
+    const p = m.params.find((x) => x.k === k); if (!p) return;
+    const v = simVals(id);
+    v[k] = p.type === "toggle" ? el.checked : Number(el.value);
+    const lab = document.getElementById("ss-sa-v-" + k); if (lab) lab.textContent = fmtParam(p, v[k]);
+    simOut(id).forEach((n, i) => { const c = document.getElementById("ss-sa-y" + i); if (c) c.textContent = n.toLocaleString("en-US"); });
+    const ex = document.getElementById("ss-sa-extra"); if (ex && m.extra) ex.textContent = isRTL() ? m.extra(v).ar : m.extra(v).en;
   }
 
   /* ---- CSS/SVG year-progression illustrations ----
@@ -480,7 +541,10 @@
   // Only the games for the selected age are shown. No age headers, no concept
   // paragraphs, no "Learning:" lines — just title + concept sketch + Play.
   function moduleC() {
-    const group = D.MODULE_C.find((g) => g.age === state.age) || D.MODULE_C[0];
+    const base = D.MODULE_C.find((g) => g.age === state.age);
+    const extra = (window.SADAQAH_AGE_GAMES || {})[state.age] || [];
+    const list = (base ? base.games.map((g) => g.id) : []).concat(extra.filter((id) => !(base && base.games.some((g) => g.id === id))));
+    const group = { games: list.map((id) => { const g = base && base.games.find((x) => x.id === id) || D.MODULE_C.flatMap((x) => x.games).find((x) => x.id === id) || {}; return { id, icon: g.icon || (GAMES[id] && GAMES[id].icon) || "🎮" }; }) };
     return `
       <div class="ss-section-head">
         <h2>${t("mod.games")}</h2>
@@ -490,7 +554,7 @@
           <div class="ss-game-card">
             <div class="ss-gtop">
               <span class="ss-gicon">${g.icon}</span>
-              <h4>${L(g,"title")}</h4>
+              <h4>${gt(g.id)}</h4>
             </div>
             <div class="ss-game-sketch">${gameSketch(g.id)}</div>
             <button class="ss-btn ss-btn-teal ss-play" data-go="play" data-id="${g.id}">▶ ${t("games.play")}</button>
@@ -525,6 +589,7 @@
     };
     // Signpost with three directions (branching story)
     s["choose-path"] = W(`<rect x="58" y="10" width="4" height="46" fill="#6b5a48"/><path d="M62 14 h30 l8 6 -8 6 h-30z" fill="#2f8f87" class="ss-anim-float"/><path d="M58 28 h-30 l-8 6 8 6 h30z" fill="#c79a3a"/><path d="M62 42 h22 l7 5 -7 5 h-22z" fill="#5b8c4f" class="ss-anim-float" style="animation-delay:.5s"/><ellipse cx="60" cy="56" rx="18" ry="3" fill="#e8d5a8"/>`);
+    if (GAMES[id] && GAMES[id].sketch) return W(GAMES[id].sketch);
     return s[id] || s["charity-match"];
   }
 
@@ -567,7 +632,7 @@
         <div class="ss-field"><label>${t("wall.title")}</label><input id="ss-f-title" placeholder="..."></div>
         <div class="ss-field"><label>${t("wall.body")}</label><textarea id="ss-f-body" rows="7" placeholder="${t("wall.bodyPlaceholder")}"></textarea>
           <div class="ss-counter"><span id="ss-wc">0</span> ${t("wall.words")} · ${t("wall.wordTarget")}</div></div>
-        <button class="ss-btn ss-btn-primary" data-act="submit-story">${t("wall.post")} →</button>
+        <button class="ss-btn ss-btn-primary" data-act="submit-story">${t("wall.post")} ${fwd()}</button>
       </div>`;
   }
   function sampleView() {
@@ -583,8 +648,8 @@
 
   /* ----------------------------- PROGRESS / BADGES ---------------------- */
   function progress() {
-    const all = ["explorer","matcher","grower","zakat","builder","architect","reader","simulator","writer"];
-    const imgs = { explorer:"icon_badge.png", matcher:"icon_donation.png", grower:"icon_tree.png", zakat:"icon_zakat.png", builder:"mosque.jpeg", architect:"education.jpeg", reader:"icon_badge.png", simulator:"water_a.jpeg", writer:"icon_donation.png" };
+    const all = ["explorer","matcher","grower","zakat","builder","architect","reader","simulator","writer","designer","careful","zakatpro"];
+    const imgs = { explorer:"icon_badge.png", matcher:"icon_donation.png", grower:"icon_tree.png", zakat:"icon_zakat.png", builder:"mosque.jpeg", architect:"education.jpeg", reader:"icon_badge.png", simulator:"water_a.jpeg", writer:"icon_donation.png", designer:"education.jpeg", careful:"icon_badge.png", zakatpro:"icon_zakat.png" };
     return `
       <div class="ss-badge-screen">
         <img src="${ASSET}icon_badge.png" alt="">
@@ -624,208 +689,11 @@
   function esc(s) { return String(s).replace(/[&<>"']/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c])); }
 
   /* ========================================================================
-     PLAYABLE GAMES (preserved + i18n strings)
+     PLAYABLE GAMES
+     Charity Match, Fill the Donation Box, Giving Tree, Build Your Community,
+     Sort the Zakat, Chain Reaction and the adult games live in games.js and
+     plug in through the GAMES registry (see ctx() below).
      ======================================================================== */
-  const MATCH_PAIRS = [
-    { a:{en:"Water Well",ar:"بئر ماء"}, b:"🚰", note:{en:"A water well is Sadaqah Jariyah — it keeps giving even after you're gone!",ar:"بئر الماء صدقة جارية — يبقى عطاؤها حتى بعد رحيلك!"} },
-    { a:{en:"Orphan",ar:"يتيم"}, b:"🧑‍🍼", note:{en:"The Prophet (pbuh) said he and the orphan's sponsor will be neighbours in Paradise.",ar:"قال النبي ﷺ إنه وكافل اليتيم في الجنة كهاتين."} },
-    { a:{en:"Mosque",ar:"مسجد"}, b:"🕌", note:{en:"Whoever builds a mosque for Allah, Allah builds a house for him in Paradise.",ar:"من بنى لله مسجداً بنى الله له بيتاً في الجنة."} },
-    { a:{en:"School",ar:"مدرسة"}, b:"📚", note:{en:"Knowledge shared multiplies — like Fatima al-Fihri's Al-Qarawiyyin.",ar:"العلم يتناسخ بالعطاء — كجامعة القرويين."} },
-    { a:{en:"Food / Iftar",ar:"طعام / إفطار"}, b:"🍪", note:{en:"Whoever feeds a fasting person has the same reward as them.",ar:"من فطّر صائماً فله مثل أجره."} },
-    { a:{en:"Zakat",ar:"زكاة"}, b:"⚖️", note:{en:"Zakat purifies wealth and is given to 8 categories.",ar:"الزكاة تطهّر المال وتُصرف لثماني مصارف."} },
-    { a:{en:"Doctor",ar:"طبيب"}, b:"🩺", note:{en:"Relieving a believer's hardship earns relief in the next world.",ar:"تفريج الكرب في الدنيا يجلب تفريجاً في الآخرة."} },
-    { a:{en:"Sadaqah",ar:"صدقة"}, b:"💜", note:{en:"Every good act — even a smile — is charity.",ar:"كل معروف صدقة — حتى الابتسامة."} },
-  ];
-  function gCharityMatch() {
-    const cards = [];
-    MATCH_PAIRS.forEach((p,i) => { cards.push({k:i,face:p.a,b:p.b,note:p.note,t:"word"}); cards.push({k:i,face:p.a,b:p.b,note:p.note,t:"pic"}); });
-    shuffle(cards);
-    state._mem = { cards, flipped: [], matched: [], moves: 0, locked: false };
-    return memField();
-  }
-  function memField() {
-    const m = state._mem;
-    return `
-      <h3 class="ss-game-title">🧰 ${gt("charity-match")}</h3>${howto("charity-match")}
-      <p class="ss-game-sub">${m.matched.length}/${MATCH_PAIRS.length}</p>
-      <div class="ss-mem-grid">
-        ${m.cards.map((c,i) => {
-          const shown = m.flipped.includes(i) || m.matched.includes(c.k);
-          const done = m.matched.includes(c.k);
-          const face = c.t === "word" ? `<span class="ss-label">${c.face[state.lang]}</span>` : c.b;
-          return `<div class="ss-mem-card ${shown?'flipped':''} ${done?'done':''}" data-act="mem" data-mem="${i}">${shown?face:"?"}</div>`;
-        }).join("")}
-      </div>
-      ${m.matched.length===MATCH_PAIRS.length ? `<div class="ss-game-win">🎉</div><button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>` : ""}`;
-  }
-  function memClick(i) {
-    const m = state._mem;
-    if (m.locked || m.flipped.includes(i) || m.matched.includes(m.cards[i].k)) return;
-    m.flipped.push(i);
-    if (m.flipped.length === 2) {
-      m.moves++;
-      const [a,b] = m.flipped; const ca = m.cards[a], cb = m.cards[b];
-      if (ca.k === cb.k && ca.t !== cb.t) {
-        m.matched.push(ca.k); m.flipped = [];
-        toast(ca.note[state.lang]); addStars(1, t("toast.match"));
-        if (m.matched.length === MATCH_PAIRS.length) { awardBadge("matcher"); if (m.moves <= MATCH_PAIRS.length) addStars(5, t("toast.flawless")); }
-      } else { m.locked = true; setTimeout(() => { m.flipped = []; m.locked = false; rerenderGame(); }, 900); }
-    }
-    rerenderGame();
-  }
-
-  /* ---- Fill the Box ---- */
-  const FILL_ITEMS = { food:"🍚", water:"💧", blanket:"🛏️", clothing:"👕", book:"📖", pencil:"✏️", medicine:"💊" };
-  const FILL_NAMES = {
-    food:{en:"Food",ar:"طعام"}, water:{en:"Water",ar:"ماء"}, blanket:{en:"Blanket",ar:"بطانية"}, clothing:{en:"Warm clothes",ar:"ملابس دافئة"},
-    book:{en:"Book",ar:"كتاب"}, pencil:{en:"Pencil",ar:"قلم"}, medicine:{en:"Medicine",ar:"دواء"},
-  };
-  function fillName(k) { const n = FILL_NAMES[k]; return n ? (state.lang==="ar" ? n.ar : n.en) : k; }
-  function fillField() {
-    const scenes = [
-      { need_en:"Cold at night", need_ar:"برد في الليل", emoji:"🥶", want:["blanket","clothing"], shelf:["blanket","clothing","book","medicine"] },
-      { need_en:"Hungry family", need_ar:"أسرة جائعة", emoji:"🥺", want:["food","water"], shelf:["food","water","book","blanket"] },
-      { need_en:"Child with no books", need_ar:"طفل بلا كتب", emoji:"🧑", want:["book","pencil"], shelf:["book","pencil","medicine","blanket"] },
-      { need_en:"Sick, no medicine", need_ar:"مريض بلا دواء", emoji:"🤒", want:["medicine","water"], shelf:["medicine","water","food","pencil"] },
-    ];
-    if (!state._fill) state._fill = { scene:0, placed:[], done:false, scenes };
-    const f = state._fill;
-    const sc = f.scenes[f.scene];
-    const allGood = sc.want.every(w => f.placed.includes(w));
-    return `
-      <h3 class="ss-game-title">📦 ${gt("fill-box")}</h3>${howto("fill-box")}
-      <p class="ss-game-sub">${f.scene+1}/${f.scenes.length}</p>
-      <div class="ss-drop-scene">
-        <div class="ss-drop-need"><div class="ss-emoji">${allGood?"😊":sc.emoji}</div><div style="font-weight:700;">${state.lang==="ar"?sc.need_ar:sc.need_en}</div></div>
-        <div class="ss-drop-box" id="ss-dropbox">${f.placed.map(p=>`<span class="ss-chip"><span class="ss-ie">${FILL_ITEMS[p]}</span>${fillName(p)}</span>`).join("")}</div>
-      </div>
-      <div class="ss-shelf">${sc.shelf.map(it=>`<button type="button" class="ss-item" data-act="fill" data-item="${it}"><span class="ss-ie">${FILL_ITEMS[it]}</span>${fillName(it)}</button>`).join("")}</div>
-      ${f.done?`<div class="ss-game-win">🎉</div><button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`:""}`;
-  }
-  function fillDrop(item) {
-    const f = state._fill; if (!f) return; const sc = f.scenes[f.scene];
-    if (sc.want.includes(item) && !f.placed.includes(item)) {
-      f.placed.push(item); toast(t("toast.correct"));
-      if (sc.want.every(w=>f.placed.includes(w))) {
-        addStars(2,"✓");
-        setTimeout(() => { f.scene++; f.placed=[]; if (f.scene>=f.scenes.length){f.scene=f.scenes.length-1;f.done=true;awardBadge("explorer");} rerenderGame(); }, 700);
-      }
-    } else if (!sc.want.includes(item)) { toast(t("toast.tryAgain")); }
-    rerenderGame();
-  }
-
-  /* ---- Giving Tree ---- */
-  const TREE_Q = [
-    { q_en:"What do we call charity that keeps giving after we're gone?", q_ar:"ماذا نسمي الصدقة التي يبقى عطاؤها بعد رحيلنا؟",
-      opts:[{e:"🌳",t_en:"Sadaqah Jariyah",t_ar:"صدقة جارية",ok:true},{e:"💵",t_en:"A one-off gift",t_ar:"هدية لمرة واحدة"},{e:"🎁",t_en:"A present",t_ar:"هدية"}] },
-    { q_en:"Which of these is Sadaqah Jariyah?", q_ar:"أيٌّ مما يلي صدقة جارية؟",
-      opts:[{e:"🍪",t_en:"A biscuit",t_ar:"بسكويت"},{e:"🚰",t_en:"A water well",t_ar:"بئر ماء",ok:true},{e:"💵",t_en:"A coin",t_ar:"عملة"}] },
-    { q_en:"Building what earns a house in Paradise?", q_ar:"بناء ماذا يكسب بيتاً في الجنة؟",
-      opts:[{e:"🕌",t_en:"A mosque",t_ar:"مسجداً",ok:true},{e:"🏠",t_en:"Own house",t_ar:"بيتك"},{e:"🚧",t_en:"A fence",t_ar:"سوراً"}] },
-    { q_en:"Even a ____ is charity, said the Prophet (pbuh).", q_ar:"حتى ____ صدقة، قال النبي ﷺ.",
-      opts:[{e:"😊",t_en:"Smile",t_ar:"الابتسامة",ok:true},{e:"💵",t_en:"Coin",t_ar:"عملة"},{e:"🍪",t_en:"Biscuit",t_ar:"بسكويت"}] },
-  ];
-  const TREE_STAGES = ["🌱","🌿","☘️","🌳"];
-  function treeField() {
-    const tr = state._tree; if (!tr) return "";
-    if (tr.q >= TREE_Q.length) { awardBadge("grower"); return `<div class="ss-tree-win">🌳</div><p>${state.lang==="ar"?"نمت شجرة صدقتك الجارية!":"Your Sadaqah Jariyah tree is fully grown!"}</p><button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`; }
-    const item = TREE_Q[tr.q];
-    return `
-      <h3 class="ss-game-title">🌳 ${gt("giving-tree")}</h3>${howto("giving-tree")}
-      <div class="ss-tree-stage"><div class="ss-tree-emoji">${TREE_STAGES[tr.stage]}</div><div class="ss-tree-stage-n">${tr.stage}/${TREE_STAGES.length-1}</div></div>
-      <div class="ss-tree-q">${state.lang==="ar"?item.q_ar:item.q_en}</div>
-      <div class="ss-opts">${item.opts.map((o,i)=>`<button class="ss-opt" data-act="tree" data-tree="${i}"><span class="ss-oe">${o.e}</span>${state.lang==="ar"?o.t_ar:o.t_en}</button>`).join("")}</div>`;
-  }
-  function gGivingTree() { state._tree = { q:0, stage:0 }; return treeField(); }
-  function treeAnswer(i) {
-    const tr = state._tree; const item = TREE_Q[tr.q];
-    if (item.opts[i].ok) { tr.stage = Math.min(tr.stage+1, TREE_STAGES.length-1); tr.q++; addStars(1,"✓"); } else { toast(t("toast.tryAgain")); }
-    rerenderGame();
-  }
-
-  /* ---- Build Community ---- */
-  const COMM_PROJECTS = [
-    { id:"well", cost:8000, emoji:"🚰", happy:25, vuln:5, n_en:"Water well", n_ar:"بئر ماء", d_en:"Clean water for the village", d_ar:"ماء نظيف للقرية" },
-    { id:"school", cost:6000, emoji:"📚", happy:20, vuln:10, n_en:"School", n_ar:"مدرسة", d_en:"Education for children", d_ar:"تعليم للأطفال" },
-    { id:"clinic", cost:7000, emoji:"💚", happy:18, vuln:15, n_en:"Health clinic", n_ar:"مستوصف", d_en:"Healthcare access", d_ar:"وصول للرعاية الصحية" },
-    { id:"kitchen", cost:3000, emoji:"🍚", happy:12, vuln:20, n_en:"Food kitchen", n_ar:"مطبخ خيري", d_en:"Daily meals", d_ar:"وجبات يومية" },
-    { id:"orphan", cost:4000, emoji:"🧑‍🍼", happy:8, vuln:25, n_en:"Orphan sponsorship", n_ar:"كفالة يتيم", d_en:"Support the vulnerable", d_ar:"دعم الأشد ضعفاً" },
-  ];
-  const BUDGET = 10000;
-  function commField() {
-    const c = state._comm; if (!c) return "";
-    const spent = c.picked.reduce((s,p)=>s+p.cost,0);
-    if (c.outcome) {
-      const score = Math.min(100, c.outcome.happy + c.outcome.vuln);
-      return `<h3 class="ss-game-title">🏘️</h3><p class="ss-game-sub">${state.lang==="ar"?"النتيجة":"Score"}: <strong>${score}/100</strong></p><div class="ss-budget-bar"><span style="width:${score}%"></span></div>
-        <div class="ss-comm-grid">${c.picked.map(p=>`<div class="ss-proj-pick selected"><div class="ss-pi">${p.emoji}</div><div class="ss-pn">${state.lang==="ar"?p.n_ar:p.n_en}</div></div>`).join("")}</div>
-        <button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`;
-    }
-    return `<h3 class="ss-game-title">🏘️ ${gt("build-community")}</h3>${howto("build-community")}
-      <p class="ss-game-sub">$${spent.toLocaleString()} / $${BUDGET.toLocaleString()}</p>
-      <div class="ss-budget-bar"><span style="width:${(spent/BUDGET)*100}%"></span></div>
-      <div class="ss-comm-grid">${COMM_PROJECTS.map(p=>{
-        const sel=c.picked.find(x=>x.id===p.id); const can=!sel&&spent+p.cost<=BUDGET;
-        return `<button class="ss-proj-pick ${sel?'selected':''}" data-act="comm" data-comm="${p.id}" ${(!sel&&!can)?'disabled style="opacity:.4"':''}><div class="ss-pi">${p.emoji}</div><div class="ss-pc">$${p.cost.toLocaleString()}</div><div class="ss-pn">${state.lang==="ar"?p.n_ar:p.n_en}</div></button>`;
-      }).join("")}</div>
-      <button class="ss-btn ss-btn-primary" style="margin-top:14px;" data-act="comm-confirm" ${c.picked.length===0?'disabled':''}>${state.lang==="ar"?"ابنِ القرية":"Build"} →</button>`;
-  }
-  function gBuildCommunity() { state._comm = { picked:[], outcome:null }; return commField(); }
-  function commToggle(id) { const c=state._comm; const p=COMM_PROJECTS.find(x=>x.id===id); const ex=c.picked.find(x=>x.id===id); const spent=c.picked.reduce((s,x)=>s+x.cost,0); if(ex)c.picked=c.picked.filter(x=>x.id!==id); else if(spent+p.cost<=BUDGET)c.picked.push(p); rerenderGame(); }
-  function commConfirm() { const c=state._comm; c.outcome={happy:c.picked.reduce((s,p)=>s+p.happy,0),vuln:c.picked.reduce((s,p)=>s+p.vuln,0)}; addStars(3,"✓"); if(c.outcome.vuln>=20)awardBadge("builder"); rerenderGame(); }
-
-  /* ---- Sort Zakat ---- */
-  const ZAKAT_CATS = [
-    {id:"fuqara",n_en:"The Poor",n_ar:"الفقراء",d_en:"Those who have little",d_ar:"من يملكون القليل"},
-    {id:"masakin",n_en:"The Needy",n_ar:"المساكين",d_en:"Those in hardship",d_ar:"في شدّة"},
-    {id:"amilun",n_en:"Collectors",n_ar:"العاملون",d_en:"Employed to collect Zakat",d_ar:"العاملون على الزكاة"},
-    {id:"muallaf",n_en:"Hearts Reconciled",n_ar:"المؤلّفة قلوبهم",d_en:"Hearts to be reconciled",d_ar:"تأليف القلوب"},
-    {id:"riqab",n_en:"Captives",n_ar:"الرقاب",d_en:"To free captives",d_ar:"عتق الأسرى"},
-    {id:"gharimun",n_en:"Debtors",n_ar:"الغارمون",d_en:"Cannot pay debts",d_ar:"عاجزون عن الديون"},
-    {id:"sabil",n_en:"In Allah's Cause",n_ar:"في سبيل الله",d_en:"In the cause of Allah",d_ar:"في سبيل الله"},
-    {id:"ibn-sabil",n_en:"Travellers",n_ar:"ابن السبيل",d_en:"Stranded travellers",d_ar:"المسافر المحتاج"},
-  ];
-  const ZAKAT_CHARS = [
-    {n_en:"Ahmad ran out of money far from home.",n_ar:"أحمد نفد ماله بعيداً عن وطنه.",cat:"ibn-sabil"},
-    {n_en:"A man cannot repay his loan.",n_ar:"رجل لا يقدر على سداد قرضه.",cat:"gharimun"},
-    {n_en:"A widow struggles to feed her children.",n_ar:"أرملة تجد صعوبة في إطعام أطفالها.",cat:"fuqara"},
-    {n_en:"A new Muslim seeking community.",n_ar:"مسلم جديد يطلب المجتمع.",cat:"muallaf"},
-    {n_en:"A state Zakat collector.",n_ar:"عامل على جمع الزكاة.",cat:"amilun"},
-    {n_en:"A captive whose ransom can be paid.",n_ar:"أسير يُمكن فداؤه.",cat:"riqab"},
-    {n_en:"A family whose home burned down.",n_ar:"أسرة احترق منزلها.",cat:"masakin"},
-    {n_en:"Funds for the community mosque.",n_ar:"أموال لمسجد المجتمع.",cat:"sabil"},
-  ];
-  function zakatField() {
-    const z = state._zakat; if (!z) return "";
-    if (z.queue.length===0) { if(z.correct===z.total)awardBadge("zakat"); return `<h3 class="ss-game-title">⚖️</h3><p class="ss-game-sub">${z.correct}/${z.total}</p><button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`; }
-    const cur = z.queue[0];
-    return `<h3 class="ss-game-title">⚖️ ${gt("sort-zakat")}</h3>${howto("sort-zakat")}
-      <div class="ss-zchar">${state.lang==="ar"?cur.n_ar:cur.n_en}</div>
-      <div class="ss-zakat-bins">${ZAKAT_CATS.map(cat=>`<div class="ss-zbin" data-act="zakat" data-zbin="${cat.id}"><h5>${state.lang==="ar"?cat.n_ar:cat.n_en}</h5><div class="ss-zd">${state.lang==="ar"?cat.d_ar:cat.d_en}</div></div>`).join("")}</div>`;
-  }
-  function gSortZakat() { state._zakat={queue:[...ZAKAT_CHARS],placed:{},correct:0,total:ZAKAT_CHARS.length}; return zakatField(); }
-  function zakatDrop(catId){ const z=state._zakat; const cur=z.queue[0]; if(!cur)return; if(cur.cat===catId){z.correct++;toast(t("toast.correct"));addStars(1,"✓");}else{const r=ZAKAT_CATS.find(c=>c.id===cur.cat);toast((state.lang==="ar"?"في ":"In ")+(state.lang==="ar"?r.n_ar:r.n_en));} z.queue.shift(); rerenderGame(); }
-
-  /* ---- Chain Reaction ---- */
-  const CHAIN = [
-    { en:"Ibrahim digs a water well.", ar:"إبراهيم يحفر بئر ماء.", emoji:"🚰", choices:[{t_en:"Villagers get clean water",t_ar:"الحصول على ماء نظيف",ok:true,next:1},{t_en:"Dries up in a month",t_ar:"يجف في شهر",next:5}] },
-    { en:"Women and girls save hours daily.", ar:"النساء والبنات يوفّرن ساعات يومياً.", emoji:"⏱️", choices:[{t_en:"Girls attend school",t_ar:"البنات يلتحقن بالمدرسة",ok:true,next:2},{t_en:"They just rest",t_ar:"يرحن فقط",next:5}] },
-    { en:"A generation of girls finishes school.", ar:"جيل من البنات يُكمل المدرسة.", emoji:"🎓", choices:[{t_en:"Some become nurses & teachers",t_ar:"يصبحن ممرضات ومعلمات",ok:true,next:3},{t_en:"They leave the village",t_ar:"يتركن القرية",next:5}] },
-    { en:"Educated women strengthen the economy.", ar:"النساء المتعلّمات يقوين الاقتصاد.", emoji:"💼", choices:[{t_en:"Village no longer needs aid",t_ar:"القرية لا تحتاج معونة",ok:true,next:4},{t_en:"Economy collapses",t_ar:"ينهار الاقتصاد",next:5}] },
-    { en:"20 years later — a thriving community.", ar:"بعد 20 عاماً — مجتمع مزدهر.", emoji:"🌳", choices:[] },
-    { en:"A one-time gift fades quickly.", ar:"هدية لمرة واحدة تتلاشى بسرعة.", emoji:"🍂", choices:[] },
-  ];
-  function chainField() {
-    const c = state._chain; if (!c) return "";
-    const node = CHAIN[c.stage];
-    const done = node.choices.length===0;
-    return `<h3 class="ss-game-title">🔗 ${gt("chain-reaction")}</h3>${howto("chain-reaction")}
-      <div class="ss-chain">${[...Array(c.links).keys()].map(i=>{const nd=CHAIN[i<c.links-1?i:c.stage];return `<div class="ss-chain-link"><span class="ss-cln">${i+1}.</span><span style="font-size:24px">${nd.emoji}</span><span>${state.lang==="ar"?nd.ar:nd.en}</span></div>`;}).join("")}</div>
-      ${done?`${c.stage===5?`<p class="ss-game-sub">${state.lang==="ar"?"هذا الطريق انتهى سريعاً. جرّب مرة أخرى واختر الخطوة التي تبقي الخير مستمراً.":"This path ended quickly. Try again and pick the step that keeps the good going."}</p><button class="ss-btn ss-btn-ghost" data-act="chain-restart">↻ ${t("nav.restart")}</button> `:""}<button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`:`<div class="ss-chain-choices">${node.choices.map((ch,i)=>`<button class="ss-opt" data-act="chain" data-chain="${i}">${state.lang==="ar"?ch.t_ar:ch.t_en}</button>`).join("")}</div>`}`;
-  }
-  function gChainReaction(){state._chain={stage:0,links:1};return chainField();}
-  function chainChoose(i){const c=state._chain;const node=CHAIN[c.stage];const ch=node.choices[i];if(ch.ok)addStars(1,"✓");c.stage=ch.next;c.links++;if(c.stage===4)addStars(4,"✓");rerenderGame();}
-
   /* ---- Waqf Architect ----
      A deterministic 20-year model so the same choices always give the same
      result and players can compare runs. The $50,000 principal is never spent;
@@ -898,7 +766,7 @@
           <div class="ss-waqf-step"><h5>2. ${ar?"إلى أي مجال يذهب الريع؟":"Which cause gets the income?"}</h5>${C?chosen("cause", wq(C,"n")):(A?`<div class="ss-segments">${WAQF_CAUSES.map(c=>`<button class="ss-seg" data-act="waqf-cause" data-wc="${c.id}">${wq(c,"n")}</button>`).join("")}</div>`:'<span class="ss-muted">…</span>')}</div>
           <div class="ss-waqf-step"><h5>3. ${ar?"من يدير الوقف؟":"Who will manage the waqf?"}</h5>${G?chosen("gov", wq(G,"n")):(C?`<div class="ss-opts">${WAQF_GOVS.map(g=>`<button class="ss-opt" data-act="waqf-gov" data-wg="${g.id}"><strong>${wq(g,"n")}</strong><small>${wq(g,"d")}</small></button>`).join("")}</div>`:'<span class="ss-muted">…</span>')}</div>
         </div>
-        ${A&&C&&G?`<button class="ss-btn ss-btn-primary" data-act="waqf-run">${ar?"شغّل 20 سنة":"Run 20 years"} →</button>`:''}`;
+        ${A&&C&&G?`<button class="ss-btn ss-btn-primary" data-act="waqf-run">${ar?"شغّل 20 سنة":"Run 20 years"} ${fwd()}</button>`:''}`;
     }
     const r = waqfSimulate(w.asset, w.cause, w.gov);
     const A = WAQF_ASSETS.find(x=>x.id===w.asset), G = WAQF_GOVS.find(x=>x.id===w.gov);
@@ -917,7 +785,7 @@
         <p class="ss-rate-note">${ar?"الأرقام افتراضية للتعلّم. العائد الحقيقي يتغيّر من سنة إلى أخرى وقد يكون أقل.":"These figures are made up for learning. Real returns change every year and can be lower."}</p>
       </div>
       <button class="ss-btn ss-btn-ghost" data-act="waqf-again">↻ ${ar?"جرّب اختيارات أخرى":"Try other choices"}</button>
-      <button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`;
+      <button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} ${fwd()}</button>`;
   }
   function gWaqfArchitect(){state._waqf={asset:null,cause:null,gov:null,ran:false};return waqfField();}
   function waqfRun(){state._waqf.ran=true;awardBadge("architect");addStars(4,"✓");rerenderGame();}
@@ -971,7 +839,7 @@
     if(d.i>=DILEMMAS.length){
       const lc=d.picks.filter(p=>p==="b").length;
       const pr=lc>=3?(ar?"أنت باني وقف طويل المدى.":"You are a long-term waqf builder."):lc>=1?(ar?"أنت معطاء متوازن.":"You are a balanced giver."):(ar?"أنت مستجيب للحاجات العاجلة.":"You are an immediate-need responder.");
-      return `<h3 class="ss-game-title">⚖️ ${gt("giving-dilemma")}</h3><p class="ss-dilemma-result"><strong>${pr}</strong></p><p>${ar?"لا يوجد جواب واحد صحيح. كل اختيار من هذه الاختيارات يساعد أحداً.":"There is no single right answer. Every choice here helps someone."}</p><button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`;
+      return `<h3 class="ss-game-title">⚖️ ${gt("giving-dilemma")}</h3><p class="ss-dilemma-result"><strong>${pr}</strong></p><p>${ar?"لا يوجد جواب واحد صحيح. كل اختيار من هذه الاختيارات يساعد أحداً.":"There is no single right answer. Every choice here helps someone."}</p><button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} ${fwd()}</button>`;
     }
     const it=DILEMMAS[d.i];
     const head=`<h3 class="ss-game-title">⚖️ ${gt("giving-dilemma")}</h3>${howto("giving-dilemma")}<p class="ss-game-sub">${d.i+1}/${DILEMMAS.length}</p>`;
@@ -980,7 +848,7 @@
     }
     const pick=d.picks[d.picks.length-1];
     const opt=(k)=>`<div class="ss-tradeoff ${pick===k?'picked':''}"><div class="ss-tradeoff-h">${pick===k?(ar?"اختيارك: ":"Your choice: "):""}${ar?it[k+"_ar"]:it[k+"_en"]}</div><p>${ar?it["n"+k+"_ar"]:it["n"+k+"_en"]}</p></div>`;
-    return head+`<div class="ss-dilemma"><h4>${ar?it.q_ar:it.q_en}</h4>${opt("a")}${opt("b")}<p class="ss-tradeoff-take">${ar?it.nt_ar:it.nt_en}</p><button class="ss-btn ss-btn-primary" data-act="dilemma-next">${d.i+1<DILEMMAS.length?t("nav.next"):(ar?"النتيجة":"See result")} →</button></div>`;
+    return head+`<div class="ss-dilemma"><h4>${ar?it.q_ar:it.q_en}</h4>${opt("a")}${opt("b")}<p class="ss-tradeoff-take">${ar?it.nt_ar:it.nt_en}</p><button class="ss-btn ss-btn-primary" data-act="dilemma-next">${d.i+1<DILEMMAS.length?t("nav.next"):(ar?"النتيجة":"See result")} ${fwd()}</button></div>`;
   }
   function gGivingDilemma(){state._dilemma={i:0,picks:[],reveal:false};return dilemmaField();}
   function dilemmaChoose(p){const d=state._dilemma;if(d.reveal)return;d.picks.push(p);d.reveal=true;addStars(1,"✓");rerenderGame();}
@@ -996,13 +864,22 @@
     healthcare:{per:25,u_en:"clinic consultations",u_ar:"استشارة طبية",label_en:"Healthcare",label_ar:"الرعاية الصحية",emoji:"💚",r_en:"Assumes $25 for one clinic consultation.",r_ar:"على افتراض أن الاستشارة الطبية الواحدة تكلّف 25 دولاراً."},
     orphan:{per:40,u_en:"orphan sponsor months",u_ar:"شهر كفالة يتيم",label_en:"Orphan",label_ar:"كفالة يتيم",emoji:"🧑‍🍼",r_en:"Assumes $40 sponsors one orphan for one month (the Impact Simulator uses $30–$50).",r_ar:"على افتراض أن 40 دولاراً تكفل يتيماً واحداً لمدة شهر (يستخدم محاكي الأثر 30–50 دولاراً)."}
   };
-  function calcQty(){const c=state._calc;return Math.floor(c.amount/CALC_RATES[c.area].per);}
+  function calcTotal(){const c=state._calc;return c.amount*(c.monthly?12:1);}
+  function calcQty(area){const c=state._calc;return Math.floor(calcTotal()/CALC_RATES[area||c.area].per);}
+  function calcUpdate(){
+    const c=state._calc, set=(id,v)=>{const e=document.getElementById(id); if(e) e.textContent=v;};
+    set("ss-calc-amt", c.amount); set("ss-calc-total", calcTotal().toLocaleString("en-US")); set("ss-calc-qty", calcQty().toLocaleString("en-US"));
+    Object.keys(CALC_RATES).forEach(k=>set("ss-calc-cmp-"+k, calcQty(k).toLocaleString("en-US")));
+  }
   function calcField(){const c=state._calc;if(!c)return"";const r=CALC_RATES[c.area];const ar=state.lang==="ar";return `<h3 class="ss-game-title">💡 ${gt("impact-calc")}</h3>${howto("impact-calc")}
     <div class="ss-calc-card"><label for="ss-calc-slider" style="font-weight:700;">$<span id="ss-calc-amt">${c.amount}</span></label><input id="ss-calc-slider" type="range" min="1" max="1000" value="${c.amount}" class="ss-slider" data-act="calc" data-cal="amount" style="width:100%">
+    <div class="ss-segments" style="margin-top:12px;"><button class="ss-seg ${!c.monthly?'selected':''}" data-act="calc-monthly" data-cm="0">${ar?"مرة واحدة":"One time"}</button><button class="ss-seg ${c.monthly?'selected':''}" data-act="calc-monthly" data-cm="1">${ar?"كل شهر لمدة سنة":"Every month for a year"}</button></div>
     <div class="ss-segments" style="margin-top:12px;">${Object.keys(CALC_RATES).map(k=>`<button class="ss-seg ${k===c.area?'selected':''}" data-act="calc-area" data-ca="${k}">${CALC_RATES[k].emoji} ${ar?CALC_RATES[k].label_ar:CALC_RATES[k].label_en}</button>`).join("")}</div></div>
-    <div class="ss-result"><div class="ss-re">${r.emoji}</div><div><div style="font-size:24px;font-weight:800;color:var(--teal-deep);"><span id="ss-calc-qty">${calcQty().toLocaleString()}</span> ${ar?r.u_ar:r.u_en}</div></div></div>
+    <div class="ss-result"><div class="ss-re">${r.emoji}</div><div><div class="ss-muted">${ar?"المجموع":"Total given"}: ${ar?"":"$"}<span id="ss-calc-total">${calcTotal().toLocaleString("en-US")}</span>${ar?" دولار":""}</div><div style="font-size:24px;font-weight:800;color:var(--teal-deep);"><span id="ss-calc-qty">${calcQty().toLocaleString("en-US")}</span> ${ar?r.u_ar:r.u_en}</div></div></div>
+    <h5>${ar?"المبلغ نفسه في مجالات أخرى":"The same amount in other causes"}</h5>
+    <div class="ss-calc-cmp">${Object.keys(CALC_RATES).filter(k=>k!==c.area).map(k=>`<div><span>${CALC_RATES[k].emoji}</span> <strong id="ss-calc-cmp-${k}">${calcQty(k).toLocaleString("en-US")}</strong> ${ar?CALC_RATES[k].u_ar:CALC_RATES[k].u_en}</div>`).join("")}</div>
     <p class="ss-rate-note">${ar?r.r_ar:r.r_en} ${ar?"هذه أسعار تقريبية للتعلّم، والتكلفة الحقيقية تختلف بحسب البلد والجمعية.":"These are example prices for learning. Real costs vary by country and charity."}</p>
-    <button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`;}
+    <button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} ${fwd()}</button>`;}
   function gImpactCalc(){state._calc={amount:50,area:"water"};return calcField();}
 
   /* ---- Choose Your Path (branching scenarios from SADAQAH_PATHS) ---- */
@@ -1025,7 +902,7 @@
         <p class="ss-game-sub">⭐ ${st.stars}</p>
         <button class="ss-btn ss-btn-ghost" data-act="path-again">↻ ${ar?"جرّب طريقاً آخر":"Try a different path"}</button>
         <button class="ss-btn ss-btn-ghost" data-act="path-menu">${ar?"موقف آخر":"Another situation"}</button>
-        <button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`;
+        <button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} ${fwd()}</button>`;
     }
     return `<h3 class="ss-game-title">${sc.e} ${tx(sc,"title")}</h3>${trail}
       <div class="ss-dilemma"><h4>${ar?node.ar:node.en}</h4>
@@ -1046,56 +923,63 @@
 
   /* ---- How to play (one or two lines per game, written from what each game does) ---- */
   const HOWTO = {
-    "charity-match":   { en:"Flip two cards at a time to find a word and its matching picture. Each match shows a short lesson.",
-                         ar:"اقلب بطاقتين في كل مرة لتجد الكلمة والصورة المطابقة لها. كل تطابق يعرض لك معلومة قصيرة." },
-    "fill-box":        { en:"Read who needs help, then tap the items that meet that need. Items that don't help will not go in the box.",
-                         ar:"اقرأ من يحتاج إلى المساعدة، ثم اضغط على الأشياء التي تلبّي حاجته. الأشياء التي لا تساعده لن تدخل الصندوق." },
-    "giving-tree":     { en:"Answer each question correctly to water the tree. Four right answers grow it fully.",
-                         ar:"أجب عن كل سؤال إجابة صحيحة لتسقي الشجرة. أربع إجابات صحيحة تجعلها تكبر تماماً." },
-    "build-community": { en:"You have $10,000. Pick projects that fit the budget, then press Build. Your score adds how happy the village is and how well you protect the most vulnerable.",
-                         ar:"لديك 10,000 دولار. اختر مشاريع ضمن الميزانية، ثم اضغط «ابنِ القرية». تجمع نتيجتك بين رضا أهل القرية وحماية الأشد ضعفاً." },
-    "sort-zakat":      { en:"Read about each person and tap the Zakat category that fits them. The eight categories are listed in Qur'an 9:60.",
-                         ar:"اقرأ عن كل شخص واضغط على مصرف الزكاة المناسب له. المصارف الثمانية مذكورة في سورة التوبة (9:60)." },
-    "chain-reaction":  { en:"Start with one good deed. At each step, choose what happens next and watch how the good spreads over 20 years.",
-                         ar:"ابدأ بعمل خير واحد. في كل خطوة اختر ما يحدث بعد ذلك، وشاهد كيف ينتشر الخير على مدى 20 عاماً." },
     "waqf-architect":  { en:"Choose what to invest $50,000 in, which cause gets the income, and who manages the waqf. Then run 20 years and see what your waqf gives.",
                          ar:"اختر أين تستثمر 50,000 دولار، والمجال الذي يذهب إليه الريع، ومن يدير الوقف. ثم شغّل محاكاة 20 سنة وانظر ماذا يقدّم وقفك." },
     "giving-dilemma":  { en:"Five choices with no single right answer. After each one, read what each option gains and what it misses.",
                          ar:"خمسة اختيارات ليس لها جواب واحد صحيح. بعد كل اختيار، اقرأ ما يكسبه كل خيار وما يفوته." },
-    "impact-calc":     { en:"Move the slider to choose an amount, then pick a cause to see what it could pay for.",
-                         ar:"حرّك المؤشر لتختار مبلغاً، ثم اختر مجالاً لترى ما يمكن أن يغطيه." },
+    "impact-calc":     { en:"Move the slider to choose an amount, choose one time or every month, then pick a cause to see what it could pay for. The list below compares the other causes.",
+                         ar:"حرّك المؤشر لتختار مبلغاً، واختر مرة واحدة أو كل شهر، ثم اختر مجالاً لترى ما يمكن أن يغطيه. وتقارن القائمة في الأسفل بين المجالات الأخرى." },
     "choose-path":     { en:"Read each situation and choose what you would do. Your choices change what happens next.",
                          ar:"اقرأ كل موقف واختر ما ستفعله. اختياراتك تغيّر ما يحدث بعد ذلك." },
   };
   function howto(id) {
-    const h = HOWTO[id]; if (!h) return "";
+    const h = (GAMES[id] && GAMES[id].howto) || HOWTO[id]; if (!h) return "";
     return `<p class="ss-howto"><strong>${state.lang==="ar"?"طريقة اللعب:":"How to play:"}</strong> ${state.lang==="ar"?h.ar:h.en}</p>`;
   }
 
   /* ---- Game dispatcher ---- */
   // Bilingual game title lookup by id.
   const GAME_TITLES = {
-    "charity-match":   { en: "Charity Match",           ar: "مطابقة الخير" },
-    "fill-box":        { en: "Fill the Donation Box",   ar: "املأ صندوق التبرع" },
-    "giving-tree":     { en: "The Giving Tree",         ar: "شجرة العطاء" },
-    "build-community": { en: "Build Your Community",    ar: "ابنِ مجتمعك" },
-    "sort-zakat":      { en: "Sort the Zakat",          ar: "رتّب الزكاة" },
-    "chain-reaction":  { en: "Charity Chain Reaction",  ar: "سلسلة الخير" },
     "waqf-architect":  { en: "Waqf Architect",          ar: "مهندس الوقف" },
     "giving-dilemma":  { en: "The Giving Dilemma",      ar: "مُعضلة العطاء" },
     "impact-calc":     { en: "Real Impact Calculator",  ar: "حاسبة الأثر الحقيقي" },
     "choose-path":     { en: "Choose Your Path",        ar: "اختر طريقك" },
   };
-  function gt(id) { const g = GAME_TITLES[id]; return g ? (g[state.lang] || g.en) : id; }
+  function gt(id) { const g = (GAMES[id] && GAMES[id].title) || GAME_TITLES[id]; return g ? (g[state.lang] || g.en) : id; }
 
-  function initGame(id){ state._mem=null;state._fill=null;state._tree=null;state._comm=null;state._zakat=null;state._chain=null;state._waqf=null;state._dilemma=null;state._calc=null;state._path=null;
-    switch(id){case"charity-match":return gCharityMatch();case"fill-box":return fillField();case"giving-tree":return gGivingTree();case"build-community":return gBuildCommunity();case"sort-zakat":return gSortZakat();case"chain-reaction":return gChainReaction();case"waqf-architect":return gWaqfArchitect();case"giving-dilemma":return gGivingDilemma();case"impact-calc":return gImpactCalc();case"choose-path":return gChoosePath();default:return `<div class="ss-empty">Game not found.</div>`;} }
-  function renderGame(id){ switch(id){case"charity-match":return memField();case"fill-box":return fillField();case"giving-tree":return treeField();case"build-community":return commField();case"sort-zakat":return zakatField();case"chain-reaction":return chainField();case"waqf-architect":return waqfField();case"giving-dilemma":return dilemmaField();case"impact-calc":return calcField();case"choose-path":return pathField();default:return "";} }
+  /* ---- Plug-in games (games.js): each registers title, icon, howto, sketch,
+     init(c), render(c), act(c, name, el) and optionally input(c, name, el).
+     c is the context below; per-game state lives in state._g. */
+  const GAMES = window.SADAQAH_GAMES || {};
+  const MODS = window.SADAQAH_MODULES || {};
+  function ctx(id) {
+    const ar = state.lang === "ar";
+    return {
+      id, state, ar, lang: state.lang, s: state._g,
+      T: (o) => (o == null ? "" : typeof o === "string" ? o : (ar ? (o.ar != null ? o.ar : o.en) : o.en)),
+      t, gt, esc, shuffle, addStars, awardBadge, toast, fwd,
+      rerender: rerenderGame,
+      money: (n) => { const v = Math.round(n).toLocaleString("en-US"); return ar ? v + " دولار" : "$" + v; },
+      num: (n) => Math.round(n).toLocaleString("en-US"),
+      head: (icon) => `<h3 class="ss-game-title">${icon || (GAMES[id] && GAMES[id].icon) || ""} ${gt(id)}</h3>${howto(id)}`,
+      finish: (mod) => `<button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="${mod || "games"}">${t("complete.opt.progress")} ${fwd()}</button>`,
+      btn: (label, g, v, cls) => `<button type="button" class="ss-btn ${cls || "ss-btn-primary"}" data-act="g" data-g="${g}"${v != null ? ` data-v="${esc(String(v))}"` : ""}>${label}</button>`,
+    };
+  }
+  function initGame(id){ state._g = {}; state._gFor = id; if (GAMES[id]) return GAMES[id].init(ctx(id));
+    state._waqf=null;state._dilemma=null;state._calc=null;state._path=null;
+    switch(id){case"waqf-architect":return gWaqfArchitect();case"giving-dilemma":return gGivingDilemma();case"impact-calc":return gImpactCalc();case"choose-path":return gChoosePath();default:return `<div class="ss-empty">Game not found.</div>`;} }
+  function renderGame(id){ if (GAMES[id]) return GAMES[id].render(ctx(id)); switch(id){case"waqf-architect":return waqfField();case"giving-dilemma":return dilemmaField();case"impact-calc":return calcField();case"choose-path":return pathField();default:return "";} }
   function playView() {
     const id = state.params.id;
     return `<div class="ss-playfield">${initGame(id)}</div>`;
   }
-  function rerenderGame(){ if(state.route!=="play")return; const pf=document.querySelector("#ss-app .ss-playfield"); if(pf){pf.innerHTML=renderGame(state.params.id); } }
+  function rerenderGame(){
+    const pf=document.querySelector("#ss-app .ss-playfield"); if(!pf) return;
+    if(state.route==="play") pf.innerHTML=renderGame(state.params.id);
+    else if(state.route==="project" && MODS.project) pf.innerHTML=MODS.project.render(ctx("project"));
+  }
+  function projectView() { if (!MODS.project) return ""; state._g = state._g && state._gFor === "project" ? state._g : {}; state._gFor = "project"; return `<div class="ss-playfield ss-project">${MODS.project.render(ctx("project"))}</div>`; }
 
   function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 
@@ -1126,7 +1010,7 @@
         <p class="ss-help-desc">${c.desc}</p>
         ${yt(c.video)}
       </div>
-      <button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="help">${t("complete.opt.progress")} →</button>`;
+      <button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="help">${t("complete.opt.progress")} ${fwd()}</button>`;
   }
 
   /* ----------------------------- ABOUT ---------------------------------- */
@@ -1151,6 +1035,27 @@
         <img src="${ASSET}qrdi.svg" alt="QRDI Council">
         <img src="${ASSET}raca.png" alt="RACA">
       </div>`;
+  }
+
+  /* ----------------------------- HELP ------------------------------------
+     Content in data-help.js (EN + AR). #/help/<section> opens a section. */
+  function helpView() {
+    const H = window.SADAQAH_HELP || [], ar = isRTL(), sec = state.params.id;
+    const T = (o) => (ar ? o.ar : o.en);
+    setTimeout(() => { if (sec) { const el = document.getElementById("ss-help-" + sec); if (el) el.scrollIntoView({ block: "start" }); } }, 0);
+    const para = (x) => Array.isArray(x) ? `<ul>${x.map((li) => `<li>${li}</li>`).join("")}</ul>` : `<p>${x}</p>`;
+    return `
+      <div class="ss-section-head">
+        <h2>${ar ? "المساعدة: كيف تستخدم الموقع" : "Help: how to use the site"}</h2>
+        <p>${ar ? "دليل قصير لكل جزء من أجزاء «حكايات الصدقة». اختر موضوعاً:" : "A short guide to every part of Sadaqah Stories. Pick a topic:"}</p>
+      </div>
+      <nav class="ss-help-nav">${H.map((h) => `<a href="#/help/${h.id}" class="${h.id === sec ? "active" : ""}">${h.icon} ${T(h.title)}</a>`).join("")}</nav>
+      <div class="ss-help">${H.map((h) => `
+        <section class="ss-help-sec ${h.id === sec ? "active" : ""}" id="ss-help-${h.id}">
+          <h3>${h.icon} ${T(h.title)}</h3>
+          ${T(h.body).map(para).join("")}
+          ${h.go && state.age ? `<button class="ss-btn ss-btn-ghost" data-go="${h.go}">${ar ? "اذهب إلى هذا القسم" : "Go to this section"} ${fwd()}</button>` : ""}
+        </section>`).join("")}</div>`;
   }
 
   /* ----------------------------- LEXICON (wiki-style table) ------------- */
@@ -1191,7 +1096,7 @@
         </table>
       </div>
       ${filtered.length === 0 ? `<div class="ss-empty">${t("search.none")}</div>` : ''}
-      <button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="lexic">${t("complete.opt.progress")} →</button>`;
+      <button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="lexic">${t("complete.opt.progress")} ${fwd()}</button>`;
   }
 
   /* ----------------------------- Render --------------------------------- */
@@ -1214,6 +1119,8 @@
       case "about": return about();
       case "progress": return progress();
       case "complete": return complete();
+      case "project": return projectView();
+      case "help": return helpView();
       default: return home();
     }
   }
@@ -1237,6 +1144,12 @@
       return;
     }
     const act = tEl.getAttribute("data-act");
+    if (act === "g") {
+      const id = state.route === "project" ? "project" : state.params.id;
+      const mod = state.route === "project" ? MODS.project : GAMES[id];
+      if (mod && mod.act) mod.act(ctx(id), tEl.getAttribute("data-g"), tEl);
+      return;
+    }
     switch (act) {
       case "go-home": state.lang = null; save(); go("home"); break;
       case "toggle-lang": state.lang = state.lang === "en" ? "ar" : "en"; save(); render(); break;
@@ -1244,13 +1157,7 @@
       case "pick-age": state.age = tEl.getAttribute("data-age"); save(); go("hub"); break;
       case "pick-sim": state.simId = tEl.getAttribute("data-sim"); state.simYear = 0; render(); break;
       case "pick-year": state.simYear = Number(tEl.getAttribute("data-year")); render(); break;
-      case "mem": memClick(Number(tEl.getAttribute("data-mem"))); break;
-      case "fill": fillDrop(tEl.getAttribute("data-item")); break;
-      case "tree": treeAnswer(Number(tEl.getAttribute("data-tree"))); break;
-      case "comm": commToggle(tEl.getAttribute("data-comm")); break;
-      case "comm-confirm": commConfirm(); break;
-      case "zakat": zakatDrop(tEl.getAttribute("data-zbin")); break;
-      case "chain": chainChoose(Number(tEl.getAttribute("data-chain"))); break;
+      case "sim-reset": if (state.simAssume) delete state.simAssume[state.simId]; render(); break;
       case "waqf-asset": state._waqf.asset = tEl.getAttribute("data-wa"); rerenderGame(); break;
       case "waqf-cause": state._waqf.cause = tEl.getAttribute("data-wc"); rerenderGame(); break;
       case "waqf-gov": state._waqf.gov = tEl.getAttribute("data-wg"); rerenderGame(); break;
@@ -1264,11 +1171,11 @@
       case "path-choose": pathChoose(Number(tEl.getAttribute("data-choice"))); break;
       case "path-again": pathAgain(); break;
       case "path-menu": state._path = { sid: null }; rerenderGame(); break;
-      case "chain-restart": state._chain = { stage: 0, links: 1 }; rerenderGame(); break;
       case "calc":
         // handled by input listener
         break;
       case "calc-area": state._calc.area = tEl.getAttribute("data-ca"); rerenderGame(); break;
+      case "calc-monthly": state._calc.monthly = tEl.getAttribute("data-cm") === "1"; rerenderGame(); break;
       case "finish-module": state.lastModule = tEl.getAttribute("data-mod"); go("complete"); break;
       case "open-story": { state.storyPage = 0; state.quiz = null; const sid = tEl.getAttribute("data-id"); go("story", { id: sid }); break; }
       case "quiz": {
@@ -1286,11 +1193,18 @@
   document.addEventListener("input", function (e) {
     const app = document.getElementById("ss-app");
     if (!app || !app.contains(e.target)) return;
+    const gi = e.target.getAttribute("data-g-input");
+    if (gi) {
+      const id = state.route === "project" ? "project" : state.params.id;
+      const mod = state.route === "project" ? MODS.project : GAMES[id];
+      if (mod && mod.input) mod.input(ctx(id), gi, e.target);
+      return;
+    }
+    const sa = e.target.getAttribute("data-sim-assume");
+    if (sa) { simAssumeInput(sa, e.target); return; }
     if (e.target.hasAttribute("data-cal") && e.target.getAttribute("data-cal") === "amount") {
       state._calc.amount = Number(e.target.value);
-      const amt = document.getElementById("ss-calc-amt"), qty = document.getElementById("ss-calc-qty");
-      if (amt) amt.textContent = state._calc.amount;
-      if (qty) qty.textContent = calcQty().toLocaleString();
+      calcUpdate();
     }
     // search boxes: update state and re-render view only (keeps focus)
     const inp = e.target.getAttribute("data-act-input");
