@@ -150,7 +150,9 @@
 }
 
 /* ----------------------------- Detail view ------------------------------ */
-#ss-app .ss-back { display: inline-flex; align-items: center; gap: 6px; color: var(--teal-deep); font-weight: 700; margin: 24px 0 12px; cursor: pointer; }
+#ss-app .ss-back { display: inline-flex; align-items: center; gap: 6px; color: var(--teal-deep); font-weight: 700; margin: 24px 0 12px; cursor: pointer; background: none; border: 0; padding: 6px 0; font: inherit; font-weight: 700; }
+#ss-app .ss-back::before { content: "← "; }
+#ss-app .ss-back:hover, #ss-app .ss-back:focus-visible { text-decoration: underline; }
 #ss-app .ss-detail-head { display: grid; grid-template-columns: 1.1fr .9fr; gap: 26px; align-items: start; }
 @media (max-width: 760px) { #ss-app .ss-detail-head { grid-template-columns: 1fr; } }
 #ss-app .ss-detail-art { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
@@ -607,3 +609,91 @@
 #ss-app .ss-evidence-links a {color:var(--green); text-decoration:underline; overflow-wrap:anywhere;}
 #ss-app .ss-evidence-mini {font-size:0.73rem; color:var(--ink-soft); padding-top:7px;}
 #ss-app .ss-editorial-note {border-inline-start:3px solid var(--green); padding:9px 13px; background:var(--bg-soft); border-radius:4px; color:var(--ink-soft); line-height:1.55; margin:12px 0 18px;}
+
+/* ===================== v6: changes from student feedback ===================== */
+/* Buttons that were divs keep the card look */
+#ss-app button.ss-item, #ss-app button.ss-choice, #ss-app button.ss-opt { font: inherit; color: inherit; text-align: inherit; }
+#ss-app button.ss-choice { background: var(--card); width: 100%; }
+#ss-app .ss-btn + .ss-btn { margin-inline-start: 8px; }
+#ss-app .ss-muted { color: var(--ink-soft); }
+#ss-app .ss-linkbtn { background: none; border: 0; padding: 0; color: var(--teal-deep); font: inherit; font-weight: 700; text-decoration: underline; cursor: pointer; }
+
+/* How-to-play line in every game */
+#ss-app .ss-howto { background: var(--bg-soft); border-inline-start: 3px solid var(--gold); border-radius: 6px; padding: 9px 13px; margin: 0 0 16px; color: var(--ink); font-size: 15px; line-height: 1.55; }
+
+/* Rate and assumption notes */
+#ss-app .ss-rate-note { color: var(--ink-soft); font-size: 13.5px; line-height: 1.55; margin: 10px 0 16px; }
+#ss-app .ss-sim-how { margin-top: 16px; background: var(--bg-soft); border: 1px dashed var(--card-edge); border-radius: 12px; padding: 14px 16px; }
+#ss-app .ss-sim-how h4 { margin: 0 0 6px; font-size: 15px; color: var(--gold-deep); }
+#ss-app .ss-sim-how p { margin: 0; font-size: 14.5px; line-height: 1.6; }
+
+/* Giving Dilemma trade-offs */
+#ss-app .ss-tradeoff { border: 1px solid var(--card-edge); border-radius: 12px; padding: 12px 14px; margin: 10px 0; background: var(--card); }
+#ss-app .ss-tradeoff.picked { border: 2px solid var(--teal); background: rgba(47,143,135,.06); }
+#ss-app .ss-tradeoff-h { font-weight: 800; margin-bottom: 4px; }
+#ss-app .ss-tradeoff p { margin: 0; line-height: 1.6; }
+#ss-app .ss-tradeoff-take { font-weight: 700; color: var(--teal-deep); margin: 14px 0; }
+#ss-app .ss-dilemma-result { font-size: 20px; margin: 8px 0; }
+
+/* Waqf Architect */
+#ss-app .ss-waqf-start { background: var(--card); border: 1px solid var(--card-edge); border-radius: 12px; padding: 12px 14px; margin: 0 0 14px; }
+#ss-app .ss-waqf-step { min-width: 220px; }
+#ss-app .ss-waqf-step .ss-opts { flex-direction: column; }
+#ss-app .ss-waqf-step .ss-opt { text-align: start; width: 100%; }
+#ss-app .ss-waqf-step .ss-opt strong { display: block; }
+#ss-app .ss-waqf-step .ss-opt small { display: block; font-weight: 400; color: var(--ink-soft); margin-top: 4px; line-height: 1.45; }
+#ss-app .ss-waqf-chosen { background: none; border: 0; padding: 0; font: inherit; font-weight: 700; color: var(--teal-deep); cursor: pointer; text-align: start; }
+#ss-app .ss-waqf-chosen small { font-weight: 400; color: var(--ink-soft); }
+#ss-app .ss-info .ss-iu { font-size: 13px; font-weight: 700; color: var(--ink); margin: 6px 0; }
+#ss-app .ss-waqf-log, #ss-app .ss-waqf-lesson { background: var(--card); border: 1px solid var(--card-edge); border-radius: 12px; padding: 12px 16px; margin: 14px 0; }
+#ss-app .ss-waqf-log h5 { margin: 0 0 6px; color: var(--gold-deep); font-size: 14px; }
+#ss-app .ss-waqf-log ul { margin: 0; padding-inline-start: 20px; }
+#ss-app .ss-waqf-lesson p { margin: 6px 0; }
+
+/* Daily Sadaqah challenge */
+#ss-app .ss-daily { display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center; background: linear-gradient(135deg, #fff7e6, var(--card)); border: 1px solid var(--card-edge); border-radius: var(--radius); padding: 16px 20px; margin: 0 0 24px; box-shadow: var(--shadow-soft); }
+#ss-app .ss-daily-e { font-size: 40px; }
+#ss-app .ss-daily-k { font-size: 12px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--gold-deep); }
+[dir="rtl"] #ss-app .ss-daily-k { letter-spacing: 0; }
+#ss-app .ss-daily-t { font-family: var(--serif); font-size: 20px; font-weight: 700; margin: 2px 0 4px; }
+[dir="rtl"] #ss-app .ss-daily-t { font-family: inherit; }
+#ss-app .ss-daily-why { margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.55; }
+#ss-app .ss-daily-why a { color: var(--teal-deep); font-weight: 700; white-space: nowrap; }
+#ss-app .ss-daily-done { color: var(--green); font-weight: 700; }
+@media (max-width: 640px) { #ss-app .ss-daily { grid-template-columns: auto 1fr; } #ss-app .ss-daily-act { grid-column: 1 / -1; } }
+
+/* Choose Your Path */
+#ss-app .ss-path-menu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 720px) { #ss-app .ss-path-menu { grid-template-columns: 1fr; } }
+#ss-app .ss-path-card { position: relative; background: var(--card); border: 2px solid var(--card-edge); border-radius: 14px; padding: 18px; text-align: start; font: inherit; color: inherit; cursor: pointer; box-shadow: var(--shadow-soft); }
+#ss-app .ss-path-card:hover { border-color: var(--gold); }
+#ss-app .ss-path-card strong { display: block; font-size: 17px; margin: 6px 0 4px; }
+#ss-app .ss-path-card small { color: var(--ink-soft); }
+#ss-app .ss-path-e { font-size: 32px; }
+#ss-app .ss-path-trail { margin: 0 0 14px; padding-inline-start: 22px; color: var(--ink-soft); font-size: 14px; }
+#ss-app .ss-path-choices { display: grid; gap: 10px; margin-top: 12px; }
+#ss-app .ss-path-end { border-radius: 12px; padding: 14px 16px; margin: 0 0 12px; border: 2px solid var(--card-edge); background: var(--card); }
+#ss-app .ss-path-end.good { border-color: var(--green); }
+#ss-app .ss-path-end.hard { border-color: var(--rose); }
+#ss-app .ss-path-outcome { font-family: var(--serif); font-size: 18px; margin: 0 0 10px; }
+[dir="rtl"] #ss-app .ss-path-outcome { font-family: inherit; }
+#ss-app .ss-path-lesson { line-height: 1.6; }
+#ss-app .ss-path-lesson a { color: var(--teal-deep); font-weight: 700; }
+
+/* Story quiz */
+#ss-app .ss-quiz { margin-top: 22px; background: var(--card); border: 1px solid var(--card-edge); border-radius: var(--radius-sm); padding: 16px 20px; }
+#ss-app .ss-quiz h3 { margin: 0 0 10px; font-family: var(--serif); }
+[dir="rtl"] #ss-app .ss-quiz h3 { font-family: inherit; }
+#ss-app .ss-quiz-q { padding: 10px 0; border-top: 1px solid var(--card-edge); }
+#ss-app .ss-quiz-q:first-of-type { border-top: 0; }
+#ss-app .ss-quiz-text { margin: 0 0 8px; }
+#ss-app .ss-quiz-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+#ss-app .ss-quiz-opt { background: var(--bg-soft); border: 2px solid var(--card-edge); border-radius: 10px; padding: 8px 12px; font: inherit; color: inherit; cursor: pointer; text-align: start; }
+#ss-app .ss-quiz-opt:hover:not([disabled]) { border-color: var(--gold); }
+#ss-app .ss-quiz-opt[disabled] { cursor: default; opacity: .75; }
+#ss-app .ss-quiz-opt.right { border-color: var(--green); background: rgba(91,140,79,.14); opacity: 1; }
+#ss-app .ss-quiz-opt.wrong { border-color: var(--rose); background: rgba(198,107,107,.12); opacity: 1; }
+#ss-app .ss-quiz-fb { margin: 8px 0 0; font-weight: 700; }
+#ss-app .ss-quiz-fb.ok { color: var(--green); }
+#ss-app .ss-quiz-fb.no { color: var(--rose); }
+#ss-app .ss-quiz-score { margin: 12px 0 0; font-weight: 800; color: var(--teal-deep); }

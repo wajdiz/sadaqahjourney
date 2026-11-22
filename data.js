@@ -210,7 +210,7 @@ const MODULE_B = [
     "years": [
       {
         "label": "Year 1",
-        "metric": "500 people gain daily clean water",
+        "metric": "500 person-years of clean water",
         "points": [
           "500 people (approx. 80–100 families) gain daily access to clean water",
           "Women and girls save 2–4 hours per day previously spent collecting water",
@@ -232,9 +232,9 @@ const MODULE_B = [
       },
       {
         "label": "Year 10",
-        "metric": "5,000+ people served",
+        "metric": "5,000+ person-years of clean water",
         "points": [
-          "Over 5,000 people have benefited from the well across a decade",
+          "About 5,000 person-years of clean water over a decade (around 500 people each year)",
           "A generation of children grows up without experiencing water scarcity",
           "Girls' school completion rates measurably higher than neighboring areas",
           "Local maintenance team has repaired the pump twice — community is self-sufficient",
@@ -243,16 +243,17 @@ const MODULE_B = [
       },
       {
         "label": "Year 20",
-        "metric": "10,000+ people served",
+        "metric": "10,000+ person-years of clean water",
         "points": [
-          "Estimated 10,000+ people served over 20 years (population grows, village expands)",
+          "About 10,000 person-years of clean water over 20 years, and more if the village grows",
           "Children born after the well have never known water scarcity — it becomes the new normal",
           "The well becomes a community landmark; used in hygiene education and school visits",
           "Second refurbishment may be needed; waqf endowment model ensures funding is available",
           "A $5,000–$10,000 donation has generated 20 years of life-changing benefit — one of the highest-impact forms of Sadaqah Jariyah"
         ]
       }
-    ]
+    ],
+    "how": "Assumes about 500 people use the well every year and that it keeps working with regular maintenance. A person-year is one person having clean water for one year: 500 people × 5 years = 2,500 person-years. The same people are counted again each year, so 10,000 person-years does not mean 10,000 different people."
   },
   {
     "id": "education",
@@ -271,7 +272,7 @@ const MODULE_B = [
     "years": [
       {
         "label": "Year 1",
-        "metric": "150–250 students enrolled",
+        "metric": "150–250 student-years of education",
         "points": [
           "1 school built with 2–4 classrooms, serving 150–250 students",
           "Up to 50 previously out-of-school children enrolled for the first time",
@@ -293,9 +294,9 @@ const MODULE_B = [
       },
       {
         "label": "Year 10",
-        "metric": "1,500–2,500 students educated",
+        "metric": "1,500–2,500 student-years of education",
         "points": [
-          "1,500–2,500 students educated over the decade",
+          "1,500–2,500 student-years of education over the decade",
           "First generation of graduates entering secondary education or vocational training",
           "Some graduates returning as teachers, multiplying the original investment",
           "School becomes the educational anchor for the region — neighboring villages send children",
@@ -304,16 +305,17 @@ const MODULE_B = [
       },
       {
         "label": "Year 20",
-        "metric": "3,000–5,000 children educated",
+        "metric": "3,000–5,000 student-years of education",
         "points": [
-          "3,000–5,000 children educated — an entire generation transformed",
+          "3,000–5,000 student-years of education: a whole generation of the village's children has passed through the school",
           "Second generation now in the school, whose parents were among the first graduates",
           "Village poverty levels measurably lower due to higher literacy and employability",
           "Some graduates have become doctors, engineers, teachers, business owners — all traced back to one school",
           "The school stands as permanent Sadaqah Jariyah: knowledge that keeps multiplying"
         ]
       }
-    ]
+    ],
+    "how": "Assumes 150–250 students attend each year. A student-year is one student in school for one year: 150–250 students × 20 years = 3,000–5,000 student-years. Each child stays for several years, so the number of different children is smaller."
   },
   {
     "id": "food",
@@ -332,7 +334,7 @@ const MODULE_B = [
     "years": [
       {
         "label": "Year 1",
-        "metric": "500 families fed",
+        "metric": "500 families fed; 200 start farming",
         "points": [
           "500 families (approx. 2,500 people) receive monthly food parcels for 6–12 months",
           "200 farming families receive agricultural starter kits and 2-day training",
@@ -343,7 +345,7 @@ const MODULE_B = [
       },
       {
         "label": "Year 5",
-        "metric": "200 farming families self-sufficient",
+        "metric": "200 farming families grow 60–80% of their food",
         "points": [
           "200 trained farming families now produce 60–80% of their own food needs",
           "Surplus farmers begin selling at local markets — food security becomes economic opportunity",
@@ -374,7 +376,8 @@ const MODULE_B = [
           "A $200 agricultural kit investment has generated 20 years of food production — a return no financial instrument can match"
         ]
       }
-    ]
+    ],
+    "how": "Year 1 counts two groups: 500 families who receive monthly food parcels ($30–$50 each) and 200 farming families who get starter kits and training. Later years follow the 200 farming families. Years 10 and 20 describe likely outcomes, not counts, and assume the program keeps running."
   },
   {
     "id": "healthcare",
@@ -393,7 +396,7 @@ const MODULE_B = [
     "years": [
       {
         "label": "Year 1",
-        "metric": "2,000–5,000 people served",
+        "metric": "1,200–2,000 consultations",
         "points": [
           "1 clinic serving a catchment population of 2,000–5,000 people",
           "1,200–2,000 patient consultations in the first year",
@@ -426,16 +429,17 @@ const MODULE_B = [
       },
       {
         "label": "Year 20",
-        "metric": "50,000–70,000 patient encounters",
+        "metric": "50,000–70,000 consultations",
         "points": [
-          "50,000–70,000 patient encounters over 20 years — a staggering number of lives touched",
+          "50,000–70,000 consultations over 20 years",
           "Life expectancy in the catchment area measurably higher than comparable unserved communities",
           "Children who received vaccines and nutrition support as infants are now healthy adults",
           "The clinic has become a training ground for the next generation of local health workers",
           "Hundreds of deaths prevented, thousands of illnesses treated — all from a single endowment"
         ]
       }
-    ]
+    ],
+    "how": "Counts all consultations since the clinic opened. Assumes 1,200–2,000 in the first year, rising to about 3,000–4,000 a year in the second decade as more people use the clinic. One person can visit many times, so these are visits, not people. The clinic serves an area of 2,000–5,000 people."
   },
   {
     "id": "orphan",
@@ -454,7 +458,7 @@ const MODULE_B = [
     "years": [
       {
         "label": "Year 1",
-        "metric": "100 orphans enrolled",
+        "metric": "100 child-years of support",
         "points": [
           "100 orphaned children enrolled in the sponsorship program",
           "All 100 children enrolled in school — many for the first time",
@@ -476,7 +480,7 @@ const MODULE_B = [
       },
       {
         "label": "Year 10",
-        "metric": "First sponsored children reach adulthood",
+        "metric": "1,000 child-years of support",
         "points": [
           "First sponsored children reaching adulthood — some completing secondary school, entering university or work",
           "Children who entered at age 5–6 are now 15–16 with education and prospects",
@@ -487,7 +491,7 @@ const MODULE_B = [
       },
       {
         "label": "Year 20",
-        "metric": "Generational change",
+        "metric": "2,000 child-years of support",
         "points": [
           "Multiple cohorts of children have grown into educated, self-sufficient adults",
           "Some former sponsored children now sponsor orphans themselves — generosity multiplied",
@@ -496,7 +500,8 @@ const MODULE_B = [
           "Every $30/month sponsor investment has shaped an entire human life — no donation is more personal"
         ]
       }
-    ]
+    ],
+    "how": "Assumes 100 children are sponsored at any one time, each for the whole year. A child-year is one child supported for one year: 100 children × 10 years = 1,000 child-years. When older children leave the program, new children take their places. The totals do not count any growth beyond 100 places."
   },
   {
     "id": "refugee",
@@ -515,7 +520,7 @@ const MODULE_B = [
     "years": [
       {
         "label": "Year 1",
-        "metric": "200 families resettled",
+        "metric": "200 families (1,000 people) supported",
         "points": [
           "200 displaced families (1,000 people) receive emergency shelter, food, and basic services",
           "All 300+ school-age children in the program enrolled in local or camp schools",
@@ -526,7 +531,7 @@ const MODULE_B = [
       },
       {
         "label": "Year 5",
-        "metric": "60–70% families self-sufficient",
+        "metric": "120–140 of the 200 families self-sufficient",
         "points": [
           "60–70% of originally supported families now partially or fully economically self-sufficient",
           "Children who arrived as refugees have completed 4–5 years of education in the host country",
@@ -541,7 +546,7 @@ const MODULE_B = [
         "points": [
           "First cohort of refugee children completing secondary education — some entering university",
           "Families who arrived with nothing now living in stable housing, paying rent or owning small businesses",
-          "Children born in host country to refugee parents are full citizens with full futures",
+          "Children born to refugee parents in the host country grow up in stable homes and go to school",
           "Former refugees contributing to local economy as workers, business owners, taxpayers",
           "Some families able to contribute to the charity that once helped them — full circle"
         ]
@@ -557,7 +562,8 @@ const MODULE_B = [
           "A decision to invest in 200 families in year one has created generational change for thousands"
         ]
       }
-    ]
+    ],
+    "how": "Follows the same 200 families (about 1,000 people) supported in Year 1. Year 5 assumes 60–70% of them can support themselves, which is 120–140 families. Years 10 and 20 describe likely outcomes, not counts. Real results depend a lot on the host country's laws, including the right to work."
   },
   {
     "id": "mosque",
@@ -576,7 +582,7 @@ const MODULE_B = [
     "years": [
       {
         "label": "Year 1",
-        "metric": "300–500 worshippers",
+        "metric": "300–500 at Friday prayer",
         "points": [
           "1 mosque built, accommodating 300–500 worshippers for Friday prayers",
           "Community has a dedicated, dignified space for the 5 daily prayers",
@@ -587,7 +593,7 @@ const MODULE_B = [
       },
       {
         "label": "Year 5",
-        "metric": "400–600 regular worshippers",
+        "metric": "400–600 at Friday prayer",
         "points": [
           "Friday congregation grows to 400–600 regular worshippers as community expands",
           "Maktab graduates first cohort: 50+ children complete basic Quran memorization",
@@ -618,7 +624,8 @@ const MODULE_B = [
           "The donor's name is written in the waqf deed — remembered and prayed for by every person who prays there"
         ]
       }
-    ]
+    ],
+    "how": "Years 1 and 5 count people at Friday prayer each week, not totals over time. Year 10 assumes the mosque's Zakat and Sadaqah collection helps 50–100 local families a year. Years 10 and 20 describe the mosque's role, not counts."
   },
   {
     "id": "emergency",
@@ -637,7 +644,7 @@ const MODULE_B = [
     "years": [
       {
         "label": "Year 1",
-        "metric": "1,000 families reached",
+        "metric": "5,000 people (1,000 families) reached",
         "points": [
           "1,000 families (5,000 people) receive emergency kits within 72 hours of a disaster",
           "Field medical team treats 500+ injured or sick survivors",
@@ -679,7 +686,8 @@ const MODULE_B = [
           "Emergency relief is the highest-stakes form of charity: donations given today could save a life tomorrow"
         ]
       }
-    ]
+    ],
+    "how": "Counts everyone reached since the fund started, across all the disasters it responds to (3–5 by Year 5, 7–12 by Year 10). Year 1 is one response: 1,000 families of about 5 people each. Later years assume donors keep refilling the fund, because one gift on its own would be used up in the first response."
   },
   {
     "id": "waqf",
@@ -740,7 +748,8 @@ const MODULE_B = [
           "This is Sadaqah Jariyah in its most powerful form: wealth transformed into an eternal act of worship"
         ]
       }
-    ]
+    ],
+    "how": "Assumes $100,000 is invested in property that earns 8–10% a year, all income is given away, and the $100,000 itself is kept. $8,000–$10,000 × 20 years = $160,000–$200,000. Real returns change from year to year and can be lower, and buildings need repairs."
   }
 ];
 const MODULE_C = [
@@ -890,6 +899,21 @@ const MODULE_C = [
           "Player can switch between project areas to compare."
         ],
         "outcome": "Players connect abstract money amounts to concrete human impact and understand that small amounts genuinely matter.",
+        "difficulty": "Medium"
+      },
+      {
+        "id": "choose-path",
+        "title": "Choose Your Path",
+        "icon": "🧭",
+        "concept": "A branching story game. Players face everyday situations about helping others and choose what to do; each choice changes what happens next.",
+        "how": [
+          "Pick one of three situations.",
+          "Read what is happening and choose what you would do.",
+          "Your choice leads to a new situation or to an ending.",
+          "Each ending shows what happened and a lesson with its Qur'an or hadith source.",
+          "Play again to try a different path."
+        ],
+        "outcome": "Players practise giving decisions that involve dignity, privacy, trust and timing, not only money.",
         "difficulty": "Medium"
       }
     ]
