@@ -174,8 +174,8 @@ window.SADAQAH_STORIES = {
       "evidenceStatus": "Historical tradition; details may vary",
       "sources": [
         {
-          "name": "Early biographical accounts of Umar; some details are not hadith-authenticated",
-          "url": "https://sunnah.com/bukhari:6005"
+          "name": "Musannaf Abd al-Razzaq 9811: report about Umar's allowance for newborns (a report about Umar, not a hadith of the Prophet)",
+          "url": "https://hadithunlocked.com/abdalrazzaq:9811"
         }
       ]
     },
@@ -528,7 +528,7 @@ window.SADAQAH_STORIES = {
         },
         {
           "img": "stories_en/en_22_p2.jpg",
-          "text": "In Baghdad, the Mustansiriyya school opened in 1233 CE. It became known for its learning spaces and its books. Other book collections were very different from each other, both in who could use them and in how they were paid for."
+          "text": "In Baghdad, the Mustansiriyya school opened in 631 AH (1234 CE). It became known for its learning spaces and its books. Other book collections were very different from each other, both in who could use them and in how they were paid for."
         },
         {
           "img": "stories_en/en_22_p3.jpg",
@@ -609,7 +609,7 @@ window.SADAQAH_STORIES = {
       "sources": [
         {
           "name": "Historical overview of waqf hospitality; specific buildings and access policies vary",
-          "url": "https://quran.com/9/60"
+          "url": ""
         }
       ]
     },
@@ -849,7 +849,7 @@ window.SADAQAH_STORIES = {
       "sources": [
         {
           "name": "Overview of historic hammams and charitable endowment; specific access rules need deed citations",
-          "url": "https://quran.com/2/222"
+          "url": ""
         }
       ]
     },
@@ -987,7 +987,7 @@ window.SADAQAH_STORIES = {
         },
         {
           "img": "stories_en/en_46_p2.jpg",
-          "text": "Reports published before 2021 mention two of these projects. One is the Al-Shaimaa girls' school. The other is the new classrooms added at Fahd Al-Sabah School."
+          "text": "A report published in February 2021 mentions two of these projects. One is the Al-Shaimaa girls' school. The other is the new classrooms added at Fahd Al-Sabah School."
         },
         {
           "img": "stories_en/en_46_p3.jpg",
@@ -1092,8 +1092,8 @@ window.SADAQAH_STORIES = {
       "evidenceStatus": "Historical tradition; details may vary",
       "sources": [
         {
-          "name": "Early sira and biographical traditions about Nusaybah; detailed battlefield claims need evaluation",
-          "url": "https://quran.com/5/2"
+          "name": "Early sira and biographical works, such as Ibn Sa'd's al-Tabaqat al-Kubra; battlefield details vary between reports",
+          "url": ""
         }
       ]
     },
@@ -1147,7 +1147,7 @@ window.SADAQAH_STORIES = {
           "text": "Sahih al-Bukhari 6294 records that the Prophet (peace be upon him) warned that fire is an enemy and should be put out before sleeping. Sahih Muslim 1009 teaches that removing something harmful from a road is an act of charity."
         }
       ],
-      "evidenceStatus": "Authenticated hadith cited",
+      "evidenceStatus": "General historical overview; not a verified individual incident",
       "sources": [
         {
           "name": "Sahih al-Bukhari 6294; Sahih Muslim 1009",
@@ -1433,8 +1433,8 @@ window.SADAQAH_STORIES = {
       "evidenceStatus": "رواية تاريخية؛ قد تختلف تفاصيلها",
       "sources": [
         {
-          "name": "المصدر: Early biographical accounts of Umar; some details are not hadith-authenticated",
-          "url": "https://sunnah.com/bukhari:6005"
+          "name": "المصدر: مصنف عبد الرزاق 9811، خبر عن عطاء عمر للمولود (خبر عن عمر وليس حديثاً نبوياً)",
+          "url": "https://hadithunlocked.com/abdalrazzaq:9811"
         }
       ]
     },
@@ -1787,7 +1787,7 @@ window.SADAQAH_STORIES = {
         },
         {
           "img": "stories_ar/ar_22_p2.jpg",
-          "text": "وفي بغداد، افتُتحت المدرسة المستنصرية سنة 1233م، واشتهرت بمرافقها التعليمية وكتبها. أما المكتبات الأخرى فكانت تختلف كثيراً فيمن يحق له استخدامها، وفي طريقة تمويلها."
+          "text": "وفي بغداد، افتُتحت المدرسة المستنصرية سنة 631هـ (1234م)، واشتهرت بمرافقها التعليمية وكتبها. أما المكتبات الأخرى فكانت تختلف كثيراً فيمن يحق له استخدامها، وفي طريقة تمويلها."
         },
         {
           "img": "stories_ar/ar_22_p3.jpg",
@@ -1868,7 +1868,7 @@ window.SADAQAH_STORIES = {
       "sources": [
         {
           "name": "المصدر: Historical overview of waqf hospitality; specific buildings and access policies vary",
-          "url": "https://quran.com/9/60"
+          "url": ""
         }
       ]
     },
@@ -2108,7 +2108,7 @@ window.SADAQAH_STORIES = {
       "sources": [
         {
           "name": "المصدر: Overview of historic hammams and charitable endowment; specific access rules need deed citations",
-          "url": "https://quran.com/2/222"
+          "url": ""
         }
       ]
     },
@@ -2246,7 +2246,7 @@ window.SADAQAH_STORIES = {
         },
         {
           "img": "stories_ar/ar_46_p2.jpg",
-          "text": "وتذكر تقارير نُشرت قبل عام 2021 مشروعين من هذه المشروعات: مدرسة الشيماء للبنات، والفصول التي أضيفت إلى مدرسة فهد الصباح."
+          "text": "ويذكر تقرير نُشر في فبراير 2021 مشروعين من هذه المشروعات: مدرسة الشيماء للبنات، والفصول التي أضيفت إلى مدرسة فهد الصباح."
         },
         {
           "img": "stories_ar/ar_46_p3.jpg",
@@ -2351,8 +2351,8 @@ window.SADAQAH_STORIES = {
       "evidenceStatus": "رواية تاريخية؛ قد تختلف تفاصيلها",
       "sources": [
         {
-          "name": "المصدر: Early sira and biographical traditions about Nusaybah; detailed battlefield claims need evaluation",
-          "url": "https://quran.com/5/2"
+          "name": "المصدر: كتب السيرة والتراجم المبكرة، مثل الطبقات الكبرى لابن سعد؛ وتختلف تفاصيل المعركة بين الروايات",
+          "url": ""
         }
       ]
     },
@@ -2406,7 +2406,7 @@ window.SADAQAH_STORIES = {
           "text": "ورد في صحيح البخاري (6294) أن النبي ﷺ حذّر من النار وبيّن أنها عدو، وأمر بإطفائها عند النوم. وورد في صحيح مسلم (1009) أن إماطة الأذى عن الطريق، أي إزالة ما يضر الناس منه، صدقة."
         }
       ],
-      "evidenceStatus": "حديث صحيح موثق",
+      "evidenceStatus": "عرض تاريخي عام وليس حادثة موثقة بعينها",
       "sources": [
         {
           "name": "المصدر: Sahih al-Bukhari 6294; Sahih Muslim 1009",

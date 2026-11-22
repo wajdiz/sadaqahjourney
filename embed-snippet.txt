@@ -7,7 +7,7 @@
   <iframe src="https://sadaqahjourney.com/"
           title="Sadaqah Stories — interactive charity learning app"
           loading="lazy"
-          allow="fullscreen"
+          allow="fullscreen; clipboard-write"
           referrerpolicy="no-referrer-when-downgrade"
           style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
 </div>
@@ -20,11 +20,15 @@
 -->
 
 <!-- To deep-link to a specific screen, append a hash to the src:
-     #/module-a   Stories of the Past (10 historical figures)
-     #/module-b   Impact Simulator (9 projects x 4 time horizons)
-     #/module-c   Youth Mini-Games (9 games, 3 age groups)
-     #/module-d   Community Wall (guidelines + 5 sample stories + submission)
-     #/play/giving-tree           open a specific game
-     #/story/fatima               open a specific story
-     #/badges                     stars & achievements
--->
+     #/module-a          Stories of the Past (41 stories)
+     #/module-b          Impact Simulator (9 projects, years 1/5/10/20)
+     #/module-c          Play & Learn (games for the chosen age group)
+     #/module-d          Community Wall (guidelines, 5 example stories, your own stories)
+     #/play/giving-tree  open a specific game
+     #/story/02          open a specific story (ids 01 to 60, see data-stories.js)
+     #/progress          stars and badges
+     #/teach             Teachers & Workshops
+     #/help              Help
+     Screens inside the app ask for a language and an age group first if none is set.
+     Some browsers block storage in embedded frames; the app still works, but progress
+     is not kept between visits. -->

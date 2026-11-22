@@ -122,7 +122,7 @@ id: "water",
 years_art: ["water_y1.jpeg", "water_y5.jpeg", "water_y10.jpeg", "water_y20.jpeg"],
 ```
 
-To use custom images: name them `<id>_y1.jpg` … `_y20.jpg` (`<id>` = water, education, food, healthcare, orphan, refugee, mosque, emergency, waqf), drop into `assets/`, and update the array if the extension differs. Missing files auto-fallback to the project's main `art` image. A CSS class (`.yr-1` → `.yr-20`) layers a scale/saturation effect so even a single image visibly "grows".
+To use custom images: name them `<id>_y1.jpg` … `_y20.jpg` (`<id>` = water, education, food, healthcare, orphan, refugee, mosque, emergency, waqf), drop into `assets/`, and update the array if the extension differs. These files are not in `assets/` yet, so `impactArt()` in `app.js` shows the main `art` image for every year (`USE_YEAR_ART = false`). After adding the files, set `USE_YEAR_ART` to `true`. A CSS class (`.yr-1` → `.yr-20`) layers a scale/saturation effect so even a single image visibly "grows".
 
 **Project IDs → suggested Year 1 → Year 20 progression:**
 | id | Progression |
@@ -194,6 +194,14 @@ no age group needed). Content is in `data-teach.js`, the views and planner in `t
   Printing renders only the sheet (`#ss-print-sheet`, print rules in `styles.css`) in the language on screen.
 - **For scholars**: what the site simplifies, every point where a game says scholars differ, all Qur'an and
   hadith links used in games, activities and daily challenges, and each story's evidence label and sources.
+
+## Security and storage
+
+- `index.html` sets a Content Security Policy: scripts only from the site itself, frames only from
+  `youtube-nocookie.com`, no inline scripts or event handlers. Keep new code free of inline `<script>` and `on...=` attributes.
+- All browser storage goes through `store` in `app.js`, which never throws. The app still runs when storage is
+  blocked (for example in an embedded frame with third-party cookies blocked) or when stored values are damaged.
+- Text typed by users (wall stories, project names, search boxes, the workshop planner) is escaped before it is shown.
 
 ## Navigation
 
