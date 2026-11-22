@@ -331,8 +331,12 @@ window.SADAQAH_STORIES = {
       "evidenceStatus": "Documented historical or organizational source",
       "sources": [
         {
-          "name": "Qatar Red Crescent Society: Yemen mobile clinics and health-project reporting",
+          "name": "Qatar Red Crescent Society, 29 December 2025: free care, medicines and referrals at two health complexes in Sanaa for refugees and local residents",
           "url": "https://www.qrcs.org.qa/en/News/Pages/QRCS-provides-medical-care-for-refugees-and-locals-in-Yemen.aspx?NewsId=yC8un7F3UVA%3D"
+        },
+        {
+          "name": "The Peninsula, 7 March 2024: QRCS mobile clinics visiting camps for displaced people in Dhale Governorate",
+          "url": "https://thepeninsulaqatar.com/article/07/03/2024/qrcs-ocha-reach-out-to-vulnerable-people-in-yemen"
         }
       ]
     },
@@ -480,12 +484,12 @@ window.SADAQAH_STORIES = {
       "evidenceStatus": "Documented historical or organizational source",
       "sources": [
         {
-          "name": "Jami at-Tirmidhi 807 (sahih); Qatar Charity official website",
+          "name": "Jami at-Tirmidhi 807 (sahih)",
           "url": "https://sunnah.com/tirmidhi:807"
         },
         {
-          "name": "Further source",
-          "url": "https://www.qcharity.org/"
+          "name": "Qatar News Agency, 15 February 2026: Qatar Charity's Ramadan campaign and its Feed the Fasting project (food baskets or ready meals)",
+          "url": "https://qna.org.qa/en/News-Area/News/2026-2/15/qatar-charity-launches-ramadan-1447-ah-campaign"
         }
       ]
     },
@@ -1590,8 +1594,12 @@ window.SADAQAH_STORIES = {
       "evidenceStatus": "مصدر تاريخي أو مؤسسي موثق",
       "sources": [
         {
-          "name": "المصدر: Qatar Red Crescent Society: Yemen mobile clinics and health-project reporting",
+          "name": "المصدر: الهلال الأحمر القطري، 29 ديسمبر 2025: رعاية مجانية وأدوية وإحالات في مجمعين صحيين بصنعاء للاجئين والسكان المحليين",
           "url": "https://www.qrcs.org.qa/en/News/Pages/QRCS-provides-medical-care-for-refugees-and-locals-in-Yemen.aspx?NewsId=yC8un7F3UVA%3D"
+        },
+        {
+          "name": "صحيفة ذا بينينسولا، 7 مارس 2024: عيادات متنقلة للهلال الأحمر القطري تزور مخيمات النازحين في محافظة الضالع",
+          "url": "https://thepeninsulaqatar.com/article/07/03/2024/qrcs-ocha-reach-out-to-vulnerable-people-in-yemen"
         }
       ]
     },
@@ -1739,12 +1747,12 @@ window.SADAQAH_STORIES = {
       "evidenceStatus": "مصدر تاريخي أو مؤسسي موثق",
       "sources": [
         {
-          "name": "المصدر: Jami at-Tirmidhi 807 (sahih); Qatar Charity official website",
+          "name": "المصدر: Jami at-Tirmidhi 807 (sahih)",
           "url": "https://sunnah.com/tirmidhi:807"
         },
         {
-          "name": "مصدر إضافي",
-          "url": "https://www.qcharity.org/"
+          "name": "وكالة الأنباء القطرية، 15 فبراير 2026: حملة رمضان لقطر الخيرية ومشروع إفطار الصائم (سلال غذائية أو وجبات جاهزة)",
+          "url": "https://qna.org.qa/en/News-Area/News/2026-2/15/qatar-charity-launches-ramadan-1447-ah-campaign"
         }
       ]
     },
