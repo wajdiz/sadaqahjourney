@@ -941,3 +941,8 @@
   #ss-print-sheet .ps-table tr, #ss-print-sheet li { break-inside: avoid; }
   #ss-print-sheet * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+/* ===================== v9: audit fixes ===================== */
+#ss-app ol.ss-evidence-links { display: block; margin: 6px 0 0; padding-inline-start: 22px; font-size: 13px; }
+#ss-app ol.ss-evidence-links li { margin: 2px 0; }
+#ss-app .ss-year-note { font-size: 12px; font-style: italic; color: var(--ink-soft); margin: 4px 0 8px; }

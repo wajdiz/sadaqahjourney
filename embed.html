@@ -32,17 +32,17 @@
      under <code>embed-snippet.txt</code> into any web page and point the
      <code>src</code> at wherever you host the <code>app/</code> folder.</p>
 
-  <!-- ============ EMBED SNIPPIT (copy this block) ============ -->
+  <!-- ============ EMBED SNIPPET (copy this block) ============ -->
   <div class="sadaqah-embed">
     <iframe src="index.html"
             title="Sadaqah Stories — interactive charity learning app"
             loading="lazy"
-            allow="fullscreen"
+            allow="fullscreen; clipboard-write"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
   <!-- ============ END SNIPPET ============ -->
 
-  <p style="font-size:13px;color:#999;">Tip: the app is fully self-contained (no external requests, no build step,
-     no API keys) so it works from any static host, CMS, or LMS that allows iframes.</p>
+  <p style="font-size:13px;color:#999;">Tip: the app has no build step and no API keys, so it works from any static host, CMS, or LMS
+     that allows iframes. Story videos load from YouTube (youtube-nocookie.com); everything else is served with the app.</p>
 </body>
 </html>

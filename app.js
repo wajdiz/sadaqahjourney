@@ -14,13 +14,26 @@
   function validLang(v) { return v === "en" || v === "ar" ? v : null; }
   function validAge(v) { return v === "7-10" || v === "11-14" || v === "15-18" || v === "adults" ? v : null; }
 
+  /* ----------------------------- Storage --------------------------------
+     Browsers can block storage (private modes, embedded third-party frames)
+     or refuse writes when full, and stored values can be damaged. None of
+     that should stop the app from loading. */
+  const store = {
+    get(k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } },
+    set(k, v) { try { window.localStorage.setItem(k, v); } catch (e) {} },
+    del(k) { try { window.localStorage.removeItem(k); } catch (e) {} },
+    json(k, fallback, ok) { try { const v = JSON.parse(this.get(k)); return v != null && ok(v) ? v : fallback; } catch (e) { return fallback; } },
+  };
+  const isArr = Array.isArray;
+  const isObj = (v) => v && typeof v === "object" && !isArr(v);
+
   /* ----------------------------- State ---------------------------------- */
   const state = {
     route: "home",
     params: {},
-    lang: validLang(localStorage.getItem("ss_lang")) || "en",
-    prefLang: validLang(localStorage.getItem("ss_lang")) || validLang(localStorage.getItem("ss_pref_lang")) || "en",
-    age: validAge(localStorage.getItem("ss_age")),   // "7-10" | "11-14" | "15-18" | "adults"
+    lang: validLang(store.get("ss_lang")) || "en",
+    prefLang: validLang(store.get("ss_lang")) || validLang(store.get("ss_pref_lang")) || "en",
+    age: validAge(store.get("ss_age")),   // "7-10" | "11-14" | "15-18" | "adults"
     lastModule: null,          // for completion screen context
     simId: "water",
     simYear: 0,
@@ -28,22 +41,22 @@
     storyPage: 0,
     storyQuery: "",
     lexQuery: "",
-    stars: Number(localStorage.getItem("ss_stars") || 0),
-    badges: JSON.parse(localStorage.getItem("ss_badges") || "[]"),
-    wall: JSON.parse(localStorage.getItem("ss_wall") || "[]"),
-    stats: JSON.parse(localStorage.getItem("ss_stats") || '{"modulesDone":[],"storiesRead":[],"gamesPlayed":[]}'),
+    stars: Math.max(0, Math.floor(Number(store.get("ss_stars")) || 0)),
+    badges: store.json("ss_badges", [], isArr).filter((b) => isObj(b) && typeof b.id === "string"),
+    wall: store.json("ss_wall", [], isArr).filter((w) => isObj(w) && typeof w.body === "string"),
+    stats: (function () { const v = store.json("ss_stats", {}, isObj); ["modulesDone", "storiesRead", "gamesPlayed"].forEach((k) => { if (!isArr(v[k])) v[k] = []; }); return v; })(),
     _mem: null, _fill: null, _tree: null, _comm: null, _zakat: null,
     _chain: null, _waqf: null, _dilemma: null, _calc: null,
   };
 
   function save() {
-    localStorage.setItem("ss_stars", String(state.stars));
-    localStorage.setItem("ss_badges", JSON.stringify(state.badges));
-    localStorage.setItem("ss_wall", JSON.stringify(state.wall));
-    localStorage.setItem("ss_stats", JSON.stringify(state.stats));
-    if (state.lang) { localStorage.setItem("ss_lang", state.lang); localStorage.setItem("ss_pref_lang", state.lang); state.prefLang = state.lang; }
-    else localStorage.removeItem("ss_lang");
-    if (state.age) localStorage.setItem("ss_age", state.age);
+    store.set("ss_stars", String(state.stars));
+    store.set("ss_badges", JSON.stringify(state.badges));
+    store.set("ss_wall", JSON.stringify(state.wall));
+    store.set("ss_stats", JSON.stringify(state.stats));
+    if (state.lang) { store.set("ss_lang", state.lang); store.set("ss_pref_lang", state.lang); state.prefLang = state.lang; }
+    else store.del("ss_lang");
+    if (state.age) store.set("ss_age", state.age);
   }
   function t(key) { return window.t ? window.t(key, state.lang) : key; }
   function L(obj, field) { return window.L ? window.L(obj, field, state.lang) : (obj ? obj[field] : ""); }
@@ -134,7 +147,7 @@
     const helpChip = sec ? `<button type="button" class="ss-help-chip" data-go="help" data-id="${sec}" aria-label="${t("nav.help")}">? ${t("nav.help")}</button>` : "";
     // After opening a game or story from the teacher section, offer a way back to the kit.
     const tr = state.teachReturn;
-    const teachChip = tr && state.route !== "teach" ? `<button type="button" class="ss-help-chip ss-teach-chip" data-go="teach" data-id="${tr}">↩ ${/^k\d/.test(tr) ? t("nav.backKit") : t("nav.backTeach")}</button>` : "";
+    const teachChip = tr && state.route !== "teach" ? `<button type="button" class="ss-help-chip ss-teach-chip" data-go="teach" data-id="${esc(tr)}">↩ ${/^k\d/.test(tr) ? t("nav.backKit") : t("nav.backTeach")}</button>` : "";
     return `<div class="ss-backrow"><button type="button" class="ss-back" data-go="${to}">${label}</button><span class="ss-backrow-chips">${teachChip}${helpChip}</span></div>`;
   }
   const HELP_FOR = { modules: "start", "module-a": "stories", story: "stories", "module-b": "simulator", "module-c": "games", play: "games",
@@ -302,7 +315,7 @@
   function dailyCard() {
     const it = dailyItem(); if (!it) return "";
     const ar = isRTL();
-    let done = false; try { done = localStorage.getItem("ss_daily_done") === todayKey(); } catch (err) {}
+    const done = store.get("ss_daily_done") === todayKey();
     return `
       <div class="ss-daily" aria-label="${ar?"تحدي الصدقة اليومي":"Daily Sadaqah challenge"}">
         <div class="ss-daily-e">${it.e}</div>
@@ -323,10 +336,16 @@
   const STORIES = window.SADAQAH_STORIES || { en: [], ar: [] };
   function stories() { return STORIES[state.lang] || STORIES.en; }
 
+  // Search text: lower case, no Latin accents (ṣ → s), no Arabic diacritics or
+  // tatweel, and common Arabic letter variants folded (أ إ آ → ا, ى → ي, ة → ه).
+  function fold(x) {
+    return String(x || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+      .replace(/[\u064B-\u0655\u0670\u0640]/g, "").replace(/[أإآٱ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه").replace(/[ʿʾ'’`]/g, "");
+  }
   function moduleA() {
     const list = stories();
-    const q = (state.storyQuery || "").toLowerCase();
-    const filtered = q ? list.filter((s) => s.title.toLowerCase().includes(q) || s.pages.some((p) => (p.text || "").toLowerCase().includes(q))) : list;
+    const q = fold(state.storyQuery).trim();
+    const filtered = q ? list.filter((s) => fold(s.title).includes(q) || s.pages.some((p) => fold(p.text).includes(q))) : list;
     const readIds = (state.stats && state.stats.storiesRead) || [];
     return `
       <div class="ss-section-head">
@@ -334,7 +353,7 @@
         <p>${t("mod.stories.desc")}</p>
       </div>
       <div class="ss-search-bar">
-        <input type="search" id="ss-story-search" placeholder="${t("search.stories")}" value="${state.storyQuery || ""}" data-act-input="story-search">
+        <input type="search" id="ss-story-search" placeholder="${t("search.stories")}" value="${esc(state.storyQuery || "")}" data-act-input="story-search">
         <span class="ss-search-count">${filtered.length} / ${list.length}</span>
       </div>
       <div class="ss-grid">
@@ -376,7 +395,7 @@
         <div class="ss-story-evidence" aria-label="Source and evidence status">
           <div class="ss-evidence-label">${isRTL()?"حالة التوثيق":"Evidence status"}: ${esc(s.evidenceStatus || "")}</div>
           <div class="ss-evidence-disclaimer">${isRTL()?"الصور رسوم توضيحية وليست توثيقاً مصوراً للوقائع. وقد لا تؤيد المصادر كل تفصيل تفسيري.":"Illustrations are artistic interpretations, not historical photographs. Linked sources may not substantiate every interpretive detail."}</div>
-          <div class="ss-evidence-links">${(s.sources||[]).map((v,i)=>`<a href="${esc(v.url)}" target="_blank" rel="noopener noreferrer" aria-label="${isRTL()?"المصدر":"Source"} ${i+1}: ${esc(v.name)}">${isRTL()?"المصدر":"Source"} ${i+1} ↗</a>`).join(" ")}</div>
+          <ol class="ss-evidence-links">${(s.sources||[]).map((v)=>{ const nm = sourceName(v); return `<li>${v.url ? `<a href="${esc(v.url)}" target="_blank" rel="noopener noreferrer"><bdi>${esc(nm)}</bdi> ↗</a>` : `<bdi>${esc(nm)}</bdi>`}</li>`; }).join("")}</ol>
         </div>
         <div class="ss-fb-nav">
           <button class="ss-fb-arrow" data-act="fb-prev" ${page===0?'disabled':''}>${isRTL()?"→":"←"}</button>
@@ -454,6 +473,7 @@
           <div class="ss-year-prog">${[0,1,2,3].map((i) => `<span class="${i<=yi?'on':''}"></span>`).join("")}</div>
           <h3 class="ss-year-h">${t("year."+["1","5","10","20"][yi])}</h3>
           <div class="ss-year-metric">${L(yr,"metric")}</div>
+          <p class="ss-year-note">${isRTL()?"نتائج ممكنة في هذا المثال، وليست نتائج مشروع حقيقي.":"Possible results in this example, not results from a real project."}</p>
           <ul>${(L(yr,"points") || yr.points).map((p) => `<li>${p}</li>`).join("")}</ul>
         </div>
         ${sim.how ? `<div class="ss-sim-how"><h4>${isRTL()?"كيف قدّرنا هذه الأرقام":"How these numbers are estimated"}</h4><p>${L(sim,"how")}</p></div>` : ""}
@@ -532,15 +552,12 @@
   */
   function impactArt(project, yearIdx) {
     const yrClass = ["yr-1", "yr-5", "yr-10", "yr-20"][yearIdx];
-    const yearFiles = (project.years_art && project.years_art.length === 4)
-      ? project.years_art
-      : [project.art, project.art, project.art, project.art];
-    const fallback = project.art;
-    const file = yearFiles[yearIdx] || fallback;
-    // onerror: if the per-year image is absent, fall back to the main art,
-    // then strip the handler so it doesn't loop.
-    return `<img class="ss-sim-img ${yrClass}" src="${ASSET}${file}" alt="${L(project,"title")}"
-      onerror="if(this.src.indexOf('${ASSET}${fallback}')<0){this.src='${ASSET}${fallback}';}else{this.onerror=null;}">`;
+    // Per-year pictures (years_art in data.js) are not in assets/ yet, so the
+    // main picture is used for every year; the yr-* class changes its look.
+    // To use per-year pictures, add the files and set USE_YEAR_ART to true.
+    const USE_YEAR_ART = false;
+    const file = (USE_YEAR_ART && project.years_art && project.years_art[yearIdx]) || project.art;
+    return `<img class="ss-sim-img ${yrClass}" src="${ASSET}${file}" alt="${esc(L(project,"title"))}">`;
   }
 
   /* ----------------------------- MODULE C (games) ----------------------- */
@@ -692,6 +709,18 @@
       </div>`;
   }
 
+  // A readable name for a story source. Generic names ("Further source") are
+  // replaced by the collection and number taken from the link.
+  function sourceName(v) {
+    const ar = isRTL();
+    let nm = String(v.name || "").replace(/^المصدر:\s*/, "");
+    if (nm && !/^(Further source|مصدر إضافي)$/i.test(nm)) return nm;
+    const u = String(v.url || ""), h = u.match(/sunnah\.com\/([a-z]+):(\w+)/), q = u.match(/quran\.com\/(\d+)(?:\/([\d-]+))?/);
+    const C = { bukhari: ["Sahih al-Bukhari", "صحيح البخاري"], muslim: ["Sahih Muslim", "صحيح مسلم"], tirmidhi: ["Jami at-Tirmidhi", "جامع الترمذي"], abudawud: ["Sunan Abi Dawud", "سنن أبي داود"], ahmad: ["Musnad Ahmad", "مسند أحمد"] };
+    if (h && C[h[1]]) return C[h[1]][ar ? 1 : 0] + " " + h[2];
+    if (q) return (ar ? "القرآن الكريم " : "Qur'an ") + q[1] + (q[2] ? ":" + q[2] : "");
+    return ar ? "مصدر إضافي" : "Further source";
+  }
   function esc(s) { return String(s).replace(/[&<>"']/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c])); }
 
   /* ========================================================================
@@ -1081,12 +1110,10 @@
       ? ["المصطلح", "الاستخدام"]
       : ["Arabic", "Transliteration", "English Usage"];
     function cell(val) { return "<td>" + (val || "") + "</td>"; }
-    const q = (state.lexQuery || "").toLowerCase();
+    const q = fold(state.lexQuery).trim();
     const filtered = q ? L.filter((e) =>
-      (e.arabic || "").toLowerCase().includes(q) ||
-      (e.translit || "").toLowerCase().includes(q) ||
-      (e.en_use || "").toLowerCase().includes(q) ||
-      (e.ar_use || "").toLowerCase().includes(q)) : L;
+      fold(e.arabic).includes(q) || fold(e.translit).includes(q) ||
+      fold(e.en_use).includes(q) || fold(e.ar_use).includes(q)) : L;
     const rows = filtered.map((e) => {
       if (ar) return "<tr>" + cell(e.arabic) + cell(e.ar_use) + "</tr>";
       return "<tr>" + cell(e.arabic) + cell(e.translit) + cell(e.en_use) + "</tr>";
@@ -1097,7 +1124,7 @@
         <p class="ss-lex-intro">${intro.body}</p>
       </div>
       <div class="ss-search-bar">
-        <input type="search" id="ss-lex-search" placeholder="${t("search.lex")}" value="${state.lexQuery || ""}" data-act-input="lex-search">
+        <input type="search" id="ss-lex-search" placeholder="${t("search.lex")}" value="${esc(state.lexQuery || "")}" data-act-input="lex-search">
         <span class="ss-search-count">${filtered.length} / ${L.length}</span>
       </div>
       <div class="ss-lex-table-wrap">
@@ -1179,7 +1206,7 @@
       case "waqf-reset": waqfReset(tEl.getAttribute("data-step")); break;
       case "dilemma": dilemmaChoose(tEl.getAttribute("data-d")); break;
       case "dilemma-next": dilemmaNext(); break;
-      case "daily-done": { try { localStorage.setItem("ss_daily_done", todayKey()); } catch (err) {} addStars(1, "✓"); render(); break; }
+      case "daily-done": { store.set("ss_daily_done", todayKey()); addStars(1, "✓"); render(); break; }
       case "path-pick": pathPick(tEl.getAttribute("data-path")); break;
       case "path-choose": pathChoose(Number(tEl.getAttribute("data-choice"))); break;
       case "path-again": pathAgain(); break;
@@ -1266,12 +1293,20 @@
   function readOwnStory(i) {
     const s = state.wall[i]; if (!s) return;
     const overlay = document.createElement("div");
-    overlay.innerHTML = `<div class="ss-modal-bg" data-act="close-modal"><div class="ss-modal"><div class="ss-modal-head"><h3>${esc(s.title)}</h3><span class="ss-x" data-act="close-modal">✕</span></div><div style="padding:20px;"><p style="color:var(--ink-soft);font-style:italic;">${t("wall.by")} ${esc(s.author)} · ${s.wc} ${t("wall.words")}</p><div class="ss-prose">${esc(s.body).split(/\n+/).map(p=>`<p>${p}</p>`).join("")}</div></div></div></div>`;
+    overlay.innerHTML = `<div class="ss-modal-bg" data-act="close-modal"><div class="ss-modal"><div class="ss-modal-head"><h3>${esc(s.title)}</h3><span class="ss-x" data-act="close-modal">✕</span></div><div style="padding:20px;"><p style="color:var(--ink-soft);font-style:italic;">${t("wall.by")} ${esc(s.author)} · ${Number(s.wc) || 0} ${t("wall.words")}</p><div class="ss-prose">${esc(s.body).split(/\n+/).map(p=>`<p>${p}</p>`).join("")}</div></div></div></div>`;
     document.getElementById("ss-app").appendChild(overlay.firstElementChild);
   }
   document.addEventListener("click", function (e) {
     const el = e.target.closest("[data-act='close-modal']");
-    if (el) { const bg = el.closest(".ss-modal-bg"); if (bg) bg.remove(); }
+    if (el && (e.target === el)) { const bg = el.closest(".ss-modal-bg"); if (bg) bg.remove(); }
+  });
+
+  // Live word count under the Community Wall story box.
+  document.addEventListener("input", function (e) {
+    if (!e.target || e.target.id !== "ss-f-body") return;
+    const wc = e.target.value.trim().split(/\s+/).filter(Boolean).length;
+    const el = document.getElementById("ss-wc");
+    if (el) { el.textContent = wc; el.style.color = (wc >= 300 && wc <= 700) ? "var(--green)" : "var(--ink-soft)"; }
   });
 
   /* ----------------------------- Boot ----------------------------------- */

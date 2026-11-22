@@ -53,7 +53,7 @@ window.SADAQAH_QUIZ = {
       ["Where is the saying about the orphan's carer being close to the Prophet ﷺ in Paradise recorded?", ["Sahih al-Bukhari 6005, a hadith", "A verse of the Qur'an", "A modern newspaper"], 4],
     ],
     "12": [
-      ["When did Qatar Charity's education help in Gaza begin?", ["Before the 2021 conflict", "In 1233", "It has not begun"], 1],
+      ["When did Qatar Charity's education help in Gaza begin?", ["Before the 2021 conflict", "In 1234", "It has not begun"], 1],
       ["Which school did one publicly reported project supply six classrooms to?", ["Fahd Al-Sabah School", "Al-Qarawiyyin", "The Salihiyya madrasa"], 2],
       ["Where can we learn exactly what each project did?", ["Qatar Charity's own dated reports", "Rumours on social media", "We can never know"], 4],
     ],
@@ -94,7 +94,7 @@ window.SADAQAH_QUIZ = {
     ],
     "22": [
       ["Why were books so expensive long ago?", ["Printing had not been invented yet", "They were made of gold", "Only kings could read"], 1],
-      ["Which school opened in Baghdad in 1233 CE?", ["The Mustansiriyya", "The Salihiyya", "Al-Qarawiyyin"], 2],
+      ["Which school opened in Baghdad in 1234 CE?", ["The Mustansiriyya", "The Salihiyya", "Al-Qarawiyyin"], 2],
       ["What does Qur'an 96:1–5 begin with?", ["The command to read", "The story of Maryam", "The rules of zakat"], 4],
     ],
     "23": [
@@ -120,7 +120,7 @@ window.SADAQAH_QUIZ = {
     "31": [
       ["Who are displaced families?", ["People who have had to leave their homes", "People on holiday", "People who moved for a new job"], 1],
       ["What do humanitarian groups do first, before giving out winter supplies?", ["Check what local families really need", "Take photos", "Pick the cheapest items"], 2],
-      ["Is this story about one particular project?", ["No, it is an example to help us learn", "Yes, one project in one city", "Yes, a project from 1233"], 4],
+      ["Is this story about one particular project?", ["No, it is an example to help us learn", "Yes, one project in one city", "Yes, a project from 1234"], 4],
     ],
     "32": [
       ["What does fi al-riqab mean?", ["Helping to free people from bondage", "Building roads", "Helping travelers in need"], 1],
@@ -169,7 +169,7 @@ window.SADAQAH_QUIZ = {
     ],
     "46": [
       ["What did Qatar Charity's work on schools in Gaza include?", ["Building schools, adding classrooms and repairing school buildings", "Selling school books", "Closing schools"], 1],
-      ["Which two projects do reports published before 2021 mention?", ["The Al-Shaimaa girls' school and new classrooms at Fahd Al-Sabah School", "Two hospitals in Cairo", "Two wells in Madinah"], 2],
+      ["Which two projects does the February 2021 report mention?", ["The Al-Shaimaa girls' school and new classrooms at Fahd Al-Sabah School", "Two hospitals in Cairo", "Two wells in Madinah"], 2],
       ["Why is building and equipping schools a lasting kind of charity?", ["It helps one generation after another", "It is used for one day only", "It costs nothing"], 4],
     ],
     "49": [
@@ -260,7 +260,7 @@ window.SADAQAH_QUIZ = {
       ["أين ورد أن كافل اليتيم يكون قريباً من النبي ﷺ في الجنة؟", ["في صحيح البخاري (6005)، وهو حديث نبوي", "في آية من القرآن الكريم", "في صحيفة حديثة"], 4],
     ],
     "12": [
-      ["متى بدأ دعم قطر الخيرية للتعليم في غزة؟", ["قبل أحداث عام 2021", "سنة 1233م", "لم يبدأ بعد"], 1],
+      ["متى بدأ دعم قطر الخيرية للتعليم في غزة؟", ["قبل أحداث عام 2021", "سنة 1234م", "لم يبدأ بعد"], 1],
       ["إلى أي مدرسة أُضيفت ستة فصول في أحد المشروعات المعلنة؟", ["مدرسة فهد الصباح", "جامع القرويين", "المدرسة الصالحية"], 2],
       ["أين نجد بالتحديد ما قدمه كل مشروع؟", ["في تقارير قطر الخيرية المؤرخة", "في الشائعات على وسائل التواصل", "لا يمكن أن نعرف أبداً"], 4],
     ],
@@ -301,7 +301,7 @@ window.SADAQAH_QUIZ = {
     ],
     "22": [
       ["لماذا كانت الكتب غالية الثمن جداً قديماً؟", ["لأن الطباعة لم تكن قد اختُرعت", "لأنها كانت تُصنع من الذهب", "لأن الملوك وحدهم كانوا يقرؤون"], 1],
-      ["أي مدرسة افتُتحت في بغداد سنة 1233م؟", ["المدرسة المستنصرية", "المدرسة الصالحية", "جامع القرويين"], 2],
+      ["أي مدرسة افتُتحت في بغداد سنة 1234م؟", ["المدرسة المستنصرية", "المدرسة الصالحية", "جامع القرويين"], 2],
       ["بماذا تبدأ الآيات من سورة العلق (96:1–5)؟", ["بالأمر بالقراءة", "بقصة مريم", "بأحكام الزكاة"], 4],
     ],
     "23": [
@@ -327,7 +327,7 @@ window.SADAQAH_QUIZ = {
     "31": [
       ["من النازحون؟", ["الذين اضطروا إلى ترك بيوتهم", "الذين في عطلة", "الذين انتقلوا من أجل عمل جديد"], 1],
       ["ماذا تفعل المنظمات الإنسانية أولاً قبل توزيع مستلزمات الشتاء؟", ["تتعرف إلى ما تحتاجه الأسر في المكان", "تلتقط الصور", "تختار أرخص الأشياء"], 2],
-      ["هل تتحدث هذه القصة عن مشروع واحد بعينه؟", ["لا، هي مثال تعليمي", "نعم، مشروع واحد في مدينة واحدة", "نعم، مشروع من سنة 1233م"], 4],
+      ["هل تتحدث هذه القصة عن مشروع واحد بعينه؟", ["لا، هي مثال تعليمي", "نعم، مشروع واحد في مدينة واحدة", "نعم، مشروع من سنة 1234م"], 4],
     ],
     "32": [
       ["ما معنى «في الرقاب»؟", ["المساعدة على تحرير من وقعوا في الرق", "بناء الطرق", "مساعدة المسافرين المحتاجين"], 1],
@@ -376,7 +376,7 @@ window.SADAQAH_QUIZ = {
     ],
     "46": [
       ["ماذا شمل عمل قطر الخيرية في مدارس غزة؟", ["بناء مدارس وإضافة فصول دراسية وإصلاح المرافق التعليمية", "بيع الكتب المدرسية", "إغلاق المدارس"], 1],
-      ["ما المشروعان اللذان تذكرهما تقارير نُشرت قبل عام 2021؟", ["مدرسة الشيماء للبنات والفصول التي أضيفت إلى مدرسة فهد الصباح", "مستشفيان في القاهرة", "بئران في المدينة المنورة"], 2],
+      ["ما المشروعان اللذان يذكرهما تقرير فبراير 2021؟", ["مدرسة الشيماء للبنات والفصول التي أضيفت إلى مدرسة فهد الصباح", "مستشفيان في القاهرة", "بئران في المدينة المنورة"], 2],
       ["لماذا يُعد بناء المدارس وتجهيزها صدقة جارية؟", ["لأنه يستفيد منه جيل بعد جيل", "لأنه يُستخدم يوماً واحداً فقط", "لأنه لا يكلف شيئاً"], 4],
     ],
     "49": [

@@ -206,16 +206,16 @@ const MODULE_B = [
       "water_y20.jpeg"
     ],
     "cost": "$5,000–$10,000 per well",
-    "overview": "Funds the drilling and construction of a deep freshwater well in a rural village with no clean water, including a pump, storage tank, concrete base, and maintenance training for 2–3 local members. A single well serves an entire village.",
+    "overview": "Funds the drilling and construction of a deep freshwater well in a rural village with no clean water, including a pump, storage tank, concrete base, and maintenance training for 2–3 local members. In this example, one well serves a village of about 500 people.",
     "years": [
       {
         "label": "Year 1",
         "metric": "500 person-years of clean water",
         "points": [
           "500 people (approx. 80–100 families) gain daily access to clean water",
-          "Women and girls save 2–4 hours per day previously spent collecting water",
-          "Waterborne disease cases (diarrhea, cholera, typhoid) drop by up to 60%",
-          "School attendance improves as children — especially girls — are freed from water collection",
+          "Women and girls can spend less time each day fetching water",
+          "Illnesses spread by unsafe water, such as diarrhoea, can become less common if the water stays clean",
+          "Children, especially girls, may miss less school when they spend less time fetching water",
           "1 well constructed, 2 trained local maintenance volunteers"
         ]
       },
@@ -224,8 +224,8 @@ const MODULE_B = [
         "metric": "2,500 person-years of clean water",
         "points": [
           "Cumulative 2,500 person-years of clean water access delivered",
-          "Child mortality from waterborne diseases reduced significantly in the village",
-          "Freed time allows women to engage in income-generating activities; local economy strengthens",
+          "Fewer children fall ill from unsafe water",
+          "Time saved can be used for work, study or family",
           "Word spreads: neighboring villages request similar projects",
           "First major maintenance performed; well still fully functional"
         ]
@@ -236,9 +236,9 @@ const MODULE_B = [
         "points": [
           "About 5,000 person-years of clean water over a decade (around 500 people each year)",
           "A generation of children grows up without experiencing water scarcity",
-          "Girls' school completion rates measurably higher than neighboring areas",
-          "Local maintenance team has repaired the pump twice — community is self-sufficient",
-          "The donor continues earning Sadaqah Jariyah reward for every drop drawn"
+          "Girls may be more likely to finish school than before",
+          "The local maintenance team keeps the pump working with occasional repairs",
+          "Wells are a common example of sadaqah jariyah, ongoing charity whose reward continues (Sahih Muslim 1631)"
         ]
       },
       {
@@ -246,10 +246,10 @@ const MODULE_B = [
         "metric": "10,000+ person-years of clean water",
         "points": [
           "About 10,000 person-years of clean water over 20 years, and more if the village grows",
-          "Children born after the well have never known water scarcity — it becomes the new normal",
+          "Children born after the well have always had water nearby",
           "The well becomes a community landmark; used in hygiene education and school visits",
-          "Second refurbishment may be needed; waqf endowment model ensures funding is available",
-          "A $5,000–$10,000 donation has generated 20 years of life-changing benefit — one of the highest-impact forms of Sadaqah Jariyah"
+          "A second major repair may be needed; a maintenance fund or a waqf can pay for it",
+          "In this example, one gift of $5,000–$10,000 gives about 20 years of clean water, as long as the well is maintained"
         ]
       }
     ],
@@ -268,7 +268,7 @@ const MODULE_B = [
       "education_y20.jpeg"
     ],
     "cost": "$20,000–$40,000 to build",
-    "overview": "Funds construction of a school in a rural or underserved community, plus teacher salaries, supplies, and student sponsorships. Structured as a waqf so endowment income covers ongoing costs — no annual fundraising needed to stay open.",
+    "overview": "Funds construction of a school in a rural or underserved community, plus teacher salaries, supplies, and student sponsorships. It can be set up as a waqf so that endowment income helps cover running costs.",
     "years": [
       {
         "label": "Year 1",
@@ -278,7 +278,7 @@ const MODULE_B = [
           "Up to 50 previously out-of-school children enrolled for the first time",
           "2–4 local teachers hired and paid regular salaries",
           "School supplies (books, pens, uniforms) provided for 100 low-income students",
-          "Community gains a dedicated learning space — children previously studied outdoors or not at all"
+          "The community gains a dedicated place to learn"
         ]
       },
       {
@@ -287,7 +287,7 @@ const MODULE_B = [
         "points": [
           "750–1,250 student-years of education delivered",
           "First cohort of students completes primary education cycle",
-          "Literacy rates in the village noticeably improve — children teach parents to read",
+          "More children in the village can read and write",
           "Girls' enrollment increases as parents feel safer sending daughters to a local school",
           "School may be expanded with an additional classroom if demand exceeds capacity"
         ]
@@ -298,9 +298,9 @@ const MODULE_B = [
         "points": [
           "1,500–2,500 student-years of education over the decade",
           "First generation of graduates entering secondary education or vocational training",
-          "Some graduates returning as teachers, multiplying the original investment",
-          "School becomes the educational anchor for the region — neighboring villages send children",
-          "Endowment income has covered 10 years of teacher salaries with no additional fundraising needed"
+          "Some graduates may come back as teachers",
+          "Children from nearby villages may also attend",
+          "If the waqf earns enough, its income keeps paying teachers' salaries"
         ]
       },
       {
@@ -309,9 +309,9 @@ const MODULE_B = [
         "points": [
           "3,000–5,000 student-years of education: a whole generation of the village's children has passed through the school",
           "Second generation now in the school, whose parents were among the first graduates",
-          "Village poverty levels measurably lower due to higher literacy and employability",
-          "Some graduates have become doctors, engineers, teachers, business owners — all traced back to one school",
-          "The school stands as permanent Sadaqah Jariyah: knowledge that keeps multiplying"
+          "Better education can help families earn more over time",
+          "Some graduates may go on to become teachers, nurses, engineers or business owners",
+          "Beneficial knowledge is one of the deeds whose reward continues (Sahih Muslim 1631)"
         ]
       }
     ],
@@ -339,8 +339,8 @@ const MODULE_B = [
           "500 families (approx. 2,500 people) receive monthly food parcels for 6–12 months",
           "200 farming families receive agricultural starter kits and 2-day training",
           "Community kitchen feeds 100 people per day during Ramadan (3,000 meals total)",
-          "Acute malnutrition cases in target area decrease by 40–50%",
-          "Participating farmers harvest their first crops — partial self-sufficiency begins"
+          "Fewer children in the area go hungry",
+          "Participating farmers harvest their first crops"
         ]
       },
       {
@@ -350,30 +350,30 @@ const MODULE_B = [
           "200 trained farming families now produce 60–80% of their own food needs",
           "Surplus farmers begin selling at local markets — food security becomes economic opportunity",
           "Food parcel program transitions to focus on the most vulnerable (elderly, disabled, widows)",
-          "Child stunting rates (caused by malnutrition) declining in project villages",
+          "Children eat more regular meals in families that grow their own food",
           "Knowledge shared: trained farmers teach techniques to neighbors, spreading impact"
         ]
       },
       {
         "label": "Year 10",
-        "metric": "Villages largely food-secure",
+        "metric": "Families need less food aid",
         "points": [
-          "Target villages largely food-secure; emergency food distributions needed only during unusual crises",
+          "If harvests hold up, families need emergency food aid less often",
           "Local food markets thriving — farmers earning regular income from surplus production",
           "Second generation of farmers trained using accumulated community knowledge",
-          "Children with consistent nutrition show better school performance and health outcomes",
+          "Children who eat regularly are better able to learn and stay healthy",
           "Program shifts to supporting adjacent vulnerable villages using lessons learned"
         ]
       },
       {
         "label": "Year 20",
-        "metric": "Region no longer needs food aid",
+        "metric": "Much less need for food aid",
         "points": [
-          "The original 200 farming families have collectively produced millions of kilograms of food over 20 years",
-          "Food security is now the norm, not the exception — the region no longer needs emergency food aid",
+          "The 200 farming families have grown a large amount of food over 20 years",
+          "Food aid is needed less often, though drought or conflict can still cause shortages",
           "Farming knowledge passed to a new generation; agricultural techniques improved over time",
           "Economic impact extends beyond food: families invest in children's education and healthcare",
-          "A $200 agricultural kit investment has generated 20 years of food production — a return no financial instrument can match"
+          "In this example, a $200 farming kit and training help a family grow food for many years"
         ]
       }
     ],
@@ -400,8 +400,8 @@ const MODULE_B = [
         "points": [
           "1 clinic serving a catchment population of 2,000–5,000 people",
           "1,200–2,000 patient consultations in the first year",
-          "Vaccination coverage for children under 5 rises from near zero to 70–80%",
-          "Maternal deaths during childbirth reduced — at least 3–5 preventable deaths avoided in year one",
+          "More young children get their vaccines",
+          "Mothers can get care during pregnancy and birth closer to home",
           "Patients no longer travel 50–100 km for basic care; families save money and time"
         ]
       },
@@ -410,8 +410,8 @@ const MODULE_B = [
         "metric": "8,000–12,000 consultations",
         "points": [
           "8,000–12,000 consultations delivered over 5 years",
-          "Under-5 child mortality in the catchment area reduced by 25–35%",
-          "Vaccination program reaches near-universal coverage for target age groups",
+          "Early treatment of common illnesses can save young children's lives",
+          "Vaccination reaches more children each year",
           "Chronic diseases (diabetes, hypertension) identified and managed before becoming life-threatening",
           "Staff trained and experienced; clinic runs efficiently with strong community trust"
         ]
@@ -421,8 +421,8 @@ const MODULE_B = [
         "metric": "20,000–30,000 consultations",
         "points": [
           "20,000–30,000 consultations over the decade",
-          "A generation of children fully vaccinated — preventable diseases largely eliminated in the area",
-          "Maternal mortality rate approaches national average (previously far higher)",
+          "Most children in the area have had their vaccines",
+          "Care for mothers keeps improving",
           "Clinic expands services based on community needs — possibly dental or mental health support",
           "Local community health workers trained by clinic staff extend reach to remote households"
         ]
@@ -432,10 +432,10 @@ const MODULE_B = [
         "metric": "50,000–70,000 consultations",
         "points": [
           "50,000–70,000 consultations over 20 years",
-          "Life expectancy in the catchment area measurably higher than comparable unserved communities",
+          "Better access to care can help people live longer, healthier lives",
           "Children who received vaccines and nutrition support as infants are now healthy adults",
           "The clinic has become a training ground for the next generation of local health workers",
-          "Hundreds of deaths prevented, thousands of illnesses treated — all from a single endowment"
+          "Tens of thousands of visits in 20 years, kept going by a waqf"
         ]
       }
     ],
@@ -454,7 +454,7 @@ const MODULE_B = [
       "orphan_y20.jpeg"
     ],
     "cost": "$30–$50 / month per child",
-    "overview": "Comprehensive sponsorship for orphaned children living in poverty with widowed mothers or extended family. A monthly sponsorship covers school fees, uniforms, books, meals, healthcare, and psychosocial support — keeping families together.",
+    "overview": "Comprehensive sponsorship for orphaned children living in poverty with widowed mothers or extended family. A monthly sponsorship covers school fees, uniforms, books, meals, healthcare, and psychosocial support, so children can stay with their families.",
     "years": [
       {
         "label": "Year 1",
@@ -472,9 +472,9 @@ const MODULE_B = [
         "metric": "500 child-years of support",
         "points": [
           "500 child-years of support delivered across the cohort",
-          "School completion rates for sponsored children 3× higher than non-sponsored peers",
-          "Children showing measurable improvements in academic performance and emotional wellbeing",
-          "Caregiver mothers supported with vocational training — some achieving economic independence",
+          "Sponsored children are more likely to stay in school",
+          "Children get help with schoolwork and with their wellbeing",
+          "Caregiver mothers can join job training, which helps some earn their own income",
           "First cohort of older children completing primary school and enrolling in secondary"
         ]
       },
@@ -484,9 +484,9 @@ const MODULE_B = [
         "points": [
           "First sponsored children reaching adulthood — some completing secondary school, entering university or work",
           "Children who entered at age 5–6 are now 15–16 with education and prospects",
-          "Documented cases of sponsored children becoming teachers, nurses, technicians",
-          "Families that received support now more stable — cycle of poverty interrupted",
-          "Program reputation attracts more sponsors, expanding to support 200+ children"
+          "Some sponsored children may go on to train as teachers, nurses or technicians",
+          "Families that received support are more stable",
+          "More sponsors may join so the program can grow (the totals here assume 100 places)"
         ]
       },
       {
@@ -495,9 +495,9 @@ const MODULE_B = [
         "points": [
           "Multiple cohorts of children have grown into educated, self-sufficient adults",
           "Some former sponsored children now sponsor orphans themselves — generosity multiplied",
-          "The cascading effect: educated orphans raise better-educated families of their own",
-          "Communities where orphan sponsorship is common show stronger social cohesion and lower poverty",
-          "Every $30/month sponsor investment has shaped an entire human life — no donation is more personal"
+          "Educated adults can help their own children get an education",
+          "Caring for orphans is highly praised in Islam (Sahih al-Bukhari 6005)",
+          "A sponsorship of $30–$50 a month supports one child, one month at a time"
         ]
       }
     ],
@@ -523,7 +523,7 @@ const MODULE_B = [
         "metric": "200 families (1,000 people) supported",
         "points": [
           "200 displaced families (1,000 people) receive emergency shelter, food, and basic services",
-          "All 300+ school-age children in the program enrolled in local or camp schools",
+          "School-age children are helped to enrol in local or camp schools",
           "Healthcare access provided — vaccinations, maternal care, treatment of injuries",
           "Legal documentation (ID cards, birth certificates) processed for 150 families",
           "Adults begin language classes and skills assessment for vocational training"
@@ -548,7 +548,7 @@ const MODULE_B = [
           "Families who arrived with nothing now living in stable housing, paying rent or owning small businesses",
           "Children born to refugee parents in the host country grow up in stable homes and go to school",
           "Former refugees contributing to local economy as workers, business owners, taxpayers",
-          "Some families able to contribute to the charity that once helped them — full circle"
+          "Some families may give to the charity that once helped them"
         ]
       },
       {
@@ -556,10 +556,10 @@ const MODULE_B = [
         "metric": "Generational integration",
         "points": [
           "A generation of children who arrived as refugees are now educated, employed adults",
-          "Refugee-background families fully integrated — indistinguishable from host community",
-          "Studies show refugees who receive early comprehensive support contribute more to host economies than they cost",
-          "Children born to original refugee families have never experienced displacement — the trauma ends with their parents' generation",
-          "A decision to invest in 200 families in year one has created generational change for thousands"
+          "Many families have settled into their new community",
+          "Early support can help refugees find work and contribute to their new home",
+          "Children born later grow up in a stable home",
+          "Help given to 200 families in Year 1 can still benefit their children and grandchildren"
         ]
       }
     ],
@@ -578,7 +578,7 @@ const MODULE_B = [
       "mosque_y20.jpeg"
     ],
     "cost": "$50,000–$100,000 to build",
-    "overview": "Builds a mosque as a full community center for a community with no dedicated place of worship: prayer hall, ablution facilities, library, maktab classroom, and a multi-purpose room. Structured as a waqf — it can never be sold or repurposed.",
+    "overview": "Builds a mosque as a full community center for a community with no dedicated place of worship: prayer hall, ablution facilities, library, maktab classroom, and a multi-purpose room. Set up as a waqf, so it stays dedicated to its purpose.",
     "years": [
       {
         "label": "Year 1",
@@ -588,7 +588,7 @@ const MODULE_B = [
           "Community has a dedicated, dignified space for the 5 daily prayers",
           "Islamic education classes begin: 50–80 children enrolled in Quran and Arabic instruction",
           "Community gatherings (Eid prayers, funerals, weddings, charity distributions) held with dignity",
-          "The mosque becomes a social anchor — neighbors who rarely met now gather regularly"
+          "Neighbours who rarely met now see each other at the mosque"
         ]
       },
       {
@@ -599,7 +599,7 @@ const MODULE_B = [
           "Maktab graduates first cohort: 50+ children complete basic Quran memorization",
           "Mosque library used regularly by students and community members",
           "Social services operating: food distribution, charity collection, welfare referrals",
-          "Mosque-based mediation resolves community disputes — social cohesion strengthened"
+          "The imam and elders may help settle disputes"
         ]
       },
       {
@@ -608,7 +608,7 @@ const MODULE_B = [
         "points": [
           "A generation of children has grown up with Islamic education at the mosque",
           "Mosque becomes community institution: used for funerals, Eid celebrations, charity drives, and education",
-          "Community religiosity and social solidarity measurably stronger than comparable communities without a mosque",
+          "The mosque helps neighbours know and help one another",
           "Zakat and Sadaqah collection organized through mosque supports 50–100 local needy families annually",
           "Mosque may need expansion as congregation grows — original waqf structure facilitates future investment"
         ]
@@ -620,8 +620,8 @@ const MODULE_B = [
           "Two generations of children educated in Islamic values at the mosque's maktab",
           "The mosque has hosted thousands of prayers, hundreds of funerals, Eid celebrations, weddings, and events",
           "Young adults who attended maktab as children now bringing their own children — tradition passed on",
-          "The mosque's charity operations have distributed hundreds of thousands of dollars in local Zakat and Sadaqah",
-          "The donor's name is written in the waqf deed — remembered and prayed for by every person who prays there"
+          "The mosque's zakat and sadaqah work has helped many local families",
+          "The Prophet ﷺ said that whoever builds a mosque for Allah's sake, Allah builds for him a house like it in Paradise (Sahih al-Bukhari 450)"
         ]
       }
     ],
@@ -640,7 +640,7 @@ const MODULE_B = [
       "emergency_y20.jpeg"
     ],
     "cost": "$60–$100 / family emergency kit",
-    "overview": "Immediate response when disaster strikes — earthquakes, floods, famine, displacement — delivering life-saving supplies within 24–72 hours. An emergency kit includes 2 weeks of food, water purification, shelter tarpaulin, hygiene kit, and blankets.",
+    "overview": "Immediate response when disaster strikes (earthquakes, floods, famine, displacement), delivering life-saving supplies within 24–72 hours. An emergency kit includes 2 weeks of food, water purification, shelter tarpaulin, hygiene kit, and blankets.",
     "years": [
       {
         "label": "Year 1",
@@ -650,7 +650,7 @@ const MODULE_B = [
           "Field medical team treats 500+ injured or sick survivors",
           "Emergency water trucking delivers clean water to 3,000 people for 2 weeks",
           "Mass feeding operation serves 2,000 meals per day for 30 days",
-          "Estimated 50–100 deaths prevented through immediate medical and nutritional intervention"
+          "Fast medical care, food and water can save lives in the first days"
         ]
       },
       {
@@ -660,7 +660,7 @@ const MODULE_B = [
           "Fund has responded to 3–5 separate disaster events over 5 years",
           "Cumulative 15,000–25,000 people reached across multiple crises",
           "Pre-positioned emergency supplies mean response time improves with each operation",
-          "Lessons learned from each response improve efficiency — more lives saved per dollar spent",
+          "Lessons from each response can make the next one faster",
           "Relationships with local partners established, enabling faster, better-targeted responses"
         ]
       },
@@ -680,10 +680,10 @@ const MODULE_B = [
         "metric": "100,000+ people reached",
         "points": [
           "100,000+ people reached across two decades of humanitarian response",
-          "Hundreds of lives saved that would have been lost without rapid intervention",
+          "Rapid help across many disasters can save many lives",
           "The fund has become a trusted, experienced humanitarian actor with regional knowledge and networks",
           "Former disaster survivors supported by the fund now contributing as volunteers and donors",
-          "Emergency relief is the highest-stakes form of charity: donations given today could save a life tomorrow"
+          "Money kept ready in a fund means help can start as soon as a disaster strikes"
         ]
       }
     ],
@@ -702,7 +702,7 @@ const MODULE_B = [
       "waqf_y20.jpeg"
     ],
     "cost": "$100,000 example investment",
-    "overview": "An endowment where a capital asset (building, land, or fund) generates ongoing income permanently dedicated to charity. The principal is never spent — only the returns. This is the mechanism behind Al-Qarawiyyin, the Ottoman educational system, and thousands of mosques and hospitals still operating today.",
+    "overview": "An endowment where a capital asset (building, land, or fund) generates ongoing income permanently dedicated to charity. The principal is never spent — only the returns. Waqf has paid for mosques, schools, hospitals and water fountains across Muslim history, and many waqfs still operate today.",
     "years": [
       {
         "label": "Year 1",
@@ -711,8 +711,8 @@ const MODULE_B = [
           "$100,000 invested in a waqf property generating 8–10% annual return",
           "Year 1 income: $8,000–$10,000 distributed to charitable programs",
           "Equivalent to: 200 monthly food parcels, OR 1 water well, OR school supplies for 80 students",
-          "Capital fully preserved — the $100,000 investment has not decreased",
-          "Waqf deed registered: the endowment is now permanent and legally protected"
+          "The $100,000 itself is kept, not spent",
+          "The waqf deed is registered, which protects its purpose"
         ]
       },
       {
@@ -720,9 +720,9 @@ const MODULE_B = [
         "metric": "$40,000–$50,000 distributed",
         "points": [
           "Cumulative income distributed: $40,000–$50,000 over 5 years",
-          "Equivalent to: 5 water wells built, OR 250 orphan-months of sponsorship, OR 2 years of clinic operation",
+          "Equivalent to: about 5 water wells, OR about 1,000 months of orphan sponsorship, OR school supplies for about 400 students",
           "Capital still fully intact — still worth $100,000+",
-          "Income may grow if property value increases — returns rise with inflation protection",
+          "Rent may rise with inflation, but it can also fall",
           "Donor has given $100,000 once but delivered $40,000–$50,000 in social benefit already"
         ]
       },
@@ -730,11 +730,11 @@ const MODULE_B = [
         "label": "Year 10",
         "metric": "$80,000–$100,000 distributed",
         "points": [
-          "Cumulative income distributed: $80,000–$100,000 — already returned the original investment",
+          "Cumulative income distributed: $80,000–$100,000, close to the size of the original gift",
           "Capital still intact: the original $100,000 is still working",
-          "Every year from this point forward is pure additional impact, above and beyond the original gift",
-          "The waqf has now funded more good than a straightforward $100,000 cash donation would have",
-          "Beneficiaries of the waqf income do not know the donor's name — yet their lives have been shaped by it"
+          "Each further year adds more help, while the $100,000 stays in place",
+          "A $100,000 cash gift would have helped more people at once; the waqf spreads its help over many years",
+          "People helped by the waqf may never know the donor's name"
         ]
       },
       {
@@ -742,10 +742,10 @@ const MODULE_B = [
         "metric": "$160,000–$200,000 distributed",
         "points": [
           "Cumulative income distributed: $160,000–$200,000 from a single $100,000 investment",
-          "Capital still intact — the endowment has not been spent, only grown",
-          "Total social value created: double the original investment, with no end in sight",
-          "The donor passed on years ago — the waqf continues in their name, earning reward",
-          "This is Sadaqah Jariyah in its most powerful form: wealth transformed into an eternal act of worship"
+          "The $100,000 is still there, if the property has kept its value",
+          "In this example, $160,000–$200,000 has been given out, and the waqf can keep going",
+          "A waqf can keep giving after its founder has died",
+          "A waqf is a classic form of sadaqah jariyah, charity whose reward continues (Sahih Muslim 1631)"
         ]
       }
     ],
