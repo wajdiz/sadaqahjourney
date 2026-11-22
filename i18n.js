@@ -77,6 +77,7 @@ window.SADAQAH_I18N = {
     "nav.allStories": "All stories",
     "nav.allGames": "All games",
     "nav.allProjects": "All projects",
+    "nav.modules": "All sections",
     "nav.wall": "Community wall",
 
     // Stars / badges
@@ -217,6 +218,7 @@ window.SADAQAH_I18N = {
     "nav.allStories": "كل الحكايات",
     "nav.allGames": "كل الألعاب",
     "nav.allProjects": "كل المشاريع",
+    "nav.modules": "كل الأقسام",
     "nav.wall": "جدار المجتمع",
 
     "stars.count": "نجمة",

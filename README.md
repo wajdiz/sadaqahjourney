@@ -60,6 +60,8 @@ app/
 ├── data-stories.js     ← 41 stories × 2 languages (auto-generated)
 ├── data-videos.js      ← 11 story-video identifiers (enabled and shown on the final story page)
 ├── data-lexicon.js     ← 81 lexicon entries (auto-generated from lexicon.docx)
+├── data-activities.js  ← Daily Sadaqah challenge (13 acts) + Choose Your Path scenarios (EN/AR)
+├── data-quiz.js        ← 3-question quiz per story, EN + AR (correct option listed first)
 ├── i18n.js             ← EN + AR UI string tables + L()/t() helpers
 ├── app.js              ← router + views + 9 game engines + Helping Hands + Lexicon
 ├── embed.html          ← demo showing the iframe embed
@@ -147,10 +149,27 @@ Both use the privacy-enhanced `youtube-nocookie.com` domain with `referrerpolicy
 | Age | Games |
 |---|---|
 | 7–10 | Charity Match (memory) · Fill the Donation Box (drag/click) · The Giving Tree (quiz-grow) |
-| 11–14 | Build Your Community (budget) · Sort the Zakat (8 categories) · Charity Chain Reaction · Real Impact Calculator |
-| 15–18 | Waqf Architect (20-yr simulation) · The Giving Dilemma (ethics) |
+| 11–14 | Build Your Community (budget) · Sort the Zakat (8 categories) · Charity Chain Reaction |
+| 15–18 | Waqf Architect (20-yr simulation) · The Giving Dilemma (ethics) · Real Impact Calculator · Choose Your Path (branching scenarios) |
+
+Every game opens with a one-line "How to play" (EN/AR), kept in the `HOWTO` table in `app.js`.
 
 Each game awards stars + a badge; finishing routes to the completion screen. Game titles are bilingual via the `GAME_TITLES` table in `app.js`.
+
+## Navigation
+
+Every screen has its own URL (`#/module-b`, `#/story/02`, `#/play/waqf-architect`), so the
+browser Back button, reloads and shared links work. Each screen also shows an on-page back
+link to its parent screen (`PARENT` table in `app.js`).
+
+## Daily challenge, story quizzes and simulator notes
+
+- **Daily Sadaqah challenge** (module selector): one small act per day from `SADAQAH_DAILY`,
+  each with a hadith reference checked on sunnah.com. "I did it" gives one star per day.
+- **Story quizzes**: three questions on the last page of every story, written only from that
+  language's story text. Edit them in `data-quiz.js`.
+- **Impact Simulator**: each project uses one unit across Years 1/5/10/20 and has a
+  "How these numbers are estimated" note (`how` in `data.js`, `how_ar` in `data-ar.js`).
 
 ## Customising
 

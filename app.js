@@ -11,13 +11,16 @@
   const ASSET = "assets/";
   // merge Arabic content into module arrays
   if (window.mergeArabic) window.mergeArabic();
+  function validLang(v) { return v === "en" || v === "ar" ? v : null; }
+  function validAge(v) { return v === "7-10" || v === "11-14" || v === "15-18" ? v : null; }
 
   /* ----------------------------- State ---------------------------------- */
   const state = {
     route: "home",
     params: {},
-    lang: localStorage.getItem("ss_lang") || "en",
-    age: null,                 // "7-10" | "11-14" | "15-18"
+    lang: validLang(localStorage.getItem("ss_lang")) || "en",
+    prefLang: validLang(localStorage.getItem("ss_lang")) || validLang(localStorage.getItem("ss_pref_lang")) || "en",
+    age: validAge(localStorage.getItem("ss_age")),   // "7-10" | "11-14" | "15-18"
     lastModule: null,          // for completion screen context
     simId: "water",
     simYear: 0,
@@ -38,7 +41,9 @@
     localStorage.setItem("ss_badges", JSON.stringify(state.badges));
     localStorage.setItem("ss_wall", JSON.stringify(state.wall));
     localStorage.setItem("ss_stats", JSON.stringify(state.stats));
-    localStorage.setItem("ss_lang", state.lang);
+    if (state.lang) { localStorage.setItem("ss_lang", state.lang); localStorage.setItem("ss_pref_lang", state.lang); state.prefLang = state.lang; }
+    else localStorage.removeItem("ss_lang");
+    if (state.age) localStorage.setItem("ss_age", state.age);
   }
   function t(key) { return window.t ? window.t(key, state.lang) : key; }
   function L(obj, field) { return window.L ? window.L(obj, field, state.lang) : (obj ? obj[field] : ""); }
@@ -72,13 +77,59 @@
   function refreshStars() { const el = document.getElementById("ss-star-count"); if (el) el.textContent = state.stars; }
 
   /* ----------------------------- Router --------------------------------- */
-  function go(route, params) {
-    state.route = route; state.params = params || {};
-    if (route === "play" && params && params.id) track("gamesPlayed", params.id);
-    if (route === "story" && params && params.id) track("storiesRead", params.id);
+  // Each screen gets its own URL hash (#/route or #/route/id) so the browser
+  // Back button, reloads and bookmarks work inside the app.
+  const ROUTES = ["home","language","age","hub","modules","module-a","story","module-b","module-c","play","module-d","sample","helping-hands","lexic","about","progress","complete"];
+  const NEEDS_LANG = ["age","hub","modules","module-a","story","module-b","module-c","play","module-d","sample","helping-hands","lexic","progress","complete"];
+  const NEEDS_AGE = ["hub","modules","module-a","story","module-b","module-c","play","module-d","sample","helping-hands","lexic","complete"];
+  function routeHash(route, params) {
+    return "#/" + route + (params && params.id != null && params.id !== "" ? "/" + encodeURIComponent(params.id) : "");
+  }
+  function parseHash() {
+    const parts = (location.hash || "").replace(/^#\/?/, "").split("/");
+    const route = ROUTES.includes(parts[0]) ? parts[0] : "home";
+    const params = parts[1] ? { id: decodeURIComponent(parts[1]) } : {};
+    return { route, params };
+  }
+  function go(route, params, opts) {
+    opts = opts || {};
+    params = params || {};
+    // A deep link or Back press can land on a screen that needs a language or age.
+    if (NEEDS_LANG.includes(route) && !state.lang) { state.lang = state.prefLang || "en"; save(); }
+    if (NEEDS_AGE.includes(route) && !state.age) { route = "age"; params = {}; }
+    if (route === "story" && opts.fromHistory) state.storyPage = 0;
+    state.route = route; state.params = params;
+    if (route === "play" && params.id) track("gamesPlayed", params.id);
+    if (route === "story" && params.id) track("storiesRead", params.id);
     if (route === "home") { state.lang = null; save(); }
+    const hash = routeHash(route, params);
+    try {
+      if (opts.replace) history.replaceState({ route, params }, "", hash);
+      else if (!opts.fromHistory && location.hash !== hash) history.pushState({ route, params }, "", hash);
+    } catch (err) { /* history API unavailable (e.g. file:// in some browsers) */ }
     render();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: opts.fromHistory ? "auto" : "smooth" });
+  }
+  window.addEventListener("popstate", function () {
+    const r = parseHash();
+    go(r.route, r.params, { fromHistory: true });
+  });
+
+  // Logical parent of each screen, used by the on-page back link.
+  const PARENT = {
+    language: "home", age: "language", hub: "age", modules: "hub",
+    "module-a": "modules", "module-b": "modules", "module-c": "modules", "module-d": "modules",
+    "helping-hands": "modules", lexic: "modules",
+    story: "module-a", play: "module-c", sample: "module-d",
+    about: "home", complete: "modules",
+  };
+  function backLink() {
+    if (state.route === "home") return "";
+    let to = PARENT[state.route];
+    if (state.route === "progress") to = state.age && state.lang ? "modules" : "home";
+    if (!to) return "";
+    const label = { home: t("nav.home"), modules: t("nav.modules"), "module-a": t("nav.allStories"), "module-c": t("nav.allGames"), "module-d": t("nav.wall") }[to] || t("nav.back");
+    return `<button type="button" class="ss-back" data-go="${to}">${label}</button>`;
   }
 
   /* ----------------------------- Shell ---------------------------------- */
@@ -103,7 +154,7 @@
         ${state.lang ? `<button class="ss-lang-toggle" data-act="toggle-lang">${state.lang === "en" ? "العربية" : "English"}</button>` : ""}
       </div>
       <div class="ss-wrap">
-        <div class="ss-view">${inner}</div>
+        <div class="ss-view">${backLink()}${inner}</div>
         <footer class="ss-footer">
           <div class="ss-footer-en" dir="ltr">${window.SADAQAH_I18N.en.footer}</div>
           <div class="ss-footer-ar" dir="rtl">${window.SADAQAH_I18N.ar.footer}</div>
@@ -202,13 +253,14 @@
       { go: "module-c", label: t("mod.games"), desc: t("mod.games.desc"), art: "trees_b.jpeg" },
       { go: "module-d", label: t("mod.wall"), desc: t("mod.wall.desc"), art: "food_parcel_a.jpeg" },
       { go: "helping-hands", label: t("mod.help"), desc: t("mod.help.desc"), art: "child_donate.jpeg" },
-      { go: "lexic", label: t("mod.lexic"), desc: t("mod.lexic.desc"), art: "stories_en/en_30_p2.jpg" },
+      { go: "lexic", label: t("mod.lexic"), desc: t("mod.lexic.desc"), art: "stories_en/en_22_p1.jpg" },
     ];
     return `
       <div class="ss-section-head">
         <h2>${t("hub." + state.age + ".title")}</h2>
         <p>${t("hub." + state.age + ".desc")}</p>
       </div>
+      ${dailyCard()}
       <div class="ss-modules">
         ${mods.map((m, i) => `
           <div class="ss-mod-card" data-go="${m.go}">
@@ -219,6 +271,34 @@
               <span class="ss-mod-go">${t("mod.enter")} →</span>
             </div>
           </div>`).join("")}
+      </div>`;
+  }
+
+  /* ----------------------------- DAILY SADAQAH CHALLENGE -----------------
+     One small act per day from SADAQAH_DAILY, chosen by the local date so
+     everyone sees the same challenge on the same day. "I did it" gives one
+     star, once per day. */
+  function todayKey() { const d = new Date(); return d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate(); }
+  function dailyItem() {
+    const list = window.SADAQAH_DAILY || []; if (!list.length) return null;
+    const d = new Date(); const dayNum = Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 86400000);
+    return list[dayNum % list.length];
+  }
+  function dailyCard() {
+    const it = dailyItem(); if (!it) return "";
+    const ar = isRTL();
+    let done = false; try { done = localStorage.getItem("ss_daily_done") === todayKey(); } catch (err) {}
+    return `
+      <div class="ss-daily" aria-label="${ar?"تحدي الصدقة اليومي":"Daily Sadaqah challenge"}">
+        <div class="ss-daily-e">${it.e}</div>
+        <div class="ss-daily-body">
+          <div class="ss-daily-k">${ar?"تحدي الصدقة اليوم":"Today's Sadaqah challenge"}</div>
+          <div class="ss-daily-t">${ar?it.ar:it.en}</div>
+          <p class="ss-daily-why">${ar?it.why_ar:it.why_en} <a href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">${ar?it.ref_ar:it.ref_en} ↗</a></p>
+        </div>
+        <div class="ss-daily-act">${done
+          ? `<span class="ss-daily-done">✓ ${ar?"أنجزته اليوم. عُد غداً لتحدٍّ جديد.":"Done today. Come back tomorrow for a new one."}</span>`
+          : `<button class="ss-btn ss-btn-teal" data-act="daily-done">${ar?"فعلتُها!":"I did it!"}</button>`}</div>
       </div>`;
   }
 
@@ -269,7 +349,6 @@
     const pg = s.pages[page];
     const last = page === s.pages.length - 1;
     return `
-      <div class="ss-back" data-go="module-a">← ${t("nav.allStories")}</div>
       <div class="ss-flipbook">
         <div class="ss-fb-head">
           <div class="ss-num">${t("story.of")} ${idx} / ${list.length}</div>
@@ -290,8 +369,40 @@
           <button class="ss-fb-arrow" data-act="fb-next" ${last?'disabled':''}>${isRTL()?"←":"→"}</button>
         </div>
         ${(last && window.SADAQAH_VIDEOS && window.SADAQAH_VIDEOS[s.id]) ? `<div class="ss-story-video"><div class="ss-video"><iframe src="https://www.youtube-nocookie.com/embed/${window.SADAQAH_VIDEOS[s.id]}?rel=0" title="YouTube video player" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>` : ''}
+        ${last ? storyQuiz(s) : ''}
         ${last ? `<button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="stories">${t("complete.opt.progress")} →</button>` : ''}
       </div>`;
+  }
+
+  /* ---- Story quiz: 3 questions on the last page, from SADAQAH_QUIZ ----
+     In the data the correct option is always first; here the options are
+     shuffled in a fixed order per question so the answer is not always first. */
+  function seededOrder(key, n) {
+    let h = 2166136261;
+    for (let i = 0; i < key.length; i++) { h ^= key.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; }
+    const idx = Array.from({ length: n }, (_, i) => i);
+    for (let i = n - 1; i > 0; i--) { h = (Math.imul(h, 1103515245) + 12345) >>> 0; const j = h % (i + 1); [idx[i], idx[j]] = [idx[j], idx[i]]; }
+    return idx;
+  }
+  function storyQuiz(s) {
+    const Q = window.SADAQAH_QUIZ; const qs = Q && Q[state.lang] && Q[state.lang][s.id];
+    if (!qs) return "";
+    if (!state.quiz || state.quiz.id !== s.id) state.quiz = { id: s.id, ans: {} };
+    const st = state.quiz, ar = isRTL();
+    const items = qs.map((q, qi) => {
+      const order = seededOrder(s.id + "-" + qi, q[1].length), picked = st.ans[qi];
+      const opts = order.map((oi) => {
+        let cls = ""; if (picked != null) { if (oi === 0) cls = "right"; else if (oi === picked) cls = "wrong"; }
+        return `<button class="ss-quiz-opt ${cls}" data-act="quiz" data-q="${qi}" data-o="${oi}" ${picked != null ? "disabled" : ""}>${q[1][oi]}</button>`;
+      }).join("");
+      const fb = picked == null ? "" : picked === 0
+        ? `<p class="ss-quiz-fb ok">${ar ? "إجابة صحيحة!" : "Correct!"}</p>`
+        : `<p class="ss-quiz-fb no">${ar ? "الإجابة الصحيحة باللون الأخضر." : "The right answer is in green."} <button type="button" class="ss-linkbtn" data-act="fb-goto" data-page="${q[2] - 1}">${ar ? "ارجع إلى الصفحة " + q[2] : "See page " + q[2]}</button></p>`;
+      return `<div class="ss-quiz-q"><p class="ss-quiz-text"><strong>${qi + 1}.</strong> ${q[0]}</p><div class="ss-quiz-opts">${opts}</div>${fb}</div>`;
+    }).join("");
+    const answered = Object.keys(st.ans).length, score = Object.values(st.ans).filter((v) => v === 0).length;
+    return `<div class="ss-quiz"><h3>${ar ? "اختبر فهمك" : "Quick check"}</h3>${items}
+      ${answered === qs.length ? `<p class="ss-quiz-score">${ar ? `أجبت إجابة صحيحة عن ${score} من ${qs.length}.` : `You got ${score} of ${qs.length} right.`}</p>` : ""}</div>`;
   }
 
   /* ----------------------------- MODULE B (impact) ---------------------- */
@@ -314,7 +425,7 @@
           <div class="ss-sim-illu">${impactArt(sim, yi)}</div>
           <div>
             <h3>${sim.icon} ${L(sim,"title")}</h3>
-            <div class="ss-cost">${t("impact.cost")}: ${sim.cost}</div>
+            <div class="ss-cost">${t("impact.cost")}: ${L(sim,"cost")}</div>
             <p class="ss-sim-overview">${L(sim,"overview")}</p>
           </div>
         </div>
@@ -330,6 +441,7 @@
           <div class="ss-year-metric">${L(yr,"metric")}</div>
           <ul>${(L(yr,"points") || yr.points).map((p) => `<li>${p}</li>`).join("")}</ul>
         </div>
+        ${sim.how ? `<div class="ss-sim-how"><h4>${isRTL()?"كيف قدّرنا هذه الأرقام":"How these numbers are estimated"}</h4><p>${L(sim,"how")}</p></div>` : ""}
       </div>
       <button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="impact">${t("complete.opt.progress")} →</button>`;
   }
@@ -411,6 +523,8 @@
       // Calculator + rising chart
       "impact-calc": W(`<rect x="8" y="10" width="26" height="40" rx="3" fill="#2f8f87"/><rect x="12" y="14" width="18" height="8" rx="1" fill="#fff"/><rect x="12" y="26" width="5" height="5" fill="#fff"/><rect x="19" y="26" width="5" height="5" fill="#fff"/><rect x="26" y="26" width="5" height="5" fill="#e8a23a"/><rect x="12" y="33" width="5" height="5" fill="#fff"/><rect x="19" y="33" width="5" height="5" fill="#fff"/><rect x="26" y="33" width="5" height="5" fill="#fff"/><rect x="12" y="40" width="12" height="5" fill="#e8a23a"/><rect x="26" y="40" width="5" height="5" fill="#fff"/><rect x="44" y="38" width="8" height="12" fill="#e8d5a8"/><rect x="56" y="30" width="8" height="20" fill="#c79a3a"/><rect x="68" y="22" width="8" height="28" fill="#5b8c4f"/><rect x="80" y="14" width="8" height="36" fill="#2f8f87"/><rect x="92" y="8" width="8" height="42" fill="#1f6b64" class="ss-anim-grow"/><circle cx="96" cy="4" r="3" fill="#c79a3a" class="ss-anim-glow"/>`),
     };
+    // Signpost with three directions (branching story)
+    s["choose-path"] = W(`<rect x="58" y="10" width="4" height="46" fill="#6b5a48"/><path d="M62 14 h30 l8 6 -8 6 h-30z" fill="#2f8f87" class="ss-anim-float"/><path d="M58 28 h-30 l-8 6 8 6 h30z" fill="#c79a3a"/><path d="M62 42 h22 l7 5 -7 5 h-22z" fill="#5b8c4f" class="ss-anim-float" style="animation-delay:.5s"/><ellipse cx="60" cy="56" rx="18" ry="3" fill="#e8d5a8"/>`);
     return s[id] || s["charity-match"];
   }
 
@@ -461,7 +575,6 @@
     if (!s) return `<div class="ss-empty"></div>`;
     const body = L(s,"body"); const arr = Array.isArray(body) ? body : s.body;
     return `
-      <div class="ss-back" data-go="module-d">← ${t("nav.wall")}</div>
       <h2 class="ss-detail-title">${L(s,"title")}</h2>
       <p class="ss-teaser">${L(s,"teaser")}</p>
       <p class="ss-editorial-note">${isRTL()?"مثال تخيلي للكتابة. ليس شهادة واقعية أو مشروعاً موثقاً.":"Fictional writing example. Not a factual personal testimony or verified project."}</p>
@@ -533,7 +646,7 @@
   function memField() {
     const m = state._mem;
     return `
-      <h3 class="ss-game-title">🧰 ${gt("charity-match")}</h3>
+      <h3 class="ss-game-title">🧰 ${gt("charity-match")}</h3>${howto("charity-match")}
       <p class="ss-game-sub">${m.matched.length}/${MATCH_PAIRS.length}</p>
       <div class="ss-mem-grid">
         ${m.cards.map((c,i) => {
@@ -563,6 +676,11 @@
 
   /* ---- Fill the Box ---- */
   const FILL_ITEMS = { food:"🍚", water:"💧", blanket:"🛏️", clothing:"👕", book:"📖", pencil:"✏️", medicine:"💊" };
+  const FILL_NAMES = {
+    food:{en:"Food",ar:"طعام"}, water:{en:"Water",ar:"ماء"}, blanket:{en:"Blanket",ar:"بطانية"}, clothing:{en:"Warm clothes",ar:"ملابس دافئة"},
+    book:{en:"Book",ar:"كتاب"}, pencil:{en:"Pencil",ar:"قلم"}, medicine:{en:"Medicine",ar:"دواء"},
+  };
+  function fillName(k) { const n = FILL_NAMES[k]; return n ? (state.lang==="ar" ? n.ar : n.en) : k; }
   function fillField() {
     const scenes = [
       { need_en:"Cold at night", need_ar:"برد في الليل", emoji:"🥶", want:["blanket","clothing"], shelf:["blanket","clothing","book","medicine"] },
@@ -575,13 +693,13 @@
     const sc = f.scenes[f.scene];
     const allGood = sc.want.every(w => f.placed.includes(w));
     return `
-      <h3 class="ss-game-title">📦 ${gt("fill-box")}</h3>
+      <h3 class="ss-game-title">📦 ${gt("fill-box")}</h3>${howto("fill-box")}
       <p class="ss-game-sub">${f.scene+1}/${f.scenes.length}</p>
       <div class="ss-drop-scene">
         <div class="ss-drop-need"><div class="ss-emoji">${allGood?"😊":sc.emoji}</div><div style="font-weight:700;">${state.lang==="ar"?sc.need_ar:sc.need_en}</div></div>
-        <div class="ss-drop-box" id="ss-dropbox">${f.placed.map(p=>`<span class="ss-chip"><span class="ss-ie">${FILL_ITEMS[p]}</span>${p}</span>`).join("")}</div>
+        <div class="ss-drop-box" id="ss-dropbox">${f.placed.map(p=>`<span class="ss-chip"><span class="ss-ie">${FILL_ITEMS[p]}</span>${fillName(p)}</span>`).join("")}</div>
       </div>
-      <div class="ss-shelf">${sc.shelf.map(it=>`<div class="ss-item" data-act="fill" data-item="${it}"><span class="ss-ie">${FILL_ITEMS[it]}</span>${it}</div>`).join("")}</div>
+      <div class="ss-shelf">${sc.shelf.map(it=>`<button type="button" class="ss-item" data-act="fill" data-item="${it}"><span class="ss-ie">${FILL_ITEMS[it]}</span>${fillName(it)}</button>`).join("")}</div>
       ${f.done?`<div class="ss-game-win">🎉</div><button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`:""}`;
   }
   function fillDrop(item) {
@@ -613,7 +731,7 @@
     if (tr.q >= TREE_Q.length) { awardBadge("grower"); return `<div class="ss-tree-win">🌳</div><p>${state.lang==="ar"?"نمت شجرة صدقتك الجارية!":"Your Sadaqah Jariyah tree is fully grown!"}</p><button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`; }
     const item = TREE_Q[tr.q];
     return `
-      <h3 class="ss-game-title">🌳 ${gt("giving-tree")}</h3>
+      <h3 class="ss-game-title">🌳 ${gt("giving-tree")}</h3>${howto("giving-tree")}
       <div class="ss-tree-stage"><div class="ss-tree-emoji">${TREE_STAGES[tr.stage]}</div><div class="ss-tree-stage-n">${tr.stage}/${TREE_STAGES.length-1}</div></div>
       <div class="ss-tree-q">${state.lang==="ar"?item.q_ar:item.q_en}</div>
       <div class="ss-opts">${item.opts.map((o,i)=>`<button class="ss-opt" data-act="tree" data-tree="${i}"><span class="ss-oe">${o.e}</span>${state.lang==="ar"?o.t_ar:o.t_en}</button>`).join("")}</div>`;
@@ -643,7 +761,7 @@
         <div class="ss-comm-grid">${c.picked.map(p=>`<div class="ss-proj-pick selected"><div class="ss-pi">${p.emoji}</div><div class="ss-pn">${state.lang==="ar"?p.n_ar:p.n_en}</div></div>`).join("")}</div>
         <button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`;
     }
-    return `<h3 class="ss-game-title">🏘️ ${gt("build-community")}</h3>
+    return `<h3 class="ss-game-title">🏘️ ${gt("build-community")}</h3>${howto("build-community")}
       <p class="ss-game-sub">$${spent.toLocaleString()} / $${BUDGET.toLocaleString()}</p>
       <div class="ss-budget-bar"><span style="width:${(spent/BUDGET)*100}%"></span></div>
       <div class="ss-comm-grid">${COMM_PROJECTS.map(p=>{
@@ -681,8 +799,7 @@
     const z = state._zakat; if (!z) return "";
     if (z.queue.length===0) { if(z.correct===z.total)awardBadge("zakat"); return `<h3 class="ss-game-title">⚖️</h3><p class="ss-game-sub">${z.correct}/${z.total}</p><button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`; }
     const cur = z.queue[0];
-    return `<h3 class="ss-game-title">⚖️ ${gt("sort-zakat")}</h3>
-      <p class="ss-game-sub">${state.lang==="ar"?"اسحب الشخص إلى مصرف الزكاة الصحيح":"Drag the person to the correct Zakat category"}</p>
+    return `<h3 class="ss-game-title">⚖️ ${gt("sort-zakat")}</h3>${howto("sort-zakat")}
       <div class="ss-zchar">${state.lang==="ar"?cur.n_ar:cur.n_en}</div>
       <div class="ss-zakat-bins">${ZAKAT_CATS.map(cat=>`<div class="ss-zbin" data-act="zakat" data-zbin="${cat.id}"><h5>${state.lang==="ar"?cat.n_ar:cat.n_en}</h5><div class="ss-zd">${state.lang==="ar"?cat.d_ar:cat.d_en}</div></div>`).join("")}</div>`;
   }
@@ -691,10 +808,10 @@
 
   /* ---- Chain Reaction ---- */
   const CHAIN = [
-    { en:"Ibrahim digs a water well.", ar:"إبراهيم يحفر بئر ماء.", emoji:"🚰", choices:[{t_en:"Villagers get clean water",t_ar:"الحصول على ماء نظيف",ok:true,next:1},{t_en:"Dries up in a month",t_ar:"يجف في شهر",next:99}] },
-    { en:"Women and girls save hours daily.", ar:"النساء والبنات يوفّرن ساعات يومياً.", emoji:"⏱️", choices:[{t_en:"Girls attend school",t_ar:"البنات يلتحقن بالمدرسة",ok:true,next:2},{t_en:"They just rest",t_ar:"يرحن فقط",next:99}] },
-    { en:"A generation of girls finishes school.", ar:"جيل من البنات يُكمل المدرسة.", emoji:"🎓", choices:[{t_en:"Some become nurses & teachers",t_ar:"يصبحن ممرضات ومعلمات",ok:true,next:3},{t_en:"They leave the village",t_ar:"يتركن القرية",next:99}] },
-    { en:"Educated women strengthen the economy.", ar:"النساء المتعلّمات يقوين الاقتصاد.", emoji:"💼", choices:[{t_en:"Village no longer needs aid",t_ar:"القرية لا تحتاج معونة",ok:true,next:4},{t_en:"Economy collapses",t_ar:"ينهار الاقتصاد",next:99}] },
+    { en:"Ibrahim digs a water well.", ar:"إبراهيم يحفر بئر ماء.", emoji:"🚰", choices:[{t_en:"Villagers get clean water",t_ar:"الحصول على ماء نظيف",ok:true,next:1},{t_en:"Dries up in a month",t_ar:"يجف في شهر",next:5}] },
+    { en:"Women and girls save hours daily.", ar:"النساء والبنات يوفّرن ساعات يومياً.", emoji:"⏱️", choices:[{t_en:"Girls attend school",t_ar:"البنات يلتحقن بالمدرسة",ok:true,next:2},{t_en:"They just rest",t_ar:"يرحن فقط",next:5}] },
+    { en:"A generation of girls finishes school.", ar:"جيل من البنات يُكمل المدرسة.", emoji:"🎓", choices:[{t_en:"Some become nurses & teachers",t_ar:"يصبحن ممرضات ومعلمات",ok:true,next:3},{t_en:"They leave the village",t_ar:"يتركن القرية",next:5}] },
+    { en:"Educated women strengthen the economy.", ar:"النساء المتعلّمات يقوين الاقتصاد.", emoji:"💼", choices:[{t_en:"Village no longer needs aid",t_ar:"القرية لا تحتاج معونة",ok:true,next:4},{t_en:"Economy collapses",t_ar:"ينهار الاقتصاد",next:5}] },
     { en:"20 years later — a thriving community.", ar:"بعد 20 عاماً — مجتمع مزدهر.", emoji:"🌳", choices:[] },
     { en:"A one-time gift fades quickly.", ar:"هدية لمرة واحدة تتلاشى بسرعة.", emoji:"🍂", choices:[] },
   ];
@@ -702,55 +819,258 @@
     const c = state._chain; if (!c) return "";
     const node = CHAIN[c.stage];
     const done = node.choices.length===0;
-    return `<h3 class="ss-game-title">🔗 ${gt("chain-reaction")}</h3>
+    return `<h3 class="ss-game-title">🔗 ${gt("chain-reaction")}</h3>${howto("chain-reaction")}
       <div class="ss-chain">${[...Array(c.links).keys()].map(i=>{const nd=CHAIN[i<c.links-1?i:c.stage];return `<div class="ss-chain-link"><span class="ss-cln">${i+1}.</span><span style="font-size:24px">${nd.emoji}</span><span>${state.lang==="ar"?nd.ar:nd.en}</span></div>`;}).join("")}</div>
-      ${done?`<button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`:`<div class="ss-chain-choices">${node.choices.map((ch,i)=>`<button class="ss-opt" data-act="chain" data-chain="${i}">${state.lang==="ar"?ch.t_ar:ch.t_en}</button>`).join("")}</div>`}`;
+      ${done?`${c.stage===5?`<p class="ss-game-sub">${state.lang==="ar"?"هذا الطريق انتهى سريعاً. جرّب مرة أخرى واختر الخطوة التي تبقي الخير مستمراً.":"This path ended quickly. Try again and pick the step that keeps the good going."}</p><button class="ss-btn ss-btn-ghost" data-act="chain-restart">↻ ${t("nav.restart")}</button> `:""}<button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`:`<div class="ss-chain-choices">${node.choices.map((ch,i)=>`<button class="ss-opt" data-act="chain" data-chain="${i}">${state.lang==="ar"?ch.t_ar:ch.t_en}</button>`).join("")}</div>`}`;
   }
   function gChainReaction(){state._chain={stage:0,links:1};return chainField();}
   function chainChoose(i){const c=state._chain;const node=CHAIN[c.stage];const ch=node.choices[i];if(ch.ok)addStars(1,"✓");c.stage=ch.next;c.links++;if(c.stage===4)addStars(4,"✓");rerenderGame();}
 
-  /* ---- Waqf Architect ---- */
+  /* ---- Waqf Architect ----
+     A deterministic 20-year model so the same choices always give the same
+     result and players can compare runs. The $50,000 principal is never spent;
+     only income is given out. Each asset and each manager has a trade-off and
+     dated events. Cause conversion rates match the Real Impact Calculator. */
+  const WAQF_START = 50000;
+  const WAQF_ASSETS = [
+    { id:"property", n_en:"Commercial property", n_ar:"عقار تجاري", ret:0.08,
+      d_en:"Rent from shops or offices. Higher income, but buildings need repairs and tenants can leave.",
+      d_ar:"إيجار محلات أو مكاتب. ريع أعلى، لكن المباني تحتاج إلى إصلاحات وقد يغادر المستأجرون.",
+      events:[ { y:8, kind:"cost", amt:6000, en:"Year 8: the roof needs repair. $6,000 comes out of that year's income.", ar:"السنة 8: يحتاج السقف إلى إصلاح، فيُقتطع 6,000 دولار من ريع تلك السنة." },
+               { y:14, kind:"factor", f:0.5, en:"Year 14: a tenant leaves for six months, so that year's income is cut in half.", ar:"السنة 14: يغادر مستأجر لمدة ستة أشهر، فينخفض ريع تلك السنة إلى النصف." } ] },
+    { id:"farmland", n_en:"Farmland", n_ar:"أرض زراعية", ret:0.05,
+      d_en:"Income from crops. Lower but steady, until a bad harvest.",
+      d_ar:"ريع من المحاصيل. أقل لكنه ثابت، إلا إذا ضعف المحصول.",
+      events:[ { y:6, kind:"factor", f:0.3, en:"Year 6: drought. The harvest fails and that year's income falls to 30%.", ar:"السنة 6: جفاف يُتلف المحصول، فينخفض ريع تلك السنة إلى 30%." } ] },
+    { id:"fund", n_en:"Waqf fund", n_ar:"صندوق وقفي", ret:0.07,
+      d_en:"Money spread across many investments. No repairs, but income rises and falls with the markets.",
+      d_ar:"مال موزّع على استثمارات كثيرة. لا يحتاج إلى إصلاحات، لكن ريعه يرتفع وينخفض مع الأسواق.",
+      events:[ { y:9, kind:"factor", f:0.4, en:"Year 9: markets fall, and that year's income drops to 40%.", ar:"السنة 9: تهبط الأسواق، فينخفض ريع تلك السنة إلى 40%." } ] },
+  ];
+  const WAQF_CAUSES = [
+    { id:"education", n_en:"Education", n_ar:"التعليم", per:480, u_en:"student-years of school", u_ar:"سنوات دراسة ممولة" },
+    { id:"healthcare", n_en:"Healthcare", n_ar:"الرعاية الصحية", per:25, u_en:"clinic consultations", u_ar:"استشارات طبية" },
+    { id:"water", n_en:"Clean water", n_ar:"الماء النظيف", per:10, u_en:"people given clean water", u_ar:"أشخاص يحصلون على ماء نظيف" },
+    { id:"orphan", n_en:"Orphan care", n_ar:"كفالة الأيتام", per:480, u_en:"years of orphan sponsorship", u_ar:"سنوات كفالة أيتام" },
+    { id:"emergency", n_en:"Emergency relief", n_ar:"الإغاثة الطارئة", per:80, u_en:"family emergency kits", u_ar:"حقائب طوارئ عائلية" },
+  ];
+  const WAQF_GOVS = [
+    { id:"family", n_en:"Family trustee", n_ar:"ناظر من العائلة", fee:0, keep:0,
+      d_en:"No fees. But one family decides everything, with no outside check.",
+      d_ar:"بلا رسوم. لكن العائلة وحدها تقرر كل شيء، دون رقابة خارجية.",
+      events:[ { y:15, kind:"pause", en:"Year 15: family members disagree about the income, and that year's income goes on settling the dispute.", ar:"السنة 15: يختلف أفراد العائلة على الريع، فيُصرف ريع تلك السنة في تسوية الخلاف." } ] },
+    { id:"charity", n_en:"Charity organisation", n_ar:"جمعية خيرية", fee:0.10, keep:0,
+      d_en:"Experienced staff who know the cause. Takes 10% of income for running costs.",
+      d_ar:"فريق ذو خبرة في المجال. تأخذ 10% من الريع لتكاليف التشغيل.", events:[] },
+    { id:"board", n_en:"Independent board", n_ar:"مجلس نظارة مستقل", fee:0.05, keep:0.10,
+      d_en:"Audited every year. Takes 5% for costs and puts 10% back into the waqf so it grows.",
+      d_ar:"يُدقَّق كل سنة. يأخذ 5% للتكاليف، ويعيد 10% إلى أصل الوقف لينمو.", events:[] },
+  ];
+  function wq(o, f) { return state.lang==="ar" ? o[f+"_ar"] : o[f+"_en"]; }
+  function money(n) { const v = Math.round(n).toLocaleString("en-US"); return state.lang==="ar" ? v + " دولار" : "$" + v; }
+  function units(n, c) { const v = n.toLocaleString("en-US"); return state.lang==="ar" ? `${c.u_ar}: ≈ ${v}` : `≈ ${v} ${c.u_en}`; }
+  function waqfSimulate(assetId, causeId, govId) {
+    const a = WAQF_ASSETS.find(x=>x.id===assetId), g = WAQF_GOVS.find(x=>x.id===govId), c = WAQF_CAUSES.find(x=>x.id===causeId);
+    let principal = WAQF_START, given = 0, fees = 0;
+    const snaps = {}, log = [];
+    for (let y = 1; y <= 20; y++) {
+      let income = principal * a.ret;
+      a.events.filter(e=>e.y===y).forEach(e => { if (e.kind==="factor") income *= e.f; if (e.kind==="cost") income = Math.max(0, income - e.amt); log.push(e); });
+      const fee = income * g.fee, keep = income * g.keep;
+      let give = income - fee - keep;
+      g.events.filter(e=>e.y===y).forEach(e => { if (e.kind==="pause") give = 0; log.push(e); });
+      principal += keep; given += give; fees += fee;
+      if ([1,5,10,20].includes(y)) snaps[y] = { given, principal, units: Math.floor(given / c.per) };
+    }
+    log.sort((p,q)=>p.y-q.y);
+    return { snaps, log, given, principal, fees, cause: c };
+  }
   function waqfField() {
     const w = state._waqf; if (!w) return "";
-    const assets=[{id:"property",n_en:"Commercial property",n_ar:"عقار تجاري",ret:0.08},{id:"farmland",n_en:"Farmland",n_ar:"أرض زراعية",ret:0.05},{id:"fund",n_en:"Waqf fund",n_ar:"صندوق وقف",ret:0.07}];
-    const causes=["education","healthcare","water","orphan","emergency"];
-    const govs=[{id:"family",n_en:"Family trustee",n_ar:"وصي عائلي"},{id:"charity",n_en:"Charity org",n_ar:"جمعية خيرية"},{id:"board",n_en:"Independent board",n_ar:"مجلس مستقل"}];
+    const ar = state.lang==="ar";
+    const chosen = (step, label) => `<button type="button" class="ss-waqf-chosen" data-act="waqf-reset" data-step="${step}">✔ ${label} <small>${ar?"(تغيير)":"(change)"}</small></button>`;
     if (!w.ran) {
-      return `<h3 class="ss-game-title">🏗️ ${gt("waqf-architect")}</h3>
+      const A = WAQF_ASSETS.find(x=>x.id===w.asset), C = WAQF_CAUSES.find(x=>x.id===w.cause), G = WAQF_GOVS.find(x=>x.id===w.gov);
+      return `<h3 class="ss-game-title">🏗️ ${gt("waqf-architect")}</h3>${howto("waqf-architect")}
+        <p class="ss-waqf-start">${ar?"المبلغ الموقوف":"Your waqf gift"}: <strong>${money(WAQF_START)}</strong>. ${ar?"لا يُنفَق هذا المبلغ أبداً، بل يُعطى ريعه فقط.":"This amount is never spent. Only its income is given away."}</p>
         <div class="ss-waqf-stepper">
-          <div class="ss-waqf-step"><h5>1</h5>${w.asset?`✔ ${state.lang==="ar"?assets.find(a=>a.id===w.asset).n_ar:assets.find(a=>a.id===w.asset).n_en}`:`<div class="ss-opts">${assets.map(a=>`<button class="ss-opt" data-act="waqf-asset" data-wa="${a.id}"><span class="ss-oe">${(a.ret*100).toFixed(0)}%</span>${state.lang==="ar"?a.n_ar:a.n_en}</button>`).join("")}</div>`}</div>
-          <div class="ss-waqf-step"><h5>2</h5>${w.cause?`✔ ${w.cause}`:(w.asset?`<div class="ss-segments">${causes.map(c=>`<button class="ss-seg" data-act="waqf-cause" data-wc="${c}">${c}</button>`).join("")}</div>`:'...')}</div>
-          <div class="ss-waqf-step"><h5>3</h5>${w.gov?`✔ ${state.lang==="ar"?govs.find(g=>g.id===w.gov).n_ar:govs.find(g=>g.id===w.gov).n_en}`:(w.cause?`<div class="ss-segments">${govs.map(g=>`<button class="ss-seg" data-act="waqf-gov" data-wg="${g.id}">${state.lang==="ar"?g.n_ar:g.n_en}</button>`).join("")}</div>`:'...')}</div>
+          <div class="ss-waqf-step"><h5>1. ${ar?"أين تستثمر المبلغ؟":"What will the money be invested in?"}</h5>${A?chosen("asset", wq(A,"n")):`<div class="ss-opts">${WAQF_ASSETS.map(a=>`<button class="ss-opt" data-act="waqf-asset" data-wa="${a.id}"><span class="ss-oe">${Math.round(a.ret*100)}%</span><strong>${wq(a,"n")}</strong><small>${wq(a,"d")}</small></button>`).join("")}</div>`}</div>
+          <div class="ss-waqf-step"><h5>2. ${ar?"إلى أي مجال يذهب الريع؟":"Which cause gets the income?"}</h5>${C?chosen("cause", wq(C,"n")):(A?`<div class="ss-segments">${WAQF_CAUSES.map(c=>`<button class="ss-seg" data-act="waqf-cause" data-wc="${c.id}">${wq(c,"n")}</button>`).join("")}</div>`:'<span class="ss-muted">…</span>')}</div>
+          <div class="ss-waqf-step"><h5>3. ${ar?"من يدير الوقف؟":"Who will manage the waqf?"}</h5>${G?chosen("gov", wq(G,"n")):(C?`<div class="ss-opts">${WAQF_GOVS.map(g=>`<button class="ss-opt" data-act="waqf-gov" data-wg="${g.id}"><strong>${wq(g,"n")}</strong><small>${wq(g,"d")}</small></button>`).join("")}</div>`:'<span class="ss-muted">…</span>')}</div>
         </div>
-        ${w.asset&&w.cause&&w.gov?`<button class="ss-btn ss-btn-primary" data-act="waqf-run">${state.lang==="ar"?"شغّل المحاكاة":"Run simulation"} →</button>`:''}`;
+        ${A&&C&&G?`<button class="ss-btn ss-btn-primary" data-act="waqf-run">${ar?"شغّل 20 سنة":"Run 20 years"} →</button>`:''}`;
     }
-    const asset=assets.find(a=>a.id===w.asset); const years=[1,5,10,20]; const vals=years.map(y=>Math.round(50000*asset.ret*y));
-    return `<h3 class="ss-game-title">🏗️</h3><div class="ss-infogrid">${years.map((y,i)=>`<div class="ss-info"><div class="ss-iy">${t("year."+["1","5","10","20"][i])}</div><div class="ss-iv">$${vals[i].toLocaleString()}</div><div class="ss-id">${w.cause}</div></div>`).join("")}</div>
+    const r = waqfSimulate(w.asset, w.cause, w.gov);
+    const A = WAQF_ASSETS.find(x=>x.id===w.asset), G = WAQF_GOVS.find(x=>x.id===w.gov);
+    const last = state.waqfLast && state.waqfLast.key !== w.asset+w.cause+w.gov ? state.waqfLast : null;
+    return `<h3 class="ss-game-title">🏗️ ${gt("waqf-architect")}</h3>
+      <p class="ss-game-sub">${wq(A,"n")} · ${wq(r.cause,"n")} · ${wq(G,"n")}</p>
+      <div class="ss-infogrid">${[1,5,10,20].map((y,i)=>`<div class="ss-info"><div class="ss-iy">${t("year."+["1","5","10","20"][i])}</div>
+        <div class="ss-iv">${money(r.snaps[y].given)}</div><div class="ss-id">${ar?"أُعطي حتى الآن":"given so far"}</div>
+        <div class="ss-iu">${units(r.snaps[y].units, r.cause)}</div>
+        <div class="ss-id">${ar?"قيمة الوقف":"Waqf value"}: ${money(r.snaps[y].principal)}</div></div>`).join("")}</div>
+      ${r.log.length?`<div class="ss-waqf-log"><h5>${ar?"ما الذي حدث خلال 20 سنة":"What happened over 20 years"}</h5><ul>${r.log.map(e=>`<li>${ar?e.ar:e.en}</li>`).join("")}</ul></div>`:''}
+      <div class="ss-waqf-lesson">
+        <p>${ar?`المبلغ الأصلي (${money(WAQF_START)}) لم يُنفَق، وقيمة الوقف بعد 20 سنة ${money(r.principal)}. لهذا يستمر الوقف في العطاء.`:`The original ${money(WAQF_START)} was never spent, and after 20 years the waqf is worth ${money(r.principal)}. That is why a waqf can keep giving.`}</p>
+        ${r.fees>0?`<p>${ar?`ذهب ${money(r.fees)} إلى تكاليف الإدارة.`:`${money(r.fees)} went on management costs.`}</p>`:''}
+        ${last?`<p>${ar?`في محاولتك السابقة أعطى الوقف ${money(last.given)} خلال 20 سنة.`:`Your last run gave ${money(last.given)} over 20 years.`}</p>`:''}
+        <p class="ss-rate-note">${ar?"الأرقام افتراضية للتعلّم. العائد الحقيقي يتغيّر من سنة إلى أخرى وقد يكون أقل.":"These figures are made up for learning. Real returns change every year and can be lower."}</p>
+      </div>
+      <button class="ss-btn ss-btn-ghost" data-act="waqf-again">↻ ${ar?"جرّب اختيارات أخرى":"Try other choices"}</button>
       <button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`;
   }
   function gWaqfArchitect(){state._waqf={asset:null,cause:null,gov:null,ran:false};return waqfField();}
   function waqfRun(){state._waqf.ran=true;awardBadge("architect");addStars(4,"✓");rerenderGame();}
+  function waqfAgain(){const w=state._waqf;const r=waqfSimulate(w.asset,w.cause,w.gov);state.waqfLast={key:w.asset+w.cause+w.gov,given:r.given};state._waqf={asset:null,cause:null,gov:null,ran:false};rerenderGame();}
+  function waqfReset(step){const w=state._waqf;if(step==="asset"){w.asset=null;w.cause=null;w.gov=null;}if(step==="cause"){w.cause=null;w.gov=null;}if(step==="gov"){w.gov=null;}rerenderGame();}
 
-  /* ---- Giving Dilemma ---- */
+  /* ---- Giving Dilemma ----
+     After each choice the player sees what each option gains and what it
+     misses, then moves on. Religious references: Qur'an 2:215,
+     Sahih al-Bukhari 1902 and 6464 (checked on sunnah.com). */
   const DILEMMAS=[
-    {q_en:"You have $500.",a_en:"Feed 100 families for one day",b_en:"Dig one well serving 50 families for 20 years",q_ar:"لديك 500 دولار.",a_ar:"إطعام 100 أسرة ليوم واحد",b_ar:"حفر بئر تخدم 50 أسرة لـ 20 عاماً"},
-    {q_en:"You can give $1,000.",a_en:"Emergency relief today",b_en:"A waqf endowment forever",q_ar:"يمكنك التبرّع بـ 1000 دولار.",a_ar:"إغاثة طارئة اليوم",b_ar:"وقف للأبد"},
-    {q_en:"Sponsor 1 orphan for 10 years.",a_en:"The child nearest to you",b_en:"The most vulnerable far away",q_ar:"اكفل يتيماً لـ 10 سنوات.",a_ar:"الطفل الأقرب إليك",b_ar:"الأشد ضعفاً البعيد"},
-    {q_en:"$100/month.",a_en:"Small amounts to many",b_en:"One high-impact project",q_ar:"100 دولار شهرياً.",a_ar:"مبالغ صغيرة لعدّة أسباب",b_ar:"مشروع واحد عالي الأثر"},
-    {q_en:"Ramadan approaches.",a_en:"All charity in Ramadan",b_en:"Spread across the year",q_ar:"يقترب رمضان.",a_ar:"كل الصدقة في رمضان",b_ar:"موزّعة عبر السنة"},
+    {q_en:"You have $500.",a_en:"Feed 100 families for one day",b_en:"Dig one well serving 50 families for 20 years",q_ar:"لديك 500 دولار.",a_ar:"إطعام 100 أسرة ليوم واحد",b_ar:"حفر بئر تخدم 50 أسرة لـ 20 عاماً",
+     na_en:"Food meets an urgent need today. If people have nothing to eat tonight, that need cannot wait.",
+     nb_en:"A well gives clean water for many years, so it is Sadaqah Jariyah. But it takes time to build, and it does not feed anyone who is hungry tonight.",
+     nt_en:"Neither choice is wrong. The better one depends on what people need most right now.",
+     na_ar:"الطعام يسدّ حاجة عاجلة اليوم. فإذا لم يجد الناس ما يأكلونه الليلة، فهذه الحاجة لا تحتمل الانتظار.",
+     nb_ar:"البئر تعطي ماءً نظيفاً سنوات طويلة، فهي صدقة جارية. لكن حفرها يحتاج إلى وقت، ولا يُطعم من هو جائع الليلة.",
+     nt_ar:"لا يوجد اختيار خاطئ هنا. الأفضل يعتمد على أشد ما يحتاج إليه الناس الآن."},
+    {q_en:"You can give $1,000.",a_en:"Emergency relief today",b_en:"A waqf endowment forever",q_ar:"يمكنك التبرّع بـ 1000 دولار.",a_ar:"إغاثة طارئة اليوم",b_ar:"وقف للأبد",
+     na_en:"After a disaster, relief in the first days can save lives. That is when help matters most.",
+     nb_en:"A waqf keeps the $1,000 and gives away only the income, so it helps every year. But the yearly amount is small, and it lasts only if it is managed well.",
+     nt_en:"Many givers do both: some now for emergencies, and some set aside to keep giving.",
+     na_ar:"بعد الكارثة، قد تنقذ الإغاثة في الأيام الأولى أرواحاً. ففي ذلك الوقت تكون الحاجة إلى المساعدة في أشدها.",
+     nb_ar:"الوقف يحفظ الألف دولار ويُنفق من ريعها فقط، فينفع كل سنة. لكن المبلغ السنوي صغير، ولا يدوم الوقف إلا إذا أُحسنت إدارته.",
+     nt_ar:"كثير من المتصدقين يجمعون بين الأمرين: جزء للطوارئ الآن، وجزء يُحبس ليستمر عطاؤه."},
+    {q_en:"Sponsor 1 orphan for 10 years.",a_en:"The child nearest to you",b_en:"The most vulnerable far away",q_ar:"اكفل يتيماً لـ 10 سنوات.",a_ar:"الطفل الأقرب إليك",b_ar:"الأشد ضعفاً البعيد",
+     na_en:"A child near you is someone you can visit and follow as they grow, and helping them makes your community stronger. When the Qur'an lists who to spend on, it starts with parents and relatives, then orphans, the needy and travellers (Qur'an 2:215).",
+     nb_en:"A child far away may be in greater danger and may have no one else to help. A trusted charity can get your support to them.",
+     nt_en:"Both are good. Ask who needs it most, and who else is able to help them.",
+     na_ar:"الطفل القريب منك تستطيع أن تزوره وتتابع حاله وهو يكبر، ومساعدته تقوّي مجتمعك. وحين يذكر القرآن الكريم من يُنفَق عليهم، يبدأ بالوالدين والأقربين، ثم اليتامى والمساكين وابن السبيل (البقرة: 215).",
+     nb_ar:"قد يكون الطفل البعيد في خطر أكبر، وقد لا يجد من يساعده غيرك. ويمكن أن تصل إليه مساعدتك عبر جمعية خيرية موثوقة.",
+     nt_ar:"كلا الاختيارين خير. اسأل نفسك: من الأشد حاجة؟ ومن غيري يستطيع أن يساعده؟"},
+    {q_en:"$100/month.",a_en:"Small amounts to many",b_en:"One high-impact project",q_ar:"100 دولار شهرياً.",a_ar:"مبالغ صغيرة لعدّة أسباب",b_ar:"مشروع واحد عالي الأثر",
+     na_en:"Small gifts to many causes reach more people, and you lose less if one project fails. But each gift may be too small to change much.",
+     nb_en:"One strong project can change a lot for a few people. Check it carefully first, because if it fails, all of your gift is affected.",
+     nt_en:"Whichever you choose, give through a trustworthy, licensed charity that reports how it uses donations.",
+     na_ar:"المبالغ الصغيرة لأسباب كثيرة تصل إلى عدد أكبر من الناس، وتقلّ خسارتك إذا فشل مشروع واحد. لكن كل مبلغ قد يكون أصغر من أن يغيّر الكثير.",
+     nb_ar:"المشروع الواحد القوي قد يغيّر الكثير في حياة عدد قليل من الناس. لكن تحقّق منه جيداً أولاً، لأنه إذا فشل تأثّر عطاؤك كله.",
+     nt_ar:"مهما اخترت، تبرّع عبر جمعية موثوقة ومرخّصة تنشر كيف تستخدم التبرعات."},
+    {q_en:"Ramadan approaches.",a_en:"All charity in Ramadan",b_en:"Spread across the year",q_ar:"يقترب رمضان.",a_ar:"كل الصدقة في رمضان",b_ar:"موزّعة عبر السنة",
+     na_en:"Ramadan is a special time for giving: the Prophet ﷺ was most generous in Ramadan (Sahih al-Bukhari 1902). But if all your giving waits for Ramadan, people in need in the other eleven months get nothing from you.",
+     nb_en:"Giving through the year means help arrives whenever it is needed. The Prophet ﷺ said the deeds Allah loves most are the regular ones, even if small (Sahih al-Bukhari 6464).",
+     nt_en:"Many people do both: they give through the year and give more in Ramadan.",
+     na_ar:"رمضان وقت مميز للعطاء، فقد كان النبي ﷺ أجود ما يكون في رمضان (صحيح البخاري 1902). لكن إذا انتظر عطاؤك كله رمضان، فلن يصل منك شيء إلى المحتاجين في الشهور الأحد عشر الأخرى.",
+     nb_ar:"العطاء طوال السنة يوصل المساعدة متى احتاج إليها الناس. وقد أخبر النبي ﷺ أن أحب الأعمال إلى الله أدومها وإن قلّ (صحيح البخاري 6464).",
+     nt_ar:"يجمع كثير من الناس بين الأمرين: يعطون طوال السنة، ويُكثرون العطاء في رمضان."},
   ];
-  function dilemmaField(){const d=state._dilemma;if(!d)return"";if(d.i>=DILEMMAS.length){const lc=d.picks.filter(p=>p==="b").length;const pr=lc>=3?(state.lang==="ar"?"باني وقف طويل المدى":"long-term waqf builder"):lc>=1?(state.lang==="ar"?"عاطاء متوازن":"balanced giver"):(state.lang==="ar"?"مستجيب فوري":"immediate-need responder");return `<h3 class="ss-game-title">🦭</h3><p>${state.lang==="ar"?"أنت":"You are"} <strong>${pr}</strong>.</p><button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`;}const it=DILEMMAS[d.i];return `<h3 class="ss-game-title">🦭 ${gt("giving-dilemma")}</h3><div class="ss-dilemma"><h4>${state.lang==="ar"?it.q_ar:it.q_en}</h4><div class="ss-choice-grid"><button class="ss-choice" data-act="dilemma" data-d="a">${state.lang==="ar"?it.a_ar:it.a_en}</button><button class="ss-choice" data-act="dilemma" data-d="b">${state.lang==="ar"?it.b_ar:it.b_en}</button></div></div>`;}
-  function gGivingDilemma(){state._dilemma={i:0,picks:[]};return dilemmaField();}
-  function dilemmaChoose(p){const d=state._dilemma;d.picks.push(p);d.i++;addStars(1,"✓");rerenderGame();}
+  function dilemmaField(){
+    const d=state._dilemma; if(!d) return "";
+    const ar=state.lang==="ar";
+    if(d.i>=DILEMMAS.length){
+      const lc=d.picks.filter(p=>p==="b").length;
+      const pr=lc>=3?(ar?"أنت باني وقف طويل المدى.":"You are a long-term waqf builder."):lc>=1?(ar?"أنت معطاء متوازن.":"You are a balanced giver."):(ar?"أنت مستجيب للحاجات العاجلة.":"You are an immediate-need responder.");
+      return `<h3 class="ss-game-title">⚖️ ${gt("giving-dilemma")}</h3><p class="ss-dilemma-result"><strong>${pr}</strong></p><p>${ar?"لا يوجد جواب واحد صحيح. كل اختيار من هذه الاختيارات يساعد أحداً.":"There is no single right answer. Every choice here helps someone."}</p><button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`;
+    }
+    const it=DILEMMAS[d.i];
+    const head=`<h3 class="ss-game-title">⚖️ ${gt("giving-dilemma")}</h3>${howto("giving-dilemma")}<p class="ss-game-sub">${d.i+1}/${DILEMMAS.length}</p>`;
+    if(!d.reveal){
+      return head+`<div class="ss-dilemma"><h4>${ar?it.q_ar:it.q_en}</h4><div class="ss-choice-grid"><button class="ss-choice" data-act="dilemma" data-d="a">${ar?it.a_ar:it.a_en}</button><button class="ss-choice" data-act="dilemma" data-d="b">${ar?it.b_ar:it.b_en}</button></div></div>`;
+    }
+    const pick=d.picks[d.picks.length-1];
+    const opt=(k)=>`<div class="ss-tradeoff ${pick===k?'picked':''}"><div class="ss-tradeoff-h">${pick===k?(ar?"اختيارك: ":"Your choice: "):""}${ar?it[k+"_ar"]:it[k+"_en"]}</div><p>${ar?it["n"+k+"_ar"]:it["n"+k+"_en"]}</p></div>`;
+    return head+`<div class="ss-dilemma"><h4>${ar?it.q_ar:it.q_en}</h4>${opt("a")}${opt("b")}<p class="ss-tradeoff-take">${ar?it.nt_ar:it.nt_en}</p><button class="ss-btn ss-btn-primary" data-act="dilemma-next">${d.i+1<DILEMMAS.length?t("nav.next"):(ar?"النتيجة":"See result")} →</button></div>`;
+  }
+  function gGivingDilemma(){state._dilemma={i:0,picks:[],reveal:false};return dilemmaField();}
+  function dilemmaChoose(p){const d=state._dilemma;if(d.reveal)return;d.picks.push(p);d.reveal=true;addStars(1,"✓");rerenderGame();}
+  function dilemmaNext(){const d=state._dilemma;d.reveal=false;d.i++;rerenderGame();}
 
-  /* ---- Impact Calculator ---- */
-  const CALC_RATES={water:{per:10,u_en:"people given clean water",u_ar:"شخص يحصل على ماء نظيف",label_en:"Water",label_ar:"الماء",emoji:"🚰"},food:{per:5,u_en:"food parcels",u_ar:"طرد غذائي",label_en:"Food",label_ar:"الطعام",emoji:"🍚"},education:{per:40,u_en:"child-months of school",u_ar:"شهر-طفل من التعليم",label_en:"Education",label_ar:"التعليم",emoji:"📚"},healthcare:{per:25,u_en:"clinic consultations",u_ar:"استشارة طبية",label_en:"Healthcare",label_ar:"الرعاية الصحية",emoji:"💚"},orphan:{per:40,u_en:"orphan sponsor months",u_ar:"شهر كفالة يتيم",label_en:"Orphan",label_ar:"كفالة يتيم",emoji:"🧑‍🍼"}};
-  function calcField(){const c=state._calc;if(!c)return"";const r=CALC_RATES[c.area];const qty=Math.floor(c.amount/r.per);return `<h3 class="ss-game-title">💡 ${gt("impact-calc")}</h3>
-    <div class="ss-calc-card"><label style="font-weight:700;">$${c.amount}</label><input type="range" min="1" max="1000" value="${c.amount}" class="ss-slider" data-act="calc" data-cal="amount" style="width:100%">
-    <div class="ss-segments" style="margin-top:12px;">${Object.keys(CALC_RATES).map(k=>`<button class="ss-seg ${k===c.area?'selected':''}" data-act="calc-area" data-ca="${k}">${CALC_RATES[k].emoji} ${state.lang==="ar"?CALC_RATES[k].label_ar:CALC_RATES[k].label_en}</button>`).join("")}</div></div>
-    <div class="ss-result"><div class="ss-re">${r.emoji}</div><div><div style="font-size:24px;font-weight:800;color:var(--teal-deep);">${qty.toLocaleString()} ${state.lang==="ar"?r.u_ar:r.u_en}</div></div></div>
+  /* ---- Impact Calculator ----
+     Rates are illustrative. Food uses a monthly family parcel at $40 so it
+     matches the Impact Simulator's $30–$50 per family food parcel. */
+  const CALC_RATES={
+    water:{per:10,u_en:"people given clean water",u_ar:"شخص يحصل على ماء نظيف",label_en:"Water",label_ar:"الماء",emoji:"🚰",r_en:"Assumes $10 gives one person clean water.",r_ar:"على افتراض أن 10 دولارات توفّر الماء النظيف لشخص واحد."},
+    food:{per:40,u_en:"family food parcels (one month each)",u_ar:"طرد غذائي عائلي (يكفي شهراً)",label_en:"Food",label_ar:"الطعام",emoji:"🍚",r_en:"Assumes $40 for one family food parcel that lasts a month (the Impact Simulator uses $30–$50).",r_ar:"على افتراض أن الطرد الغذائي العائلي الذي يكفي شهراً يكلّف 40 دولاراً (يستخدم محاكي الأثر 30–50 دولاراً)."},
+    education:{per:40,u_en:"child-months of school",u_ar:"شهر-طفل من التعليم",label_en:"Education",label_ar:"التعليم",emoji:"📚",r_en:"Assumes $40 pays for one child's schooling for one month.",r_ar:"على افتراض أن 40 دولاراً تغطي تعليم طفل واحد لمدة شهر."},
+    healthcare:{per:25,u_en:"clinic consultations",u_ar:"استشارة طبية",label_en:"Healthcare",label_ar:"الرعاية الصحية",emoji:"💚",r_en:"Assumes $25 for one clinic consultation.",r_ar:"على افتراض أن الاستشارة الطبية الواحدة تكلّف 25 دولاراً."},
+    orphan:{per:40,u_en:"orphan sponsor months",u_ar:"شهر كفالة يتيم",label_en:"Orphan",label_ar:"كفالة يتيم",emoji:"🧑‍🍼",r_en:"Assumes $40 sponsors one orphan for one month (the Impact Simulator uses $30–$50).",r_ar:"على افتراض أن 40 دولاراً تكفل يتيماً واحداً لمدة شهر (يستخدم محاكي الأثر 30–50 دولاراً)."}
+  };
+  function calcQty(){const c=state._calc;return Math.floor(c.amount/CALC_RATES[c.area].per);}
+  function calcField(){const c=state._calc;if(!c)return"";const r=CALC_RATES[c.area];const ar=state.lang==="ar";return `<h3 class="ss-game-title">💡 ${gt("impact-calc")}</h3>${howto("impact-calc")}
+    <div class="ss-calc-card"><label for="ss-calc-slider" style="font-weight:700;">$<span id="ss-calc-amt">${c.amount}</span></label><input id="ss-calc-slider" type="range" min="1" max="1000" value="${c.amount}" class="ss-slider" data-act="calc" data-cal="amount" style="width:100%">
+    <div class="ss-segments" style="margin-top:12px;">${Object.keys(CALC_RATES).map(k=>`<button class="ss-seg ${k===c.area?'selected':''}" data-act="calc-area" data-ca="${k}">${CALC_RATES[k].emoji} ${ar?CALC_RATES[k].label_ar:CALC_RATES[k].label_en}</button>`).join("")}</div></div>
+    <div class="ss-result"><div class="ss-re">${r.emoji}</div><div><div style="font-size:24px;font-weight:800;color:var(--teal-deep);"><span id="ss-calc-qty">${calcQty().toLocaleString()}</span> ${ar?r.u_ar:r.u_en}</div></div></div>
+    <p class="ss-rate-note">${ar?r.r_ar:r.r_en} ${ar?"هذه أسعار تقريبية للتعلّم، والتكلفة الحقيقية تختلف بحسب البلد والجمعية.":"These are example prices for learning. Real costs vary by country and charity."}</p>
     <button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`;}
   function gImpactCalc(){state._calc={amount:50,area:"water"};return calcField();}
+
+  /* ---- Choose Your Path (branching scenarios from SADAQAH_PATHS) ---- */
+  function pathField() {
+    const st = state._path; if (!st) return "";
+    const ar = state.lang === "ar";
+    const P = window.SADAQAH_PATHS || [];
+    const tx = (o, f) => ar ? o[f + "_ar"] : o[f + "_en"];
+    if (!st.sid) {
+      return `<h3 class="ss-game-title">🧭 ${gt("choose-path")}</h3>${howto("choose-path")}
+        <div class="ss-path-menu">${P.map(sc => `<button class="ss-path-card" data-act="path-pick" data-path="${sc.id}"><span class="ss-path-e">${sc.e}</span><strong>${tx(sc,"title")}</strong><small>${tx(sc,"intro")}</small>${(state.pathsDone||[]).includes(sc.id)?`<span class="ss-read-badge">✓</span>`:""}</button>`).join("")}</div>`;
+    }
+    const sc = P.find(x => x.id === st.sid); const node = sc.nodes[st.node];
+    const trail = st.trail.length ? `<ol class="ss-path-trail">${st.trail.map(([n, i]) => `<li>${ar ? sc.nodes[n].choices[i].ar : sc.nodes[n].choices[i].en}</li>`).join("")}</ol>` : "";
+    if (node.end) {
+      const src = node.url ? `<a href="${esc(node.url)}" target="_blank" rel="noopener noreferrer">${ar?node.ref_ar:node.ref_en} ↗</a>` : "";
+      return `<h3 class="ss-game-title">${sc.e} ${tx(sc,"title")}</h3>${trail}
+        <div class="ss-path-end ${node.good?'good':'hard'}"><p class="ss-path-outcome">${ar?node.ar:node.en}</p>
+        <div class="ss-path-lesson"><strong>${ar?"ما نتعلّمه":"What we learn"}:</strong> ${ar?node.lesson_ar:node.lesson_en} ${src}</div></div>
+        <p class="ss-game-sub">⭐ ${st.stars}</p>
+        <button class="ss-btn ss-btn-ghost" data-act="path-again">↻ ${ar?"جرّب طريقاً آخر":"Try a different path"}</button>
+        <button class="ss-btn ss-btn-ghost" data-act="path-menu">${ar?"موقف آخر":"Another situation"}</button>
+        <button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="games">${t("complete.opt.progress")} →</button>`;
+    }
+    return `<h3 class="ss-game-title">${sc.e} ${tx(sc,"title")}</h3>${trail}
+      <div class="ss-dilemma"><h4>${ar?node.ar:node.en}</h4>
+      <div class="ss-path-choices">${node.choices.map((c,i) => `<button class="ss-choice" data-act="path-choose" data-choice="${i}">${ar?c.ar:c.en}</button>`).join("")}</div></div>`;
+  }
+  function gChoosePath() { state._path = { sid: null }; return pathField(); }
+  function pathPick(id) { const sc = (window.SADAQAH_PATHS||[]).find(x => x.id === id); if (!sc) return; state._path = { sid: id, node: sc.start, trail: [], stars: 0 }; rerenderGame(); }
+  function pathChoose(i) {
+    const st = state._path; const sc = window.SADAQAH_PATHS.find(x => x.id === st.sid); const node = sc.nodes[st.node];
+    const c = node.choices[i]; if (!c) return;
+    st.trail.push([st.node, i]);
+    st.stars += c.stars; if (c.stars) addStars(c.stars, "✓");
+    st.node = c.next;
+    if (sc.nodes[st.node].end) { state.pathsDone = state.pathsDone || []; if (!state.pathsDone.includes(sc.id)) state.pathsDone.push(sc.id); }
+    rerenderGame();
+  }
+  function pathAgain() { const st = state._path; pathPick(st.sid); }
+
+  /* ---- How to play (one or two lines per game, written from what each game does) ---- */
+  const HOWTO = {
+    "charity-match":   { en:"Flip two cards at a time to find a word and its matching picture. Each match shows a short lesson.",
+                         ar:"اقلب بطاقتين في كل مرة لتجد الكلمة والصورة المطابقة لها. كل تطابق يعرض لك معلومة قصيرة." },
+    "fill-box":        { en:"Read who needs help, then tap the items that meet that need. Items that don't help will not go in the box.",
+                         ar:"اقرأ من يحتاج إلى المساعدة، ثم اضغط على الأشياء التي تلبّي حاجته. الأشياء التي لا تساعده لن تدخل الصندوق." },
+    "giving-tree":     { en:"Answer each question correctly to water the tree. Four right answers grow it fully.",
+                         ar:"أجب عن كل سؤال إجابة صحيحة لتسقي الشجرة. أربع إجابات صحيحة تجعلها تكبر تماماً." },
+    "build-community": { en:"You have $10,000. Pick projects that fit the budget, then press Build. Your score adds how happy the village is and how well you protect the most vulnerable.",
+                         ar:"لديك 10,000 دولار. اختر مشاريع ضمن الميزانية، ثم اضغط «ابنِ القرية». تجمع نتيجتك بين رضا أهل القرية وحماية الأشد ضعفاً." },
+    "sort-zakat":      { en:"Read about each person and tap the Zakat category that fits them. The eight categories are listed in Qur'an 9:60.",
+                         ar:"اقرأ عن كل شخص واضغط على مصرف الزكاة المناسب له. المصارف الثمانية مذكورة في سورة التوبة (9:60)." },
+    "chain-reaction":  { en:"Start with one good deed. At each step, choose what happens next and watch how the good spreads over 20 years.",
+                         ar:"ابدأ بعمل خير واحد. في كل خطوة اختر ما يحدث بعد ذلك، وشاهد كيف ينتشر الخير على مدى 20 عاماً." },
+    "waqf-architect":  { en:"Choose what to invest $50,000 in, which cause gets the income, and who manages the waqf. Then run 20 years and see what your waqf gives.",
+                         ar:"اختر أين تستثمر 50,000 دولار، والمجال الذي يذهب إليه الريع، ومن يدير الوقف. ثم شغّل محاكاة 20 سنة وانظر ماذا يقدّم وقفك." },
+    "giving-dilemma":  { en:"Five choices with no single right answer. After each one, read what each option gains and what it misses.",
+                         ar:"خمسة اختيارات ليس لها جواب واحد صحيح. بعد كل اختيار، اقرأ ما يكسبه كل خيار وما يفوته." },
+    "impact-calc":     { en:"Move the slider to choose an amount, then pick a cause to see what it could pay for.",
+                         ar:"حرّك المؤشر لتختار مبلغاً، ثم اختر مجالاً لترى ما يمكن أن يغطيه." },
+    "choose-path":     { en:"Read each situation and choose what you would do. Your choices change what happens next.",
+                         ar:"اقرأ كل موقف واختر ما ستفعله. اختياراتك تغيّر ما يحدث بعد ذلك." },
+  };
+  function howto(id) {
+    const h = HOWTO[id]; if (!h) return "";
+    return `<p class="ss-howto"><strong>${state.lang==="ar"?"طريقة اللعب:":"How to play:"}</strong> ${state.lang==="ar"?h.ar:h.en}</p>`;
+  }
 
   /* ---- Game dispatcher ---- */
   // Bilingual game title lookup by id.
@@ -764,17 +1084,18 @@
     "waqf-architect":  { en: "Waqf Architect",          ar: "مهندس الوقف" },
     "giving-dilemma":  { en: "The Giving Dilemma",      ar: "مُعضلة العطاء" },
     "impact-calc":     { en: "Real Impact Calculator",  ar: "حاسبة الأثر الحقيقي" },
+    "choose-path":     { en: "Choose Your Path",        ar: "اختر طريقك" },
   };
   function gt(id) { const g = GAME_TITLES[id]; return g ? (g[state.lang] || g.en) : id; }
 
-  function initGame(id){ state._mem=null;state._fill=null;state._tree=null;state._comm=null;state._zakat=null;state._chain=null;state._waqf=null;state._dilemma=null;state._calc=null;
-    switch(id){case"charity-match":return gCharityMatch();case"fill-box":return fillField();case"giving-tree":return gGivingTree();case"build-community":return gBuildCommunity();case"sort-zakat":return gSortZakat();case"chain-reaction":return gChainReaction();case"waqf-architect":return gWaqfArchitect();case"giving-dilemma":return gGivingDilemma();case"impact-calc":return gImpactCalc();default:return `<div class="ss-empty">Game not found.</div>`;} }
-  function renderGame(id){ switch(id){case"charity-match":return memField();case"fill-box":return fillField();case"giving-tree":return treeField();case"build-community":return commField();case"sort-zakat":return zakatField();case"chain-reaction":return chainField();case"waqf-architect":return waqfField();case"giving-dilemma":return dilemmaField();case"impact-calc":return calcField();default:return "";} }
+  function initGame(id){ state._mem=null;state._fill=null;state._tree=null;state._comm=null;state._zakat=null;state._chain=null;state._waqf=null;state._dilemma=null;state._calc=null;state._path=null;
+    switch(id){case"charity-match":return gCharityMatch();case"fill-box":return fillField();case"giving-tree":return gGivingTree();case"build-community":return gBuildCommunity();case"sort-zakat":return gSortZakat();case"chain-reaction":return gChainReaction();case"waqf-architect":return gWaqfArchitect();case"giving-dilemma":return gGivingDilemma();case"impact-calc":return gImpactCalc();case"choose-path":return gChoosePath();default:return `<div class="ss-empty">Game not found.</div>`;} }
+  function renderGame(id){ switch(id){case"charity-match":return memField();case"fill-box":return fillField();case"giving-tree":return treeField();case"build-community":return commField();case"sort-zakat":return zakatField();case"chain-reaction":return chainField();case"waqf-architect":return waqfField();case"giving-dilemma":return dilemmaField();case"impact-calc":return calcField();case"choose-path":return pathField();default:return "";} }
   function playView() {
     const id = state.params.id;
-    return `<div class="ss-back" data-go="module-c">← ${t("nav.allGames")}</div><div class="ss-playfield">${initGame(id)}</div>`;
+    return `<div class="ss-playfield">${initGame(id)}</div>`;
   }
-  function rerenderGame(){ if(state.route!=="play")return; const pf=document.querySelector("#ss-app .ss-playfield"); if(pf){pf.innerHTML=`<div class="ss-back" data-go="module-c">← ${t("nav.allGames")}</div>`+renderGame(state.params.id); } }
+  function rerenderGame(){ if(state.route!=="play")return; const pf=document.querySelector("#ss-app .ss-playfield"); if(pf){pf.innerHTML=renderGame(state.params.id); } }
 
   function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 
@@ -920,7 +1241,7 @@
       case "go-home": state.lang = null; save(); go("home"); break;
       case "toggle-lang": state.lang = state.lang === "en" ? "ar" : "en"; save(); render(); break;
       case "pick-lang": state.lang = tEl.getAttribute("data-lang"); save(); go("age"); break;
-      case "pick-age": state.age = tEl.getAttribute("data-age"); go("hub"); break;
+      case "pick-age": state.age = tEl.getAttribute("data-age"); save(); go("hub"); break;
       case "pick-sim": state.simId = tEl.getAttribute("data-sim"); state.simYear = 0; render(); break;
       case "pick-year": state.simYear = Number(tEl.getAttribute("data-year")); render(); break;
       case "mem": memClick(Number(tEl.getAttribute("data-mem"))); break;
@@ -934,13 +1255,27 @@
       case "waqf-cause": state._waqf.cause = tEl.getAttribute("data-wc"); rerenderGame(); break;
       case "waqf-gov": state._waqf.gov = tEl.getAttribute("data-wg"); rerenderGame(); break;
       case "waqf-run": waqfRun(); break;
+      case "waqf-again": waqfAgain(); break;
+      case "waqf-reset": waqfReset(tEl.getAttribute("data-step")); break;
       case "dilemma": dilemmaChoose(tEl.getAttribute("data-d")); break;
+      case "dilemma-next": dilemmaNext(); break;
+      case "daily-done": { try { localStorage.setItem("ss_daily_done", todayKey()); } catch (err) {} addStars(1, "✓"); render(); break; }
+      case "path-pick": pathPick(tEl.getAttribute("data-path")); break;
+      case "path-choose": pathChoose(Number(tEl.getAttribute("data-choice"))); break;
+      case "path-again": pathAgain(); break;
+      case "path-menu": state._path = { sid: null }; rerenderGame(); break;
+      case "chain-restart": state._chain = { stage: 0, links: 1 }; rerenderGame(); break;
       case "calc":
         // handled by input listener
         break;
       case "calc-area": state._calc.area = tEl.getAttribute("data-ca"); rerenderGame(); break;
       case "finish-module": state.lastModule = tEl.getAttribute("data-mod"); go("complete"); break;
-      case "open-story": { state.storyPage = 0; const sid = tEl.getAttribute("data-id"); go("story", { id: sid }); break; }
+      case "open-story": { state.storyPage = 0; state.quiz = null; const sid = tEl.getAttribute("data-id"); go("story", { id: sid }); break; }
+      case "quiz": {
+        const qi = Number(tEl.getAttribute("data-q")), oi = Number(tEl.getAttribute("data-o"));
+        if (state.quiz && state.quiz.ans[qi] == null) { state.quiz.ans[qi] = oi; if (oi === 0) addStars(1, "✓"); render(); }
+        break;
+      }
       case "fb-prev": state.storyPage = Math.max(0, (state.storyPage||0) - 1); render(); break;
       case "fb-next": { const lst = stories(); const cs = lst.find(x=>x.id===(state.params.id||"")); const max = cs?cs.pages.length-1:3; state.storyPage = Math.min(max, (state.storyPage||0) + 1); render(); break; }
       case "fb-goto": state.storyPage = Number(tEl.getAttribute("data-page")); render(); break;
@@ -952,7 +1287,10 @@
     const app = document.getElementById("ss-app");
     if (!app || !app.contains(e.target)) return;
     if (e.target.hasAttribute("data-cal") && e.target.getAttribute("data-cal") === "amount") {
-      state._calc.amount = Number(e.target.value); rerenderGame();
+      state._calc.amount = Number(e.target.value);
+      const amt = document.getElementById("ss-calc-amt"), qty = document.getElementById("ss-calc-qty");
+      if (amt) amt.textContent = state._calc.amount;
+      if (qty) qty.textContent = calcQty().toLocaleString();
     }
     // search boxes: update state and re-render view only (keeps focus)
     const inp = e.target.getAttribute("data-act-input");
@@ -963,7 +1301,7 @@
       // re-render only the view, then restore focus + caret
       const viewEl = document.querySelector("#ss-app .ss-view");
       if (viewEl) {
-        viewEl.innerHTML = viewFor();
+        viewEl.innerHTML = backLink() + viewFor();
         const again = document.querySelector('[data-act-input="' + inp + '"]');
         if (again) { again.focus(); try { again.setSelectionRange(selStart, selStart); } catch (err) {} }
       }
@@ -1009,7 +1347,12 @@
   });
 
   /* ----------------------------- Boot ----------------------------------- */
-  function boot() { render(); }
+  function boot() {
+    // Open the screen named in the URL (reload, bookmark or shared link).
+    const r = parseHash();
+    if (r.route === "home") { state.route = "home"; try { history.replaceState({ route: "home", params: {} }, "", location.hash ? "#/home" : location.pathname + location.search); } catch (err) {} render(); }
+    else go(r.route, r.params, { replace: true });
+  }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
   window.SadaqahApp = { state, go, render };
