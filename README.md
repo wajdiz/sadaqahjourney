@@ -67,6 +67,8 @@ app/
 ├── games.js            ← plug-in games: Charity Match, Fill the Box, Giving Tree,
 │                         Build Your Community, Sort the Zakat, Chain Reaction
 ├── games-adult.js      ← adult games + "Design Your Charity Project" module
+├── data-teach.js       ← Teachers & Workshops content, EN + AR (guidelines, kits, activities, handouts)
+├── teach.js            ← Teachers & Workshops section (tabs, kits, planner, printing)
 ├── i18n.js             ← EN + AR UI string tables + L()/t() helpers
 ├── app.js              ← router + views + 9 game engines + Helping Hands + Lexicon
 ├── embed.html          ← demo showing the iframe embed
@@ -174,6 +176,24 @@ Each game awards stars + a badge; finishing routes to the completion screen. Gam
   in the top bar, the home page, or the "? Help" link beside each screen's back link.
 - **Try your own assumptions** (Impact Simulator): sliders for each project's model in
   `sim-models.js`. Defaults reproduce the site's figures; the formula is shown under the results.
+
+## Teachers & Workshops
+
+`#/teach/<tab>` (opened from the home page, All sections, or Help > For teachers and parents;
+no age group needed). Content is in `data-teach.js`, the views and planner in `teach.js`.
+
+- **Guidelines**: before the session, teaching with care, running the session, adapting by age, after the session.
+- **Workshop kits** (`#/teach/k1` … `k6`): goals, preparation checklist, a timed agenda whose steps open
+  the right game or story (the age group is set for you, and a "Back to the kit" button returns),
+  discussion questions, extension ideas, care notes and handouts. Each kit prints as a facilitator sheet.
+- **Activity bank**: 30 activities with age, theme and time filters. Kit agendas use these ids.
+- **My workshop plan**: add activities or load a kit, reorder, change minutes, add notes, print or copy.
+  Saved in the browser (`ss_teach_plan`).
+- **Handouts**: kindness pledge, exit ticket, zakat sorting sheet and answer key (built from the Sort the
+  Zakat cards), evidence hunt sheet, charity checklist, project planning sheet, pitch rubric and certificate.
+  Printing renders only the sheet (`#ss-print-sheet`, print rules in `styles.css`) in the language on screen.
+- **For scholars**: what the site simplifies, every point where a game says scholars differ, all Qur'an and
+  hadith links used in games, activities and daily challenges, and each story's evidence label and sources.
 
 ## Navigation
 
