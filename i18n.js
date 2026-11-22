@@ -58,6 +58,8 @@ window.SADAQAH_I18N = {
     "mod.wall.desc": "Read stories and share your own.",
     "mod.project": "Design Your Charity Project",
     "mod.project.desc": "Plan your own project step by step and see what it could do.",
+    "mod.teach": "Teachers & Workshops",
+    "mod.teach.desc": "Guidelines, workshop kits, a session planner and printable handouts.",
     "mod.enter": "Enter",
 
     "project.title": "The AI Sadaqah Journey: Explore, Give, Inspire",
@@ -84,6 +86,9 @@ window.SADAQAH_I18N = {
     "nav.allProjects": "All projects",
     "nav.modules": "All sections",
     "nav.help": "Help",
+    "nav.teach": "For teachers",
+    "nav.backKit": "Back to the kit",
+    "nav.backTeach": "Back to the teacher section",
     "nav.wall": "Community wall",
 
     // Stars / badges
@@ -209,6 +214,8 @@ window.SADAQAH_I18N = {
     "mod.wall.desc": "اقرأ الحكايات وشارك قصتك.",
     "mod.project": "صمّم مشروعك الخيري",
     "mod.project.desc": "خطّط لمشروعك خطوة بخطوة وانظر ما الذي يمكن أن يحققه.",
+    "mod.teach": "للمعلمين وورش العمل",
+    "mod.teach.desc": "إرشادات، وحقائب ورش، ومخطِّط للجلسات، وأوراق عمل للطباعة.",
     "mod.enter": "ادخل",
 
     "project.title": "رحلة الصدقة بالذكاء الاصطناعي: استكشف، أعطِ، ألهم",
@@ -234,6 +241,9 @@ window.SADAQAH_I18N = {
     "nav.allProjects": "كل المشاريع",
     "nav.modules": "كل الأقسام",
     "nav.help": "مساعدة",
+    "nav.teach": "للمعلمين",
+    "nav.backKit": "العودة إلى الحقيبة",
+    "nav.backTeach": "العودة إلى قسم المعلمين",
     "nav.wall": "جدار المجتمع",
 
     "stars.count": "نجمة",

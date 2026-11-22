@@ -79,8 +79,8 @@
   /* ----------------------------- Router --------------------------------- */
   // Each screen gets its own URL hash (#/route or #/route/id) so the browser
   // Back button, reloads and bookmarks work inside the app.
-  const ROUTES = ["home","language","age","hub","modules","module-a","story","module-b","module-c","play","module-d","sample","helping-hands","lexic","about","progress","complete","project","help"];
-  const NEEDS_LANG = ["age","hub","modules","module-a","story","module-b","module-c","play","module-d","sample","helping-hands","lexic","progress","complete","project","help"];
+  const ROUTES = ["home","language","age","hub","modules","module-a","story","module-b","module-c","play","module-d","sample","helping-hands","lexic","about","progress","complete","project","help","teach"];
+  const NEEDS_LANG = ["age","hub","modules","module-a","story","module-b","module-c","play","module-d","sample","helping-hands","lexic","progress","complete","project","help","teach"];
   const NEEDS_AGE = ["hub","modules","module-a","story","module-b","module-c","play","module-d","sample","helping-hands","lexic","complete","project"];
   function routeHash(route, params) {
     return "#/" + route + (params && params.id != null && params.id !== "" ? "/" + encodeURIComponent(params.id) : "");
@@ -102,6 +102,7 @@
     if (route === "play" && params.id) track("gamesPlayed", params.id);
     if (route === "story" && params.id) track("storiesRead", params.id);
     if (route === "home") { state.lang = null; save(); }
+    if (route === "home" || route === "teach") state.teachReturn = null;
     const hash = routeHash(route, params);
     try {
       if (opts.replace) history.replaceState({ route, params }, "", hash);
@@ -126,15 +127,18 @@
   function backLink() {
     if (state.route === "home") return "";
     let to = PARENT[state.route];
-    if (state.route === "progress" || state.route === "help") to = state.age && state.lang ? "modules" : "home";
+    if (state.route === "progress" || state.route === "help" || state.route === "teach") to = state.age && state.lang ? "modules" : "home";
     if (!to) return "";
     const label = { home: t("nav.home"), modules: t("nav.modules"), "module-a": t("nav.allStories"), "module-c": t("nav.allGames"), "module-d": t("nav.wall") }[to] || t("nav.back");
     const sec = HELP_FOR[state.route];
     const helpChip = sec ? `<button type="button" class="ss-help-chip" data-go="help" data-id="${sec}" aria-label="${t("nav.help")}">? ${t("nav.help")}</button>` : "";
-    return `<div class="ss-backrow"><button type="button" class="ss-back" data-go="${to}">${label}</button>${helpChip}</div>`;
+    // After opening a game or story from the teacher section, offer a way back to the kit.
+    const tr = state.teachReturn;
+    const teachChip = tr && state.route !== "teach" ? `<button type="button" class="ss-help-chip ss-teach-chip" data-go="teach" data-id="${tr}">↩ ${/^k\d/.test(tr) ? t("nav.backKit") : t("nav.backTeach")}</button>` : "";
+    return `<div class="ss-backrow"><button type="button" class="ss-back" data-go="${to}">${label}</button><span class="ss-backrow-chips">${teachChip}${helpChip}</span></div>`;
   }
   const HELP_FOR = { modules: "start", "module-a": "stories", story: "stories", "module-b": "simulator", "module-c": "games", play: "games",
-    "module-d": "wall", sample: "wall", "helping-hands": "helping-hands", lexic: "lexicon", progress: "progress", project: "project" };
+    "module-d": "wall", sample: "wall", "helping-hands": "helping-hands", lexic: "lexicon", progress: "progress", project: "project", teach: "teachers" };
   // Forward arrow that points the right way in Arabic.
   function fwd() { return isRTL() ? "←" : "→"; }
 
@@ -200,6 +204,7 @@
           <button class="ss-btn ss-btn-primary ss-btn-lg" data-go="language">${en["home.cta.start"]} / ${ar["home.cta.start"]}</button>
           <button class="ss-btn ss-btn-ghost" data-go="about">${en["about.title"]} / ${ar["about.title"]}</button>
           <button class="ss-btn ss-btn-ghost" data-go="help">${en["nav.help"]} / ${ar["nav.help"]}</button>
+          <button class="ss-btn ss-btn-ghost" data-go="teach">${en["nav.teach"]} / ${ar["nav.teach"]}</button>
         </div>
         ${logos()}
       </div>`;
@@ -263,6 +268,7 @@
       { go: "helping-hands", label: t("mod.help"), desc: t("mod.help.desc"), art: "child_donate.jpeg" },
       { go: "lexic", label: t("mod.lexic"), desc: t("mod.lexic.desc"), art: "stories_en/en_22_p1.jpg" },
       { go: "project", label: t("mod.project"), desc: t("mod.project.desc"), art: "education.jpeg" },
+      { go: "teach", label: t("mod.teach"), desc: t("mod.teach.desc"), art: "stories_en/en_50_p1.jpg" },
     ];
     return `
       <div class="ss-section-head">
@@ -959,6 +965,8 @@
       T: (o) => (o == null ? "" : typeof o === "string" ? o : (ar ? (o.ar != null ? o.ar : o.en) : o.en)),
       t, gt, esc, shuffle, addStars, awardBadge, toast, fwd,
       rerender: rerenderGame,
+      go: (route, params) => go(route, params),
+      setAge: (a) => { if (validAge(a)) { state.age = a; save(); } },
       money: (n) => { const v = Math.round(n).toLocaleString("en-US"); return ar ? v + " دولار" : "$" + v; },
       num: (n) => Math.round(n).toLocaleString("en-US"),
       head: (icon) => `<h3 class="ss-game-title">${icon || (GAMES[id] && GAMES[id].icon) || ""} ${gt(id)}</h3>${howto(id)}`,
@@ -977,9 +985,12 @@
   function rerenderGame(){
     const pf=document.querySelector("#ss-app .ss-playfield"); if(!pf) return;
     if(state.route==="play") pf.innerHTML=renderGame(state.params.id);
-    else if(state.route==="project" && MODS.project) pf.innerHTML=MODS.project.render(ctx("project"));
+    else if(MOD_ROUTES.includes(state.route) && MODS[state.route]) pf.innerHTML=MODS[state.route].render(ctx(state.route));
   }
-  function projectView() { if (!MODS.project) return ""; state._g = state._g && state._gFor === "project" ? state._g : {}; state._gFor = "project"; return `<div class="ss-playfield ss-project">${MODS.project.render(ctx("project"))}</div>`; }
+  // Module routes (project builder, teacher section) keep their state in state._g
+  // while the user stays on them, so tab changes do not reset it.
+  const MOD_ROUTES = ["project", "teach"];
+  function modView(name) { const m = MODS[name]; if (!m) return ""; state._g = state._g && state._gFor === name ? state._g : {}; state._gFor = name; return `<div class="ss-playfield ss-${name}">${m.render(ctx(name))}</div>`; }
 
   function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 
@@ -1054,7 +1065,7 @@
         <section class="ss-help-sec ${h.id === sec ? "active" : ""}" id="ss-help-${h.id}">
           <h3>${h.icon} ${T(h.title)}</h3>
           ${T(h.body).map(para).join("")}
-          ${h.go && state.age ? `<button class="ss-btn ss-btn-ghost" data-go="${h.go}">${ar ? "اذهب إلى هذا القسم" : "Go to this section"} ${fwd()}</button>` : ""}
+          ${h.go && (state.age || !NEEDS_AGE.includes(h.go)) ? `<button class="ss-btn ss-btn-ghost" data-go="${h.go}">${ar ? "اذهب إلى هذا القسم" : "Go to this section"} ${fwd()}</button>` : ""}
         </section>`).join("")}</div>`;
   }
 
@@ -1119,7 +1130,8 @@
       case "about": return about();
       case "progress": return progress();
       case "complete": return complete();
-      case "project": return projectView();
+      case "project": return modView("project");
+      case "teach": return modView("teach");
       case "help": return helpView();
       default: return home();
     }
@@ -1145,8 +1157,9 @@
     }
     const act = tEl.getAttribute("data-act");
     if (act === "g") {
-      const id = state.route === "project" ? "project" : state.params.id;
-      const mod = state.route === "project" ? MODS.project : GAMES[id];
+      const isMod = MOD_ROUTES.includes(state.route);
+      const id = isMod ? state.route : state.params.id;
+      const mod = isMod ? MODS[id] : GAMES[id];
       if (mod && mod.act) mod.act(ctx(id), tEl.getAttribute("data-g"), tEl);
       return;
     }
@@ -1195,8 +1208,9 @@
     if (!app || !app.contains(e.target)) return;
     const gi = e.target.getAttribute("data-g-input");
     if (gi) {
-      const id = state.route === "project" ? "project" : state.params.id;
-      const mod = state.route === "project" ? MODS.project : GAMES[id];
+      const isMod = MOD_ROUTES.includes(state.route);
+      const id = isMod ? state.route : state.params.id;
+      const mod = isMod ? MODS[id] : GAMES[id];
       if (mod && mod.input) mod.input(ctx(id), gi, e.target);
       return;
     }

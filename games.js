@@ -358,6 +358,8 @@ window.SADAQAH_AGE_GAMES = {
     { t: { en: "A father in debt after paying for his child's urgent surgery.", ar: "أب عليه دين بعد أن دفع تكاليف عملية عاجلة لطفله." }, ok: ["gharimun"], why: { en: "He took on debt for a lawful, urgent need and cannot repay it.", ar: "استدان لحاجة مباحة عاجلة ولا يستطيع السداد." } },
     { t: { en: "A family in your neighbourhood who cannot pay this month's rent.", ar: "أسرة في حيّك لا تستطيع دفع إيجار هذا الشهر." }, ok: ["fuqara", "masakin", "gharimun"], why: { en: "They can receive as the poor or the needy. If the unpaid rent has become a debt, they also fit 'people in debt'.", ar: "يُعطون بوصفهم فقراء أو مساكين. وإذا صار الإيجار ديناً عليهم فهم من الغارمين أيضاً." } },
   ];
+  // Shared with the teacher handouts (teach.js).
+  window.SADAQAH_GAME_DATA = { ZCATS, ZCARDS };
   G["sort-zakat"] = {
     title: { en: "Sort the Zakat", ar: "رتّب الزكاة" }, icon: "⚖️",
     howto: { en: "Read about each person and tap the zakat group they belong to, or 'Not from zakat'. The eight groups come from Qur'an 9:60. Where scholars differ, more than one answer counts.", ar: "اقرأ عن كل شخص واضغط على صنف الزكاة الذي ينتمي إليه، أو «لا يُعطى من الزكاة». الأصناف الثمانية مذكورة في سورة التوبة (9:60). وحيث يختلف العلماء تُقبل أكثر من إجابة." },

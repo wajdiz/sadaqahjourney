@@ -18,6 +18,7 @@
     q2567: { en: "Qur'an 25:67", ar: "الفرقان: 67", url: "https://quran.com/25/67" },
     q960: { en: "Qur'an 9:60", ar: "التوبة: 60", url: "https://quran.com/9/60" },
   };
+  window.SADAQAH_REFS_ADULT = REF;
   const NOT_FATWA = { en: "This is a learning game, not a fatwa. For your own zakat, ask a scholar or zakat authority you trust.", ar: "هذه لعبة تعليمية وليست فتوى. ولحساب زكاتك اسأل عالماً أو جهة زكاة تثق بها." };
 
   /* ======================= Zakat Check (adults) ======================= */

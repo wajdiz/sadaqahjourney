@@ -148,10 +148,11 @@ window.SADAQAH_HELP = [
         "تُحفظ نجومك وأوسمتك وقصصك ومشاريعك في هذا المتصفح على هذا الجهاز، ولا تُرسل إلى أي مكان. وإذا مسحت بيانات المتصفح أو استعملت جهازاً آخر فستبدأ من جديد.",
       ],
     } },
-  { id: "teachers", icon: "🍎",
+  { id: "teachers", icon: "🍎", go: "teach",
     title: { en: "For teachers and parents", ar: "للمعلمين وأولياء الأمور" },
     body: {
       en: [[
+        "The Teachers & Workshops section has guidelines, six ready-made workshop kits, an activity bank, a session planner, printable handouts and notes for scholars. Open it from All sections, or from the home page.",
         "Pick the age group that fits your class; you can switch it during a lesson.",
         "Good discussion starters: the trade-off notes in The Giving Dilemma, the endings of Choose Your Path, and the 'a year later' review in Grant Committee.",
         "Ask students to check a story's evidence label and sources before retelling it.",
@@ -159,6 +160,7 @@ window.SADAQAH_HELP = [
         "Students can copy their project summary into an assignment.",
       ]],
       ar: [[
+        "في قسم «للمعلمين وورش العمل» إرشادات، وست حقائب ورش جاهزة، وبنك للأنشطة، ومخطِّط للجلسات، وأوراق عمل للطباعة، وملاحظات للعلماء. افتحه من «كل الأقسام» أو من الصفحة الرئيسية.",
         "اختر الفئة العمرية المناسبة لصفك، ويمكنك تغييرها أثناء الدرس.",
         "منطلقات جيدة للنقاش: ملاحظات الموازنة في «مُعضلة العطاء»، ونهايات «اختر طريقك»، ومراجعة «بعد سنة» في «لجنة المنح».",
         "اطلب من الطلاب التحقق من حالة التوثيق ومصادر الحكاية قبل أن يرووها.",
