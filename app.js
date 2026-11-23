@@ -1056,6 +1056,7 @@
   /* ----------------------------- ABOUT ---------------------------------- */
   function about() {
     const en = window.SADAQAH_I18N.en, ar = window.SADAQAH_I18N.ar;
+    const counted = !!(window.SadaqahAnalytics && window.SadaqahAnalytics.configured);
     return `
       <div class="ss-section-head">
         <h2>${en["about.title"]} / ${ar["about.title"]}</h2>
@@ -1069,7 +1070,16 @@
           <h3>${ar["about.funding"]}</h3>
           <p>${ar["about.fundingBody"]}</p>
         </div>
+        <div class="ss-about-block" dir="ltr">
+          <h3>${en["about.privacy"]}</h3>
+          <p>${en["about.privacyBody"]}${counted ? " " + en["about.privacyCount"] : ""}</p>
+        </div>
+        <div class="ss-about-block" dir="rtl">
+          <h3>${ar["about.privacy"]}</h3>
+          <p>${ar["about.privacyBody"]}${counted ? " " + ar["about.privacyCount"] : ""}</p>
+        </div>
       </div>
+      <p class="ss-visits" id="ss-visits" hidden></p>
       <div class="ss-logos">
         <img src="${ASSET}nuq.jpg" alt="Northwestern University in Qatar">
         <img src="${ASSET}qrdi.svg" alt="QRDI Council">
@@ -1167,7 +1177,13 @@
     const app = document.getElementById("ss-app");
     app.innerHTML = shell(viewFor());
     refreshStars();
+    const A = window.SadaqahAnalytics;
+    if (A) {
+      A.view(state.route, state.params && state.params.id);
+      if (state.route === "about") A.total(document.getElementById("ss-visits"), "Visits so far / عدد الزيارات حتى الآن:");
+    }
   }
+  function countChoice(name) { if (window.SadaqahAnalytics) window.SadaqahAnalytics.event(name); }
 
   /* ----------------------------- Events --------------------------------- */
   document.addEventListener("click", function (e) {
@@ -1192,9 +1208,9 @@
     }
     switch (act) {
       case "go-home": state.lang = null; save(); go("home"); break;
-      case "toggle-lang": state.lang = state.lang === "en" ? "ar" : "en"; save(); render(); break;
-      case "pick-lang": state.lang = tEl.getAttribute("data-lang"); save(); go("age"); break;
-      case "pick-age": state.age = tEl.getAttribute("data-age"); save(); go("hub"); break;
+      case "toggle-lang": state.lang = state.lang === "en" ? "ar" : "en"; save(); countChoice("language-" + state.lang); render(); break;
+      case "pick-lang": state.lang = tEl.getAttribute("data-lang"); save(); countChoice("language-" + state.lang); go("age"); break;
+      case "pick-age": state.age = tEl.getAttribute("data-age"); save(); countChoice("age-" + state.age); go("hub"); break;
       case "pick-sim": state.simId = tEl.getAttribute("data-sim"); state.simYear = 0; render(); break;
       case "pick-year": state.simYear = Number(tEl.getAttribute("data-year")); render(); break;
       case "sim-reset": if (state.simAssume) delete state.simAssume[state.simId]; render(); break;
