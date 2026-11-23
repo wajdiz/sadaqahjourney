@@ -85,13 +85,15 @@ window.SADAQAH_HELP = [
     body: {
       en: [
         "The games depend on your age group:",
-        ["7–10: Charity Match, Fill the Donation Box, The Giving Tree.", "11–14: Build Your Community, Sort the Zakat, Charity Chain Reaction.", "15–18: Waqf Architect, The Giving Dilemma, Real Impact Calculator, Choose Your Path, Check the Charity, Grant Committee.", "Adults: Zakat Check, Who Can Receive Zakat?, Check the Charity, A Year of Giving, Grant Committee, plus Waqf Architect, The Giving Dilemma, Real Impact Calculator and Choose Your Path."],
+        ["7–10: Charity Match, Fill the Donation Box, The Giving Tree, Kindness Catch, Bring the Water, Word Hunt.", "11–14: Build Your Community, Sort the Zakat, Charity Chain Reaction, Bring the Water, Word Hunt, Story Sprint.", "15–18: Waqf Architect, The Giving Dilemma, Real Impact Calculator, Choose Your Path, Check the Charity, Grant Committee, Word Hunt, Story Sprint.", "Adults: Zakat Check, Who Can Receive Zakat?, Check the Charity, A Year of Giving, Grant Committee, plus Waqf Architect, The Giving Dilemma, Real Impact Calculator, Choose Your Path, Word Hunt and Story Sprint."],
+        "Games have short sounds. The speaker button beside a game's title turns them off or on. In Fill the Donation Box and Sort the Zakat you can drag as well as tap. Kindness Catch has a gentle speed, and Story Sprint can be played without the clock.",
         "Every game starts with a short 'How to play'. Most games explain each answer, so you learn even when you get it wrong, and finish with a summary of what you learned.",
         "The zakat games follow the views of most scholars and say where scholars differ. They are for learning, not fatwas. For your own zakat, ask a scholar or zakat authority you trust.",
       ],
       ar: [
         "تختلف الألعاب بحسب فئتك العمرية:",
-        ["7–10: مطابقة الخير، املأ صندوق التبرع، شجرة العطاء.", "11–14: ابنِ مجتمعك، رتّب الزكاة، سلسلة الخير.", "15–18: مهندس الوقف، مُعضلة العطاء، حاسبة الأثر الحقيقي، اختر طريقك، تحقّق من الجمعية، لجنة المنح.", "الكبار: احسب الزكاة، من يستحق الزكاة؟، تحقّق من الجمعية، سنة من العطاء، لجنة المنح، إضافة إلى مهندس الوقف ومُعضلة العطاء وحاسبة الأثر الحقيقي واختر طريقك."],
+        ["7–10: مطابقة الخير، املأ صندوق التبرع، شجرة العطاء، سلّة الخير، أوصِل الماء، صيد الكلمات.", "11–14: ابنِ مجتمعك، رتّب الزكاة، سلسلة الخير، أوصِل الماء، صيد الكلمات، سباق الحكايات.", "15–18: مهندس الوقف، مُعضلة العطاء، حاسبة الأثر الحقيقي، اختر طريقك، تحقّق من الجمعية، لجنة المنح، صيد الكلمات، سباق الحكايات.", "الكبار: احسب الزكاة، من يستحق الزكاة؟، تحقّق من الجمعية، سنة من العطاء، لجنة المنح، إضافة إلى مهندس الوقف ومُعضلة العطاء وحاسبة الأثر الحقيقي واختر طريقك وصيد الكلمات وسباق الحكايات."],
+        "في الألعاب أصوات قصيرة، وزر السماعة بجانب عنوان اللعبة يوقفها أو يشغّلها. في «املأ صندوق التبرع» و«رتّب الزكاة» يمكنك السحب كما يمكنك الضغط. وفي «سلّة الخير» سرعة هادئة، ويمكن لعب «سباق الحكايات» بلا عدّاد.",
         "تبدأ كل لعبة بفقرة قصيرة عن «طريقة اللعب». وتشرح أكثر الألعاب كل إجابة، فتتعلّم حتى حين تخطئ، وتنتهي بخلاصة لما تعلّمته.",
         "تتبع ألعاب الزكاة رأي أكثر العلماء، وتذكر مواضع الخلاف بينهم. وهي للتعلّم وليست فتاوى، ولحساب زكاتك اسأل عالماً أو جهة زكاة تثق بها.",
       ],
