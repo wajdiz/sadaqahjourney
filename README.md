@@ -195,6 +195,15 @@ no age group needed). Content is in `data-teach.js`, the views and planner in `t
 - **For scholars**: what the site simplifies, every point where a game says scholars differ, all Qur'an and
   hadith links used in games, activities and daily challenges, and each story's evidence label and sources.
 
+## Visit counting
+
+`analytics.js` counts visits with [GoatCounter](https://www.goatcounter.com): no cookies, nothing stored in the
+browser, no personal data. It sends the screen visited (for example `/story/02` or `/teach/k1`), language and
+age-group choices as anonymous events, the referring site's origin and the screen size. It is off until
+`GOATCOUNTER_CODE` is set, and never counts on localhost or when the browser sends Do Not Track.
+The About page has a privacy notice (EN/AR) and shows the public visit total when the GoatCounter setting
+"Allow adding visitor counts on your website" is on.
+
 ## Security and storage
 
 - `index.html` sets a Content Security Policy: scripts only from the site itself, frames only from
