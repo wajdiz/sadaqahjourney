@@ -64,6 +64,8 @@ app/
 ├── data-quiz.js        ← 3-question quiz per story, EN + AR (correct option listed first)
 ├── data-help.js        ← Help page content, EN + AR (13 sections)
 ├── sim-models.js       ← Impact Simulator assumption models (sliders, formulas)
+├── fx.js               ← game effects: sounds, confetti, count-up, drag and drop
+├── games-new.js        ← Kindness Catch, Bring the Water, Word Hunt, Story Sprint
 ├── games.js            ← plug-in games: Charity Match, Fill the Box, Giving Tree,
 │                         Build Your Community, Sort the Zakat, Chain Reaction
 ├── games-adult.js      ← adult games + "Design Your Charity Project" module
@@ -165,6 +167,21 @@ register themselves in `window.SADAQAH_GAMES` (title, icon, howto, sketch, init/
 `app.js` runs them through `ctx()`. Extra games per age group are listed in `SADAQAH_AGE_GAMES`.
 
 Each game awards stars + a badge; finishing routes to the completion screen. Game titles are bilingual via the `GAME_TITLES` table in `app.js`.
+
+### Newer games and game effects
+
+- `games-new.js` adds four games in the same plug-in shape: **Kindness Catch** (7–10, catch falling good
+  deeds in a basket), **Bring the Water** (7–10 and 11–14, a pipe puzzle), **Word Hunt** (all ages, a word
+  search built from lexicon terms) and **Story Sprint** (11–14 and up, quick questions taken unchanged
+  from `data-quiz.js`). Which ages see which game is set in `SADAQAH_AGE_GAMES` at the top of `games.js`;
+  `SADAQAH_NEW_GAMES` lists the games that carry a "New" tag.
+- `fx.js` holds the shared effects: short sounds made in the browser (no audio files; the speaker button
+  in a game header turns them off, saved as `ss_sound`), a confetti burst, number count-up, and drag and
+  drop. To make something draggable add `data-drag="self"` (dropping it clicks the item) or
+  `data-drag="target"` (dropping it clicks the area it lands on), and mark landing areas with `data-drop`.
+  Tapping keeps working. Animations are skipped when the device asks for reduced motion.
+- The Impact Simulator shows a bar chart of the model's four figures, a counter for the chosen year and
+  a "Watch 20 years" button. The chart reads the same models as the sliders in `sim-models.js`.
 
 ## Design Your Charity Project, Help, simulator sliders
 

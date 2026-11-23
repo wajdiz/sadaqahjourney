@@ -469,6 +469,7 @@
               ${t("year."+["1","5","10","20"][i])}<small>${L(y,"metric")}</small>
             </button>`).join("")}
         </div>
+        ${simChart(sim, yi)}
         <div class="ss-year-panel">
           <div class="ss-year-prog">${[0,1,2,3].map((i) => `<span class="${i<=yi?'on':''}"></span>`).join("")}</div>
           <h3 class="ss-year-h">${t("year."+["1","5","10","20"][yi])}</h3>
@@ -505,6 +506,34 @@
     const m = SIM_MODELS[id], v = simVals(id);
     return YEARS.map((y) => Math.round(m.calc(v, y)));
   }
+  // Bar chart of the model's four figures, a large counter for the chosen
+  // year, and a button that plays Year 1 to Year 20.
+  function simChart(sim, yi) {
+    const m = SIM_MODELS[sim.id]; if (!m) return "";
+    const out = simOut(sim.id), max = Math.max(1, ...out), ar = isRTL();
+    return `<div class="ss-sim-chart">
+      <div class="ss-sc-head">
+        <div><div class="ss-sc-n" id="ss-sim-count">${out[yi].toLocaleString("en-US")}</div><div class="ss-sc-u">${ar ? m.unit.ar : m.unit.en}</div></div>
+        <button type="button" class="ss-btn ss-btn-teal" data-act="sim-play">${state.simPlaying ? "⏸ " + (ar ? "إيقاف" : "Stop") : "▶ " + (ar ? "شاهد 20 سنة" : "Watch 20 years")}</button>
+      </div>
+      <div class="ss-sc-bars">${YEARS.map((y, i) => `<button type="button" class="ss-sc-col ${i === yi ? "active" : ""} ${i <= yi ? "on" : ""}" data-act="pick-year" data-year="${i}">
+        <span class="ss-sc-v" id="ss-sc-v${i}">${out[i].toLocaleString("en-US")}</span>
+        <span class="ss-sc-bar"><i id="ss-sc-b${i}" style="height:${Math.max(2, Math.round(out[i] / max * 100))}%"></i></span>
+        <span class="ss-sc-y">${t("year." + y)}</span></button>`).join("")}</div>
+      <p class="ss-sc-note">${ar ? "هذه أرقام النموذج التعليمي أدناه. غيّر افتراضاته لترى الأعمدة تتغيّر." : "These are the figures of the teaching model below. Change its assumptions and watch the bars move."}</p>
+    </div>`;
+  }
+  let simTimer = null;
+  function simStop() { clearInterval(simTimer); simTimer = null; state.simPlaying = false; }
+  function simPlay() {
+    simStop(); state.simPlaying = true; state.simYear = 0; state._simShown = 0; render();
+    simTimer = setInterval(() => {
+      if (state.route !== "module-b") return simStop();
+      state.simYear = Math.min(3, state.simYear + 1);
+      if (state.simYear >= 3) simStop();
+      FX.play("pop"); render();
+    }, 1800);
+  }
   function simAssumePanel(sim) {
     const m = SIM_MODELS[sim.id]; if (!m) return "";
     const v = simVals(sim.id), ar = isRTL(), T = (o) => (ar ? o.ar : o.en);
@@ -529,7 +558,13 @@
     const v = simVals(id);
     v[k] = p.type === "toggle" ? el.checked : Number(el.value);
     const lab = document.getElementById("ss-sa-v-" + k); if (lab) lab.textContent = fmtParam(p, v[k]);
-    simOut(id).forEach((n, i) => { const c = document.getElementById("ss-sa-y" + i); if (c) c.textContent = n.toLocaleString("en-US"); });
+    const out = simOut(id), max = Math.max(1, ...out);
+    out.forEach((n, i) => {
+      const c = document.getElementById("ss-sa-y" + i); if (c) c.textContent = n.toLocaleString("en-US");
+      const cv = document.getElementById("ss-sc-v" + i); if (cv) cv.textContent = n.toLocaleString("en-US");
+      const cb = document.getElementById("ss-sc-b" + i); if (cb) cb.style.height = Math.max(2, Math.round(n / max * 100)) + "%";
+    });
+    const big = document.getElementById("ss-sim-count"); if (big) { big.textContent = out[state.simYear].toLocaleString("en-US"); state._simShown = out[state.simYear]; }
     const ex = document.getElementById("ss-sa-extra"); if (ex && m.extra) ex.textContent = isRTL() ? m.extra(v).ar : m.extra(v).en;
   }
 
@@ -568,13 +603,15 @@
     const extra = (window.SADAQAH_AGE_GAMES || {})[state.age] || [];
     const list = (base ? base.games.map((g) => g.id) : []).concat(extra.filter((id) => !(base && base.games.some((g) => g.id === id))));
     const group = { games: list.map((id) => { const g = base && base.games.find((x) => x.id === id) || D.MODULE_C.flatMap((x) => x.games).find((x) => x.id === id) || {}; return { id, icon: g.icon || (GAMES[id] && GAMES[id].icon) || "🎮" }; }) };
+    const fresh = window.SADAQAH_NEW_GAMES || [];
     return `
       <div class="ss-section-head">
         <h2>${t("mod.games")}</h2>
       </div>
       <div class="ss-game-grid">
         ${group.games.map((g) => `
-          <div class="ss-game-card">
+          <div class="ss-game-card ${fresh.includes(g.id) ? "ss-game-new" : ""}">
+            ${fresh.includes(g.id) ? `<span class="ss-new-tag">${isRTL() ? "جديد" : "New"}</span>` : ""}
             <div class="ss-gtop">
               <span class="ss-gicon">${g.icon}</span>
               <h4>${gt(g.id)}</h4>
@@ -671,8 +708,8 @@
 
   /* ----------------------------- PROGRESS / BADGES ---------------------- */
   function progress() {
-    const all = ["explorer","matcher","grower","zakat","builder","architect","reader","simulator","writer","designer","careful","zakatpro"];
-    const imgs = { explorer:"icon_badge.png", matcher:"icon_donation.png", grower:"icon_tree.png", zakat:"icon_zakat.png", builder:"mosque.jpeg", architect:"education.jpeg", reader:"icon_badge.png", simulator:"water_a.jpeg", writer:"icon_donation.png", designer:"education.jpeg", careful:"icon_badge.png", zakatpro:"icon_zakat.png" };
+    const all = ["explorer","matcher","grower","zakat","builder","architect","reader","simulator","writer","designer","careful","zakatpro","catcher","plumber","wordsmith","sprinter"];
+    const imgs = { explorer:"icon_badge.png", matcher:"icon_donation.png", grower:"icon_tree.png", zakat:"icon_zakat.png", builder:"mosque.jpeg", architect:"education.jpeg", reader:"icon_badge.png", simulator:"water_a.jpeg", writer:"icon_donation.png", designer:"education.jpeg", careful:"icon_badge.png", zakatpro:"icon_zakat.png", catcher:"icon_donation.png", plumber:"water_a.jpeg", wordsmith:"education.jpeg", sprinter:"icon_badge.png" };
     return `
       <div class="ss-badge-screen">
         <img src="${ASSET}icon_badge.png" alt="">
@@ -998,11 +1035,13 @@
       setAge: (a) => { if (validAge(a)) { state.age = a; save(); } },
       money: (n) => { const v = Math.round(n).toLocaleString("en-US"); return ar ? v + " دولار" : "$" + v; },
       num: (n) => Math.round(n).toLocaleString("en-US"),
-      head: (icon) => `<h3 class="ss-game-title">${icon || (GAMES[id] && GAMES[id].icon) || ""} ${gt(id)}</h3>${howto(id)}`,
+      head: (icon) => `<h3 class="ss-game-title">${icon || (GAMES[id] && GAMES[id].icon) || ""} ${gt(id)}${GAMES[id] ? soundBtn() : ""}</h3>${howto(id)}`,
       finish: (mod) => `<button class="ss-btn ss-btn-primary ss-btn-done" data-act="finish-module" data-mod="${mod || "games"}">${t("complete.opt.progress")} ${fwd()}</button>`,
       btn: (label, g, v, cls) => `<button type="button" class="ss-btn ${cls || "ss-btn-primary"}" data-act="g" data-g="${g}"${v != null ? ` data-v="${esc(String(v))}"` : ""}>${label}</button>`,
     };
   }
+  const FX = window.SadaqahFX || { play() {}, confetti() {}, countUp(el, n) { if (el) el.textContent = Math.round(n).toLocaleString("en-US"); }, soundOn: () => false, toggleSound: () => false };
+  function soundBtn() { const on = FX.soundOn(), ar = state.lang === "ar"; return ` <button type="button" class="ss-sound" data-act="sound" aria-pressed="${on}" aria-label="${ar ? "الصوت" : "Sound"}" title="${ar ? "تشغيل الصوت أو إيقافه" : "Sound on or off"}">${on ? "🔊" : "🔇"}</button>`; }
   function initGame(id){ state._g = {}; state._gFor = id; if (GAMES[id]) return GAMES[id].init(ctx(id));
     state._waqf=null;state._dilemma=null;state._calc=null;state._path=null;
     switch(id){case"waqf-architect":return gWaqfArchitect();case"giving-dilemma":return gGivingDilemma();case"impact-calc":return gImpactCalc();case"choose-path":return gChoosePath();default:return `<div class="ss-empty">Game not found.</div>`;} }
@@ -1177,6 +1216,10 @@
     const app = document.getElementById("ss-app");
     app.innerHTML = shell(viewFor());
     refreshStars();
+    if (state.route === "module-b") {
+      const big = document.getElementById("ss-sim-count"), sim = D.MODULE_B.find((p) => p.id === state.simId) || D.MODULE_B[0];
+      if (big && SIM_MODELS[sim.id]) { const to = simOut(sim.id)[state.simYear]; FX.countUp(big, to, state._simShown); state._simShown = to; }
+    } else if (simTimer) simStop();
     const A = window.SadaqahAnalytics;
     if (A) {
       A.view(state.route, state.params && state.params.id);
@@ -1211,9 +1254,11 @@
       case "toggle-lang": state.lang = state.lang === "en" ? "ar" : "en"; save(); countChoice("language-" + state.lang); render(); break;
       case "pick-lang": state.lang = tEl.getAttribute("data-lang"); save(); countChoice("language-" + state.lang); go("age"); break;
       case "pick-age": state.age = tEl.getAttribute("data-age"); save(); countChoice("age-" + state.age); go("hub"); break;
-      case "pick-sim": state.simId = tEl.getAttribute("data-sim"); state.simYear = 0; render(); break;
-      case "pick-year": state.simYear = Number(tEl.getAttribute("data-year")); render(); break;
-      case "sim-reset": if (state.simAssume) delete state.simAssume[state.simId]; render(); break;
+      case "sound": { const on = FX.toggleSound(); document.querySelectorAll("#ss-app .ss-sound").forEach((b) => { b.textContent = on ? "🔊" : "🔇"; b.setAttribute("aria-pressed", on); }); break; }
+      case "pick-sim": simStop(); state.simId = tEl.getAttribute("data-sim"); state.simYear = 0; state._simShown = null; render(); break;
+      case "pick-year": simStop(); state.simYear = Number(tEl.getAttribute("data-year")); render(); break;
+      case "sim-play": if (state.simPlaying) { simStop(); render(); } else simPlay(); break;
+      case "sim-reset": if (state.simAssume) delete state.simAssume[state.simId]; state._simShown = null; render(); break;
       case "waqf-asset": state._waqf.asset = tEl.getAttribute("data-wa"); rerenderGame(); break;
       case "waqf-cause": state._waqf.cause = tEl.getAttribute("data-wc"); rerenderGame(); break;
       case "waqf-gov": state._waqf.gov = tEl.getAttribute("data-wg"); rerenderGame(); break;

@@ -9,12 +9,17 @@
 window.SADAQAH_GAMES = window.SADAQAH_GAMES || {};
 window.SADAQAH_MODULES = window.SADAQAH_MODULES || {};
 window.SADAQAH_AGE_GAMES = {
-  "15-18": ["charity-check", "grant-committee"],
-  adults: ["zakat-check", "zakat-cases", "charity-check", "giving-budget", "grant-committee", "waqf-architect", "giving-dilemma", "impact-calc", "choose-path"],
+  "7-10": ["kindness-catch", "water-pipes", "word-hunt"],
+  "11-14": ["water-pipes", "word-hunt", "story-sprint"],
+  "15-18": ["charity-check", "grant-committee", "word-hunt", "story-sprint"],
+  adults: ["zakat-check", "zakat-cases", "charity-check", "giving-budget", "grant-committee", "waqf-architect", "giving-dilemma", "impact-calc", "choose-path", "word-hunt", "story-sprint"],
 };
+// Games added most recently; the games page marks them "New".
+window.SADAQAH_NEW_GAMES = ["kindness-catch", "water-pipes", "word-hunt", "story-sprint"];
 
 (function () {
   const G = window.SADAQAH_GAMES;
+  const FX = window.SadaqahFX || { play() {}, confetti() {} };
   const pickN = (arr, n) => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a.slice(0, n); };
   const ref = (c, r) => r && r.url ? ` <a class="ss-ref" href="${r.url}" target="_blank" rel="noopener noreferrer">${c.T(r)} ↗</a>` : (r ? ` <span class="ss-ref">(${c.T(r)})</span>` : "");
   const R = {
@@ -29,6 +34,7 @@ window.SADAQAH_AGE_GAMES = {
     b2989: { en: "Sahih al-Bukhari 2989", ar: "صحيح البخاري 2989", url: "https://sunnah.com/bukhari:2989" },
     m2625: { en: "Sahih Muslim 2625b", ar: "صحيح مسلم 2625ب", url: "https://sunnah.com/muslim:2625b" },
     b1417: { en: "Sahih al-Bukhari 1417", ar: "صحيح البخاري 1417", url: "https://sunnah.com/bukhari:1417" },
+    b2363: { en: "Sahih al-Bukhari 2363", ar: "صحيح البخاري 2363", url: "https://sunnah.com/bukhari:2363" },
   };
   window.SADAQAH_REFS = R;
 
@@ -52,7 +58,7 @@ window.SADAQAH_AGE_GAMES = {
     const set = pickN(PAIRS.map((p, i) => i), LEVELS[lv]);
     const cards = [];
     set.forEach((k) => { cards.push({ k, t: "word" }); cards.push({ k, t: "pic" }); });
-    Object.assign(c.s, { lv, set, cards: pickN(cards, cards.length), flipped: [], matched: [], moves: 0, locked: false, last: null });
+    Object.assign(c.s, { lv, set, cards: pickN(cards, cards.length), flipped: [], matched: [], moves: 0, locked: false, last: null, anim: null });
   }
   G["charity-match"] = {
     title: { en: "Charity Match", ar: "مطابقة الخير" }, icon: "🧰",
@@ -64,7 +70,8 @@ window.SADAQAH_AGE_GAMES = {
       const grid = s.cards.map((cd, i) => {
         const shown = s.flipped.includes(i) || s.matched.includes(cd.k), p = PAIRS[cd.k];
         const face = cd.t === "word" ? `<span class="ss-label">${c.T(p.w)}</span>` : `<span class="ss-mem-emoji">${p.e}</span>`;
-        return `<button type="button" class="ss-mem-card ${shown ? "flipped" : ""} ${s.matched.includes(cd.k) ? "done" : ""}" data-act="g" data-g="flip" data-v="${i}" aria-label="${shown ? "" : "?"}">${shown ? face : "?"}</button>`;
+        const an = s.anim ? (s.anim.match === cd.k ? "ss-match-pop" : s.anim.flip === i ? "ss-flip-in" : "") : "";
+        return `<button type="button" class="ss-mem-card ${shown ? "flipped" : ""} ${s.matched.includes(cd.k) ? "done" : ""} ${an}" data-act="g" data-g="flip" data-v="${i}" aria-label="${shown ? "" : "?"}">${shown ? face : "?"}</button>`;
       }).join("");
       const lesson = s.last != null ? `<div class="ss-lesson"><span class="ss-lesson-e">${PAIRS[s.last].e}</span><div><strong>${c.T(PAIRS[s.last].w)}</strong><p>${c.T(PAIRS[s.last].note)}${ref(c, R[PAIRS[s.last].r])}</p></div></div>` : "";
       let end = "";
@@ -83,19 +90,20 @@ window.SADAQAH_AGE_GAMES = {
       if (name !== "flip") return;
       const i = Number(el.getAttribute("data-v"));
       if (s.locked || s.flipped.includes(i) || s.matched.includes(s.cards[i].k)) return;
-      s.flipped.push(i);
+      s.flipped.push(i); s.anim = { flip: i, match: null }; FX.play("flip");
       if (s.flipped.length === 2) {
         s.moves++;
         const [a, b] = s.flipped, ca = s.cards[a], cb = s.cards[b];
         if (ca.k === cb.k && ca.t !== cb.t) {
-          s.matched.push(ca.k); s.flipped = []; s.last = ca.k; c.addStars(1);
+          s.matched.push(ca.k); s.flipped = []; s.last = ca.k; c.addStars(1); s.anim = { flip: -1, match: ca.k }; FX.play("ok");
           if (s.matched.length === LEVELS[s.lv]) {
+            FX.play("win"); FX.confetti();
             c.addStars(2, c.ar ? "مستوى مكتمل" : "level complete");
             if (s.moves <= LEVELS[s.lv] + 1) c.addStars(3, c.t("toast.flawless"));
             try { const k = "ss_match_best_" + s.lv, old = Number(localStorage.getItem(k)); if (!old || s.moves < old) localStorage.setItem(k, s.moves); } catch (e) {}
             if (s.lv === LEVELS.length - 1) c.awardBadge("matcher");
           }
-        } else { s.locked = true; setTimeout(() => { s.flipped = []; s.locked = false; c.rerender(); }, 900); }
+        } else { s.locked = true; FX.play("no"); setTimeout(() => { if (c.state._g !== s) return; s.flipped = []; s.locked = false; s.anim = null; c.rerender(); }, 900); }
       }
       c.rerender();
     },
@@ -121,8 +129,8 @@ window.SADAQAH_AGE_GAMES = {
   ];
   G["fill-box"] = {
     title: { en: "Fill the Donation Box", ar: "املأ صندوق التبرع" }, icon: "📦",
-    howto: { en: "Read who needs help, then tap the two things that help most. If you pick something else, you will see why it is not the best choice.", ar: "اقرأ من يحتاج إلى المساعدة، ثم اضغط على الشيئين الأكثر نفعاً. وإذا اخترت شيئاً آخر سترى لماذا ليس هو الاختيار الأفضل." },
-    init(c) { Object.assign(c.s, { scenes: pickN(SCENES, 5), i: 0, placed: [], miss: null, mistakes: 0, cleared: false, done: false }); c.s.shelf = this.shelf(c.s.scenes[0]); return this.render(c); },
+    howto: { en: "Read who needs help, then tap the two things that help most, or drag them into the box. If you pick something else, you will see why it is not the best choice.", ar: "اقرأ من يحتاج إلى المساعدة، ثم اضغط على الشيئين الأكثر نفعاً أو اسحبهما إلى الصندوق. وإذا اخترت شيئاً آخر سترى لماذا ليس هو الاختيار الأفضل." },
+    init(c) { Object.assign(c.s, { scenes: pickN(SCENES, 5), i: 0, placed: [], miss: null, mistakes: 0, cleared: false, done: false, lastPut: null }); c.s.shelf = this.shelf(c.s.scenes[0]); return this.render(c); },
     shelf(sc) { return pickN(sc.want.concat(sc.extra), sc.want.length + sc.extra.length); },
     render(c) {
       const s = c.s, ar = c.ar;
@@ -134,26 +142,27 @@ window.SADAQAH_AGE_GAMES = {
       const sc = s.scenes[s.i], full = sc.want.every((w) => s.placed.includes(w));
       return `${c.head()}<p class="ss-game-sub">${s.i + 1}/${s.scenes.length}</p>
         <div class="ss-drop-scene">
-          <div class="ss-drop-need"><div class="ss-emoji">${full ? "😊" : sc.e}</div><div style="font-weight:700;">${c.T(sc.need)}</div></div>
-          <div class="ss-drop-box">${s.placed.map((p) => `<span class="ss-chip"><span class="ss-ie">${ITEMS[p].e}</span>${ITEMS[p][c.lang]}</span>`).join("") || `<span class="ss-muted">${ar ? "الصندوق فارغ" : "The box is empty"}</span>`}</div>
+          <div class="ss-drop-need ${full ? "ss-helped" : ""}"><div class="ss-emoji ${full ? "ss-bounce" : ""}">${full ? "😊" : sc.e}</div><div style="font-weight:700;">${c.T(sc.need)}</div></div>
+          <div class="ss-drop-box ${full ? "ss-box-full" : ""}" data-drop>${s.placed.map((p) => `<span class="ss-chip ${p === s.lastPut ? "ss-pop-in" : ""}"><span class="ss-ie">${ITEMS[p].e}</span>${ITEMS[p][c.lang]}</span>`).join("") || `<span class="ss-muted">${ar ? "الصندوق فارغ" : "The box is empty"}</span>`}</div>
         </div>
-        ${s.miss ? `<p class="ss-hint">${ar ? `${ITEMS[s.miss].ar} هدية لطيفة، لكنها لا تحل هذه المشكلة: ${sc.need.ar}. ابحث عمّا يحتاجونه أكثر.` : `${ITEMS[s.miss].en} is a kind gift, but it does not solve this: ${sc.need.en.toLowerCase()}. Look for what they need most.`}</p>` : ""}
+        ${s.miss ? `<p class="ss-hint ss-shake">${ar ? `${ITEMS[s.miss].ar} هدية لطيفة، لكنها لا تحل هذه المشكلة: ${sc.need.ar}. ابحث عمّا يحتاجونه أكثر.` : `${ITEMS[s.miss].en} is a kind gift, but it does not solve this: ${sc.need.en.toLowerCase()}. Look for what they need most.`}</p>` : ""}
         ${full ? `<div class="ss-lesson"><span class="ss-lesson-e">✅</span><div><p>${c.T(sc.why)}</p></div></div>${c.btn((s.i + 1 < s.scenes.length ? (ar ? "الصندوق التالي" : "Next box") : (ar ? "انتهيت" : "Finish")) + " " + c.fwd(), "next")}`
-          : `<div class="ss-shelf">${s.shelf.map((it) => `<button type="button" class="ss-item ${s.placed.includes(it) ? "used" : ""}" data-act="g" data-g="put" data-v="${it}" ${s.placed.includes(it) ? "disabled" : ""}><span class="ss-ie">${ITEMS[it].e}</span>${ITEMS[it][c.lang]}</button>`).join("")}</div>`}`;
+          : `<div class="ss-shelf">${s.shelf.map((it) => `<button type="button" class="ss-item ${s.placed.includes(it) ? "used" : ""}" data-act="g" data-g="put" data-v="${it}" data-drag="self" ${s.placed.includes(it) ? "disabled" : ""}><span class="ss-ie">${ITEMS[it].e}</span>${ITEMS[it][c.lang]}</button>`).join("")}</div>`}`;
     },
     act(c, name, el) {
       const s = c.s;
       if (name === "restart") { this.init(c); return c.rerender(); }
       if (name === "next") {
         c.addStars(2);
-        if (s.i + 1 >= s.scenes.length) { s.done = true; c.awardBadge("explorer"); if (s.mistakes === 0) c.addStars(3, c.t("toast.flawless")); }
+        s.lastPut = null;
+        if (s.i + 1 >= s.scenes.length) { s.done = true; FX.play("win"); FX.confetti(); c.awardBadge("explorer"); if (s.mistakes === 0) c.addStars(3, c.t("toast.flawless")); }
         else { s.i++; s.placed = []; s.miss = null; s.shelf = this.shelf(s.scenes[s.i]); }
         return c.rerender();
       }
       if (name === "put") {
         const it = el.getAttribute("data-v"), sc = s.scenes[s.i];
-        if (sc.want.includes(it)) { if (!s.placed.includes(it)) s.placed.push(it); s.miss = null; }
-        else { s.miss = it; s.mistakes++; }
+        if (sc.want.includes(it)) { if (!s.placed.includes(it)) s.placed.push(it); s.miss = null; s.lastPut = it; FX.play(sc.want.every((w) => s.placed.includes(w)) ? "ok" : "pop"); }
+        else { s.miss = it; s.mistakes++; s.lastPut = null; FX.play("no"); }
         c.rerender();
       }
     },
@@ -174,7 +183,21 @@ window.SADAQAH_AGE_GAMES = {
     { q: { en: "Who will be close to the Prophet ﷺ in Paradise?", ar: "من يكون قريباً من النبي ﷺ في الجنة؟" }, o: [{ en: "The one who looks after an orphan", ar: "كافل اليتيم" }, { en: "The fastest runner", ar: "أسرع عدّاء" }, { en: "The richest person", ar: "أغنى الناس" }], why: { en: "Looking after an orphan brings a person close to the Prophet ﷺ in Paradise.", ar: "كفالة اليتيم تقرّب صاحبها من النبي ﷺ في الجنة." }, r: "b6005" },
     { q: { en: "What is a waqf?", ar: "ما الوقف؟" }, o: [{ en: "Something kept forever so its benefit keeps going to good causes", ar: "شيء يُحبس على الدوام ليستمر نفعه في وجوه الخير" }, { en: "A kind of food", ar: "نوع من الطعام" }, { en: "A holiday", ar: "عطلة" }], why: { en: "A waqf keeps the original gift and gives its benefit, like rent or harvest, again and again.", ar: "الوقف يحفظ الأصل ويُعطي منفعته، كالإيجار أو المحصول، مرة بعد مرة." }, r: null },
   ];
-  const STAGES = ["🌰", "🌱", "🌿", "🪴", "🌳", "🌳", "🌳"];
+  // The tree is drawn as an SVG that grows with each right answer.
+  const APPLES = [[-26, -14], [22, -24], [-4, -38], [30, 0], [-34, 8], [6, -6]];
+  function treeSVG(c, stage, total, fruits) {
+    const k = stage / total, f = (n) => n.toFixed(1);
+    let body;
+    if (stage === 0) body = `<ellipse cx="100" cy="150" rx="9" ry="6" fill="#8a6a45"/>`;
+    else if (stage === 1) body = `<path d="M100 152 v-24" stroke="#5b8c4f" stroke-width="4" stroke-linecap="round"/><ellipse cx="90" cy="126" rx="10" ry="5" fill="#5b8c4f" transform="rotate(-25 90 126)"/><ellipse cx="110" cy="126" rx="10" ry="5" fill="#6fa663" transform="rotate(25 110 126)"/>`;
+    else {
+      const h = 28 + k * 44, r = 18 + k * 34, cy = 152 - h - r * 0.5;
+      body = `<rect x="${f(97 - k * 5)}" y="${f(152 - h)}" width="${f(6 + k * 10)}" height="${f(h)}" rx="3" fill="#8a6a45"/>
+        <circle cx="${f(100 - r * 0.55)}" cy="${f(cy + r * 0.25)}" r="${f(r * 0.72)}" fill="#4f7d44"/><circle cx="${f(100 + r * 0.55)}" cy="${f(cy + r * 0.25)}" r="${f(r * 0.72)}" fill="#5b8c4f"/><circle cx="100" cy="${f(cy - r * 0.2)}" r="${f(r * 0.85)}" fill="#6fa663"/>
+        ${APPLES.slice(0, fruits).map(([x, y], i) => `<circle class="${i === fruits - 1 ? "ss-apple-new" : ""}" cx="${f(100 + x * r / 52)}" cy="${f(cy + y * r / 52 + r * 0.1)}" r="5.5" fill="#c94f4f" stroke="#fff" stroke-width="1"/>`).join("")}`;
+    }
+    return `<svg viewBox="0 0 200 166" class="ss-tree-svg" role="img" aria-label="${c.ar ? `الشجرة: ${stage} من ${total}` : `Tree: ${stage} of ${total}`}"><ellipse cx="100" cy="154" rx="72" ry="9" fill="#e8d5a8"/><g class="ss-tree-grow">${body}</g></svg>`;
+  }
   G["giving-tree"] = {
     title: { en: "The Giving Tree", ar: "شجرة العطاء" }, icon: "🌳",
     howto: { en: "Answer six questions. Each right answer helps your tree grow and gives it a fruit. If you miss, read the hint and try again.", ar: "أجب عن ستة أسئلة. كل إجابة صحيحة تجعل شجرتك تكبر وتمنحها ثمرة. وإذا أخطأت فاقرأ التلميح وحاول مرة أخرى." },
@@ -182,28 +205,29 @@ window.SADAQAH_AGE_GAMES = {
     render(c) {
       const s = c.s, ar = c.ar;
       if (s.i >= s.qs.length) {
-        return `${c.head()}<div class="ss-tree-big">🌳<div class="ss-fruits">${s.qs.map(() => "🍎").join("")}</div></div>
+        return `${c.head()}<div class="ss-tree-stage">${treeSVG(c, s.qs.length, s.qs.length, s.firstTry)}<div class="ss-fruits">${s.qs.map(() => "🍎").join("")}</div></div>
           <p>${ar ? `نمت شجرتك! أجبت ${s.firstTry} من ${s.qs.length} من المحاولة الأولى.` : `Your tree is fully grown! You got ${s.firstTry} of ${s.qs.length} on the first try.`}</p>
           <div class="ss-summary"><h4>${ar ? "ثمار ما تعلّمته" : "The fruit you picked"}</h4><ul>${s.qs.map(({ q }) => `<li>🍎 ${c.T(q.why)}${ref(c, R[q.r])}</li>`).join("")}</ul></div>
           ${c.btn("↻ " + c.t("nav.restart"), "restart", null, "ss-btn-ghost")} ${c.finish()}`;
       }
       const { q, order } = s.qs[s.i];
-      return `${c.head()}<div class="ss-tree-stage"><div class="ss-tree-emoji">${STAGES[s.i]}</div><div class="ss-fruits">${s.qs.slice(0, s.i).map(() => "🍎").join("")}</div><div class="ss-tree-stage-n">${s.i}/${s.qs.length}</div></div>
+      const grown = s.i + (s.solved ? 1 : 0);
+      return `${c.head()}<div class="ss-tree-stage">${treeSVG(c, grown, s.qs.length, s.firstTry)}<div class="ss-fruits">${s.qs.slice(0, grown).map(() => "🍎").join("")}</div><div class="ss-tree-stage-n">${grown}/${s.qs.length}</div></div>
         <div class="ss-tree-q">${c.T(q.q)}</div>
         <div class="ss-opts">${order.map((oi) => {
           const cls = s.solved && oi === 0 ? "right" : s.wrong.includes(oi) ? "wrong" : "";
           return `<button type="button" class="ss-opt ${cls}" data-act="g" data-g="ans" data-v="${oi}" ${s.solved || s.wrong.includes(oi) ? "disabled" : ""}>${c.T(q.o[oi])}</button>`;
         }).join("")}</div>
-        ${s.wrong.length && !s.solved ? `<p class="ss-hint">${ar ? "ليس تماماً. فكّر مرة أخرى!" : "Not quite. Think again!"}</p>` : ""}
+        ${s.wrong.length && !s.solved ? `<p class="ss-hint ss-shake">${ar ? "ليس تماماً. فكّر مرة أخرى!" : "Not quite. Think again!"}</p>` : ""}
         ${s.solved ? `<div class="ss-lesson"><span class="ss-lesson-e">🍎</span><div><p>${c.T(q.why)}${ref(c, R[q.r])}</p></div></div>${c.btn((ar ? "التالي" : "Next") + " " + c.fwd(), "next")}` : ""}`;
     },
     act(c, name, el) {
       const s = c.s;
       if (name === "restart") { this.init(c); return c.rerender(); }
-      if (name === "next") { s.i++; s.wrong = []; s.solved = false; if (s.i >= s.qs.length) c.awardBadge("grower"); return c.rerender(); }
+      if (name === "next") { s.i++; s.wrong = []; s.solved = false; if (s.i >= s.qs.length) { c.awardBadge("grower"); FX.play("win"); FX.confetti(); } return c.rerender(); }
       if (name === "ans") {
         const oi = Number(el.getAttribute("data-v"));
-        if (oi === 0) { s.solved = true; if (!s.wrong.length) { s.firstTry++; c.addStars(1); } } else if (!s.wrong.includes(oi)) s.wrong.push(oi);
+        if (oi === 0) { s.solved = true; FX.play("ok"); if (!s.wrong.length) { s.firstTry++; c.addStars(1); } } else if (!s.wrong.includes(oi)) { s.wrong.push(oi); FX.play("no"); }
         c.rerender();
       }
     },
@@ -254,6 +278,14 @@ window.SADAQAH_AGE_GAMES = {
       return s.picked.reduce((a, id) => a + PROJ.find((p) => p.id === id).cost, 0)
         + s.built.filter((id) => s.builtYear[id] < s.year && s.upkeep[id]).reduce((a, id) => a + (PROJ.find((p) => p.id === id).upkeep || 0), 0);
     },
+    // A small picture of the village: what stands there now, what is new this year.
+    village(c, s, broken) {
+      const tile = (p, cls) => `<span class="ss-vt ${cls}" title="${c.esc(c.T(p.n))}"><span>${p.e}</span>${cls.includes("dim") ? `<i>🔧</i>` : ""}</span>`;
+      const built = s.built.map((id) => PROJ.find((p) => p.id === id));
+      const fresh = s.picked.map((id) => PROJ.find((p) => p.id === id)).filter((p) => !s.built.includes(p.id) || !p.lasting);
+      const tiles = built.map((p) => tile(p, (broken && broken[p.id] ? "dim" : "") + (s.builtYear[p.id] === s.year ? " new" : ""))).concat(fresh.filter((p) => !s.built.includes(p.id)).map((p) => tile(p, p.lasting ? "new" : "new year")));
+      return `<div class="ss-village" role="img" aria-label="${c.ar ? "صورة القرية" : "Picture of the village"}"><span class="ss-vsun">☀️</span><div class="ss-vrow"><span class="ss-vt base"><span>🏠</span></span><span class="ss-vt base"><span>🌴</span></span>${tiles.join("")}<span class="ss-vt base"><span>🏠</span></span>${tiles.length ? "" : `<span class="ss-vempty">${c.ar ? "اختر مشروعاً ليظهر هنا" : "Pick a project to see it here"}</span>`}</div></div>`;
+    },
     bars(c, met) { return `<div class="ss-needs">${NEEDS.map((n) => `<div class="ss-need"><span>${n.e} ${c.T(n)}</span><div class="ss-need-bar"><i style="width:${met[n.k]}%"></i></div><b>${met[n.k]}</b></div>`).join("")}</div>`; },
     render(c) {
       const s = c.s, ar = c.ar;
@@ -273,6 +305,7 @@ window.SADAQAH_AGE_GAMES = {
       if (s.view === "result") {
         const r = s.results[s.results.length - 1];
         return `${c.head()}<h4>${ar ? "السنة" : "Year"} ${s.year}: ${ar ? "رفاه القرية" : "village wellbeing"} ${r.score}% (${rating(c, r.score)})</h4>
+          ${this.village(c, s, r.broken)}
           <div class="ss-lesson"><span class="ss-lesson-e">${r.ev.e}</span><div><p>${c.T(r.ev)}</p></div></div>
           ${this.bars(c, r.met)}
           ${Object.keys(r.broken || {}).length ? `<p class="ss-hint">${ar ? "لم تُدفع صيانة: " : "No upkeep paid for: "}${Object.keys(r.broken).map((id) => c.T(PROJ.find((p) => p.id === id).n)).join(ar ? "، " : ", ")}. ${ar ? "عملت بنصف قوتها." : "They worked at half strength."}</p>` : ""}
@@ -282,6 +315,7 @@ window.SADAQAH_AGE_GAMES = {
       const old = s.built.filter((id) => s.builtYear[id] < s.year);
       return `${c.head()}<p class="ss-game-sub">${ar ? "السنة" : "Year"} ${s.year}/3 · ${c.money(spent)} / ${c.money(BUDGET)}</p>
         <div class="ss-budget-bar"><span style="width:${Math.min(100, spent / BUDGET * 100)}%"></span></div>
+        ${this.village(c, s)}
         ${old.length ? `<h5>${ar ? "صيانة ما بنيته" : "Upkeep for what you built"}</h5><div class="ss-upkeep">${old.map((id) => { const p = PROJ.find((x) => x.id === id); return p.upkeep ? `<label class="ss-upk"><input type="checkbox" data-g-input="upkeep" value="${id}" ${s.upkeep[id] ? "checked" : ""}> ${p.e} ${c.T(p.n)} · ${c.money(p.upkeep)}</label>` : `<span class="ss-upk">${p.e} ${c.T(p.n)} · ${ar ? "بلا صيانة" : "no upkeep needed"}</span>`; }).join("")}</div>` : ""}
         <h5>${ar ? "اختر مشاريع هذه السنة" : "Choose this year's projects"}</h5>
         <div class="ss-comm-grid">${PROJ.filter((p) => !(p.lasting && s.built.includes(p.id) && s.builtYear[p.id] < s.year)).map((p) => {
@@ -305,18 +339,18 @@ window.SADAQAH_AGE_GAMES = {
       if (name === "pick") {
         const id = el.getAttribute("data-v"), p = PROJ.find((x) => x.id === id);
         if (s.picked.includes(id)) s.picked = s.picked.filter((x) => x !== id);
-        else if (this.spent(s) + p.cost <= BUDGET) s.picked.push(id);
+        else if (this.spent(s) + p.cost <= BUDGET) { s.picked.push(id); FX.play("pop"); }
         return c.rerender();
       }
       if (name === "run") {
         s.picked.forEach((id) => { const p = PROJ.find((x) => x.id === id); if (p.lasting && !s.built.includes(id)) { s.built.push(id); s.builtYear[id] = s.year; } });
         const r = commYear(s);
         r.broken = {}; s.built.forEach((id) => { const p = PROJ.find((x) => x.id === id); if (s.builtYear[id] < s.year && p.upkeep && !s.upkeep[id]) r.broken[id] = 1; });
-        s.results.push(r); s.view = "result"; c.addStars(Math.max(1, Math.round(r.score / 25)));
+        s.results.push(r); s.view = "result"; c.addStars(Math.max(1, Math.round(r.score / 25))); FX.play(r.score >= 50 ? "ok" : "pop");
         return c.rerender();
       }
       if (name === "next") {
-        if (s.year >= 3) { s.view = "end"; if (s.results.every((r) => r.met.care >= 30)) c.awardBadge("builder"); return c.rerender(); }
+        if (s.year >= 3) { s.view = "end"; FX.play("win"); if (s.results.every((r) => r.met.care >= 30)) { c.awardBadge("builder"); FX.confetti(); } return c.rerender(); }
         s.year++; s.picked = []; s.view = "plan";
         s.built.forEach((id) => { const p = PROJ.find((x) => x.id === id); if (p.upkeep && s.upkeep[id] == null) s.upkeep[id] = true; });
         // Default: keep paying upkeep while the budget allows.
@@ -362,7 +396,7 @@ window.SADAQAH_AGE_GAMES = {
   window.SADAQAH_GAME_DATA = { ZCATS, ZCARDS };
   G["sort-zakat"] = {
     title: { en: "Sort the Zakat", ar: "رتّب الزكاة" }, icon: "⚖️",
-    howto: { en: "Read about each person and tap the zakat group they belong to, or 'Not from zakat'. The eight groups come from Qur'an 9:60. Where scholars differ, more than one answer counts.", ar: "اقرأ عن كل شخص واضغط على صنف الزكاة الذي ينتمي إليه، أو «لا يُعطى من الزكاة». الأصناف الثمانية مذكورة في سورة التوبة (9:60). وحيث يختلف العلماء تُقبل أكثر من إجابة." },
+    howto: { en: "Read about each person and tap the zakat group they belong to, or 'Not from zakat'. You can also drag the card onto a group. The eight groups come from Qur'an 9:60. Where scholars differ, more than one answer counts.", ar: "اقرأ عن كل شخص واضغط على صنف الزكاة الذي ينتمي إليه، أو «لا يُعطى من الزكاة». ويمكنك أيضاً سحب البطاقة إلى الصنف. الأصناف الثمانية مذكورة في سورة التوبة (9:60). وحيث يختلف العلماء تُقبل أكثر من إجابة." },
     init(c) { Object.assign(c.s, { cards: pickN(ZCARDS, 10), i: 0, pick: null, right: 0, log: [] }); return this.render(c); },
     render(c) {
       const s = c.s, ar = c.ar, nm = (id) => { const z = ZCATS.find((x) => x.id === id); return ar ? z.ar : z.en; };
@@ -374,10 +408,10 @@ window.SADAQAH_AGE_GAMES = {
       }
       const card = s.cards[s.i];
       return `${c.head()}<p class="ss-game-sub">${s.i + 1}/${s.cards.length} · ✓ ${s.right}</p>
-        <div class="ss-zchar">${c.T(card.t)}</div>
+        <div class="ss-zchar ${s.pick == null ? "ss-pop-in" : ""}" ${s.pick == null ? `data-drag="target"` : ""}><span class="ss-zgrip" aria-hidden="true">⠿</span> ${c.T(card.t)}</div>
         <div class="ss-zakat-bins">${ZCATS.map((z) => {
           const cls = s.pick == null ? "" : card.ok.includes(z.id) ? "right" : z.id === s.pick ? "wrong" : "";
-          return `<button type="button" class="ss-zbin ${cls} ${z.id === "none" ? "ss-zbin-none" : ""}" data-act="g" data-g="pick" data-v="${z.id}" ${s.pick != null ? "disabled" : ""}><h5>${ar ? z.ar : z.en}</h5><div class="ss-zd">${c.T(z.d)}</div></button>`;
+          return `<button type="button" class="ss-zbin ${cls} ${z.id === "none" ? "ss-zbin-none" : ""}" data-act="g" data-g="pick" data-v="${z.id}" data-drop ${s.pick != null ? "disabled" : ""}><h5>${ar ? z.ar : z.en}</h5><div class="ss-zd">${c.T(z.d)}</div></button>`;
         }).join("")}</div>
         ${s.pick != null ? `<div class="ss-lesson"><span class="ss-lesson-e">${card.ok.includes(s.pick) ? "✅" : "💡"}</span><div><strong>${card.ok.includes(s.pick) ? (ar ? "صحيح!" : "Correct!") : (ar ? "الإجابة: " : "Answer: ") + card.ok.map(nm).join(ar ? " أو " : " or ")}</strong><p>${c.T(card.why)}</p></div></div>${c.btn((ar ? "التالي" : "Next") + " " + c.fwd(), "next")}` : ""}`;
     },
@@ -387,9 +421,10 @@ window.SADAQAH_AGE_GAMES = {
       if (name === "pick" && s.pick == null) {
         s.pick = el.getAttribute("data-v"); const card = s.cards[s.i], ok = card.ok.includes(s.pick);
         if (ok) { s.right++; c.addStars(1); }
+        FX.play(ok ? "ok" : "no");
         s.log.push({ card, ok }); return c.rerender();
       }
-      if (name === "next") { s.i++; s.pick = null; if (s.i >= s.cards.length && s.right >= 8) c.awardBadge("zakat"); return c.rerender(); }
+      if (name === "next") { s.i++; s.pick = null; if (s.i >= s.cards.length && s.right >= 8) { c.awardBadge("zakat"); FX.play("win"); FX.confetti(); } return c.rerender(); }
     },
   };
 
@@ -419,7 +454,7 @@ window.SADAQAH_AGE_GAMES = {
       const s = c.s, ar = c.ar;
       if (!s.ch) return `${c.head()}<div class="ss-path-menu">${CHAINS.map((ch) => `<button type="button" class="ss-path-card" data-act="g" data-g="start" data-v="${ch.id}"><span class="ss-path-e">${ch.e}</span><strong>${c.T(ch.t)}</strong>${s.done.includes(ch.id) ? `<span class="ss-read-badge">✓</span>` : ""}</button>`).join("")}</div>`;
       const ch = CHAINS.find((x) => x.id === s.ch), fin = s.step >= ch.steps.length;
-      const links = ch.steps.slice(0, Math.min(s.step + 1, ch.steps.length)).map((st, i) => `<div class="ss-chain-link"><span class="ss-cln">${i + 1}.</span><span style="font-size:24px">${st.e}</span><span>${c.T(st.x)}${i < s.step ? ` <em class="ss-muted">→ ${c.T(st.ok)}</em>` : ""}</span></div>`).join("");
+      const links = ch.steps.slice(0, Math.min(s.step + 1, ch.steps.length)).map((st, i) => `<div class="ss-chain-link ${i === s.step && s.miss == null ? "ss-pop-in" : ""}"><span class="ss-cln">${i + 1}.</span><span style="font-size:24px">${st.e}</span><span>${c.T(st.x)}${i < s.step ? ` <em class="ss-muted">→ ${c.T(st.ok)}</em>` : ""}</span></div>`).join("");
       if (fin) return `${c.head()}<div class="ss-chain">${links}<div class="ss-chain-link ss-chain-end"><span style="font-size:24px">🌳</span><span><strong>${c.T(ch.end)}</strong></span></div></div>
         <p class="ss-game-sub">${s.misses === 0 ? (ar ? "سلسلة كاملة من المحاولة الأولى!" : "A full chain on the first try!") : ""}</p>
         ${c.btn((ar ? "سلسلة أخرى" : "Another chain"), "menu", null, "ss-btn-ghost")} ${c.finish()}`;
@@ -427,7 +462,7 @@ window.SADAQAH_AGE_GAMES = {
       const opts = pickN([{ k: "ok", c: st.ok }].concat(st.bad.map((b, i) => ({ k: "b" + i, c: b.c }))), st.bad.length + 1);
       if (!s.order || s.order.step !== s.step) s.order = { step: s.step, opts };
       return `${c.head()}<div class="ss-chain">${links}</div>
-        ${s.miss != null ? `<p class="ss-hint">💡 ${c.T(st.bad[s.miss].why)}</p>` : ""}
+        ${s.miss != null ? `<p class="ss-hint ss-shake">💡 ${c.T(st.bad[s.miss].why)}</p>` : ""}
         <div class="ss-chain-choices">${s.order.opts.map((o) => `<button type="button" class="ss-opt" data-act="g" data-g="choose" data-v="${o.k}">${c.T(o.c)}</button>`).join("")}</div>`;
     },
     act(c, name, el) {
@@ -436,8 +471,8 @@ window.SADAQAH_AGE_GAMES = {
       if (name === "menu") { s.ch = null; return c.rerender(); }
       if (name === "choose") {
         const v = el.getAttribute("data-v"), ch = CHAINS.find((x) => x.id === s.ch);
-        if (v === "ok") { if (s.miss == null) c.addStars(1); s.step++; s.miss = null; if (s.step >= ch.steps.length) { c.addStars(3); if (!s.done.includes(ch.id)) s.done.push(ch.id); } }
-        else { s.miss = Number(v.slice(1)); s.misses++; }
+        if (v === "ok") { if (s.miss == null) c.addStars(1); s.step++; s.miss = null; FX.play("ok"); if (s.step >= ch.steps.length) { c.addStars(3); FX.play("win"); FX.confetti(); if (!s.done.includes(ch.id)) s.done.push(ch.id); } }
+        else { s.miss = Number(v.slice(1)); s.misses++; FX.play("no"); }
         return c.rerender();
       }
     },

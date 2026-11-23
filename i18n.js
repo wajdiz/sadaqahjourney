@@ -169,6 +169,10 @@ window.SADAQAH_I18N = {
     "b.designer": "Project Designer",
     "b.careful": "Careful Giver",
     "b.zakatpro": "Zakat Calculator",
+    "b.catcher": "Kindness Catcher",
+    "b.plumber": "Water Bringer",
+    "b.wordsmith": "Word Finder",
+    "b.sprinter": "Story Sprinter",
   },
 
   ar: {
@@ -318,6 +322,10 @@ window.SADAQAH_I18N = {
     "b.designer": "مصمّم المشاريع",
     "b.careful": "المتبرّع الحريص",
     "b.zakatpro": "حاسب الزكاة",
+    "b.catcher": "جامع الخير",
+    "b.plumber": "ساقي الماء",
+    "b.wordsmith": "مكتشف الكلمات",
+    "b.sprinter": "عدّاء الحكايات",
   },
 };
 
