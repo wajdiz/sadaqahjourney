@@ -55,7 +55,11 @@
       if (!base || !el || !window.fetch) return;
       fetch(base + "/counter/TOTAL.json", { referrerPolicy: "no-referrer" })
         .then((r) => (r.ok ? r.json() : null))
-        .then((d) => { if (d && d.count) { el.textContent = label + " " + d.count; el.hidden = false; } })
+        .then((d) => {
+          // GoatCounter returns the count as a formatted string ("1,234"); hide it until there is at least one visit.
+          const n = d && d.count != null ? String(d.count).replace(/[^0-9]/g, "") : "";
+          if (n && Number(n) > 0) { el.textContent = label + " " + Number(n).toLocaleString("en"); el.hidden = false; }
+        })
         .catch(() => {});
     },
   };

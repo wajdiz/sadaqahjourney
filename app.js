@@ -1180,7 +1180,7 @@
     const A = window.SadaqahAnalytics;
     if (A) {
       A.view(state.route, state.params && state.params.id);
-      if (state.route === "about") A.total(document.getElementById("ss-visits"), "Visits so far / عدد الزيارات حتى الآن:");
+      if (state.route === "about") A.total(document.getElementById("ss-visits"), isRTL() ? "عدد الزيارات حتى الآن:" : "Visits so far:");
     }
   }
   function countChoice(name) { if (window.SadaqahAnalytics) window.SadaqahAnalytics.event(name); }
