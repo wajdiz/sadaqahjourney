@@ -11,7 +11,7 @@
    GoatCounter site settings.
    ========================================================================= */
 (function () {
-  const GOATCOUNTER_CODE = "";
+  const GOATCOUNTER_CODE = "wajdiz";
 
   const base = /^[a-z0-9-]{1,50}$/.test(GOATCOUNTER_CODE) ? "https://" + GOATCOUNTER_CODE + ".goatcounter.com" : "";
   const local = location.protocol === "file:" || /^(localhost|127\.|0\.0\.0\.0|\[::1\])/.test(location.hostname);
