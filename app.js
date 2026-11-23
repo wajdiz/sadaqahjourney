@@ -331,8 +331,8 @@
   }
 
   /* ----------------------------- MODULE A (stories) ---------------------
-     Uses the extracted 41-story dataset (SADAQAH_STORIES) which overrides the
-     legacy 10-story MODULE_A. Each story = 4 pages (image + paragraph). */
+     The 41 stories come from data-stories.js (SADAQAH_STORIES).
+     Each story = 4 pages (image + paragraph). */
   const STORIES = window.SADAQAH_STORIES || { en: [], ar: [] };
   function stories() { return STORIES[state.lang] || STORIES.en; }
 
